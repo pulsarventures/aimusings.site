@@ -506,16 +506,16 @@ initLazyLoading();
 // Back to top button
 function initBackToTop() {
     const backToTopBtn = document.createElement('button');
-    backToTopBtn.innerHTML = '<i class="fas fa-arrow-up"></i>';
-    backToTopBtn.className = 'btn btn-primary position-fixed';
-    backToTopBtn.style.cssText = 'bottom: 20px; right: 20px; z-index: 1000; display: none; width: 50px; height: 50px; border-radius: 50%;';
+    backToTopBtn.innerHTML = '<i class="fas fa-chevron-up"></i>';
+    backToTopBtn.className = 'btn btn-primary position-fixed d-flex align-items-center justify-content-center';
+    backToTopBtn.style.cssText = 'bottom: 20px; right: 20px; z-index: 1000; display: none; width: 50px; height: 50px; border-radius: 50%; box-shadow: 0 4px 12px rgba(0,0,0,0.15);';
     backToTopBtn.id = 'back-to-top';
     
     document.body.appendChild(backToTopBtn);
     
     window.addEventListener('scroll', debounce(() => {
         if (window.scrollY > 300) {
-            backToTopBtn.style.display = 'block';
+            backToTopBtn.style.display = 'flex';
         } else {
             backToTopBtn.style.display = 'none';
         }
@@ -532,38 +532,55 @@ function initBackToTop() {
 // Initialize back to top button
 initBackToTop();
 
-// Theme toggle functionality
+// Theme toggle functionality - Enhanced
 function initThemeToggle() {
-    // Create theme toggle button
+    // Create theme toggle button with better styling
     const themeToggleBtn = document.createElement('button');
     themeToggleBtn.className = 'theme-toggle';
     themeToggleBtn.innerHTML = '<i class="fas fa-moon"></i>';
     themeToggleBtn.ariaLabel = 'Toggle dark mode';
+    themeToggleBtn.title = 'Toggle theme (Light/Dark)';
     document.body.appendChild(themeToggleBtn);
     
     // Check for saved theme preference or respect OS preference
     const prefersDarkTheme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
     const savedTheme = localStorage.getItem('theme');
     
-    // Apply theme based on preference
+    // Apply theme based on preference - default to light theme
     if (savedTheme === 'dark' || (!savedTheme && prefersDarkTheme)) {
         document.documentElement.setAttribute('data-theme', 'dark');
         themeToggleBtn.innerHTML = '<i class="fas fa-sun"></i>';
+        themeToggleBtn.title = 'Switch to light mode';
+    } else {
+        // Ensure light theme is applied
+        document.documentElement.removeAttribute('data-theme');
+        themeToggleBtn.innerHTML = '<i class="fas fa-moon"></i>';
+        themeToggleBtn.title = 'Switch to dark mode';
     }
     
-    // Toggle theme
+    // Toggle theme with improved feedback
     themeToggleBtn.addEventListener('click', () => {
-        if (document.documentElement.getAttribute('data-theme') === 'dark') {
+        const currentTheme = document.documentElement.getAttribute('data-theme');
+        
+        if (currentTheme === 'dark') {
             // Switch to light theme
             document.documentElement.removeAttribute('data-theme');
             localStorage.setItem('theme', 'light');
             themeToggleBtn.innerHTML = '<i class="fas fa-moon"></i>';
+            themeToggleBtn.title = 'Switch to dark mode';
         } else {
             // Switch to dark theme
             document.documentElement.setAttribute('data-theme', 'dark');
             localStorage.setItem('theme', 'dark');
             themeToggleBtn.innerHTML = '<i class="fas fa-sun"></i>';
+            themeToggleBtn.title = 'Switch to light mode';
         }
+        
+        // Add visual feedback
+        themeToggleBtn.style.transform = 'scale(1.1)';
+        setTimeout(() => {
+            themeToggleBtn.style.transform = 'scale(1)';
+        }, 200);
         
         // Animation effect for theme change
         const ripple = document.createElement('div');
@@ -577,7 +594,9 @@ function initThemeToggle() {
             
             // Remove ripple
             setTimeout(() => {
-                document.body.removeChild(ripple);
+                if (document.body.contains(ripple)) {
+                    document.body.removeChild(ripple);
+                }
             }, 1000);
         }, 10);
     });
@@ -601,11 +620,21 @@ function initThemeToggle() {
             pointer-events: none;
             transition: transform 1s ease, opacity 1s ease;
         }
+        
+        .theme-toggle {
+            transition: all 0.3s ease, transform 0.2s ease !important;
+        }
     `;
     document.head.appendChild(style);
+    
+    // Make sure the button is visible
+    setTimeout(() => {
+        themeToggleBtn.style.opacity = '1';
+        themeToggleBtn.style.visibility = 'visible';
+    }, 100);
 }
 
-// Page transitions
+// Page transitions - Improved for smoother navigation
 function initPageTransitions() {
     // Only proceed if the browser supports the History API
     if (!window.history || !window.history.pushState) return;
@@ -629,89 +658,32 @@ function initPageTransitions() {
             
             e.preventDefault();
             
-            // Create transition overlay
-            const overlay = document.createElement('div');
-            overlay.className = 'page-transition-overlay';
-            document.body.appendChild(overlay);
+            // Add loading state to the clicked link
+            this.style.pointerEvents = 'none';
+            this.style.opacity = '0.7';
             
-            // Animation
-            overlay.style.opacity = '0';
-            overlay.style.transform = 'translateY(100%)';
+            // Smooth fade out
+            document.body.style.opacity = '0.8';
+            document.body.style.transition = 'opacity 0.2s ease-out';
             
+            // Navigate after a brief delay
             setTimeout(() => {
-                overlay.style.opacity = '1';
-                overlay.style.transform = 'translateY(0)';
-                
-                // Navigate after animation completes
-                setTimeout(() => {
-                    window.location.href = href;
-                }, 500);
-            }, 10);
+                window.location.href = href;
+            }, 150);
         });
     });
     
-    // Add overlay style
-    const style = document.createElement('style');
-    style.textContent = `
-        .page-transition-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: var(--bg-primary);
-            z-index: 9999;
-            transition: opacity 0.5s ease, transform 0.5s ease;
-            pointer-events: none;
-        }
-        
-        body.page-transitioning {
-            overflow: hidden;
-        }
-    `;
-    document.head.appendChild(style);
-    
-    // Handle back button
-    window.addEventListener('popstate', () => {
-        // Create reverse transition
-        const overlay = document.createElement('div');
-        overlay.className = 'page-transition-overlay';
-        overlay.style.opacity = '1';
-        overlay.style.transform = 'translateY(0)';
-        document.body.appendChild(overlay);
-        
-        // Fade out
-        setTimeout(() => {
-            overlay.style.opacity = '0';
-            overlay.style.transform = 'translateY(-100%)';
-            
-            // Remove overlay
-            setTimeout(() => {
-                document.body.removeChild(overlay);
-            }, 500);
-        }, 10);
+    // Smooth fade in on page load
+    window.addEventListener('load', () => {
+        document.body.style.opacity = '1';
+        document.body.style.transition = 'opacity 0.3s ease-in';
     });
     
-    // Handle initial page load
-    window.addEventListener('load', () => {
-        // Create initial transition
-        const overlay = document.createElement('div');
-        overlay.className = 'page-transition-overlay';
-        overlay.style.opacity = '1';
-        overlay.style.transform = 'translateY(0)';
-        document.body.appendChild(overlay);
-        
-        // Fade out
+    // Handle browser back/forward buttons
+    window.addEventListener('popstate', () => {
+        document.body.style.opacity = '0.8';
         setTimeout(() => {
-            overlay.style.opacity = '0';
-            overlay.style.transform = 'translateY(-100%)';
-            
-            // Remove overlay
-            setTimeout(() => {
-                if (document.body.contains(overlay)) {
-                    document.body.removeChild(overlay);
-                }
-            }, 500);
-        }, 300);
+            window.location.reload();
+        }, 100);
     });
 }

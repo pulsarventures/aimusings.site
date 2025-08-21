@@ -1,31 +1,31 @@
 // Theme styles and color modes - Updated for AI Workshop Series design
 
-// Light theme (default) - Updated for modern dark theme
+// Light theme (default) - Proper light theme
 :root {
-  // Background colors - Dark theme as default
-  --bg-primary: #{$neutral-900};
-  --bg-secondary: #{$neutral-800};
-  --bg-tertiary: #{$neutral-700};
+  // Background colors - Light theme
+  --bg-primary: #{$neutral-50};
+  --bg-secondary: #{$neutral-100};
+  --bg-tertiary: #{$neutral-200};
   --bg-accent: #{$indigo-600};
   
   // Text colors
-  --text-primary: #{$neutral-50};
-  --text-secondary: #{$neutral-300};
-  --text-tertiary: #{$neutral-400};
+  --text-primary: #{$neutral-900};
+  --text-secondary: #{$neutral-700};
+  --text-tertiary: #{$neutral-500};
   --text-on-accent: #{$light-color};
   
   // Border colors
-  --border-primary: #{$neutral-700};
-  --border-secondary: #{$neutral-600};
+  --border-primary: #{$neutral-300};
+  --border-secondary: #{$neutral-400};
   
   // Shadow colors
-  --shadow-color: rgba(0, 0, 0, 0.3);
-  --shadow-color-darker: rgba(0, 0, 0, 0.5);
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --shadow-color-darker: rgba(0, 0, 0, 0.2);
 }
 
-// Dark theme (keeping for consistency)
+// Dark theme
 [data-theme="dark"] {
-  // Background colors
+  // Background colors - Dark theme
   --bg-primary: #{$neutral-900};
   --bg-secondary: #{$neutral-800};
   --bg-tertiary: #{$neutral-700};
@@ -46,7 +46,7 @@
   --shadow-color-darker: rgba(0, 0, 0, 0.5);
 }
 
-// Component overrides for dark theme
+// Component overrides for theme
 .card {
   background-color: var(--bg-secondary);
   border-color: var(--border-primary);
@@ -59,19 +59,48 @@
   color: var(--text-primary);
 }
 
+// Navbar improvements for both themes
 .navbar {
   background-color: rgba(15, 23, 42, 0.95) !important;
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--border-primary);
+  
+  // Ensure navbar text is always visible
+  .navbar-brand,
+  .navbar-nav .nav-link {
+    color: white !important;
+    
+    &:hover {
+      color: rgba(255, 255, 255, 0.8) !important;
+    }
+  }
+  
+  .navbar-toggler {
+    background-color: var(--bg-tertiary);
+    border-color: var(--border-primary);
+  }
+  
+  .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.8%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+  }
 }
 
-.navbar-toggler {
-  background-color: var(--bg-tertiary);
-}
-
-.navbar-light .navbar-brand,
-.navbar-light .navbar-nav .nav-link {
-  color: var(--text-primary);
+// Light theme navbar adjustments
+:root .navbar {
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  
+  .navbar-brand,
+  .navbar-nav .nav-link {
+    color: var(--text-primary) !important;
+    
+    &:hover {
+      color: var(--text-secondary) !important;
+    }
+  }
+  
+  .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280, 0, 0, 0.8%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+  }
 }
 
 .hero-section {
@@ -88,16 +117,25 @@
     background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
     opacity: 0.3;
   }
+  
+  // Hero section text should always be white for contrast
+  .text-white {
+    color: white !important;
+  }
+  
+  .text-white-50 {
+    color: rgba(255, 255, 255, 0.8) !important;
+  }
 }
 
-// Theme toggle functionality
+// Theme toggle functionality - Improved visibility
 .theme-toggle {
   position: fixed;
-  bottom: 20px;
+  top: 20px;
   right: 20px;
   background-color: var(--bg-secondary);
   color: var(--text-primary);
-  border: 1px solid var(--border-primary);
+  border: 2px solid var(--border-primary);
   border-radius: $radius-full;
   width: 50px;
   height: 50px;
@@ -108,10 +146,27 @@
   z-index: 1000;
   box-shadow: $shadow-md;
   transition: all $duration-300 ease;
+  opacity: 1;
+  visibility: visible;
   
   &:hover {
     transform: translateY(-3px);
     box-shadow: $shadow-lg;
+    background-color: var(--bg-accent);
+    color: var(--text-on-accent);
+  }
+  
+  // Ensure icon is visible
+  i {
+    font-size: 1.2rem;
+    color: inherit;
+  }
+  
+  // Better contrast for light theme
+  &:not([data-theme="dark"]) {
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+    border-color: var(--border-primary);
   }
 }
 
@@ -149,20 +204,57 @@ body {
   -webkit-text-fill-color: transparent;
 }
 
-// Section themes - Updated for AI Workshop Series
+// Section themes - Improved for better contrast
 .section-light {
   background-color: var(--bg-secondary);
   color: var(--text-primary);
+  
+  .card {
+    background-color: var(--bg-primary);
+    border: 1px solid var(--border-primary);
+    color: var(--text-primary);
+  }
+  
+  .text-white-50 {
+    color: var(--text-secondary) !important;
+  }
+  
+  .text-white {
+    color: var(--text-primary) !important;
+  }
 }
 
 .section-dark {
   background-color: var(--bg-primary);
   color: var(--text-primary);
+  
+  .card {
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-primary);
+    color: var(--text-primary);
+  }
+  
+  .text-white-50 {
+    color: var(--text-secondary) !important;
+  }
+  
+  .text-white {
+    color: var(--text-primary) !important;
+  }
 }
 
 .section-gradient {
   background: linear-gradient(135deg, #{$indigo-900} 0%, #{$purple-900} 100%);
   color: white;
+  
+  // Gradient sections should keep white text for contrast
+  .text-white {
+    color: white !important;
+  }
+  
+  .text-white-50 {
+    color: rgba(255, 255, 255, 0.8) !important;
+  }
 }
 
 .section-accent {
@@ -170,11 +262,26 @@ body {
   color: var(--text-on-accent);
 }
 
-// Additional utility classes for AI Workshop Series design
+// Additional utility classes for AI Workshop Series design - Improved
 .glass-effect {
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.2);
+  
+  // Better text contrast in glass cards
+  .text-white-50 {
+    color: rgba(255, 255, 255, 0.8) !important;
+  }
+  
+  .text-white {
+    color: white !important;
+  }
+}
+
+// Dark theme glass effect
+[data-theme="dark"] .glass-effect {
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .text-glow {
@@ -187,5 +294,241 @@ body {
   &:hover {
     transform: translateY(-5px);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  }
+}
+
+// Global text color overrides for better theme compatibility
+// These ensure hardcoded text colors work properly with themes
+.section-light,
+.section-dark {
+  .text-white {
+    color: var(--text-primary) !important;
+  }
+  
+  .text-white-50 {
+    color: var(--text-secondary) !important;
+  }
+}
+
+// Keep white text for gradient backgrounds and glass effects
+.section-gradient,
+.glass-effect,
+.hero-section {
+  .text-white {
+    color: white !important;
+  }
+  
+  .text-white-50 {
+    color: rgba(255, 255, 255, 0.8) !important;
+  }
+}
+
+// Footer improvements
+footer {
+  background-color: var(--bg-primary) !important;
+  color: var(--text-primary) !important;
+  
+  h5, h6 {
+    color: var(--text-primary) !important;
+  }
+  
+  p, li, a {
+    color: var(--text-secondary) !important;
+    
+    &:hover {
+      color: var(--text-primary) !important;
+    }
+  }
+  
+  // Social icons visibility
+  .social-links a {
+    color: var(--text-secondary) !important;
+    font-size: 1.2rem;
+    
+    &:hover {
+      color: var(--text-primary) !important;
+      transform: translateY(-2px);
+    }
+  }
+  
+  // Ensure icons are visible in both themes
+  i {
+    color: inherit !important;
+  }
+}
+
+// Page content improvements for other pages
+.page-content,
+.post-content {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--text-primary) !important;
+  }
+  
+  p, li, blockquote {
+    color: var(--text-secondary) !important;
+  }
+  
+  a {
+    color: var(--bg-accent);
+    
+    &:hover {
+      color: var(--text-primary);
+    }
+  }
+}
+
+// Layout improvements for all pages
+.page,
+.post {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  min-height: 100vh;
+  
+  .container {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--text-primary) !important;
+    margin-bottom: 1rem;
+  }
+  
+  p {
+    color: var(--text-secondary) !important;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+  
+  ul, ol {
+    color: var(--text-secondary) !important;
+    
+    li {
+      margin-bottom: 0.5rem;
+    }
+  }
+  
+  blockquote {
+    border-left: 4px solid var(--bg-accent);
+    padding-left: 1rem;
+    margin: 1.5rem 0;
+    font-style: italic;
+    color: var(--text-secondary) !important;
+  }
+  
+  a {
+    color: var(--bg-accent);
+    text-decoration: none;
+    
+    &:hover {
+      color: var(--text-primary);
+      text-decoration: underline;
+    }
+  }
+  
+  code {
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+    padding: 0.2rem 0.4rem;
+    border-radius: 0.25rem;
+    font-size: 0.875em;
+  }
+  
+  pre {
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    overflow-x: auto;
+    margin: 1.5rem 0;
+  }
+}
+
+// Smooth page transitions
+.page-transition {
+  transition: opacity 0.3s ease-in-out;
+}
+
+// Back to top button improvements
+#back-to-top {
+  background-color: var(--bg-accent) !important;
+  color: var(--text-on-accent) !important;
+  border: none !important;
+  
+  &:hover {
+    background-color: var(--bg-accent) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+  }
+  
+  i {
+    color: inherit !important;
+  }
+}
+
+// Additional improvements for specific sections
+.section-light,
+.section-dark {
+  .card {
+    transition: all 0.3s ease;
+    
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    }
+  }
+  
+  .btn {
+    transition: all 0.3s ease;
+    
+    &:hover {
+      transform: translateY(-1px);
+    }
+  }
+}
+
+// Ensure proper spacing and typography
+body {
+  line-height: 1.6;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+// Improve form elements
+.form-control,
+.form-select {
+  background-color: var(--bg-secondary);
+  border-color: var(--border-primary);
+  color: var(--text-primary);
+  
+  &:focus {
+    background-color: var(--bg-secondary);
+    border-color: var(--bg-accent);
+    color: var(--text-primary);
+    box-shadow: 0 0 0 0.2rem rgba(99, 102, 241, 0.25);
+  }
+  
+  &::placeholder {
+    color: var(--text-tertiary);
+  }
+}
+
+// Improve table styling
+.table {
+  color: var(--text-primary);
+  
+  th, td {
+    border-color: var(--border-primary);
+  }
+  
+  thead th {
+    background-color: var(--bg-secondary);
+    border-bottom-color: var(--border-primary);
+  }
+  
+  tbody tr:hover {
+    background-color: var(--bg-secondary);
   }
 }
