@@ -1,0 +1,151 @@
+// Theme styles and color modes
+
+// Light theme (default)
+:root {
+  // Background colors
+  --bg-primary: #{$neutral-50};
+  --bg-secondary: #{$neutral-100};
+  --bg-tertiary: #{$neutral-200};
+  --bg-accent: #{$primary-color};
+  
+  // Text colors
+  --text-primary: #{$neutral-900};
+  --text-secondary: #{$neutral-700};
+  --text-tertiary: #{$neutral-500};
+  --text-on-accent: #{$light-color};
+  
+  // Border colors
+  --border-primary: #{$neutral-200};
+  --border-secondary: #{$neutral-300};
+  
+  // Shadow colors
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --shadow-color-darker: rgba(0, 0, 0, 0.2);
+}
+
+// Dark theme
+[data-theme="dark"] {
+  // Background colors
+  --bg-primary: #{$neutral-900};
+  --bg-secondary: #{$neutral-800};
+  --bg-tertiary: #{$neutral-700};
+  --bg-accent: #{lighten($primary-color, 10%)};
+  
+  // Text colors
+  --text-primary: #{$neutral-100};
+  --text-secondary: #{$neutral-300};
+  --text-tertiary: #{$neutral-400};
+  --text-on-accent: #{$light-color};
+  
+  // Border colors
+  --border-primary: #{$neutral-700};
+  --border-secondary: #{$neutral-600};
+  
+  // Shadow colors
+  --shadow-color: rgba(0, 0, 0, 0.5);
+  --shadow-color-darker: rgba(0, 0, 0, 0.7);
+  
+  // Component overrides for dark mode
+  .card {
+    background-color: var(--bg-secondary);
+    border-color: var(--border-primary);
+  }
+  
+  .btn-light {
+    background-color: var(--bg-tertiary);
+    border-color: var(--border-primary);
+    color: var(--text-primary);
+  }
+  
+  .navbar {
+    background-color: var(--bg-primary) !important;
+    border-bottom: 1px solid var(--border-primary);
+  }
+  
+  .navbar-toggler {
+    background-color: var(--bg-tertiary);
+  }
+  
+  .navbar-light .navbar-brand,
+  .navbar-light .navbar-nav .nav-link {
+    color: var(--text-primary);
+  }
+  
+  .hero-section {
+    background: linear-gradient(135deg, darken($purple-600, 20%) 0%, darken($blue-600, 20%) 100%);
+  }
+}
+
+// Theme toggle functionality
+.theme-toggle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-primary);
+  border-radius: $radius-full;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 1000;
+  box-shadow: $shadow-md;
+  transition: all $duration-300 ease;
+  
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: $shadow-lg;
+  }
+}
+
+// Theme transition
+body {
+  transition: background-color $duration-500 ease, color $duration-500 ease;
+}
+
+// Brand colors and gradients
+.bg-gradient-primary {
+  background: linear-gradient(135deg, $purple-600 0%, $blue-600 100%);
+}
+
+.bg-gradient-secondary {
+  background: linear-gradient(135deg, $blue-600 0%, $pink-600 100%);
+}
+
+.text-gradient-primary {
+  background: linear-gradient(90deg, $purple-600 0%, $blue-600 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-secondary {
+  background: linear-gradient(90deg, $blue-600 0%, $pink-600 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+// Section themes
+.section-light {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+.section-dark {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+}
+
+.section-gradient {
+  background: linear-gradient(135deg, $purple-600 0%, $blue-600 100%);
+  color: white;
+}
+
+.section-accent {
+  background-color: var(--bg-accent);
+  color: var(--text-on-accent);
+}

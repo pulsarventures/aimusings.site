@@ -1,7 +1,7 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm">
+<nav class="navbar navbar-expand-lg navbar-light fixed-top">
     <div class="container">
-        <a class="navbar-brand fw-bold" href="{{ '/' | relative_url }}">
-            <span class="text-primary">Pulsar</span> Ventures
+        <a class="navbar-brand fw-bold" href="{{ '/' | relative_url }}" data-animate="fadeLeft" data-delay="0">
+            <span class="text-gradient-primary">Pulsar</span> Ventures
         </a>
         
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -10,20 +10,20 @@
         
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ '/products' | relative_url }}">Products</a>
+                <li class="nav-item" data-animate="fadeDown" data-delay="100">
+                    <a class="nav-link {% if page.url contains '/products' %}active{% endif %}" href="{{ '/products' | relative_url }}">Products</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ '/services' | relative_url }}">Services</a>
+                <li class="nav-item" data-animate="fadeDown" data-delay="200">
+                    <a class="nav-link {% if page.url contains '/services' %}active{% endif %}" href="{{ '/services' | relative_url }}">Services</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ '/about' | relative_url }}">Company</a>
+                <li class="nav-item" data-animate="fadeDown" data-delay="300">
+                    <a class="nav-link {% if page.url contains '/about' %}active{% endif %}" href="{{ '/about' | relative_url }}">Company</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ '/blog' | relative_url }}">Blog</a>
+                <li class="nav-item" data-animate="fadeDown" data-delay="400">
+                    <a class="nav-link {% if page.url contains '/blog' %}active{% endif %}" href="{{ '/blog' | relative_url }}">Blog</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ '/contact' | relative_url }}">Let's Connect</a>
+                <li class="nav-item" data-animate="fadeDown" data-delay="500">
+                    <a class="nav-link btn btn-primary btn-sm text-white ms-lg-3 px-4 {% if page.url contains '/contact' %}active{% endif %}" href="{{ '/contact' | relative_url }}">Let's Connect</a>
                 </li>
             </ul>
         </div>
@@ -31,4 +31,4 @@
 </nav>
 
 <!-- Spacer for fixed navbar -->
-<div style="height: 76px;"></div>
+<div class="navbar-spacer"></div>

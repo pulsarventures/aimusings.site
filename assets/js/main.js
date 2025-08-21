@@ -2,18 +2,30 @@
 
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize all functionality
+    initThemeToggle();
     initNavbar();
     initSmoothScrolling();
     initContactForm();
     initAnimations();
     initSearch();
+    initPageTransitions();
+    
+    // Initialize AOS library if available
+    if (typeof AOS !== 'undefined') {
+        AOS.init({
+            duration: 800,
+            easing: 'ease-out',
+            once: true
+        });
+    }
 });
 
-// Navbar scroll effect
+// Navbar scroll effect and animations
 function initNavbar() {
     const navbar = document.querySelector('.navbar');
     if (!navbar) return;
 
+    // Scroll effect
     window.addEventListener('scroll', function() {
         if (window.scrollY > 50) {
             navbar.classList.add('navbar-scrolled');
@@ -21,6 +33,81 @@ function initNavbar() {
             navbar.classList.remove('navbar-scrolled');
         }
     });
+    
+    // Highlight active nav item
+    const currentPath = window.location.pathname;
+    document.querySelectorAll('.navbar .nav-link').forEach(link => {
+        const href = link.getAttribute('href');
+        if (href && (currentPath === href || currentPath.startsWith(href) && href !== '/')) {
+            link.classList.add('active');
+        }
+    });
+    
+    // Mobile menu animation
+    const navbarToggler = document.querySelector('.navbar-toggler');
+    const navbarCollapse = document.querySelector('.navbar-collapse');
+    
+    if (navbarToggler && navbarCollapse) {
+        navbarToggler.addEventListener('click', function() {
+            document.body.classList.toggle('nav-open', navbarCollapse.classList.contains('show'));
+        });
+        
+        // Add hover effect for desktop nav items
+        if (window.innerWidth > 992) {
+            document.querySelectorAll('.navbar .nav-item').forEach(item => {
+                const link = item.querySelector('.nav-link');
+                if (!link) return;
+                
+                item.addEventListener('mouseenter', () => {
+                    if (!link.classList.contains('active')) {
+                        link.style.transform = 'translateY(-3px)';
+                    }
+                });
+                
+                item.addEventListener('mouseleave', () => {
+                    if (!link.classList.contains('active')) {
+                        link.style.transform = 'translateY(0)';
+                    }
+                });
+            });
+        }
+    }
+    
+    // Add styles for nav link hover effects
+    const style = document.createElement('style');
+    style.textContent = `
+        .nav-link {
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+        
+        .navbar-nav .nav-item:last-child .nav-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+        }
+        
+        @media (max-width: 992px) {
+            .navbar-collapse {
+                padding-top: 1rem;
+                padding-bottom: 1rem;
+            }
+            
+            .navbar-collapse .nav-item {
+                margin-bottom: 0.5rem;
+            }
+            
+            .navbar-collapse .nav-link {
+                opacity: 0;
+                transform: translateX(-20px);
+                transition: opacity 0.3s ease, transform 0.3s ease;
+            }
+            
+            .navbar-collapse.show .nav-link {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+    `;
+    document.head.appendChild(style);
 }
 
 // Smooth scrolling for anchor links
@@ -108,23 +195,119 @@ function showNotification(message, type = 'info') {
 
 // Initialize animations
 function initAnimations() {
-    // Intersection Observer for fade-in animations
+    // Configuration for animations
+    const animationConfig = {
+        fadeUp: {
+            opacity: [0, 1],
+            transform: ['translateY(40px)', 'translateY(0)']
+        },
+        fadeDown: {
+            opacity: [0, 1],
+            transform: ['translateY(-40px)', 'translateY(0)']
+        },
+        fadeLeft: {
+            opacity: [0, 1],
+            transform: ['translateX(-40px)', 'translateX(0)']
+        },
+        fadeRight: {
+            opacity: [0, 1],
+            transform: ['translateX(40px)', 'translateX(0)']
+        },
+        zoomIn: {
+            opacity: [0, 1],
+            transform: ['scale(0.8)', 'scale(1)']
+        },
+        zoomOut: {
+            opacity: [0, 1],
+            transform: ['scale(1.2)', 'scale(1)']
+        }
+    };
+
+    // Intersection Observer options
     const observerOptions = {
         threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
+        rootMargin: '0px 0px -100px 0px'
     };
     
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('fade-in');
+                const el = entry.target;
+                const animationType = el.dataset.animate || 'fadeUp';
+                const delay = parseInt(el.dataset.delay || '0');
+                const duration = parseInt(el.dataset.duration || '700');
+                
+                if (animationType === 'stagger') {
+                    // Handle staggered animations for children
+                    Array.from(el.children).forEach((child, index) => {
+                        const staggerDelay = delay + (index * 100);
+                        animateElement(child, 'fadeUp', staggerDelay, duration);
+                    });
+                } else {
+                    // Single element animation
+                    animateElement(el, animationType, delay, duration);
+                }
+                
+                // Only animate once
+                observer.unobserve(el);
             }
         });
     }, observerOptions);
     
-    // Observe elements for animation
-    document.querySelectorAll('.card, .display-5, .lead').forEach(el => {
-        observer.observe(el);
+    // Helper function to animate an element
+    function animateElement(element, type, delay, duration) {
+        const animation = animationConfig[type] || animationConfig.fadeUp;
+        
+        element.style.opacity = '0';
+        element.style.willChange = 'opacity, transform';
+        
+        setTimeout(() => {
+            element.animate([
+                { opacity: animation.opacity[0], transform: animation.transform[0] },
+                { opacity: animation.opacity[1], transform: animation.transform[1] }
+            ], {
+                duration: duration,
+                easing: 'cubic-bezier(0.25, 0.1, 0.25, 1)',
+                fill: 'forwards'
+            });
+            
+            // Set final styles after animation
+            setTimeout(() => {
+                element.style.opacity = '1';
+                element.style.transform = animation.transform[1];
+                element.style.willChange = 'auto';
+            }, duration);
+        }, delay);
+    }
+    
+    // Add animation data attributes to elements
+    const animationMap = [
+        { selector: '.hero-section h1', type: 'fadeUp', delay: 0 },
+        { selector: '.hero-section p', type: 'fadeUp', delay: 200 },
+        { selector: '.hero-section .btn', type: 'fadeUp', delay: 400 },
+        { selector: '.hero-section .hero-illustration', type: 'zoomIn', delay: 300 },
+        { selector: '.card', type: 'fadeUp', delay: 200 },
+        { selector: 'section h2', type: 'fadeUp', delay: 0 },
+        { selector: 'section .lead', type: 'fadeUp', delay: 100 },
+        { selector: '.row .col-md-3, .row .col-md-4', type: 'stagger', delay: 0 }
+    ];
+    
+    animationMap.forEach(item => {
+        document.querySelectorAll(item.selector).forEach(el => {
+            if (!el.dataset.animate) {
+                el.dataset.animate = item.type;
+                el.dataset.delay = item.delay.toString();
+                observer.observe(el);
+            }
+        });
+    });
+    
+    // Also observe elements with explicit animation classes
+    document.querySelectorAll('[data-animate]').forEach(el => {
+        if (!el.dataset.animated) {
+            el.dataset.animated = 'true';
+            observer.observe(el);
+        }
     });
 }
 
@@ -246,3 +429,187 @@ function initBackToTop() {
 
 // Initialize back to top button
 initBackToTop();
+
+// Theme toggle functionality
+function initThemeToggle() {
+    // Create theme toggle button
+    const themeToggleBtn = document.createElement('button');
+    themeToggleBtn.className = 'theme-toggle';
+    themeToggleBtn.innerHTML = '<i class="fas fa-moon"></i>';
+    themeToggleBtn.ariaLabel = 'Toggle dark mode';
+    document.body.appendChild(themeToggleBtn);
+    
+    // Check for saved theme preference or respect OS preference
+    const prefersDarkTheme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const savedTheme = localStorage.getItem('theme');
+    
+    // Apply theme based on preference
+    if (savedTheme === 'dark' || (!savedTheme && prefersDarkTheme)) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        themeToggleBtn.innerHTML = '<i class="fas fa-sun"></i>';
+    }
+    
+    // Toggle theme
+    themeToggleBtn.addEventListener('click', () => {
+        if (document.documentElement.getAttribute('data-theme') === 'dark') {
+            // Switch to light theme
+            document.documentElement.removeAttribute('data-theme');
+            localStorage.setItem('theme', 'light');
+            themeToggleBtn.innerHTML = '<i class="fas fa-moon"></i>';
+        } else {
+            // Switch to dark theme
+            document.documentElement.setAttribute('data-theme', 'dark');
+            localStorage.setItem('theme', 'dark');
+            themeToggleBtn.innerHTML = '<i class="fas fa-sun"></i>';
+        }
+        
+        // Animation effect for theme change
+        const ripple = document.createElement('div');
+        ripple.className = 'theme-toggle-ripple';
+        document.body.appendChild(ripple);
+        
+        // Animate ripple
+        setTimeout(() => {
+            ripple.style.transform = 'scale(150)';
+            ripple.style.opacity = '0';
+            
+            // Remove ripple
+            setTimeout(() => {
+                document.body.removeChild(ripple);
+            }, 1000);
+        }, 10);
+    });
+    
+    // Add ripple style
+    const style = document.createElement('style');
+    style.textContent = `
+        .theme-toggle-ripple {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: var(--bg-primary);
+            transform: scale(0);
+            opacity: 0.5;
+            z-index: 9999;
+            pointer-events: none;
+            transition: transform 1s ease, opacity 1s ease;
+        }
+    `;
+    document.head.appendChild(style);
+}
+
+// Page transitions
+function initPageTransitions() {
+    // Only proceed if the browser supports the History API
+    if (!window.history || !window.history.pushState) return;
+    
+    // Get all internal links
+    const internalLinks = document.querySelectorAll('a[href^="/"], a[href^="./"], a[href^="../"], a[href^="' + window.location.origin + '"]');
+    
+    internalLinks.forEach(link => {
+        // Skip links with special attributes
+        if (link.hasAttribute('download') || link.getAttribute('target') === '_blank' || link.getAttribute('data-no-transition')) {
+            return;
+        }
+        
+        link.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            
+            // Skip links to the current page
+            if (href === window.location.pathname) {
+                return;
+            }
+            
+            e.preventDefault();
+            
+            // Create transition overlay
+            const overlay = document.createElement('div');
+            overlay.className = 'page-transition-overlay';
+            document.body.appendChild(overlay);
+            
+            // Animation
+            overlay.style.opacity = '0';
+            overlay.style.transform = 'translateY(100%)';
+            
+            setTimeout(() => {
+                overlay.style.opacity = '1';
+                overlay.style.transform = 'translateY(0)';
+                
+                // Navigate after animation completes
+                setTimeout(() => {
+                    window.location.href = href;
+                }, 500);
+            }, 10);
+        });
+    });
+    
+    // Add overlay style
+    const style = document.createElement('style');
+    style.textContent = `
+        .page-transition-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--bg-primary);
+            z-index: 9999;
+            transition: opacity 0.5s ease, transform 0.5s ease;
+            pointer-events: none;
+        }
+        
+        body.page-transitioning {
+            overflow: hidden;
+        }
+    `;
+    document.head.appendChild(style);
+    
+    // Handle back button
+    window.addEventListener('popstate', () => {
+        // Create reverse transition
+        const overlay = document.createElement('div');
+        overlay.className = 'page-transition-overlay';
+        overlay.style.opacity = '1';
+        overlay.style.transform = 'translateY(0)';
+        document.body.appendChild(overlay);
+        
+        // Fade out
+        setTimeout(() => {
+            overlay.style.opacity = '0';
+            overlay.style.transform = 'translateY(-100%)';
+            
+            // Remove overlay
+            setTimeout(() => {
+                document.body.removeChild(overlay);
+            }, 500);
+        }, 10);
+    });
+    
+    // Handle initial page load
+    window.addEventListener('load', () => {
+        // Create initial transition
+        const overlay = document.createElement('div');
+        overlay.className = 'page-transition-overlay';
+        overlay.style.opacity = '1';
+        overlay.style.transform = 'translateY(0)';
+        document.body.appendChild(overlay);
+        
+        // Fade out
+        setTimeout(() => {
+            overlay.style.opacity = '0';
+            overlay.style.transform = 'translateY(-100%)';
+            
+            // Remove overlay
+            setTimeout(() => {
+                if (document.body.contains(overlay)) {
+                    document.body.removeChild(overlay);
+                }
+            }, 500);
+        }, 300);
+    });
+}

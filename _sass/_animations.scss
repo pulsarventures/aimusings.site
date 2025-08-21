@@ -1,0 +1,183 @@
+// Animation styles and keyframes
+
+// Fade in animation
+@keyframes fadeIn {
+  from { 
+    opacity: 0; 
+    transform: translateY(20px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
+
+// Slide in animation
+@keyframes slideIn {
+  from { 
+    transform: translateX(-20px); 
+    opacity: 0; 
+  }
+  to { 
+    transform: translateX(0); 
+    opacity: 1; 
+  }
+}
+
+// Floating animation
+@keyframes float {
+  0%, 100% { 
+    transform: translateY(0px); 
+  }
+  50% { 
+    transform: translateY(-20px); 
+  }
+}
+
+// Pulse animation
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+// Rotate animation
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+// Animation utility classes
+.animated {
+  animation-duration: $duration-1000;
+  animation-fill-mode: both;
+}
+
+.animated.infinite {
+  animation-iteration-count: infinite;
+}
+
+.animated.fast {
+  animation-duration: $duration-500;
+}
+
+.animated.faster {
+  animation-duration: $duration-300;
+}
+
+.animated.slow {
+  animation-duration: $duration-1000 + $duration-500;
+}
+
+.animated.slower {
+  animation-duration: $duration-1000 * 2;
+}
+
+// Animation classes
+.fade-in {
+  animation: fadeIn $duration-700 ease-out;
+}
+
+.slide-in {
+  animation: slideIn $duration-700 ease-out;
+}
+
+.float {
+  animation: float $duration-1000 * 6 ease-in-out infinite;
+}
+
+.pulse {
+  animation: pulse $duration-1000 * 2 infinite;
+}
+
+.rotate {
+  animation: rotate $duration-1000 * 2 linear infinite;
+}
+
+// Staggered animation for child elements
+.stagger-fade-in > * {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+// Animation delay utilities
+@for $i from 1 through 10 {
+  .delay-#{$i}00 {
+    animation-delay: $i * 100ms;
+  }
+}
+
+// Entrance animations using Intersection Observer
+// These classes are used with JS to trigger animations when elements enter viewport
+.animate-on-scroll {
+  opacity: 0;
+  transition: opacity $duration-700 ease, transform $duration-700 ease;
+}
+
+.animate-on-scroll.fade-up {
+  transform: translateY(40px);
+}
+
+.animate-on-scroll.fade-down {
+  transform: translateY(-40px);
+}
+
+.animate-on-scroll.fade-left {
+  transform: translateX(40px);
+}
+
+.animate-on-scroll.fade-right {
+  transform: translateX(-40px);
+}
+
+.animate-on-scroll.visible {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+// Transition utilities
+.transition-all {
+  transition: all $duration-300 ease;
+}
+
+.transition-transform {
+  transition: transform $duration-300 ease;
+}
+
+.transition-opacity {
+  transition: opacity $duration-300 ease;
+}
+
+.transition-colors {
+  transition: color $duration-300 ease, background-color $duration-300 ease, border-color $duration-300 ease;
+}
+
+// Page transition styles
+.page-transition-enter {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.page-transition-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity $duration-500 ease, transform $duration-500 ease;
+}
+
+.page-transition-exit {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.page-transition-exit-active {
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity $duration-500 ease, transform $duration-500 ease;
+}
