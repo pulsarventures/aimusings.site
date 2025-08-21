@@ -1,4 +1,4 @@
-# Pulsar Ventures Website
+# AIMusings.site Website
 
 A modern, responsive website for Pulsar Ventures built with Jekyll and deployed on GitHub Pages.
 
