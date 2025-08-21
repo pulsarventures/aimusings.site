@@ -1,12 +1,12 @@
-# Site settings
-title: "Pulsar Ventures"
-description: "We Bootstrap your Business - Venture studio blending consulting and product development to accelerate business growth"
-url: "https://pulsarventures.co"
+# Site settings - Updated for AI Workshop Series
+title: "AI Musings"
+description: "Accelerate Your AI Game: Learn, Apply, Build in One Immersive Session - Hands-on AI workshops for professionals, coaches, consultants, entrepreneurs, and business owners"
+url: "https://aimusings.space"
 baseurl: ""
 
 # Contact and Social Information
 contact:
-  email: "spradhip@pulsarventures.io"
+  email: "spradhip@pulsarventurs.co"
   calendly: "https://calendly.com/spradhip"
   linkedin: "https://www.linkedin.com/company/pulsar-ventures-llc"
   office_hours:
@@ -16,9 +16,9 @@ contact:
 
 # Author information
 author:
-  name: "Pulsar Ventures"
-  email: "spradhip@pulsarventures.io"
-  bio: "Venture studio blending consulting and product development to accelerate business growth"
+  name: "AI Musings"
+  email: "spradhip@pulsarventurs.co"
+  bio: "Hands-on AI workshops designed for professionals who want to transform their work with practical AI skills"
   location: "Global"
   links:
     - label: "LinkedIn"
@@ -49,13 +49,13 @@ defaults:
       type: "posts"
     values:
       layout: "post"
-      author: "Pulsar Ventures"
+      author: "AI Musings"
   - scope:
       path: ""
       type: "pages"
     values:
       layout: "page"
-      author: "Pulsar Ventures"
+      author: "AI Musings"
 
 # Plugins
 plugins:
@@ -90,7 +90,7 @@ include:
 
 # Social media
 social:
-  name: "Pulsar Ventures"
+  name: "AI Musings"
   links:
     - "https://www.linkedin.com/company/pulsar-ventures-llc"
     - "https://calendly.com/spradhip"

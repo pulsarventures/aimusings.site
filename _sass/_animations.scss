@@ -1,10 +1,10 @@
-// Animation styles and keyframes
+// Animation styles and keyframes - Updated for AI Workshop Series design
 
 // Fade in animation
 @keyframes fadeIn {
   from { 
     opacity: 0; 
-    transform: translateY(20px); 
+    transform: translateY(30px); 
   }
   to { 
     opacity: 1; 
@@ -15,7 +15,7 @@
 // Slide in animation
 @keyframes slideIn {
   from { 
-    transform: translateX(-20px); 
+    transform: translateX(-30px); 
     opacity: 0; 
   }
   to { 
@@ -30,7 +30,7 @@
     transform: translateY(0px); 
   }
   50% { 
-    transform: translateY(-20px); 
+    transform: translateY(-10px); 
   }
 }
 
@@ -40,7 +40,7 @@
     transform: scale(1);
   }
   50% {
-    transform: scale(1.1);
+    transform: scale(1.05);
   }
 }
 
@@ -51,6 +51,48 @@
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+// Glow animation for AI Workshop Series
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(99, 102, 241, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(99, 102, 241, 0.6);
+  }
+}
+
+// Gradient shift animation
+@keyframes gradientShift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+// Card hover animation
+@keyframes cardHover {
+  from {
+    transform: translateY(0) scale(1);
+  }
+  to {
+    transform: translateY(-8px) scale(1.02);
+  }
+}
+
+// Text reveal animation
+@keyframes textReveal {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
@@ -101,10 +143,19 @@
   animation: rotate $duration-1000 * 2 linear infinite;
 }
 
+.glow {
+  animation: glow $duration-1000 * 3 ease-in-out infinite;
+}
+
+.gradient-shift {
+  animation: gradientShift $duration-1000 * 4 ease-in-out infinite;
+  background-size: 200% 200%;
+}
+
 // Staggered animation for child elements
 .stagger-fade-in > * {
   opacity: 0;
-  transform: translateY(20px);
+  transform: translateY(30px);
 }
 
 // Animation delay utilities
@@ -122,19 +173,19 @@
 }
 
 .animate-on-scroll.fade-up {
-  transform: translateY(40px);
+  transform: translateY(50px);
 }
 
 .animate-on-scroll.fade-down {
-  transform: translateY(-40px);
+  transform: translateY(-50px);
 }
 
 .animate-on-scroll.fade-left {
-  transform: translateX(40px);
+  transform: translateX(50px);
 }
 
 .animate-on-scroll.fade-right {
-  transform: translateX(-40px);
+  transform: translateX(-50px);
 }
 
 .animate-on-scroll.visible {
@@ -162,7 +213,7 @@
 // Page transition styles
 .page-transition-enter {
   opacity: 0;
-  transform: translateY(20px);
+  transform: translateY(30px);
 }
 
 .page-transition-enter-active {
@@ -178,6 +229,93 @@
 
 .page-transition-exit-active {
   opacity: 0;
-  transform: translateY(-20px);
+  transform: translateY(-30px);
   transition: opacity $duration-500 ease, transform $duration-500 ease;
+}
+
+// AI Workshop Series specific animations
+.text-glow {
+  animation: glow $duration-1000 * 2 ease-in-out infinite;
+}
+
+.card-hover {
+  transition: all $duration-300 ease;
+  
+  &:hover {
+    animation: cardHover $duration-300 ease forwards;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  }
+}
+
+.glass-effect {
+  transition: all $duration-300 ease;
+  
+  &:hover {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(15px);
+    transform: translateY(-2px);
+  }
+}
+
+.btn {
+  transition: all $duration-300 ease;
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+}
+
+// Stagger animation for lists and grids
+.stagger-animation {
+  > * {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all $duration-500 ease;
+    
+    @for $i from 1 through 20 {
+      &:nth-child(#{$i}) {
+        transition-delay: $i * 100ms;
+      }
+    }
+  }
+  
+  &.visible > * {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Hero section animations
+.hero-section {
+  .display-3 {
+    animation: textReveal $duration-1000 ease-out;
+  }
+  
+  .lead {
+    animation: textReveal $duration-1000 ease-out $duration-300;
+  }
+  
+  .btn {
+    animation: textReveal $duration-1000 ease-out $duration-600;
+  }
+}
+
+// Gradient text animation
+.text-gradient-primary,
+.text-gradient-secondary {
+  background-size: 200% 200%;
+  animation: gradientShift $duration-1000 * 3 ease-in-out infinite;
+}
+
+// Icon animations
+.fas, .fab, .far {
+  transition: all $duration-300 ease;
+}
+
+.card:hover .fas,
+.card:hover .fab,
+.card:hover .far {
+  transform: scale(1.1);
+  color: var(--text-primary);
 }

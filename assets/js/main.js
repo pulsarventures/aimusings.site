@@ -1,4 +1,4 @@
-// Main JavaScript file for Pulsar Ventures website
+// Main JavaScript file for AI Musings website - Updated for AI Workshop Series design
 
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize all functionality
@@ -9,28 +9,35 @@ document.addEventListener('DOMContentLoaded', function() {
     initAnimations();
     initSearch();
     initPageTransitions();
+    initParallaxEffects();
+    initTypingEffect();
     
     // Initialize AOS library if available
     if (typeof AOS !== 'undefined') {
         AOS.init({
             duration: 800,
             easing: 'ease-out',
-            once: true
+            once: true,
+            offset: 100
         });
     }
 });
 
-// Navbar scroll effect and animations
+// Navbar scroll effect and animations - Enhanced for AI Workshop Series
 function initNavbar() {
     const navbar = document.querySelector('.navbar');
     if (!navbar) return;
 
-    // Scroll effect
+    // Enhanced scroll effect with blur
     window.addEventListener('scroll', function() {
         if (window.scrollY > 50) {
             navbar.classList.add('navbar-scrolled');
+            navbar.style.backdropFilter = 'blur(20px)';
+            navbar.style.backgroundColor = 'rgba(15, 23, 42, 0.95)';
         } else {
             navbar.classList.remove('navbar-scrolled');
+            navbar.style.backdropFilter = 'blur(10px)';
+            navbar.style.backgroundColor = 'rgba(15, 23, 42, 0.8)';
         }
     });
     
@@ -61,34 +68,57 @@ function initNavbar() {
                 item.addEventListener('mouseenter', () => {
                     if (!link.classList.contains('active')) {
                         link.style.transform = 'translateY(-3px)';
+                        link.style.textShadow = '0 0 10px rgba(99, 102, 241, 0.5)';
                     }
                 });
                 
                 item.addEventListener('mouseleave', () => {
                     if (!link.classList.contains('active')) {
                         link.style.transform = 'translateY(0)';
+                        link.style.textShadow = 'none';
                     }
                 });
             });
         }
     }
     
-    // Add styles for nav link hover effects
+    // Add enhanced styles for nav link hover effects
     const style = document.createElement('style');
     style.textContent = `
         .nav-link {
-            transition: transform 0.3s ease, color 0.3s ease;
+            transition: transform 0.3s ease, color 0.3s ease, text-shadow 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #6366f1, #8b5cf6);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
         }
         
         .navbar-nav .nav-item:last-child .nav-link:hover {
             transform: translateY(-3px);
-            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+            box-shadow: 0 8px 25px rgba(99, 102, 241, 0.3);
         }
         
         @media (max-width: 992px) {
             .navbar-collapse {
                 padding-top: 1rem;
                 padding-bottom: 1rem;
+                background: rgba(15, 23, 42, 0.95);
+                backdrop-filter: blur(20px);
+                border-radius: 10px;
+                margin-top: 1rem;
             }
             
             .navbar-collapse .nav-item {
@@ -110,17 +140,24 @@ function initNavbar() {
     document.head.appendChild(style);
 }
 
-// Smooth scrolling for anchor links
+// Enhanced smooth scrolling for anchor links
 function initSmoothScrolling() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
             const target = document.querySelector(this.getAttribute('href'));
             if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
+                const offsetTop = target.offsetTop - 80; // Account for fixed navbar
+                window.scrollTo({
+                    top: offsetTop,
+                    behavior: 'smooth'
                 });
+                
+                // Add active state to clicked link
+                document.querySelectorAll('a[href^="#"]').forEach(link => {
+                    link.classList.remove('active');
+                });
+                this.classList.add('active');
             }
         });
     });
@@ -154,31 +191,43 @@ function initContactForm() {
         // Show loading state
         const submitBtn = this.querySelector('button[type="submit"]');
         const originalText = submitBtn.textContent;
-        submitBtn.textContent = 'Sending...';
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
         submitBtn.disabled = true;
         
         // Simulate form submission (replace with actual form handling)
         setTimeout(() => {
             showNotification('Thank you for your message! We\'ll get back to you soon.', 'success');
             this.reset();
-            submitBtn.textContent = originalText;
+            submitBtn.innerHTML = originalText;
             submitBtn.disabled = false;
         }, 2000);
     });
 }
 
-// Show notification
+// Enhanced notification system
 function showNotification(message, type = 'info') {
     // Remove existing notifications
     const existingNotifications = document.querySelectorAll('.notification');
     existingNotifications.forEach(notification => notification.remove());
     
-    // Create notification element
+    // Create notification element with enhanced styling
     const notification = document.createElement('div');
     notification.className = `notification notification-${type} alert alert-${type === 'error' ? 'danger' : type === 'success' ? 'success' : 'info'} alert-dismissible fade show position-fixed`;
-    notification.style.cssText = 'top: 100px; right: 20px; z-index: 9999; min-width: 300px;';
+    notification.style.cssText = `
+        top: 100px; 
+        right: 20px; 
+        z-index: 9999; 
+        min-width: 350px; 
+        border: none;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        backdrop-filter: blur(10px);
+    `;
     notification.innerHTML = `
-        ${message}
+        <div class="d-flex align-items-center">
+            <i class="fas fa-${type === 'success' ? 'check-circle' : type === 'error' ? 'exclamation-circle' : 'info-circle'} me-2"></i>
+            <span>${message}</span>
+        </div>
         <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
     `;
     
@@ -188,30 +237,36 @@ function showNotification(message, type = 'info') {
     // Auto remove after 5 seconds
     setTimeout(() => {
         if (notification.parentNode) {
-            notification.remove();
+            notification.style.opacity = '0';
+            notification.style.transform = 'translateX(100%)';
+            setTimeout(() => {
+                if (notification.parentNode) {
+                    notification.remove();
+                }
+            }, 300);
         }
     }, 5000);
 }
 
-// Initialize animations
+// Enhanced animations with AI Workshop Series style
 function initAnimations() {
-    // Configuration for animations
+    // Configuration for enhanced animations
     const animationConfig = {
         fadeUp: {
             opacity: [0, 1],
-            transform: ['translateY(40px)', 'translateY(0)']
+            transform: ['translateY(50px)', 'translateY(0)']
         },
         fadeDown: {
             opacity: [0, 1],
-            transform: ['translateY(-40px)', 'translateY(0)']
+            transform: ['translateY(-50px)', 'translateY(0)']
         },
         fadeLeft: {
             opacity: [0, 1],
-            transform: ['translateX(-40px)', 'translateX(0)']
+            transform: ['translateX(-50px)', 'translateX(0)']
         },
         fadeRight: {
             opacity: [0, 1],
-            transform: ['translateX(40px)', 'translateX(0)']
+            transform: ['translateX(50px)', 'translateX(0)']
         },
         zoomIn: {
             opacity: [0, 1],
@@ -220,13 +275,17 @@ function initAnimations() {
         zoomOut: {
             opacity: [0, 1],
             transform: ['scale(1.2)', 'scale(1)']
+        },
+        slideUp: {
+            opacity: [0, 1],
+            transform: ['translateY(100px)', 'translateY(0)']
         }
     };
 
-    // Intersection Observer options
+    // Enhanced Intersection Observer options
     const observerOptions = {
         threshold: 0.1,
-        rootMargin: '0px 0px -100px 0px'
+        rootMargin: '0px 0px -50px 0px'
     };
     
     const observer = new IntersectionObserver((entries) => {
@@ -235,12 +294,12 @@ function initAnimations() {
                 const el = entry.target;
                 const animationType = el.dataset.animate || 'fadeUp';
                 const delay = parseInt(el.dataset.delay || '0');
-                const duration = parseInt(el.dataset.duration || '700');
+                const duration = parseInt(el.dataset.duration || '800');
                 
                 if (animationType === 'stagger') {
                     // Handle staggered animations for children
                     Array.from(el.children).forEach((child, index) => {
-                        const staggerDelay = delay + (index * 100);
+                        const staggerDelay = delay + (index * 150);
                         animateElement(child, 'fadeUp', staggerDelay, duration);
                     });
                 } else {
@@ -254,7 +313,7 @@ function initAnimations() {
         });
     }, observerOptions);
     
-    // Helper function to animate an element
+    // Enhanced helper function to animate an element
     function animateElement(element, type, delay, duration) {
         const animation = animationConfig[type] || animationConfig.fadeUp;
         
@@ -280,16 +339,17 @@ function initAnimations() {
         }, delay);
     }
     
-    // Add animation data attributes to elements
+    // Enhanced animation mapping for AI Workshop Series
     const animationMap = [
         { selector: '.hero-section h1', type: 'fadeUp', delay: 0 },
-        { selector: '.hero-section p', type: 'fadeUp', delay: 200 },
-        { selector: '.hero-section .btn', type: 'fadeUp', delay: 400 },
-        { selector: '.hero-section .hero-illustration', type: 'zoomIn', delay: 300 },
+        { selector: '.hero-section p', type: 'fadeUp', delay: 300 },
+        { selector: '.hero-section .btn', type: 'fadeUp', delay: 600 },
         { selector: '.card', type: 'fadeUp', delay: 200 },
         { selector: 'section h2', type: 'fadeUp', delay: 0 },
-        { selector: 'section .lead', type: 'fadeUp', delay: 100 },
-        { selector: '.row .col-md-3, .row .col-md-4', type: 'stagger', delay: 0 }
+        { selector: 'section .lead', type: 'fadeUp', delay: 200 },
+        { selector: '.row .col-md-3, .row .col-md-4, .row .col-lg-3, .row .col-lg-4', type: 'stagger', delay: 0 },
+        { selector: '.glass-effect', type: 'fadeUp', delay: 100 },
+        { selector: '.text-gradient-primary, .text-gradient-secondary', type: 'fadeUp', delay: 100 }
     ];
     
     animationMap.forEach(item => {
@@ -309,6 +369,48 @@ function initAnimations() {
             observer.observe(el);
         }
     });
+}
+
+// Parallax effects for AI Workshop Series
+function initParallaxEffects() {
+    const parallaxElements = document.querySelectorAll('.parallax');
+    
+    window.addEventListener('scroll', () => {
+        const scrolled = window.pageYOffset;
+        
+        parallaxElements.forEach(element => {
+            const speed = element.dataset.speed || 0.5;
+            const yPos = -(scrolled * speed);
+            element.style.transform = `translateY(${yPos}px)`;
+        });
+    });
+}
+
+// Typing effect for hero section
+function initTypingEffect() {
+    const heroTitle = document.querySelector('.hero-section h1');
+    if (!heroTitle) return;
+    
+    const text = heroTitle.textContent;
+    heroTitle.textContent = '';
+    heroTitle.style.borderRight = '2px solid #6366f1';
+    
+    let i = 0;
+    const typeWriter = () => {
+        if (i < text.length) {
+            heroTitle.textContent += text.charAt(i);
+            i++;
+            setTimeout(typeWriter, 50);
+        } else {
+            // Remove cursor after typing is complete
+            setTimeout(() => {
+                heroTitle.style.borderRight = 'none';
+            }, 1000);
+        }
+    };
+    
+    // Start typing effect after a short delay
+    setTimeout(typeWriter, 500);
 }
 
 // Search functionality
