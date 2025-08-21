@@ -1,0 +1,129 @@
+# Site settings
+title: "Pulsar Ventures"
+description: "We Bootstrap your Business - Venture studio blending consulting and product development to accelerate business growth"
+url: "https://pulsarventures.co"
+baseurl: ""
+
+# Contact and Social Information
+contact:
+  email: "spradhip@pulsarventures.io"
+  calendly: "https://calendly.com/spradhip"
+  linkedin: "https://www.linkedin.com/company/pulsar-ventures-llc"
+  office_hours:
+    weekdays: "9:00 AM - 6:00 PM (EST)"
+    weekends: "By appointment"
+    virtual: "Available worldwide"
+
+# Author information
+author:
+  name: "Pulsar Ventures"
+  email: "spradhip@pulsarventures.io"
+  bio: "Venture studio blending consulting and product development to accelerate business growth"
+  location: "Global"
+  links:
+    - label: "LinkedIn"
+      icon: "fab fa-linkedin"
+      url: "https://www.linkedin.com/company/pulsar-ventures-llc"
+    - label: "Calendly"
+      icon: "fas fa-calendar"
+      url: "https://calendly.com/spradhip"
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+permalink: /:title/
+relative_links:
+  enabled: true
+  collections: true
+
+# Collections
+collections:
+  pages:
+    output: true
+    permalink: /:path/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      author: "Pulsar Ventures"
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "page"
+      author: "Pulsar Ventures"
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-paginate
+
+# Pagination
+paginate: 5
+paginate_path: "/blog/page:num/"
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - .git/
+  - .github/
+  - README.md
+
+# Include files
+include:
+  - _pages
+  - _posts
+  - assets
+  - _sass
+
+# Social media
+social:
+  name: "Pulsar Ventures"
+  links:
+    - "https://www.linkedin.com/company/pulsar-ventures-llc"
+    - "https://calendly.com/spradhip"
+
+# Analytics (add your tracking codes here)
+analytics:
+  google: ""  # Add your Google Analytics ID
+  facebook: ""  # Add your Facebook Pixel ID
+
+# Comments (optional)
+comments:
+  provider: ""  # Add comment system provider
+
+# Search
+search: true
+
+# Timezone
+timezone: "UTC"
+
+# Encoding
+encoding: utf-8
+
+# Future posts
+future: false
+
+# Show drafts
+show_drafts: false
+
+# Limit posts
+limit_posts: 0
+
+# Keep files
+keep_files:
+  - .git
+  - .github
+  - CNAME

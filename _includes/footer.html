@@ -1,0 +1,71 @@
+<footer class="bg-dark text-light py-5 mt-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 mb-4">
+                <h5 class="mb-3"><span class="text-primary">Pulsar</span> Ventures</h5>
+                <p class="text-light">
+                    We Bootstrap your Business. As a venture studio, we blend consulting and product development to accelerate business growth.
+                </p>
+                <div class="social-links">
+                    {% for link in site.author.links %}
+                    <a href="{{ link.url }}" class="text-muted me-3" target="_blank" rel="noopener">
+                        <i class="{{ link.icon }}"></i>
+                    </a>
+                    {% endfor %}
+                </div>
+            </div>
+            
+            <div class="col-lg-2 mb-4">
+                <h6 class="mb-3">Products</h6>
+                <ul class="list-unstyled">
+                    <li><a href="{{ '/products#finciples' | relative_url }}" class="text-light text-decoration-none">Finciples</a></li>
+                    <li><a href="{{ '/products#link-library' | relative_url }}" class="text-light text-decoration-none">Link Library</a></li>
+                    <li><a href="{{ '/products#chatpilot' | relative_url }}" class="text-light text-decoration-none">ChatPilot</a></li>
+                </ul>
+            </div>
+            
+            <div class="col-lg-2 mb-4">
+                <h6 class="mb-3">Services</h6>
+                <ul class="list-unstyled">
+                    <li><a href="{{ '/services#consulting' | relative_url }}" class="text-light text-decoration-none">Consulting</a></li>
+                    <li><a href="{{ '/services#workshops' | relative_url }}" class="text-light text-decoration-none">Workshops</a></li>
+                    <li><a href="{{ '/services#coaching' | relative_url }}" class="text-light text-decoration-none">Coaching</a></li>
+                    <li><a href="{{ '/services#speaking' | relative_url }}" class="text-light text-decoration-none">Speaking</a></li>
+                </ul>
+            </div>
+            
+            <div class="col-lg-2 mb-4">
+                <h6 class="mb-3">Company</h6>
+                <ul class="list-unstyled">
+                    <li><a href="{{ '/about' | relative_url }}" class="text-light text-decoration-none">About</a></li>
+                    <li><a href="{{ '/about#team' | relative_url }}" class="text-light text-decoration-none">Team</a></li>
+                    <li><a href="{{ '/about#principles' | relative_url }}" class="text-light text-decoration-none">Principles</a></li>
+                    <li><a href="{{ '/blog' | relative_url }}" class="text-light text-decoration-none">Blog</a></li>
+                </ul>
+            </div>
+            
+            <div class="col-lg-2 mb-4">
+                <h6 class="mb-3">Connect</h6>
+                <ul class="list-unstyled">
+                    <li><a href="{{ '/contact' | relative_url }}" class="text-light text-decoration-none">Contact</a></li>
+                    <li><a href="{{ site.contact.calendly }}" class="text-light text-decoration-none" target="_blank">Schedule Call</a></li>
+                    <li><a href="{{ site.contact.linkedin }}" class="text-light text-decoration-none" target="_blank">LinkedIn</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <hr class="my-4">
+        
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <p class="text-light mb-0">&copy; {{ 'now' | date: "%Y" }} Pulsar Ventures. All rights reserved.</p>
+            </div>
+            <div class="col-md-6 text-md-end">
+                <p class="text-light mb-0">
+                    <a href="{{ '/privacy' | relative_url }}" class="text-light text-decoration-none me-3">Privacy Policy</a>
+                    <a href="{{ '/terms' | relative_url }}" class="text-light text-decoration-none">Terms of Service</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>

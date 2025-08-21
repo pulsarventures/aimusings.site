@@ -1,0 +1,44 @@
+---
+layout: default
+---
+
+<article class="container py-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            <header class="mb-5">
+                <h1 class="display-4 mb-3">{{ page.title }}</h1>
+                <div class="meta text-muted mb-4">
+                    <time datetime="{{ page.date | date_to_xmlschema }}">
+                        {{ page.date | date: "%B %d, %Y" }}
+                    </time>
+                    {% if page.author %}
+                    <span class="mx-2">•</span>
+                    <span>{{ page.author }}</span>
+                    {% endif %}
+                    {% if page.categories %}
+                    <span class="mx-2">•</span>
+                    <span>{{ page.categories | join: ", " }}</span>
+                    {% endif %}
+                </div>
+                {% if page.description %}
+                <p class="lead">{{ page.description }}</p>
+                {% endif %}
+            </header>
+            
+            <div class="content">
+                {{ content }}
+            </div>
+            
+            {% if page.tags %}
+            <footer class="mt-5 pt-4 border-top">
+                <div class="tags">
+                    <strong>Tags:</strong>
+                    {% for tag in page.tags %}
+                    <span class="badge bg-secondary me-2">{{ tag }}</span>
+                    {% endfor %}
+                </div>
+            </footer>
+            {% endif %}
+        </div>
+    </div>
+</article>

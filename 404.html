@@ -1,0 +1,57 @@
+---
+layout: default
+title: "Page Not Found"
+---
+
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-6 mx-auto text-center">
+            <h1 class="display-1 text-muted">404</h1>
+            <h2 class="mb-4">Page Not Found</h2>
+            <p class="lead text-muted mb-5">
+                The page you're looking for doesn't exist. It might have been moved, deleted, or you entered the wrong URL.
+            </p>
+            
+            <div class="d-flex gap-3 justify-content-center flex-wrap">
+                <a href="{{ '/' | relative_url }}" class="btn btn-primary">Go Home</a>
+                <a href="{{ '/contact' | relative_url }}" class="btn btn-outline-primary">Contact Us</a>
+            </div>
+            
+            <hr class="my-5">
+            
+            <h5 class="mb-3">Popular Pages</h5>
+            <div class="row g-3">
+                <div class="col-md-4">
+                    <a href="{{ '/about' | relative_url }}" class="text-decoration-none">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-body text-center">
+                                <i class="fas fa-info-circle fa-2x text-primary mb-2"></i>
+                                <h6>About Us</h6>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-4">
+                    <a href="{{ '/services' | relative_url }}" class="text-decoration-none">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-body text-center">
+                                <i class="fas fa-cogs fa-2x text-primary mb-2"></i>
+                                <h6>Services</h6>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-4">
+                    <a href="{{ '/products' | relative_url }}" class="text-decoration-none">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-body text-center">
+                                <i class="fas fa-box fa-2x text-primary mb-2"></i>
+                                <h6>Products</h6>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
