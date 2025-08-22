@@ -1,29 +1,22 @@
-// Theme styles - Simplified to match the beautiful original design
+// Theme styles - Simple and working
 
-// Dark theme (default) - Like the beautiful original site
+// Dark theme (default)
 :root {
-  // Background colors - Dark theme
   --bg-primary: #{$neutral-900};
   --bg-secondary: #{$neutral-800};
   --bg-tertiary: #{$neutral-700};
   --bg-accent: #{$indigo-600};
-  
-  // Text colors
   --text-primary: #{$neutral-50};
   --text-secondary: #{$neutral-300};
   --text-tertiary: #{$neutral-400};
   --text-on-accent: #{$light-color};
-  
-  // Border colors
   --border-primary: #{$neutral-700};
   --border-secondary: #{$neutral-600};
-  
-  // Shadow colors
   --shadow-color: rgba(0, 0, 0, 0.3);
   --shadow-color-darker: rgba(0, 0, 0, 0.5);
 }
 
-// Light theme (optional)
+// Light theme
 [data-theme="light"] {
   --bg-primary: #{$neutral-50};
   --bg-secondary: #{$neutral-100};
@@ -39,32 +32,22 @@
   --shadow-color-darker: rgba(0, 0, 0, 0.2);
 }
 
-// Navbar - Always beautiful dark theme
+// Navbar
 .navbar {
   background-color: rgba(15, 23, 42, 0.95) !important;
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--border-primary);
-  
-  .navbar-brand,
-  .navbar-nav .nav-link {
-    color: white !important;
-    
-    &:hover {
-      color: rgba(255, 255, 255, 0.8) !important;
-    }
-  }
-  
-  .navbar-toggler {
-    background-color: var(--bg-tertiary);
-    border-color: var(--border-primary);
-  }
-  
-  .navbar-toggler-icon {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.8%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
-  }
 }
 
-// Hero section - Beautiful gradient like original
+.navbar-toggler {
+  background-color: var(--bg-tertiary);
+}
+
+.navbar-light .navbar-brand,
+.navbar-light .navbar-nav .nav-link {
+  color: var(--text-primary);
+}
+
 .hero-section {
   background: linear-gradient(135deg, #{$indigo-900} 0%, #{$purple-900} 50%, #{$cyan-900} 100%);
   position: relative;
@@ -79,14 +62,6 @@
     background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
     opacity: 0.3;
   }
-  
-  .text-white {
-    color: white !important;
-  }
-  
-  .text-white-50 {
-    color: rgba(255, 255, 255, 0.8) !important;
-  }
 }
 
 // Theme toggle
@@ -96,7 +71,7 @@
   right: 20px;
   background-color: var(--bg-secondary);
   color: var(--text-primary);
-  border: 2px solid var(--border-primary);
+  border: 1px solid var(--border-primary);
   border-radius: $radius-full;
   width: 50px;
   height: 50px;
@@ -111,13 +86,6 @@
   &:hover {
     transform: translateY(-3px);
     box-shadow: $shadow-lg;
-    background-color: var(--bg-accent);
-    color: var(--text-on-accent);
-  }
-  
-  i {
-    font-size: 1.2rem;
-    color: inherit;
   }
 }
 
@@ -128,7 +96,7 @@ body {
   color: var(--text-primary);
 }
 
-// Beautiful gradients like original
+// Gradients
 .bg-gradient-primary {
   background: linear-gradient(135deg, #{$indigo-600} 0%, #{$purple-600} 100%);
 }
@@ -155,7 +123,7 @@ body {
   -webkit-text-fill-color: transparent;
 }
 
-// Section themes - Beautiful like original
+// Section themes
 .section-light {
   background-color: var(--bg-secondary);
   color: var(--text-primary);
@@ -176,7 +144,7 @@ body {
   color: var(--text-on-accent);
 }
 
-// Beautiful effects like original
+// Utility classes
 .glass-effect {
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);

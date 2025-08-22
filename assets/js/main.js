@@ -541,106 +541,39 @@ function initBackToTop() {
 // Initialize back to top button
 initBackToTop();
 
-// Theme toggle functionality - Default to dark theme like the beautiful original
+// Theme toggle functionality
 function initThemeToggle() {
-    // Create theme toggle button with better styling
+    // Create theme toggle button
     const themeToggleBtn = document.createElement('button');
     themeToggleBtn.className = 'theme-toggle';
-    themeToggleBtn.innerHTML = '<i class="fas fa-sun"></i>';
-    themeToggleBtn.ariaLabel = 'Toggle light mode';
+    themeToggleBtn.innerHTML = '<i class="fas fa-moon"></i>';
+    themeToggleBtn.ariaLabel = 'Toggle dark mode';
     themeToggleBtn.title = 'Toggle theme (Light/Dark)';
     document.body.appendChild(themeToggleBtn);
     
-    // Check for saved theme preference - default to dark theme like the original
+    // Check for saved theme preference
     const savedTheme = localStorage.getItem('theme');
     
-    // Apply theme based on preference - default to dark theme
-    if (savedTheme === 'light') {
-        document.documentElement.setAttribute('data-theme', 'light');
-        themeToggleBtn.innerHTML = '<i class="fas fa-moon"></i>';
-        themeToggleBtn.title = 'Switch to dark mode';
-    } else {
-        // Default to dark theme (like the beautiful original)
-        document.documentElement.removeAttribute('data-theme');
-        localStorage.setItem('theme', 'dark');
+    // Apply theme based on preference
+    if (savedTheme === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark');
         themeToggleBtn.innerHTML = '<i class="fas fa-sun"></i>';
-        themeToggleBtn.title = 'Switch to light mode';
     }
     
-    // Toggle theme with improved feedback
+    // Toggle theme
     themeToggleBtn.addEventListener('click', () => {
-        const currentTheme = document.documentElement.getAttribute('data-theme');
-        
-        if (currentTheme === 'light') {
-            // Switch to dark theme
-            document.documentElement.removeAttribute('data-theme');
-            localStorage.setItem('theme', 'dark');
-            themeToggleBtn.innerHTML = '<i class="fas fa-sun"></i>';
-            themeToggleBtn.title = 'Switch to light mode';
-        } else {
+        if (document.documentElement.getAttribute('data-theme') === 'dark') {
             // Switch to light theme
-            document.documentElement.setAttribute('data-theme', 'light');
+            document.documentElement.removeAttribute('data-theme');
             localStorage.setItem('theme', 'light');
             themeToggleBtn.innerHTML = '<i class="fas fa-moon"></i>';
-            themeToggleBtn.title = 'Switch to dark mode';
+        } else {
+            // Switch to dark theme
+            document.documentElement.setAttribute('data-theme', 'dark');
+            localStorage.setItem('theme', 'dark');
+            themeToggleBtn.innerHTML = '<i class="fas fa-sun"></i>';
         }
-        
-        // Add visual feedback
-        themeToggleBtn.style.transform = 'scale(1.1)';
-        setTimeout(() => {
-            themeToggleBtn.style.transform = 'scale(1)';
-        }, 200);
-        
-        // Animation effect for theme change
-        const ripple = document.createElement('div');
-        ripple.className = 'theme-toggle-ripple';
-        document.body.appendChild(ripple);
-        
-        // Animate ripple
-        setTimeout(() => {
-            ripple.style.transform = 'scale(150)';
-            ripple.style.opacity = '0';
-            
-            // Remove ripple
-            setTimeout(() => {
-                if (document.body.contains(ripple)) {
-                    document.body.removeChild(ripple);
-                }
-            }, 1000);
-        }, 10);
     });
-    
-    // Add ripple style
-    const style = document.createElement('style');
-    style.textContent = `
-        .theme-toggle-ripple {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background-color: var(--bg-primary);
-            transform: scale(0);
-            opacity: 0.5;
-            z-index: 9999;
-            pointer-events: none;
-            transition: transform 1s ease, opacity 1s ease;
-        }
-        
-        .theme-toggle {
-            transition: all 0.3s ease, transform 0.2s ease !important;
-        }
-    `;
-    document.head.appendChild(style);
-    
-    // Make sure the button is visible
-    setTimeout(() => {
-        themeToggleBtn.style.opacity = '1';
-        themeToggleBtn.style.visibility = 'visible';
-    }, 100);
 }
 
 // Page transitions - Improved for smoother navigation
