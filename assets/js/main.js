@@ -513,13 +513,22 @@ function initBackToTop() {
     
     document.body.appendChild(backToTopBtn);
     
-    window.addEventListener('scroll', debounce(() => {
+    // Function to check scroll position
+    function checkScrollPosition() {
         if (window.scrollY > 300) {
             backToTopBtn.style.display = 'flex';
         } else {
             backToTopBtn.style.display = 'none';
         }
-    }, 100));
+    }
+    
+    // Check initial position
+    checkScrollPosition();
+    
+    // Add scroll listener
+    window.addEventListener('scroll', () => {
+        checkScrollPosition();
+    });
     
     backToTopBtn.addEventListener('click', () => {
         window.scrollTo({

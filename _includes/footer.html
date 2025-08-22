@@ -1,86 +1,70 @@
 <footer class="section-dark text-light py-5 mt-5">
     <div class="container">
-        <!-- Main footer content in horizontal layout -->
-        <div class="row g-4">
-            <!-- Company Info -->
-            <div class="col-lg-3 col-md-6" data-animate="fadeUp">
-                <h5 class="mb-3 fw-bold"><span class="text-gradient-primary">AI</span> Musings</h5>
-                <p class="mb-3">
+        <div class="row">
+            <div class="col-lg-4 mb-4" data-animate="fadeUp">
+                <h5 class="mb-3"><span class="text-gradient-primary">AI</span> Musings</h5>
+                <p class="text-light">
                     Accelerate Your AI Game. Hands-on AI workshops designed for professionals, coaches, consultants, entrepreneurs, and business owners who want to transform their work with practical AI skills.
                 </p>
                 <div class="social-links">
                     {% for link in site.author.links %}
-                    <a href="{{ link.url }}" class="me-3" target="_blank" rel="noopener" title="{{ link.name }}">
-                        <i class="{{ link.icon }} fa-lg"></i>
+                    <a href="{{ link.url }}" class="text-muted me-3" target="_blank" rel="noopener">
+                        <i class="{{ link.icon }}"></i>
                     </a>
                     {% endfor %}
                 </div>
             </div>
             
-            <!-- Workshops Section -->
-            <div class="col-lg-2 col-md-6" data-animate="fadeUp" data-delay="100">
-                <h6 class="mb-3 fw-bold text-uppercase">Workshops</h6>
+            <div class="col-lg-2 mb-4" data-animate="fadeUp" data-delay="100">
+                <h6 class="mb-3">Workshops</h6>
                 <ul class="list-unstyled">
-                    <li class="mb-2"><a href="#about" class="text-decoration-none">AI Fundamentals</a></li>
-                    <li class="mb-2"><a href="#agenda" class="text-decoration-none">Workshop Agenda</a></li>
-                    <li class="mb-2"><a href="#tools" class="text-decoration-none">AI Tools</a></li>
-                    <li class="mb-2"><a href="#register" class="text-decoration-none">Register Now</a></li>
+                    <li><a href="#about" class="text-light text-decoration-none">AI Fundamentals</a></li>
+                    <li><a href="#agenda" class="text-light text-decoration-none">Workshop Agenda</a></li>
+                    <li><a href="#tools" class="text-light text-decoration-none">AI Tools</a></li>
+                    <li><a href="#register" class="text-light text-decoration-none">Register Now</a></li>
                 </ul>
             </div>
             
-            <!-- Services Section -->
-            <div class="col-lg-2 col-md-6" data-animate="fadeUp" data-delay="200">
-                <h6 class="mb-3 fw-bold text-uppercase">Services</h6>
+            <div class="col-lg-2 mb-4" data-animate="fadeUp" data-delay="200">
+                <h6 class="mb-3">Services</h6>
                 <ul class="list-unstyled">
-                    <li class="mb-2"><a href="{{ '/services#workshops' | relative_url }}" class="text-decoration-none">AI Workshops</a></li>
-                    <li class="mb-2"><a href="{{ '/services#consulting' | relative_url }}" class="text-decoration-none">AI Consulting</a></li>
-                    <li class="mb-2"><a href="{{ '/services#coaching' | relative_url }}" class="text-decoration-none">1-on-1 Coaching</a></li>
-                    <li class="mb-2"><a href="{{ '/services#speaking' | relative_url }}" class="text-decoration-none">Speaking</a></li>
+                    <li><a href="{{ '/services#workshops' | relative_url }}" class="text-light text-decoration-none">AI Workshops</a></li>
+                    <li><a href="{{ '/services#consulting' | relative_url }}" class="text-light text-decoration-none">AI Consulting</a></li>
+                    <li><a href="{{ '/services#coaching' | relative_url }}" class="text-light text-decoration-none">1-on-1 Coaching</a></li>
+                    <li><a href="{{ '/services#speaking' | relative_url }}" class="text-light text-decoration-none">Speaking</a></li>
                 </ul>
             </div>
             
-            <!-- Company Section -->
-            <div class="col-lg-2 col-md-6" data-animate="fadeUp" data-delay="300">
-                <h6 class="mb-3 fw-bold text-uppercase">Company</h6>
+            <div class="col-lg-2 mb-4" data-animate="fadeUp" data-delay="300">
+                <h6 class="mb-3">Company</h6>
                 <ul class="list-unstyled">
-                    <li class="mb-2"><a href="{{ '/about' | relative_url }}" class="text-decoration-none">About</a></li>
-                    <li class="mb-2"><a href="#instructors" class="text-decoration-none">Instructors</a></li>
-                    <li class="mb-2"><a href="{{ '/about#principles' | relative_url }}" class="text-decoration-none">Our Approach</a></li>
-                    <li class="mb-2"><a href="{{ '/blog' | relative_url }}" class="text-decoration-none">Blog</a></li>
+                    <li><a href="{{ '/about' | relative_url }}" class="text-light text-decoration-none">About</a></li>
+                    <li><a href="#instructors" class="text-light text-decoration-none">Instructors</a></li>
+                    <li><a href="{{ '/about#principles' | relative_url }}" class="text-light text-decoration-none">Our Approach</a></li>
+                    <li><a href="{{ '/blog' | relative_url }}" class="text-light text-decoration-none">Blog</a></li>
                 </ul>
             </div>
             
-            <!-- Connect Section -->
-            <div class="col-lg-3 col-md-6" data-animate="fadeUp" data-delay="400">
-                <h6 class="mb-3 fw-bold text-uppercase">Connect</h6>
+            <div class="col-lg-2 mb-4" data-animate="fadeUp" data-delay="400">
+                <h6 class="mb-3">Connect</h6>
                 <ul class="list-unstyled">
-                    <li class="mb-2"><a href="{{ '/contact' | relative_url }}" class="text-decoration-none">Contact</a></li>
-                    <li class="mb-2">
-                        <a href="{{ site.contact.calendly }}" class="text-decoration-none" target="_blank">
-                            <i class="fas fa-calendar-alt me-2"></i>Schedule Call
-                        </a>
-                    </li>
-                    <li class="mb-2">
-                        <a href="{{ site.contact.linkedin }}" class="text-decoration-none" target="_blank">
-                            <i class="fab fa-linkedin me-2"></i>LinkedIn
-                        </a>
-                    </li>
+                    <li><a href="{{ '/contact' | relative_url }}" class="text-light text-decoration-none">Contact</a></li>
+                    <li><a href="{{ site.contact.calendly }}" class="text-light text-decoration-none" target="_blank">Schedule Call</a></li>
+                    <li><a href="{{ site.contact.linkedin }}" class="text-light text-decoration-none" target="_blank">LinkedIn</a></li>
                 </ul>
             </div>
         </div>
         
-        <!-- Divider -->
-        <hr class="my-4 border-secondary">
+        <hr class="my-4">
         
-        <!-- Bottom footer with copyright and legal links -->
         <div class="row align-items-center">
             <div class="col-md-6">
-                <p class="mb-0">&copy; {{ 'now' | date: "%Y" }} AI Musings. All rights reserved.</p>
+                <p class="text-light mb-0">&copy; {{ 'now' | date: "%Y" }} AI Musings. All rights reserved.</p>
             </div>
             <div class="col-md-6 text-md-end">
                 <div class="d-flex justify-content-md-end gap-3">
-                    <a href="{{ '/privacy' | relative_url }}" class="text-decoration-none">Privacy Policy</a>
-                    <a href="{{ '/terms' | relative_url }}" class="text-decoration-none">Terms of Service</a>
+                    <a href="{{ '/privacy' | relative_url }}" class="text-light text-decoration-none">Privacy Policy</a>
+                    <a href="{{ '/terms' | relative_url }}" class="text-light text-decoration-none">Terms of Service</a>
                 </div>
             </div>
         </div>
