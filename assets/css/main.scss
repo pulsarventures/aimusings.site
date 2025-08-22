@@ -7,12 +7,16 @@
 
 // Import base styles
 @import "typography";
+@import "fluid-typography";
 @import "layout";
+@import "grid-enhanced";
 
 // Import component styles
 @import "components";
+@import "enhanced-components";
 @import "navbar";
 @import "animations";
+@import "advanced-animations";
 @import "utilities";
 
 // Print styles
