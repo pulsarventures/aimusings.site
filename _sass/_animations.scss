@@ -1,4 +1,4 @@
-// Animation styles and keyframes - Enhanced for AI Workshop Series design with advanced motion effects
+// Animation styles and keyframes - Updated for AI Workshop Series design
 
 // Fade in animation
 @keyframes fadeIn {
@@ -24,35 +24,13 @@
   }
 }
 
-// Floating animation with improved easing
+// Floating animation
 @keyframes float {
-  0% { 
+  0%, 100% { 
     transform: translateY(0px); 
   }
   50% { 
     transform: translateY(-10px); 
-  }
-  100% { 
-    transform: translateY(0px); 
-  }
-}
-
-// Advanced floating animation with subtle rotation
-@keyframes floatAdvanced {
-  0% { 
-    transform: translateY(0px) rotate(0deg); 
-  }
-  25% { 
-    transform: translateY(-8px) rotate(1deg); 
-  }
-  50% { 
-    transform: translateY(-15px) rotate(0deg); 
-  }
-  75% { 
-    transform: translateY(-8px) rotate(-1deg); 
-  }
-  100% { 
-    transform: translateY(0px) rotate(0deg); 
   }
 }
 
@@ -118,12 +96,10 @@
   }
 }
 
-// Animation utility classes with enhanced control
+// Animation utility classes
 .animated {
   animation-duration: $duration-1000;
   animation-fill-mode: both;
-  animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1); // Improved easing
-  will-change: transform, opacity; // Performance optimization
 }
 
 .animated.infinite {
@@ -146,53 +122,25 @@
   animation-duration: $duration-1000 * 2;
 }
 
-// Enhanced animation classes with improved motion design
+// Animation classes
 .fade-in {
-  animation: fadeIn $duration-700 cubic-bezier(0.215, 0.61, 0.355, 1);
-  will-change: opacity, transform;
+  animation: fadeIn $duration-700 ease-out;
 }
 
 .slide-in {
-  animation: slideIn $duration-700 cubic-bezier(0.215, 0.61, 0.355, 1);
-  will-change: transform, opacity;
+  animation: slideIn $duration-700 ease-out;
 }
 
 .float {
-  animation: float $duration-1000 * 6 cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite;
-  will-change: transform;
-}
-
-.float-advanced {
-  animation: floatAdvanced $duration-1000 * 8 cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite;
-  will-change: transform;
+  animation: float $duration-1000 * 6 ease-in-out infinite;
 }
 
 .pulse {
-  animation: pulse $duration-1000 * 2 cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite;
-  will-change: transform;
+  animation: pulse $duration-1000 * 2 infinite;
 }
 
 .rotate {
   animation: rotate $duration-1000 * 2 linear infinite;
-  will-change: transform;
-}
-
-// New reveal animation with perspective
-.reveal {
-  animation: reveal $duration-1000 cubic-bezier(0.19, 1, 0.22, 1) forwards;
-  transform-origin: bottom;
-  will-change: transform, opacity;
-}
-
-@keyframes reveal {
-  0% {
-    transform: perspective(1000px) rotateX(90deg);
-    opacity: 0;
-  }
-  100% {
-    transform: perspective(1000px) rotateX(0deg);
-    opacity: 1;
-  }
 }
 
 .glow {

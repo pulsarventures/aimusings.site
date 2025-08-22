@@ -1,4 +1,4 @@
-// Layout styles - Enhanced for better visual hierarchy and flow
+// Layout styles
 
 .container {
   width: 100%;
@@ -25,25 +25,10 @@
   }
 }
 
-// Enhanced section styling with improved spacing and flow
 section {
   position: relative;
   padding-top: $spacing-16;
   padding-bottom: $spacing-16;
-  scroll-margin-top: 80px; // For smooth scrolling to anchors
-  
-  // Visual separator between sections
-  &:not(:last-child)::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 150px;
-    height: 1px;
-    background: linear-gradient(to right, transparent, var(--border-primary), transparent);
-    opacity: 0.3;
-  }
 
   @media (max-width: $breakpoint-md) {
     padding-top: $spacing-12;
@@ -53,19 +38,6 @@ section {
   @media (max-width: $breakpoint-sm) {
     padding-top: $spacing-8;
     padding-bottom: $spacing-8;
-  }
-  
-  // Improved section spacing
-  & + section {
-    padding-top: $spacing-20;
-    
-    @media (max-width: $breakpoint-md) {
-      padding-top: $spacing-16;
-    }
-    
-    @media (max-width: $breakpoint-sm) {
-      padding-top: $spacing-12;
-    }
   }
 }
 
@@ -84,71 +56,23 @@ section {
   padding-left: 15px;
 }
 
-// Content width restrictions with enhanced readability
+// Content width restrictions
 .content-narrow {
   max-width: 65ch;
   margin-left: auto;
   margin-right: auto;
-  padding-left: $spacing-4;
-  padding-right: $spacing-4;
-  
-  > * + * {
-    margin-top: $spacing-5; // Improved vertical rhythm
-  }
 }
 
 .content-medium {
   max-width: 85ch;
   margin-left: auto;
   margin-right: auto;
-  padding-left: $spacing-4;
-  padding-right: $spacing-4;
-  
-  > * + * {
-    margin-top: $spacing-5;
-  }
 }
 
 .content-wide {
   max-width: 120ch;
   margin-left: auto;
   margin-right: auto;
-  padding-left: $spacing-4;
-  padding-right: $spacing-4;
-}
-
-// Enhanced content containers with better structure
-.content-container {
-  width: 100%;
-  
-  &--centered {
-    text-align: center;
-    max-width: 85ch;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  
-  &--feature {
-    margin-top: $spacing-12;
-    margin-bottom: $spacing-12;
-    
-    @media (max-width: $breakpoint-md) {
-      margin-top: $spacing-8;
-      margin-bottom: $spacing-8;
-    }
-  }
-  
-  &--border {
-    border: 1px solid var(--border-primary);
-    border-radius: $radius-lg;
-    padding: $spacing-6;
-  }
-  
-  &--highlight {
-    background-color: rgba($indigo-500, 0.05);
-    border-radius: $radius-lg;
-    padding: $spacing-6;
-  }
 }
 
 // Utility spacing classes

@@ -1,33 +1,26 @@
-// Theme styles and color modes - Enhanced for AI Workshop Series design
+// Theme styles and color modes - Updated for AI Workshop Series design
 
-// Light theme (default) - Updated for modern dark theme with improved color relationships
+// Light theme (default) - Updated for modern dark theme
 :root {
-  // Background colors - Dark theme as default with subtle gradients
-  --bg-primary: #{$dark-color-darker};
-  --bg-secondary: #{$dark-color};
-  --bg-tertiary: #{$dark-color-lighter};
+  // Background colors - Dark theme as default
+  --bg-primary: #{$neutral-900};
+  --bg-secondary: #{$neutral-800};
+  --bg-tertiary: #{$neutral-700};
   --bg-accent: #{$indigo-600};
-  --bg-accent-light: #{$indigo-500};
-  --bg-accent-dark: #{$indigo-700};
   
-  // Text colors with improved contrast
-  --text-primary: #{$light-color};
-  --text-secondary: #{$neutral-200};
+  // Text colors
+  --text-primary: #{$neutral-50};
+  --text-secondary: #{$neutral-300};
   --text-tertiary: #{$neutral-400};
   --text-on-accent: #{$light-color};
-  --text-highlight: #{$indigo-300};
   
-  // Border colors with more variety
+  // Border colors
   --border-primary: #{$neutral-700};
   --border-secondary: #{$neutral-600};
-  --border-accent: #{$indigo-500};
-  --border-highlight: #{$indigo-400};
   
-  // Shadow colors with options
+  // Shadow colors
   --shadow-color: rgba(0, 0, 0, 0.3);
   --shadow-color-darker: rgba(0, 0, 0, 0.5);
-  --shadow-color-accent: rgba(99, 102, 241, 0.2);
-  --shadow-color-glow: rgba(99, 102, 241, 0.5);
 }
 
 // Dark theme (keeping for consistency)
@@ -129,84 +122,17 @@ body {
   color: var(--text-primary);
 }
 
-// Brand colors and gradients - Enhanced for AI Workshop Series
+// Brand colors and gradients - Updated for AI Workshop Series
 .bg-gradient-primary {
   background: linear-gradient(135deg, #{$indigo-600} 0%, #{$purple-600} 100%);
-  position: relative;
-  overflow: hidden;
-  
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background: linear-gradient(to right, rgba(99, 102, 241, 0.1), rgba(139, 92, 246, 0.05));
-    opacity: 0.5;
-    z-index: 1;
-    mix-blend-mode: overlay;
-  }
 }
 
 .bg-gradient-secondary {
   background: linear-gradient(135deg, #{$purple-600} 0%, #{$cyan-600} 100%);
-  position: relative;
-  overflow: hidden;
-  
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background: linear-gradient(to right, rgba(139, 92, 246, 0.1), rgba(6, 182, 212, 0.05));
-    opacity: 0.5;
-    z-index: 1;
-    mix-blend-mode: overlay;
-  }
 }
 
 .bg-gradient-hero {
   background: linear-gradient(135deg, #{$indigo-900} 0%, #{$purple-900} 50%, #{$cyan-900} 100%);
-  position: relative;
-  overflow: hidden;
-  
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background: radial-gradient(circle at top right, rgba(99, 102, 241, 0.15), transparent 50%);
-    z-index: 1;
-  }
-  
-  &::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background: radial-gradient(circle at bottom left, rgba(6, 182, 212, 0.1), transparent 50%);
-    z-index: 2;
-  }
-}
-
-// Additional gradient variations
-.bg-gradient-dark {
-  background: linear-gradient(135deg, #{$dark-color} 0%, #{$dark-color-darker} 100%);
-}
-
-.bg-gradient-success {
-  background: linear-gradient(135deg, #{$emerald-500} 0%, #{$emerald-700} 100%);
-}
-
-.bg-gradient-accent {
-  background: linear-gradient(135deg, #{$cyan-500} 0%, #{$cyan-700} 100%);
 }
 
 .text-gradient-primary {
@@ -223,229 +149,43 @@ body {
   -webkit-text-fill-color: transparent;
 }
 
-// Section themes - Enhanced for AI Workshop Series with improved depth and texture
+// Section themes - Updated for AI Workshop Series
 .section-light {
   background-color: var(--bg-secondary);
   color: var(--text-primary);
-  position: relative;
-  overflow: hidden;
-  
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.02'%3E%3Cpath opacity='.5' d='M96 95h4v1h-4v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9zm-1 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-    opacity: 0.4;
-    z-index: 0;
-  }
-  
-  > * {
-    position: relative;
-    z-index: 1;
-  }
 }
 
 .section-dark {
   background-color: var(--bg-primary);
   color: var(--text-primary);
-  position: relative;
-  overflow: hidden;
-  
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.02'%3E%3Cpath opacity='.5' d='M96 95h4v1h-4v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9zm-1 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-    opacity: 0.05;
-    z-index: 0;
-  }
-  
-  > * {
-    position: relative;
-    z-index: 1;
-  }
 }
 
 .section-gradient {
   background: linear-gradient(135deg, #{$indigo-900} 0%, #{$purple-900} 100%);
   color: white;
-  position: relative;
-  overflow: hidden;
-  
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
-    opacity: 0.3;
-    z-index: 0;
-  }
-  
-  > * {
-    position: relative;
-    z-index: 1;
-  }
 }
 
 .section-accent {
   background-color: var(--bg-accent);
   color: var(--text-on-accent);
-  position: relative;
-  overflow: hidden;
-  
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background-image: linear-gradient(60deg, rgba(255, 255, 255, 0.05) 25%, transparent 25%, transparent 75%, rgba(255, 255, 255, 0.05) 75%, rgba(255, 255, 255, 0.05)), 
-    linear-gradient(120deg, rgba(255, 255, 255, 0.05) 25%, transparent 25%, transparent 75%, rgba(255, 255, 255, 0.05) 75%, rgba(255, 255, 255, 0.05));
-    background-size: 40px 70px;
-    opacity: 0.2;
-    z-index: 0;
-  }
-  
-  > * {
-    position: relative;
-    z-index: 1;
-  }
 }
 
-// Enhanced section variants
-.section-deep {
-  background: linear-gradient(to bottom, #{$dark-color-darker}, #{$dark-color});
-  color: var(--text-primary);
-}
-
-.section-split {
-  position: relative;
-  background: linear-gradient(90deg, #{$dark-color} 50%, #{$dark-color-lighter} 50%);
-  
-  @media (max-width: $breakpoint-md) {
-    background: #{$dark-color};
-  }
-}
-
-// Enhanced utility classes for AI Workshop Series design
-
-// Glass effect with improved depth and highlights
+// Additional utility classes for AI Workshop Series design
 .glass-effect {
-  background: rgba(255, 255, 255, 0.07);
+  background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: $shadow-glass;
-  position: relative;
-  overflow: hidden;
-  
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 100px;
-    height: 100px;
-    background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0) 70%);
-    transform: translate(50%, -50%);
-  }
-  
-  &::after {
-    content: '';
-    position: absolute;
-    top: 1px;
-    left: 1px;
-    right: 1px;
-    height: 1px;
-    background: linear-gradient(to right, transparent, rgba(255,255,255,0.2), transparent);
-  }
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-// Text effects
 .text-glow {
   text-shadow: 0 0 20px rgba(99, 102, 241, 0.5);
 }
 
-.text-stroke {
-  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.2);
-}
-
-// Enhanced hover effects for cards
 .card-hover {
   transition: all $duration-300 ease;
-  transform-style: preserve-3d;
-  perspective: 1000px;
   
   &:hover {
-    transform: translateY(-8px) rotate3d(1, 1, 0, 2deg);
-    box-shadow: $shadow-primary, 0 20px 40px rgba(0, 0, 0, 0.3);
-  }
-}
-
-// Button effects
-.btn-glow {
-  position: relative;
-  overflow: hidden;
-  
-  &::before {
-    content: '';
-    position: absolute;
-    top: -2px;
-    left: -2px;
-    right: -2px;
-    bottom: -2px;
-    background: linear-gradient(45deg, #{$indigo-400}, #{$purple-400}, #{$cyan-400}, #{$indigo-400});
-    background-size: 400% 400%;
-    animation: glowingBorder 3s ease-in-out infinite;
-    z-index: -1;
-    border-radius: inherit;
-  }
-  
-  @keyframes glowingBorder {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-  }
-}
-
-// Additional effects
-.frosted {
-  backdrop-filter: blur(15px);
-  background-color: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-}
-
-.image-glow {
-  filter: drop-shadow(0 0 10px rgba(99, 102, 241, 0.5));
-}
-
-.border-animated {
-  position: relative;
-  
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    animation: pulseBorder 2s infinite;
-  }
-  
-  @keyframes pulseBorder {
-    0% { opacity: 0.2; }
-    50% { opacity: 0.8; }
-    100% { opacity: 0.2; }
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
   }
 }
