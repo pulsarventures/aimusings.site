@@ -1,12 +1,9 @@
 // Fluid typography - responsive text sizing that scales smoothly between viewport sizes
 // This creates more natural text scaling without hard breakpoints
 
-// Base fluid calculation
+// Base fluid calculation with simpler approach for Jekyll GitHub Pages
 @function fluid-calc($min-size, $max-size, $min-width, $max-width) {
-  $slope: ($max-size - $min-size) / ($max-width - $min-width);
-  $y-axis-intersection: -1 * $min-width * $slope + $min-size;
-  
-  @return clamp(#{$min-size}, #{$y-axis-intersection} + (#{$slope} * 100vw), #{$max-size});
+  @return calc(#{$min-size} + ((#{$max-size} - #{$min-size}) * ((100vw - #{$min-width}px) / (#{$max-width} - #{$min-width}))));
 }
 
 // Fluid typography variables
