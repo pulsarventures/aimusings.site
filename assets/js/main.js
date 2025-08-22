@@ -541,48 +541,48 @@ function initBackToTop() {
 // Initialize back to top button
 initBackToTop();
 
-// Theme toggle functionality - Enhanced
+// Theme toggle functionality - Default to dark theme like the beautiful original
 function initThemeToggle() {
     // Create theme toggle button with better styling
     const themeToggleBtn = document.createElement('button');
     themeToggleBtn.className = 'theme-toggle';
-    themeToggleBtn.innerHTML = '<i class="fas fa-moon"></i>';
-    themeToggleBtn.ariaLabel = 'Toggle dark mode';
+    themeToggleBtn.innerHTML = '<i class="fas fa-sun"></i>';
+    themeToggleBtn.ariaLabel = 'Toggle light mode';
     themeToggleBtn.title = 'Toggle theme (Light/Dark)';
     document.body.appendChild(themeToggleBtn);
     
-    // Check for saved theme preference or respect OS preference
-    const prefersDarkTheme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    // Check for saved theme preference - default to dark theme like the original
     const savedTheme = localStorage.getItem('theme');
     
-    // Apply theme based on preference - default to light theme
-    if (savedTheme === 'dark' || (!savedTheme && prefersDarkTheme)) {
-        document.documentElement.setAttribute('data-theme', 'dark');
-        themeToggleBtn.innerHTML = '<i class="fas fa-sun"></i>';
-        themeToggleBtn.title = 'Switch to light mode';
-    } else {
-        // Ensure light theme is applied
-        document.documentElement.removeAttribute('data-theme');
+    // Apply theme based on preference - default to dark theme
+    if (savedTheme === 'light') {
+        document.documentElement.setAttribute('data-theme', 'light');
         themeToggleBtn.innerHTML = '<i class="fas fa-moon"></i>';
         themeToggleBtn.title = 'Switch to dark mode';
+    } else {
+        // Default to dark theme (like the beautiful original)
+        document.documentElement.removeAttribute('data-theme');
+        localStorage.setItem('theme', 'dark');
+        themeToggleBtn.innerHTML = '<i class="fas fa-sun"></i>';
+        themeToggleBtn.title = 'Switch to light mode';
     }
     
     // Toggle theme with improved feedback
     themeToggleBtn.addEventListener('click', () => {
         const currentTheme = document.documentElement.getAttribute('data-theme');
         
-        if (currentTheme === 'dark') {
-            // Switch to light theme
-            document.documentElement.removeAttribute('data-theme');
-            localStorage.setItem('theme', 'light');
-            themeToggleBtn.innerHTML = '<i class="fas fa-moon"></i>';
-            themeToggleBtn.title = 'Switch to dark mode';
-        } else {
+        if (currentTheme === 'light') {
             // Switch to dark theme
-            document.documentElement.setAttribute('data-theme', 'dark');
+            document.documentElement.removeAttribute('data-theme');
             localStorage.setItem('theme', 'dark');
             themeToggleBtn.innerHTML = '<i class="fas fa-sun"></i>';
             themeToggleBtn.title = 'Switch to light mode';
+        } else {
+            // Switch to light theme
+            document.documentElement.setAttribute('data-theme', 'light');
+            localStorage.setItem('theme', 'light');
+            themeToggleBtn.innerHTML = '<i class="fas fa-moon"></i>';
+            themeToggleBtn.title = 'Switch to dark mode';
         }
         
         // Add visual feedback
