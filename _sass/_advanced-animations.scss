@@ -1,0 +1,401 @@
+// Advanced Animations for AI Workshop Series
+
+// 3D Card Effect
+.card-3d {
+  transition: all $duration-300 cubic-bezier(0.215, 0.61, 0.355, 1);
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  position: relative;
+  
+  &:hover {
+    transform: rotateX(2deg) rotateY(5deg) scale(1.02);
+    box-shadow: 
+      -20px 20px 30px rgba(0, 0, 0, 0.2), 
+      0 0 10px rgba($indigo-500, 0.1);
+    
+    .card-content {
+      transform: translateZ(20px);
+    }
+  }
+  
+  .card-content {
+    transition: transform $duration-300 cubic-bezier(0.215, 0.61, 0.355, 1);
+    transform-style: preserve-3d;
+    position: relative;
+    z-index: 2;
+  }
+}
+
+// Advanced glass effect with reflections
+.glass-effect-advanced {
+  transition: all $duration-300 cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left $duration-700 ease;
+  }
+  
+  &::after {
+    content: '';
+    position: absolute;
+    top: 1px;
+    left: 1px;
+    right: 1px;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(255,255,255,0.5), transparent);
+  }
+  
+  &:hover {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(15px);
+    transform: translateY(-5px) scale(1.01);
+    box-shadow: $shadow-glass;
+    
+    &::before {
+      left: 100%;
+      transition: left $duration-1000 cubic-bezier(0.215, 0.61, 0.355, 1);
+    }
+  }
+}
+
+// Enhanced hero section animations
+.hero-enhanced {
+  position: relative;
+  overflow: hidden;
+  
+  // Background subtle animation
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 80% 50%, rgba($indigo-500, 0.15), transparent 60%);
+    animation: pulseBackground 8s ease-in-out infinite alternate;
+    z-index: 0;
+  }
+  
+  .hero-content {
+    position: relative;
+    z-index: 1;
+  }
+}
+
+@keyframes pulseBackground {
+  0% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.2);
+  }
+  100% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+}
+
+// Parallax scrolling effect
+.parallax-container {
+  perspective: 1px;
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  transform-style: preserve-3d;
+}
+
+.parallax-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  
+  &.parallax-back {
+    transform: translateZ(-1px) scale(2);
+  }
+  
+  &.parallax-middle {
+    transform: translateZ(-0.5px) scale(1.5);
+  }
+  
+  &.parallax-front {
+    transform: translateZ(0);
+  }
+}
+
+// Mouse tracking element
+.mouse-tracking {
+  transition: transform $duration-300 ease;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+// Marquee animation
+.marquee {
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+  
+  &__content {
+    display: inline-block;
+    animation: marquee 15s linear infinite;
+    padding-right: 2rem;
+  }
+  
+  &:hover .marquee__content {
+    animation-play-state: paused;
+  }
+}
+
+@keyframes marquee {
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-100%, 0, 0); }
+}
+
+// Particle background effect
+.particle-bg {
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    background-image: 
+      radial-gradient(circle at 10% 20%, rgba(255,255,255,0.03) 0%, transparent 10%),
+      radial-gradient(circle at 30% 70%, rgba(255,255,255,0.02) 0%, transparent 8%),
+      radial-gradient(circle at 50% 40%, rgba(255,255,255,0.03) 0%, transparent 12%),
+      radial-gradient(circle at 70% 30%, rgba(255,255,255,0.02) 0%, transparent 7%),
+      radial-gradient(circle at 90% 80%, rgba(255,255,255,0.03) 0%, transparent 9%);
+    opacity: 0.5;
+    z-index: 0;
+  }
+}
+
+// Content reveal on scroll
+.content-reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity $duration-700 cubic-bezier(0.215, 0.61, 0.355, 1), 
+              transform $duration-700 cubic-bezier(0.215, 0.61, 0.355, 1);
+  
+  &.revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Pulse glow effect
+.pulse-glow {
+  position: relative;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    border-radius: inherit;
+    background: rgba($indigo-500, 0.5);
+    opacity: 0;
+    filter: blur(15px);
+    animation: pulseGlow 2s infinite;
+  }
+}
+
+@keyframes pulseGlow {
+  0% { opacity: 0; transform: scale(0.8); }
+  50% { opacity: 0.3; transform: scale(1.1); }
+  100% { opacity: 0; transform: scale(0.8); }
+}
+
+// Hover effects for buttons
+.btn-hover-effect {
+  position: relative;
+  overflow: hidden;
+  transition: all $duration-300 cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  z-index: 1;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255,255,255,0.3), transparent);
+    transform: translateX(-100%);
+    z-index: -1;
+  }
+  
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: $shadow-primary;
+    
+    &::before {
+      animation: sheen 1s forwards;
+    }
+  }
+}
+
+@keyframes sheen {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+// Border glow effect
+.border-glow {
+  position: relative;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, $indigo-400, $purple-400, $cyan-400, $indigo-400);
+    background-size: 400% 400%;
+    z-index: -1;
+    border-radius: inherit;
+    animation: borderGlow 3s ease-in-out infinite;
+  }
+}
+
+@keyframes borderGlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+// Text effects
+.text-flicker {
+  animation: textFlicker 3s linear infinite;
+}
+
+@keyframes textFlicker {
+  0% { opacity: 1; }
+  52% { opacity: 1; }
+  53% { opacity: 0.8; }
+  54% { opacity: 1; }
+  55% { opacity: 0.9; }
+  56% { opacity: 1; }
+  100% { opacity: 1; }
+}
+
+// Split text reveal
+.split-text {
+  overflow: hidden;
+  position: relative;
+  
+  &__inner {
+    display: block;
+    transform: translateY(100%);
+    transition: transform $duration-700 cubic-bezier(0.19, 1, 0.22, 1);
+  }
+  
+  &.revealed .split-text__inner {
+    transform: translateY(0%);
+  }
+}
+
+// Typewriter effect
+.typewriter {
+  overflow: hidden;
+  border-right: 2px solid var(--text-primary);
+  white-space: nowrap;
+  margin: 0 auto;
+  letter-spacing: 0.05em;
+  animation: 
+    typing 3.5s steps(40, end),
+    blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: var(--text-primary) }
+}
+
+// Scale in animation
+@keyframes scaleIn {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.scale-in {
+  animation: scaleIn $duration-500 cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
+}
+
+// Bounce effect
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-20px); }
+  60% { transform: translateY(-10px); }
+}
+
+.bounce {
+  animation: bounce 2s infinite;
+}
+
+// Loading indicators
+.loading-dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  
+  .dot {
+    width: 8px;
+    height: 8px;
+    background: var(--text-primary);
+    border-radius: 50%;
+    animation: loadingDots 1.4s infinite ease-in-out both;
+    
+    &:nth-child(1) { animation-delay: -0.32s; }
+    &:nth-child(2) { animation-delay: -0.16s; }
+  }
+}
+
+@keyframes loadingDots {
+  0%, 80%, 100% { transform: scale(0); }
+  40% { transform: scale(1); }
+}
+
+// Spinner animation
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid rgba(255,255,255,0.3);
+  border-radius: 50%;
+  border-top-color: var(--text-primary);
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}

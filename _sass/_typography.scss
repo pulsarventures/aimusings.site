@@ -1,12 +1,13 @@
-// Typography styles
+// Typography styles - Enhanced with advanced rendering
 
 body {
   font-family: var(--font-sans);
-  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11", "salt", "ss01", "ss02";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: $neutral-800;
+  color: var(--text-primary);
   line-height: 1.6;
+  text-rendering: optimizeLegibility;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -14,7 +15,24 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.2;
   margin-top: 2rem;
   margin-bottom: 1rem;
-  color: $neutral-900;
+  color: var(--text-primary);
+  transition: font-size 0.3s ease, line-height 0.3s ease;
+}
+
+// Enhanced heading variants
+.heading-large {
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+.heading-medium {
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.heading-small {
+  font-weight: 600;
+  letter-spacing: -0.01em;
 }
 
 h1 {
@@ -48,6 +66,19 @@ p {
   margin-bottom: $spacing-6;
 }
 
+// Display headings with fluid typography and enhanced styling
+.display-1, .display-2, .display-3, .display-4, .display-5, .display-6 {
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(to right, var(--text-primary), var(--text-secondary));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  position: relative;
+  z-index: 1;
+}
+
 .display-3 {
   font-weight: 800;
   line-height: 1.15;
@@ -74,22 +105,85 @@ p {
   font-size: var(--font-size-lg);
   font-weight: 400;
   line-height: 1.6;
+  margin-bottom: 1.5rem;
+  opacity: 0.9;
 
   @media (max-width: $breakpoint-md) {
     font-size: var(--font-size-base);
   }
+  
+  // Enhanced lead variants
+  &-large {
+    font-size: var(--font-size-xl);
+    line-height: 1.5;
+    
+    @media (max-width: $breakpoint-md) {
+      font-size: var(--font-size-lg);
+    }
+  }
+  
+  &-tight {
+    line-height: 1.4;
+    letter-spacing: -0.01em;
+  }
 }
 
+// Text emphasis variations
+.text-emphasis {
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.text-caption {
+  font-size: var(--font-size-sm);
+  letter-spacing: 0.02em;
+  opacity: 0.8;
+}
+
+// Gradient text headings with enhanced styling
 .heading-text {
   font-weight: 700;
-  background: linear-gradient(90deg, $purple-600 0%, $blue-600 100%);
+  background: linear-gradient(90deg, $purple-400 0%, $indigo-400 50%, $blue-400 100%);
+  background-size: 200% auto;
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
+  animation: headingGradient 6s ease infinite;
+  position: relative;
+  display: inline-block;
+  
+  &::after {
+    content: attr(data-text);
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.1);
+  }
 }
 
+@keyframes headingGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+// Enhanced monospace text styling
 code, pre, kbd {
   font-family: var(--font-mono);
+  font-variant-ligatures: none;
+}
+
+kbd {
+  display: inline-block;
+  padding: 0.2em 0.4em;
+  font-size: 0.85em;
+  color: var(--text-primary);
+  background-color: var(--bg-tertiary);
+  border-radius: 3px;
+  border: 1px solid var(--border-primary);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
 
 pre {

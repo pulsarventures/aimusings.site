@@ -1,0 +1,724 @@
+// Enhanced Components for better visual hierarchy
+
+// Section headings with visual indicators
+.section-heading {
+  position: relative;
+  margin-bottom: $spacing-10;
+  padding-bottom: $spacing-4;
+  text-align: center;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(to right, $indigo-400, $purple-500);
+    border-radius: $radius-full;
+  }
+  
+  &--left {
+    text-align: left;
+    
+    &::after {
+      left: 0;
+      transform: none;
+    }
+  }
+  
+  &--right {
+    text-align: right;
+    
+    &::after {
+      left: auto;
+      right: 0;
+      transform: none;
+    }
+  }
+  
+  &--no-line {
+    &::after {
+      display: none;
+    }
+  }
+  
+  &__subtitle {
+    font-size: var(--font-size-lg);
+    margin-top: $spacing-2;
+    color: var(--text-secondary);
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+// Feature cards with enhanced visuals
+.feature-card {
+  position: relative;
+  padding: $spacing-6;
+  background-color: var(--bg-secondary);
+  border-radius: $radius-lg;
+  transition: all $duration-300 cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  border: 1px solid var(--border-primary);
+  overflow: hidden;
+  z-index: 1;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(to right, $indigo-500, $purple-500);
+    z-index: 2;
+    opacity: 0;
+    transition: opacity $duration-300 ease;
+  }
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: $shadow-lg;
+    
+    &::before {
+      opacity: 1;
+    }
+    
+    .feature-card__icon {
+      transform: translateY(-5px);
+      color: $indigo-400;
+    }
+  }
+  
+  &__icon {
+    font-size: 2.5rem;
+    margin-bottom: $spacing-4;
+    color: $indigo-500;
+    transition: all $duration-300 ease;
+    position: relative;
+    z-index: 2;
+    
+    &--outline {
+      width: 80px;
+      height: 80px;
+      border-radius: $radius-full;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid rgba($indigo-500, 0.3);
+      margin-bottom: $spacing-6;
+    }
+    
+    &--gradient {
+      background: linear-gradient(to right bottom, $indigo-400, $purple-500);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  }
+  
+  &__title {
+    font-weight: 600;
+    margin-bottom: $spacing-3;
+    color: var(--text-primary);
+    position: relative;
+    z-index: 2;
+  }
+  
+  &__description {
+    color: var(--text-secondary);
+    margin-bottom: $spacing-4;
+    position: relative;
+    z-index: 2;
+  }
+  
+  &__link {
+    display: inline-flex;
+    align-items: center;
+    color: $indigo-500;
+    font-weight: 500;
+    position: relative;
+    z-index: 2;
+    
+    svg, i {
+      margin-left: $spacing-2;
+      transition: transform $duration-200 ease;
+    }
+    
+    &:hover svg,
+    &:hover i {
+      transform: translateX(3px);
+    }
+  }
+}
+
+// Testimonial card with better visual hierarchy
+.testimonial-card {
+  padding: $spacing-6;
+  background-color: var(--bg-secondary);
+  border-radius: $radius-lg;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--border-primary);
+  
+  &::before {
+    content: '\201C'; // Opening quote
+    position: absolute;
+    top: -10px;
+    left: 10px;
+    font-size: 8rem;
+    font-family: Georgia, serif;
+    color: rgba($indigo-500, 0.1);
+    line-height: 1;
+    z-index: 0;
+  }
+  
+  &__content {
+    position: relative;
+    z-index: 1;
+    font-style: italic;
+    margin-bottom: $spacing-4;
+  }
+  
+  &__author {
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+    
+    &-image {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin-right: $spacing-3;
+      border: 2px solid $indigo-400;
+      
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+    
+    &-name {
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: $spacing-1;
+      line-height: 1.2;
+    }
+    
+    &-title {
+      font-size: var(--font-size-sm);
+      color: var(--text-secondary);
+      line-height: 1.2;
+    }
+  }
+}
+
+// Call to action banner with enhanced visual impact
+.cta-banner {
+  background: linear-gradient(135deg, $indigo-600, $purple-600);
+  border-radius: $radius-lg;
+  padding: $spacing-10;
+  color: white;
+  position: relative;
+  overflow: hidden;
+  margin: $spacing-12 0;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
+    z-index: 0;
+  }
+  
+  &__content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  &__title {
+    font-size: var(--font-size-3xl);
+    font-weight: 700;
+    margin-bottom: $spacing-4;
+  }
+  
+  &__description {
+    font-size: var(--font-size-lg);
+    margin-bottom: $spacing-6;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  &__actions {
+    display: flex;
+    gap: $spacing-4;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}
+
+// Stat card with visual emphasis
+.stat-card {
+  background-color: var(--bg-secondary);
+  border-radius: $radius-lg;
+  padding: $spacing-6;
+  text-align: center;
+  border: 1px solid var(--border-primary);
+  transition: all $duration-300 ease;
+  
+  &:hover {
+    transform: translateY(-5px);
+    border-color: var(--border-accent);
+    box-shadow: $shadow-primary;
+  }
+  
+  &__value {
+    font-size: var(--font-size-4xl);
+    font-weight: 700;
+    margin-bottom: $spacing-2;
+    background: linear-gradient(to right, $indigo-400, $purple-500);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    line-height: 1.1;
+  }
+  
+  &__label {
+    color: var(--text-secondary);
+    font-size: var(--font-size-base);
+    margin-bottom: 0;
+  }
+}
+
+// Timeline component for visual storytelling
+.timeline {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: $spacing-4 0;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent, var(--border-primary), transparent);
+    
+    @media (max-width: $breakpoint-md) {
+      left: 30px;
+    }
+  }
+  
+  &__item {
+    position: relative;
+    width: 50%;
+    padding: $spacing-4;
+    box-sizing: border-box;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background-color: $indigo-500;
+      top: 15px;
+      right: -10px;
+      border: 4px solid var(--bg-primary);
+      
+      @media (max-width: $breakpoint-md) {
+        right: auto;
+        left: 20px;
+      }
+    }
+    
+    &:nth-child(odd) {
+      left: 0;
+      padding-right: $spacing-10;
+      
+      @media (max-width: $breakpoint-md) {
+        left: 0;
+        padding-left: $spacing-10;
+        width: 100%;
+      }
+    }
+    
+    &:nth-child(even) {
+      left: 50%;
+      padding-left: $spacing-10;
+      
+      &::after {
+        left: -10px;
+        right: auto;
+      }
+      
+      @media (max-width: $breakpoint-md) {
+        left: 0;
+        padding-left: $spacing-10;
+        width: 100%;
+        
+        &::after {
+          left: 20px;
+        }
+      }
+    }
+    
+    &__content {
+      background-color: var(--bg-secondary);
+      padding: $spacing-4;
+      border-radius: $radius-lg;
+      box-shadow: $shadow-md;
+      border: 1px solid var(--border-primary);
+      transition: all $duration-300 ease;
+      
+      &:hover {
+        transform: translateY(-5px);
+        box-shadow: $shadow-lg;
+        border-color: $indigo-500;
+      }
+    }
+    
+    &__date {
+      font-size: var(--font-size-sm);
+      color: $indigo-500;
+      font-weight: 600;
+      margin-bottom: $spacing-2;
+    }
+    
+    &__title {
+      font-weight: 600;
+      margin-bottom: $spacing-2;
+    }
+    
+    &__description {
+      color: var(--text-secondary);
+    }
+  }
+}
+
+// Progress steps with enhanced visuals
+.progress-steps {
+  display: flex;
+  max-width: 1000px;
+  margin: 0 auto;
+  position: relative;
+  justify-content: space-between;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 15px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: var(--border-primary);
+    z-index: 0;
+  }
+  
+  @media (max-width: $breakpoint-md) {
+    flex-direction: column;
+    gap: $spacing-8;
+    
+    &::before {
+      top: 0;
+      bottom: 0;
+      right: auto;
+      left: 15px;
+      width: 2px;
+      height: auto;
+    }
+  }
+  
+  &__step {
+    flex: 1;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    
+    @media (max-width: $breakpoint-md) {
+      text-align: left;
+      padding-left: $spacing-10;
+    }
+    
+    &.active {
+      .progress-steps__step-indicator {
+        background-color: $indigo-500;
+        border-color: $indigo-300;
+        
+        &::before {
+          transform: translate(-50%, -50%) scale(1);
+          opacity: 1;
+        }
+      }
+      
+      .progress-steps__step-title {
+        color: $indigo-500;
+        font-weight: 600;
+      }
+    }
+    
+    &.completed {
+      .progress-steps__step-indicator {
+        background-color: $indigo-500;
+        border-color: $indigo-300;
+        
+        &::before {
+          opacity: 1;
+          transform: translate(-50%, -50%) scale(0.6);
+        }
+        
+        &::after {
+          content: '✓';
+          color: white;
+          font-size: 14px;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+        }
+      }
+    }
+    
+    &-indicator {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background-color: var(--bg-secondary);
+      border: 2px solid var(--border-primary);
+      display: inline-flex;
+      position: relative;
+      margin-bottom: $spacing-3;
+      transition: all $duration-300 ease;
+      
+      &::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0);
+        width: 60%;
+        height: 60%;
+        border-radius: 50%;
+        background-color: rgba(255, 255, 255, 0.8);
+        opacity: 0;
+        transition: all $duration-300 ease;
+      }
+      
+      @media (max-width: $breakpoint-md) {
+        position: absolute;
+        top: 0;
+        left: 0;
+        margin-bottom: 0;
+      }
+    }
+    
+    &-title {
+      font-weight: 500;
+      margin-bottom: $spacing-2;
+      transition: all $duration-300 ease;
+    }
+    
+    &-description {
+      font-size: var(--font-size-sm);
+      color: var(--text-secondary);
+      max-width: 200px;
+      margin: 0 auto;
+      
+      @media (max-width: $breakpoint-md) {
+        max-width: none;
+        margin: 0;
+      }
+    }
+  }
+}
+
+// Floating label form inputs for better UX
+.form-group {
+  position: relative;
+  margin-bottom: $spacing-5;
+  
+  &__label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: var(--font-size-sm);
+    color: var(--text-tertiary);
+    padding: $spacing-3 $spacing-4;
+    pointer-events: none;
+    transition: all $duration-200 ease;
+  }
+  
+  &__input {
+    width: 100%;
+    padding: $spacing-3 $spacing-4;
+    border: 1px solid var(--border-primary);
+    border-radius: $radius-md;
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+    font-size: var(--font-size-base);
+    transition: all $duration-200 ease;
+    
+    &:focus {
+      outline: none;
+      border-color: $indigo-500;
+      box-shadow: 0 0 0 2px rgba($indigo-500, 0.2);
+      
+      & + .form-group__label {
+        transform: translateY(-22px) scale(0.85);
+        padding: 0 $spacing-1;
+        color: $indigo-500;
+        background-color: var(--bg-primary);
+      }
+    }
+    
+    &:not(:placeholder-shown) + .form-group__label {
+      transform: translateY(-22px) scale(0.85);
+      padding: 0 $spacing-1;
+      background-color: var(--bg-primary);
+    }
+  }
+  
+  &__error {
+    position: absolute;
+    bottom: -18px;
+    left: 0;
+    font-size: var(--font-size-xs);
+    color: #e53e3e;
+  }
+  
+  &--focus {
+    .form-group__label {
+      transform: translateY(-22px) scale(0.85);
+      padding: 0 $spacing-1;
+      color: $indigo-500;
+      background-color: var(--bg-primary);
+    }
+    
+    .form-group__input {
+      border-color: $indigo-500;
+      box-shadow: 0 0 0 2px rgba($indigo-500, 0.2);
+    }
+  }
+}
+
+// Enhanced tabs with better visual hierarchy
+.custom-tabs {
+  margin-bottom: $spacing-8;
+  
+  &__nav {
+    display: flex;
+    gap: $spacing-2;
+    border-bottom: 1px solid var(--border-primary);
+    margin-bottom: $spacing-6;
+    flex-wrap: wrap;
+    
+    &-item {
+      padding: $spacing-3 $spacing-4;
+      color: var(--text-secondary);
+      font-weight: 500;
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -1px;
+      transition: all $duration-200 ease;
+      
+      &:hover {
+        color: $indigo-500;
+      }
+      
+      &.active {
+        color: $indigo-500;
+        border-bottom-color: $indigo-500;
+      }
+    }
+  }
+  
+  &__content {
+    &-pane {
+      display: none;
+      
+      &.active {
+        display: block;
+        animation: fadeIn $duration-500 ease;
+      }
+    }
+  }
+}
+
+// Accordion with better visual feedback
+.custom-accordion {
+  margin-bottom: $spacing-8;
+  
+  &__item {
+    border: 1px solid var(--border-primary);
+    border-radius: $radius-lg;
+    overflow: hidden;
+    margin-bottom: $spacing-3;
+    
+    &-header {
+      padding: $spacing-4;
+      background-color: var(--bg-secondary);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: all $duration-200 ease;
+      
+      &:hover {
+        background-color: rgba($indigo-500, 0.05);
+      }
+      
+      h3 {
+        margin: 0;
+        font-size: var(--font-size-base);
+        font-weight: 600;
+        color: var(--text-primary);
+      }
+      
+      .icon {
+        transition: transform $duration-300 ease;
+      }
+    }
+    
+    &-body {
+      padding: 0;
+      max-height: 0;
+      overflow: hidden;
+      transition: all $duration-300 ease;
+      
+      &-content {
+        padding: $spacing-4;
+        border-top: 1px solid var(--border-primary);
+      }
+    }
+    
+    &.active {
+      .custom-accordion__item-header {
+        background-color: rgba($indigo-500, 0.05);
+        
+        .icon {
+          transform: rotate(180deg);
+        }
+      }
+      
+      .custom-accordion__item-body {
+        max-height: 300px;
+        overflow-y: auto;
+      }
+    }
+  }
+}
