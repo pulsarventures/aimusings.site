@@ -1,38 +1,64 @@
-// Theme styles - Simple and working
+// Theme styles and color modes - Updated for AI Workshop Series design
 
-// Dark theme (default)
+// Light theme (default) - Updated for modern dark theme
 :root {
+  // Background colors - Dark theme as default
   --bg-primary: #{$neutral-900};
   --bg-secondary: #{$neutral-800};
   --bg-tertiary: #{$neutral-700};
   --bg-accent: #{$indigo-600};
+  
+  // Text colors
   --text-primary: #{$neutral-50};
   --text-secondary: #{$neutral-300};
   --text-tertiary: #{$neutral-400};
   --text-on-accent: #{$light-color};
+  
+  // Border colors
   --border-primary: #{$neutral-700};
   --border-secondary: #{$neutral-600};
+  
+  // Shadow colors
   --shadow-color: rgba(0, 0, 0, 0.3);
   --shadow-color-darker: rgba(0, 0, 0, 0.5);
 }
 
-// Light theme
-[data-theme="light"] {
-  --bg-primary: #{$neutral-50};
-  --bg-secondary: #{$neutral-100};
-  --bg-tertiary: #{$neutral-200};
+// Dark theme (keeping for consistency)
+[data-theme="dark"] {
+  // Background colors
+  --bg-primary: #{$neutral-900};
+  --bg-secondary: #{$neutral-800};
+  --bg-tertiary: #{$neutral-700};
   --bg-accent: #{$indigo-600};
-  --text-primary: #{$neutral-900};
-  --text-secondary: #{$neutral-700};
-  --text-tertiary: #{$neutral-500};
+  
+  // Text colors
+  --text-primary: #{$neutral-50};
+  --text-secondary: #{$neutral-300};
+  --text-tertiary: #{$neutral-400};
   --text-on-accent: #{$light-color};
-  --border-primary: #{$neutral-300};
-  --border-secondary: #{$neutral-400};
-  --shadow-color: rgba(0, 0, 0, 0.1);
-  --shadow-color-darker: rgba(0, 0, 0, 0.2);
+  
+  // Border colors
+  --border-primary: #{$neutral-700};
+  --border-secondary: #{$neutral-600};
+  
+  // Shadow colors
+  --shadow-color: rgba(0, 0, 0, 0.3);
+  --shadow-color-darker: rgba(0, 0, 0, 0.5);
 }
 
-// Navbar
+// Component overrides for dark theme
+.card {
+  background-color: var(--bg-secondary);
+  border-color: var(--border-primary);
+  color: var(--text-primary);
+}
+
+.btn-light {
+  background-color: var(--bg-tertiary);
+  border-color: var(--border-primary);
+  color: var(--text-primary);
+}
+
 .navbar {
   background-color: rgba(15, 23, 42, 0.95) !important;
   backdrop-filter: blur(10px);
@@ -64,10 +90,10 @@
   }
 }
 
-// Theme toggle
+// Theme toggle functionality
 .theme-toggle {
   position: fixed;
-  top: 20px;
+  bottom: 20px;
   right: 20px;
   background-color: var(--bg-secondary);
   color: var(--text-primary);
@@ -89,14 +115,14 @@
   }
 }
 
-// Body theme
+// Theme transition
 body {
   transition: background-color $duration-500 ease, color $duration-500 ease;
   background-color: var(--bg-primary);
   color: var(--text-primary);
 }
 
-// Gradients
+// Brand colors and gradients - Updated for AI Workshop Series
 .bg-gradient-primary {
   background: linear-gradient(135deg, #{$indigo-600} 0%, #{$purple-600} 100%);
 }
@@ -123,7 +149,7 @@ body {
   -webkit-text-fill-color: transparent;
 }
 
-// Section themes
+// Section themes - Updated for AI Workshop Series
 .section-light {
   background-color: var(--bg-secondary);
   color: var(--text-primary);
@@ -144,7 +170,7 @@ body {
   color: var(--text-on-accent);
 }
 
-// Utility classes
+// Additional utility classes for AI Workshop Series design
 .glass-effect {
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
@@ -161,22 +187,5 @@ body {
   &:hover {
     transform: translateY(-5px);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-  }
-}
-
-// Back to top button
-#back-to-top {
-  background-color: var(--bg-accent) !important;
-  color: var(--text-on-accent) !important;
-  border: none !important;
-  
-  &:hover {
-    background-color: var(--bg-accent) !important;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
-  }
-  
-  i {
-    color: inherit !important;
   }
 }

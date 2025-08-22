@@ -506,29 +506,20 @@ initLazyLoading();
 // Back to top button
 function initBackToTop() {
     const backToTopBtn = document.createElement('button');
-    backToTopBtn.innerHTML = '<i class="fas fa-chevron-up"></i>';
-    backToTopBtn.className = 'btn btn-primary position-fixed d-flex align-items-center justify-content-center';
-    backToTopBtn.style.cssText = 'bottom: 20px; right: 20px; z-index: 1000; display: none; width: 50px; height: 50px; border-radius: 50%; box-shadow: 0 4px 12px rgba(0,0,0,0.15);';
+    backToTopBtn.innerHTML = '<i class="fas fa-arrow-up"></i>';
+    backToTopBtn.className = 'btn btn-primary position-fixed';
+    backToTopBtn.style.cssText = 'bottom: 20px; right: 20px; z-index: 1000; display: none; width: 50px; height: 50px; border-radius: 50%;';
     backToTopBtn.id = 'back-to-top';
     
     document.body.appendChild(backToTopBtn);
     
-    // Function to check scroll position
-    function checkScrollPosition() {
+    window.addEventListener('scroll', debounce(() => {
         if (window.scrollY > 300) {
-            backToTopBtn.style.display = 'flex';
+            backToTopBtn.style.display = 'block';
         } else {
             backToTopBtn.style.display = 'none';
         }
-    }
-    
-    // Check initial position
-    checkScrollPosition();
-    
-    // Add scroll listener
-    window.addEventListener('scroll', () => {
-        checkScrollPosition();
-    });
+    }, 100));
     
     backToTopBtn.addEventListener('click', () => {
         window.scrollTo({
@@ -548,14 +539,14 @@ function initThemeToggle() {
     themeToggleBtn.className = 'theme-toggle';
     themeToggleBtn.innerHTML = '<i class="fas fa-moon"></i>';
     themeToggleBtn.ariaLabel = 'Toggle dark mode';
-    themeToggleBtn.title = 'Toggle theme (Light/Dark)';
     document.body.appendChild(themeToggleBtn);
     
-    // Check for saved theme preference
+    // Check for saved theme preference or respect OS preference
+    const prefersDarkTheme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
     const savedTheme = localStorage.getItem('theme');
     
     // Apply theme based on preference
-    if (savedTheme === 'dark') {
+    if (savedTheme === 'dark' || (!savedTheme && prefersDarkTheme)) {
         document.documentElement.setAttribute('data-theme', 'dark');
         themeToggleBtn.innerHTML = '<i class="fas fa-sun"></i>';
     }
@@ -573,10 +564,48 @@ function initThemeToggle() {
             localStorage.setItem('theme', 'dark');
             themeToggleBtn.innerHTML = '<i class="fas fa-sun"></i>';
         }
+        
+        // Animation effect for theme change
+        const ripple = document.createElement('div');
+        ripple.className = 'theme-toggle-ripple';
+        document.body.appendChild(ripple);
+        
+        // Animate ripple
+        setTimeout(() => {
+            ripple.style.transform = 'scale(150)';
+            ripple.style.opacity = '0';
+            
+            // Remove ripple
+            setTimeout(() => {
+                document.body.removeChild(ripple);
+            }, 1000);
+        }, 10);
     });
+    
+    // Add ripple style
+    const style = document.createElement('style');
+    style.textContent = `
+        .theme-toggle-ripple {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: var(--bg-primary);
+            transform: scale(0);
+            opacity: 0.5;
+            z-index: 9999;
+            pointer-events: none;
+            transition: transform 1s ease, opacity 1s ease;
+        }
+    `;
+    document.head.appendChild(style);
 }
 
-// Page transitions - Improved for smoother navigation
+// Page transitions
 function initPageTransitions() {
     // Only proceed if the browser supports the History API
     if (!window.history || !window.history.pushState) return;
@@ -600,32 +629,89 @@ function initPageTransitions() {
             
             e.preventDefault();
             
-            // Add loading state to the clicked link
-            this.style.pointerEvents = 'none';
-            this.style.opacity = '0.7';
+            // Create transition overlay
+            const overlay = document.createElement('div');
+            overlay.className = 'page-transition-overlay';
+            document.body.appendChild(overlay);
             
-            // Smooth fade out
-            document.body.style.opacity = '0.8';
-            document.body.style.transition = 'opacity 0.2s ease-out';
+            // Animation
+            overlay.style.opacity = '0';
+            overlay.style.transform = 'translateY(100%)';
             
-            // Navigate after a brief delay
             setTimeout(() => {
-                window.location.href = href;
-            }, 150);
+                overlay.style.opacity = '1';
+                overlay.style.transform = 'translateY(0)';
+                
+                // Navigate after animation completes
+                setTimeout(() => {
+                    window.location.href = href;
+                }, 500);
+            }, 10);
         });
     });
     
-    // Smooth fade in on page load
-    window.addEventListener('load', () => {
-        document.body.style.opacity = '1';
-        document.body.style.transition = 'opacity 0.3s ease-in';
+    // Add overlay style
+    const style = document.createElement('style');
+    style.textContent = `
+        .page-transition-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--bg-primary);
+            z-index: 9999;
+            transition: opacity 0.5s ease, transform 0.5s ease;
+            pointer-events: none;
+        }
+        
+        body.page-transitioning {
+            overflow: hidden;
+        }
+    `;
+    document.head.appendChild(style);
+    
+    // Handle back button
+    window.addEventListener('popstate', () => {
+        // Create reverse transition
+        const overlay = document.createElement('div');
+        overlay.className = 'page-transition-overlay';
+        overlay.style.opacity = '1';
+        overlay.style.transform = 'translateY(0)';
+        document.body.appendChild(overlay);
+        
+        // Fade out
+        setTimeout(() => {
+            overlay.style.opacity = '0';
+            overlay.style.transform = 'translateY(-100%)';
+            
+            // Remove overlay
+            setTimeout(() => {
+                document.body.removeChild(overlay);
+            }, 500);
+        }, 10);
     });
     
-    // Handle browser back/forward buttons
-    window.addEventListener('popstate', () => {
-        document.body.style.opacity = '0.8';
+    // Handle initial page load
+    window.addEventListener('load', () => {
+        // Create initial transition
+        const overlay = document.createElement('div');
+        overlay.className = 'page-transition-overlay';
+        overlay.style.opacity = '1';
+        overlay.style.transform = 'translateY(0)';
+        document.body.appendChild(overlay);
+        
+        // Fade out
         setTimeout(() => {
-            window.location.reload();
-        }, 100);
+            overlay.style.opacity = '0';
+            overlay.style.transform = 'translateY(-100%)';
+            
+            // Remove overlay
+            setTimeout(() => {
+                if (document.body.contains(overlay)) {
+                    document.body.removeChild(overlay);
+                }
+            }, 500);
+        }, 300);
     });
 }
