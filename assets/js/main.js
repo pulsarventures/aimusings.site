@@ -507,17 +507,16 @@ initLazyLoading();
 function initBackToTop() {
     const backToTopBtn = document.createElement('button');
     backToTopBtn.innerHTML = '<i class="fas fa-arrow-up"></i>';
-    backToTopBtn.className = 'btn btn-primary position-fixed';
-    backToTopBtn.style.cssText = 'bottom: 20px; right: 20px; z-index: 1000; display: none; width: 50px; height: 50px; border-radius: 50%;';
+    backToTopBtn.className = 'scroll-to-top';
     backToTopBtn.id = 'back-to-top';
     
     document.body.appendChild(backToTopBtn);
     
     window.addEventListener('scroll', debounce(() => {
         if (window.scrollY > 300) {
-            backToTopBtn.style.display = 'block';
+            backToTopBtn.classList.add('visible');
         } else {
-            backToTopBtn.style.display = 'none';
+            backToTopBtn.classList.remove('visible');
         }
     }, 100));
     

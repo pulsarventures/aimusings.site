@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(bundle exec:*)",
+      "WebFetch(domain:www.tixtree.com)",
+      "Bash(mkdir:*)"
+    ],
+    "defaultMode": "acceptEdits"
+  }
+}

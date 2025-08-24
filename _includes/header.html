@@ -10,20 +10,33 @@
         
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
-                <li class="nav-item" data-animate="fadeDown" data-delay="100">
-                    <a class="nav-link {% if page.url contains '/products' %}active{% endif %}" href="{{ '/products' | relative_url }}">Products</a>
+                <li class="nav-item dropdown" data-animate="fadeDown" data-delay="100">
+                    <a class="nav-link dropdown-toggle" href="#" id="aboutDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        About
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="aboutDropdown">
+                        <li><a class="dropdown-item" href="#why-different">Why</a></li>
+                        <li><a class="dropdown-item" href="#who-should-attend">Audience</a></li>
+                        <li><a class="dropdown-item" href="#instructors">Instructors</a></li>
+                        <li><a class="dropdown-item" href="#faq">FAQ</a></li>
+                    </ul>
                 </li>
-                <li class="nav-item" data-animate="fadeDown" data-delay="200">
-                    <a class="nav-link {% if page.url contains '/services' %}active{% endif %}" href="{{ '/services' | relative_url }}">Services</a>
+                <li class="nav-item dropdown" data-animate="fadeDown" data-delay="200">
+                    <a class="nav-link dropdown-toggle" href="#" id="workshopDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Workshop
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="workshopDropdown">
+                        <li><a class="dropdown-item" href="#agenda">Agenda</a></li>
+                        <li><a class="dropdown-item" href="#tools">Tools</a></li>
+                        <li><a class="dropdown-item" href="#resources">Resources</a></li>
+                        <li><a class="dropdown-item" href="#register">Schedule</a></li>
+                    </ul>
                 </li>
                 <li class="nav-item" data-animate="fadeDown" data-delay="300">
-                    <a class="nav-link {% if page.url contains '/about' %}active{% endif %}" href="{{ '/about' | relative_url }}">About</a>
+                    <a class="nav-link" href="#success-stories">Testimonials</a>
                 </li>
                 <li class="nav-item" data-animate="fadeDown" data-delay="400">
-                    <a class="nav-link {% if page.url contains '/blog' %}active{% endif %}" href="{{ '/blog' | relative_url }}">Blog</a>
-                </li>
-                <li class="nav-item" data-animate="fadeDown" data-delay="500">
-                    <a class="nav-link btn btn-primary btn-sm text-white ms-lg-3 px-4 {% if page.url contains '/contact' %}active{% endif %}" href="{{ '/contact' | relative_url }}">Get Started</a>
+                    <a class="nav-link btn btn-primary btn-sm text-white ms-lg-3 px-4" href="https://www.tixtree.com/e/accelerate-your-ai-game-learn-build-apply-75e5867f7ffd" target="_blank">Register Now</a>
                 </li>
             </ul>
         </div>
