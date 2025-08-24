@@ -84,6 +84,47 @@
   }
 }
 
+// Mobile-specific dropdown behavior
+@media (max-width: 991.98px) {
+  .navbar-nav .dropdown-menu {
+    position: static !important;
+    float: none;
+    width: 100%;
+    margin-top: 0;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    background-color: transparent;
+    
+    .dropdown-item {
+      padding: 0.5rem 1rem;
+      color: var(--text-primary);
+      border-bottom: 1px solid var(--border-secondary);
+      
+      &:hover {
+        background-color: var(--bg-secondary);
+        color: var(--text-highlight);
+      }
+      
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+  }
+  
+  // Hide dropdown arrows on mobile
+  .navbar-nav .dropdown-toggle::after {
+    display: none;
+  }
+  
+  // Make dropdown items look like regular nav items on mobile
+  .navbar-nav .dropdown-item {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+  }
+}
+
 .hero-section {
   background: linear-gradient(135deg, #{$indigo-600} 0%, #{$purple-600} 50%, #{$cyan-600} 100%);
   color: white;
@@ -241,82 +282,52 @@ body {
   box-shadow: $shadow-md;
 }
 
-// Text effects
-.text-glow {
-  text-shadow: 0 0 20px rgba(99, 102, 241, 0.5);
-}
-
-.text-stroke {
-  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.2);
-}
-
-// Enhanced hover effects for cards
+// Enhanced card hover effects
 .card-hover {
   transition: all $duration-300 ease;
-  transform-style: preserve-3d;
-  perspective: 1000px;
   
   &:hover {
-    transform: translateY(-8px) rotate3d(1, 1, 0, 2deg);
-    box-shadow: $shadow-primary, 0 20px 40px rgba(0, 0, 0, 0.3);
+    transform: translateY(-5px);
+    box-shadow: $shadow-xl;
   }
 }
 
-// Button effects
-.btn-glow {
-  position: relative;
-  overflow: hidden;
+// Animated text effects
+.text-glow {
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.7);
+}
+
+.text-animate {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.8; }
+  100% { opacity: 1; }
+}
+
+// Advanced button styles
+.btn-glass {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  color: white;
   
-  &::before {
-    content: '';
-    position: absolute;
-    top: -2px;
-    left: -2px;
-    right: -2px;
-    bottom: -2px;
-    background: linear-gradient(45deg, #{$indigo-400}, #{$purple-400}, #{$cyan-400}, #{$indigo-400});
-    background-size: 400% 400%;
-    animation: glowingBorder 3s ease-in-out infinite;
-    z-index: -1;
-    border-radius: inherit;
-  }
-  
-  @keyframes glowingBorder {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+  &:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.3);
+    color: white;
   }
 }
 
-// Additional effects
-.frosted {
-  backdrop-filter: blur(15px);
-  background-color: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-}
-
-.image-glow {
-  filter: drop-shadow(0 0 10px rgba(99, 102, 241, 0.5));
-}
-
-.border-animated {
-  position: relative;
+.btn-gradient {
+  background: linear-gradient(135deg, #{$indigo-500} 0%, #{$purple-500} 100%);
+  border: none;
+  color: white;
   
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    animation: pulseBorder 2s infinite;
-  }
-  
-  @keyframes pulseBorder {
-    0% { opacity: 0.2; }
-    50% { opacity: 0.8; }
-    100% { opacity: 0.2; }
+  &:hover {
+    background: linear-gradient(135deg, #{$indigo-600} 0%, #{$purple-600} 100%);
+    color: white;
   }
 }
