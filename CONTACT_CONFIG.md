@@ -72,7 +72,7 @@ The following files now use centralized contact information:
 - `index.html` - Homepage call-to-action buttons
 - `_pages/about.md` - About page contact links
 - `_pages/blog.md` - Blog page social links
-- `_posts/2024-01-15-welcome-to-pulsar-ventures.md` - Blog post contact information
+- `_pages/blog.md` - Blog page social links
 
 ## Adding New Contact Information
 

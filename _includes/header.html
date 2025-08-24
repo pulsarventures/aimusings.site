@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+<nav class="navbar navbar-expand-lg navbar-light fixed-top">
     <div class="container">
         <a class="navbar-brand fw-bold" href="{{ '/' | relative_url }}" data-animate="fadeLeft" data-delay="0">
             <span class="text-gradient-primary">AI</span> Musings
@@ -45,3 +45,33 @@
 
 <!-- Spacer for fixed navbar -->
 <div class="navbar-spacer"></div>
+
+<script>
+// Close mobile menu when dropdown items are clicked
+document.addEventListener('DOMContentLoaded', function() {
+    const dropdownItems = document.querySelectorAll('.dropdown-item');
+    const navbarCollapse = document.querySelector('.navbar-collapse');
+    const navbarToggler = document.querySelector('.navbar-toggler');
+    
+    dropdownItems.forEach(function(item) {
+        item.addEventListener('click', function() {
+            // Close the mobile menu
+            if (navbarCollapse.classList.contains('show')) {
+                navbarCollapse.classList.remove('show');
+                navbarToggler.setAttribute('aria-expanded', 'false');
+            }
+        });
+    });
+    
+    // Also close menu when regular nav links are clicked
+    const navLinks = document.querySelectorAll('.navbar-nav .nav-link:not(.dropdown-toggle)');
+    navLinks.forEach(function(link) {
+        link.addEventListener('click', function() {
+            if (navbarCollapse.classList.contains('show')) {
+                navbarCollapse.classList.remove('show');
+                navbarToggler.setAttribute('aria-expanded', 'false');
+            }
+        });
+    });
+});
+</script>

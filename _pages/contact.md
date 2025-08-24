@@ -59,11 +59,10 @@ Ready to bootstrap your business? We're here to help you accelerate your growth 
                     <label for="service" class="form-label">Service of Interest</label>
                     <select class="form-select" id="service" name="service">
                         <option value="">Select a service...</option>
-                        <option value="consulting">Consulting</option>
-                        <option value="workshops">Workshops</option>
-                        <option value="coaching">Coaching</option>
+                        <option value="workshops">AI Workshops</option>
+                        <option value="consulting">AI Consulting</option>
+                        <option value="coaching">AI Coaching</option>
                         <option value="speaking">Speaking</option>
-                        <option value="products">Products</option>
                         <option value="other">Other</option>
                     </select>
                 </div>

@@ -48,16 +48,40 @@
   background-color: rgba(255, 255, 255, 0.95) !important;
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--border-primary);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .navbar-toggler {
   background-color: var(--bg-tertiary);
-  color: var(--text-primary);
+  border-color: var(--border-primary);
+  
+  &:focus {
+    box-shadow: 0 0 0 0.2rem rgba(99, 102, 241, 0.25);
+  }
 }
 
 .navbar-light .navbar-brand,
 .navbar-light .navbar-nav .nav-link {
   color: var(--text-primary) !important;
+  
+  &:hover {
+    color: var(--text-highlight) !important;
+  }
+}
+
+.navbar-light .navbar-nav .dropdown-menu {
+  background-color: white;
+  border: 1px solid var(--border-primary);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  
+  .dropdown-item {
+    color: var(--text-primary);
+    
+    &:hover {
+      background-color: var(--bg-secondary);
+      color: var(--text-highlight);
+    }
+  }
 }
 
 .hero-section {
