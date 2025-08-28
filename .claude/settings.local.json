@@ -3,7 +3,9 @@
     "allow": [
       "Bash(bundle exec:*)",
       "WebFetch(domain:www.tixtree.com)",
-      "Bash(mkdir:*)"
+      "Bash(mkdir:*)",
+      "Bash(git log:*)",
+      "Bash(git add:*)"
     ],
     "defaultMode": "acceptEdits"
   }

@@ -15,7 +15,7 @@ title: "Accelerate Your AI Game: Learn, Apply, Build in One Immersive Session"
                     A hands-on AI workshop designed for corporate professionals, entrepreneurs, and executives who want to transform their work with practical AI skills.
                 </p>
                 <div class="d-flex gap-3 justify-content-center flex-wrap" data-animate="fadeUp" data-delay="400">
-                    <a href="https://www.tixtree.com/e/accelerate-your-ai-game-learn-build-apply-75e5867f7ffd" class="btn btn-light btn-lg px-5 py-3 fw-semibold" target="_blank">Register for the Next Session</a>
+                    <a href="https://www.tixtree.com/e/accelerate-your-ai-game-learn-build-apply-75e5867f7ffd" class="btn btn-light btn-lg px-5 py-3 fw-semibold" target="_blank">Register for September Workshop</a>
                     <a href="#about" class="btn btn-outline-light btn-lg px-5 py-3 fw-semibold">Explore Workshop Details</a>
                 </div>
             </div>
@@ -66,6 +66,16 @@ title: "Accelerate Your AI Game: Learn, Apply, Build in One Immersive Session"
                 </div>
             </div>
         </div>
+        
+        <!-- Video Section -->
+        <div class="row mt-5 mb-5">
+            <div class="col-lg-8 mx-auto text-center">
+                <div class="ratio ratio-16x9 mb-4" style="max-width: 600px; margin: 0 auto;">
+                    <iframe src="https://www.youtube.com/embed/pU1DiMgk-ZY" title="AI Workshop Testimonials" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="rounded shadow"></iframe>
+                </div>
+            </div>
+        </div>
+        
         <div class="row mt-5">
             <div class="col-lg-8 mx-auto text-center">
                 <p class="lead text-muted mb-4" data-animate="fadeUp">
@@ -89,37 +99,88 @@ title: "Accelerate Your AI Game: Learn, Apply, Build in One Immersive Session"
                 <h2 class="display-5 fw-bold mb-4 text-primary" data-animate="fadeUp">Meet Your Instructors</h2>
             </div>
         </div>
-        <div class="row g-4" data-animate="stagger">
-            <div class="col-lg-6">
-                <div class="card h-100 card-hover glass-effect">
-                    <div class="card-body p-5">
-                        <div class="text-center mb-4">
-                            <img src="{{ '/assets/images/swati.jpeg' | relative_url }}" alt="Swati Jain" class="rounded-circle mb-3" style="width: 80px; height: 80px; object-fit: cover; border: 3px solid var(--primary-color);">
-                            <h3 class="h4 mb-2 text-dark">Swati Jain</h3>
-                            <p class="text-primary fw-semibold mb-2">AI Transformation Leader</p>
-                            <a href="https://www.linkedin.com/in/swatijainatl/" target="_blank" class="text-decoration-none" style="color: #0A66C2 !important;">
-                                <i class="fab fa-linkedin fa-lg me-1"></i>Connect on LinkedIn
-                            </a>
-                        </div>
-                        <p class="text-muted mb-3">With over 20 years in digital product innovation, Swati guides organizations through AI integration strategies that deliver real business outcomes. She's advised Fortune 500 companies and startups alike on implementing AI solutions that solve genuine problems.</p>
-                        <blockquote class="text-muted fst-italic">"My goal is to demystify AI and help you find practical applications that create immediate value in your work."</blockquote>
+        
+        <!-- Instructor Carousel -->
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div id="instructorCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="6000" style="position: relative;">
+                    <!-- Carousel Indicators -->
+                    <div class="carousel-indicators mb-4">
+                        <button type="button" data-bs-target="#instructorCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Team Photo 1"></button>
+                        <button type="button" data-bs-target="#instructorCarousel" data-bs-slide-to="1" aria-label="Team Photo 2"></button>
+                        <button type="button" data-bs-target="#instructorCarousel" data-bs-slide-to="2" aria-label="Swati Jain"></button>
+                        <button type="button" data-bs-target="#instructorCarousel" data-bs-slide-to="3" aria-label="Sree Pradhip"></button>
                     </div>
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="card h-100 card-hover glass-effect">
-                    <div class="card-body p-5">
-                        <div class="text-center mb-4">
-                            <img src="{{ '/assets/images/sree.jpeg' | relative_url }}" alt="Sree Pradhip" class="rounded-circle mb-3" style="width: 80px; height: 80px; object-fit: cover; border: 3px solid var(--primary-color);">
-                            <h3 class="h4 mb-2 text-dark">Sree Pradhip</h3>
-                            <p class="text-primary fw-semibold mb-2">Fractional CTO & Builder</p>
-                            <a href="https://www.linkedin.com/in/sree-pradhip/" target="_blank" class="text-decoration-none" style="color: #0A66C2 !important;">
-                                <i class="fab fa-linkedin fa-lg me-1"></i>Connect on LinkedIn
-                            </a>
+                    
+                    <div class="carousel-inner">
+                        <!-- Team Photo 1 Slide -->
+                        <div class="carousel-item active">
+                            <div class="card glass-effect">
+                                <div class="card-body p-5">
+                                    <div class="text-center">
+                                        <img src="{{ '/assets/images/instructors1.jpeg' | relative_url }}" alt="Swati and Sree - AI Workshop Instructors" class="img-fluid rounded shadow-lg" style="max-height: 400px; object-fit: cover;">
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <p class="text-muted mb-3">Former Amazon leader and Founder of Pulsar Ventures, Sree brings hands-on experience building B2B and B2C products at scale. He specializes in translating complex technical concepts into actionable strategies for non-technical professionals.</p>
-                        <blockquote class="text-muted fst-italic">"I'm passionate about showing people how to build working AI solutions without needing a computer science degree."</blockquote>
+                        
+                        <!-- Team Photo 2 Slide -->
+                        <div class="carousel-item">
+                            <div class="card glass-effect">
+                                <div class="card-body p-5">
+                                    <div class="text-center">
+                                        <img src="{{ '/assets/images/instructors2.jpeg' | relative_url }}" alt="Swati and Sree - AI Workshop Instructors" class="img-fluid rounded shadow-lg" style="max-height: 400px; object-fit: cover;">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Swati's Slide -->
+                        <div class="carousel-item">
+                            <div class="card h-100 card-hover glass-effect">
+                                <div class="card-body p-5">
+                                    <div class="text-center mb-4">
+                                        <img src="{{ '/assets/images/swati.jpeg' | relative_url }}" alt="Swati Jain" class="rounded-circle mb-3" style="width: 120px; height: 120px; object-fit: cover; border: 3px solid var(--primary-color);">
+                                        <h3 class="h4 mb-2 text-dark">Swati Jain</h3>
+                                        <p class="text-primary fw-semibold mb-2">AI Transformation Leader</p>
+                                        <a href="https://www.linkedin.com/in/swatijainatl/" target="_blank" class="text-decoration-none" style="color: #0A66C2 !important;">
+                                            <i class="fab fa-linkedin fa-lg me-1"></i>Connect on LinkedIn
+                                        </a>
+                                    </div>
+                                    <p class="text-muted mb-3">With over 20 years in digital product innovation, Swati guides organizations through AI integration strategies that deliver real business outcomes. She's advised Fortune 500 companies and startups alike on implementing AI solutions that solve genuine problems.</p>
+                                    <blockquote class="text-muted fst-italic">"My goal is to demystify AI and help you find practical applications that create immediate value in your work."</blockquote>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Sree's Slide -->
+                        <div class="carousel-item">
+                            <div class="card h-100 card-hover glass-effect">
+                                <div class="card-body p-5">
+                                    <div class="text-center mb-4">
+                                        <img src="{{ '/assets/images/sree.jpeg' | relative_url }}" alt="Sree Pradhip" class="rounded-circle mb-3" style="width: 120px; height: 120px; object-fit: cover; border: 3px solid var(--primary-color);">
+                                        <h3 class="h4 mb-2 text-dark">Sree Pradhip</h3>
+                                        <p class="text-primary fw-semibold mb-2">Fractional CTO & Builder</p>
+                                        <a href="https://www.linkedin.com/in/sree-pradhip/" target="_blank" class="text-decoration-none" style="color: #0A66C2 !important;">
+                                            <i class="fab fa-linkedin fa-lg me-1"></i>Connect on LinkedIn
+                                        </a>
+                                    </div>
+                                    <p class="text-muted mb-3">Former Amazon leader and Founder of Pulsar Ventures, Sree brings hands-on experience building B2B and B2C products at scale. He specializes in translating complex technical concepts into actionable strategies for non-technical professionals.</p>
+                                    <blockquote class="text-muted fst-italic">"I'm passionate about showing people how to build working AI solutions without needing a computer science degree."</blockquote>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+                    
+                    <!-- Enhanced Carousel Controls -->
+                    <button class="carousel-control-prev" type="button" data-bs-target="#instructorCarousel" data-bs-slide="prev" style="width: 60px; height: 60px; background-color: rgba(0,0,0,0.6); border-radius: 50%; top: 50%; transform: translateY(-50%); left: -30px;">
+                        <span class="carousel-control-prev-icon" aria-hidden="true" style="width: 30px; height: 30px;"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#instructorCarousel" data-bs-slide="next" style="width: 60px; height: 60px; background-color: rgba(0,0,0,0.6); border-radius: 50%; top: 50%; transform: translateY(-50%); right: -30px;">
+                        <span class="carousel-control-next-icon" aria-hidden="true" style="width: 30px; height: 30px;"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
                 </div>
             </div>
         </div>
@@ -651,14 +712,17 @@ title: "Accelerate Your AI Game: Learn, Apply, Build in One Immersive Session"
         <div class="row">
             <div class="col-lg-8 mx-auto text-center mb-5">
                 <h2 class="display-5 fw-bold mb-4 text-primary" data-animate="fadeUp">Upcoming Workshop Sessions</h2>
+                <p class="lead text-muted">September 2025 and October 2025 Workshop Options</p>
             </div>
         </div>
         <div class="row justify-content-center">
             <div class="col-lg-10">
-                <div class="card card-hover glass-effect">
+                <!-- Upcoming Workshop - September 2025 -->
+                <div class="card card-hover glass-effect mb-4">
                     <div class="card-body p-5">
                         <div class="text-center mb-4">
-                            <h3 class="h4 mb-3 text-primary">Three-Part Workshop Series</h3>
+                            <div class="badge bg-primary px-3 py-2 mb-3">🎯 Upcoming Workshop</div>
+                            <h3 class="h4 mb-3 text-primary">Three-Part Workshop Series - September 2025</h3>
                             <p class="text-muted mb-4">Join us for an immersive three-part virtual workshop series designed to take you from AI curious to AI capable.</p>
                         </div>
                         
@@ -698,12 +762,70 @@ title: "Accelerate Your AI Game: Learn, Apply, Build in One Immersive Session"
                         <div class="row mt-4">
                             <div class="col-12 text-center">
                                 <div class="d-flex flex-wrap justify-content-center gap-3 mb-4">
-                                    <span class="badge bg-primary px-3 py-2">📱 Hybrid Format</span>
+                                    <span class="badge bg-primary px-3 py-2">💻 Virtual Format</span>
                                     <span class="badge bg-success px-3 py-2">🎯 Hands-On Learning</span>
                                     <span class="badge bg-info px-3 py-2">👥 Small Group Setting</span>
                                     <span class="badge bg-warning text-dark px-3 py-2">🎁 Bonus AMA Session</span>
                                 </div>
-                                <p class="text-muted mb-3">Experience comprehensive AI training across multiple sessions with dedicated time for Q&A and personalized guidance.</p>
+                                <p class="text-muted mb-4">Experience comprehensive AI training across multiple sessions with dedicated time for Q&A and personalized guidance.</p>
+                                <a href="https://www.tixtree.com/e/accelerate-your-ai-game-learn-build-apply-75e5867f7ffd" class="btn btn-primary btn-lg px-5 py-3 fw-semibold" target="_blank">Register for September 2025 Workshop</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Next Available Workshop - October 2025 -->
+                <div class="card card-hover glass-effect">
+                    <div class="card-body p-5">
+                        <div class="text-center mb-4">
+                            <div class="badge bg-success px-3 py-2 mb-3">🔥 Next Available</div>
+                            <h3 class="h4 mb-3 text-primary">Three-Part Workshop Series - October 2025</h3>
+                            <p class="text-muted mb-4">Join us for an immersive two-part workshop series designed to take you from AI curious to AI capable.</p>
+                        </div>
+                        
+                        <div class="row g-4">
+                            <div class="col-md-4">
+                                <div class="text-center p-3 rounded bg-light">
+                                    <div class="mb-3">
+                                        <i class="fas fa-calendar fa-2x text-primary mb-2"></i>
+                                        <h5 class="text-dark">📅 Session 1</h5>
+                                    </div>
+                                    <p class="text-muted mb-1"><strong class="text-dark">Date:</strong> October 26, 2025</p>
+                                    <p class="text-muted mb-0"><strong class="text-dark">Time:</strong> 6:00 PM – 8:30 PM ET</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="text-center p-3 rounded bg-light">
+                                    <div class="mb-3">
+                                        <i class="fas fa-calendar fa-2x text-primary mb-2"></i>
+                                        <h5 class="text-dark">📅 Session 2</h5>
+                                    </div>
+                                    <p class="text-muted mb-1"><strong class="text-dark">Date:</strong> October 28, 2025</p>
+                                    <p class="text-muted mb-0"><strong class="text-dark">Time:</strong> 6:00 PM – 8:30 PM ET</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="text-center p-3 rounded bg-light">
+                                    <div class="mb-3">
+                                        <i class="fas fa-plus-circle fa-2x text-success mb-2"></i>
+                                        <h5 class="text-dark">➕ AMA/ Office Hours</h5>
+                                    </div>
+                                    <p class="text-muted mb-1"><strong class="text-dark">Date:</strong> November 1, 2025</p>
+                                    <p class="text-muted mb-0"><strong class="text-dark">Time:</strong> 11:00 AM – 12:30 PM ET</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row mt-4">
+                            <div class="col-12 text-center">
+                                <div class="d-flex flex-wrap justify-content-center gap-3 mb-4">
+                                    <span class="badge bg-primary px-3 py-2">💻 Virtual Format</span>
+                                    <span class="badge bg-success px-3 py-2">🎯 Hands-On Learning</span>
+                                    <span class="badge bg-info px-3 py-2">👥 Small Group Setting</span>
+                                    <span class="badge bg-warning text-dark px-3 py-2">🎁 Bonus AMA Session</span>
+                                </div>
+                                <p class="text-muted mb-4">Experience comprehensive AI training across multiple sessions with dedicated time for Q&A and personalized guidance.</p>
+                                <a href="https://www.tixtree.com/e/accelerate-your-ai-game-learn-build-automate-668ea47b6652" class="btn btn-success btn-lg px-5 py-3 fw-semibold" target="_blank">Register for October 2025 Workshop</a>
                             </div>
                         </div>
                     </div>
@@ -713,9 +835,8 @@ title: "Accelerate Your AI Game: Learn, Apply, Build in One Immersive Session"
         <div class="row mt-5">
             <div class="col-lg-8 mx-auto text-center">
                 <p class="text-muted mb-4">
-                    All workshops are limited to <strong class="text-dark">15 participants maximum</strong> to ensure personalized attention and high-quality instruction. We consistently sell out, so early registration is recommended.
+                    All workshops are limited to 15 participants maximum to ensure personalized attention and high-quality instruction. <br> We consistently sell out, so early registration is recommended.
                 </p>
-                <a href="https://www.tixtree.com/e/accelerate-your-ai-game-learn-build-apply-75e5867f7ffd" class="btn btn-primary btn-lg px-5 py-3 fw-semibold" target="_blank">Reserve Your Spot Now</a>
             </div>
         </div>
     </div>
@@ -918,7 +1039,7 @@ title: "Accelerate Your AI Game: Learn, Apply, Build in One Immersive Session"
                     Seats are limited to ensure every participant receives personalized attention and support. Don't miss your chance to join our next session and accelerate your AI journey.
                 </p>
                 <div class="d-flex gap-3 justify-content-center flex-wrap" data-animate="fadeUp" data-delay="400">
-                    <a href="https://www.tixtree.com/e/accelerate-your-ai-game-learn-build-apply-75e5867f7ffd" class="btn btn-light btn-lg px-5 py-3 fw-semibold" target="_blank">Register for the Next Workshop</a>
+                    <a href="https://www.tixtree.com/e/accelerate-your-ai-game-learn-build-apply-75e5867f7ffd" class="btn btn-light btn-lg px-5 py-3 fw-semibold" target="_blank">Register for September Workshop</a>
                     <a href="#contact" class="btn btn-outline-light btn-lg px-5 py-3 fw-semibold">Contact Us With Questions</a>
                 </div>
             </div>
