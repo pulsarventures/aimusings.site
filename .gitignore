@@ -4,3 +4,6 @@ _site/
 .sass-cache/
 vendor/
 node_modules/
+
+# Claude Code settings
+.claude/settings.local.json
