@@ -1,0 +1,34 @@
+---
+layout: null
+---
+# Robots.txt for aimusings.space
+
+User-agent: *
+Allow: /
+Disallow: /assets/js/
+Disallow: /assets/css/
+
+# Sitemap
+Sitemap: {{ site.url }}/sitemap.xml
+
+# Allow AI crawlers to index content
+User-agent: GPTBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
