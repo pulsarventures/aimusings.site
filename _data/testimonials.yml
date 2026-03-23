@@ -1,0 +1,40 @@
+# Testimonials extracted from _includes/head.html structured data
+# All reviews are 5-star ratings from workshop participants
+
+- name: "Karen Cashion"
+  rating: 5
+  text: "It provided the perfect combination of instruction, hands on experience, and tools. Swati's instruction style was highly accessible, and you both did an outstanding job of making AI very understandable to the businessperson or practitioner seeking to get hands on experience."
+  role: "Workshop Participant"
+  date: "2025-08-01"
+
+- name: "Keyuri Yagnik"
+  rating: 5
+  text: "It was refreshing to attend a live session instead of virtual - the energy was high, and I was fully engaged for the entire 5 hours. The selection of tools you introduced was spot on, and your co-presenting was fantastic."
+  role: "Workshop Participant"
+  date: "2025-08-12"
+
+- name: "Kene Illoyenosi"
+  rating: 5
+  text: "This was a resource rich and mind-transforming session as it relates to AI. It's a readers digest version for anyone wanting to understand the big picture of AI and how it can be used for business and personal."
+  role: "Workshop Participant"
+  date: "2025-09-05"
+
+- name: "Sash Dhru"
+  rating: 5
+  text: "These sessions were instrumental in cutting through the haze of the AI landscape. One comes away with a clear understanding of the lay of the land and arms you with enough knowledge to start the journey confidently."
+  role: "Workshop Participant"
+  date: "2025-09-20"
+
+- name: "Pooja Rastogi"
+  rating: 5
+  text: "Well designed and engaging content. Facilitators are smooth, knowledgeable and helpful! Complete value for the buck! This is a great way to get immersed in the top AI Tools and use cases and understand how it can be used for business."
+  role: "Workshop Participant"
+  date: "2025-10-10"
+
+- name: "Jeremy Pryor"
+  rating: 5
+  text: "This was an immersion into AI and it is what I wanted. The knowledge that Swati and Sree have is phenomenal and this course is more than worth the cost. I highly recommend it to anyone who wants to get a better understanding of mainstream AI tools."
+  role: "Workshop Participant"
+  date: "2025-11-05"
+
+# Made with Bob

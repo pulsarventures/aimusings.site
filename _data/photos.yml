@@ -1,0 +1,161 @@
+# Photo gallery organized by pillar
+# All images from assets/images/
+
+# Workshop Photos - Group Photos
+- image: "group1.jpeg"
+  alt: "AI Musings Workshop Group Photo - Cohort 1"
+  caption: "Builder Series Workshop - Cohort 1"
+  pillar: "workshops"
+  level: 200
+  date: "2025-08-01"
+
+- image: "group2.jpeg"
+  alt: "AI Musings Workshop Group Photo - Cohort 2"
+  caption: "Builder Series Workshop - Cohort 2"
+  pillar: "workshops"
+  level: 200
+  date: "2025-08-15"
+
+- image: "group3.jpeg"
+  alt: "AI Musings Workshop Group Photo - Cohort 3"
+  caption: "Builder Series Workshop - Cohort 3"
+  pillar: "workshops"
+  level: 200
+  date: "2025-09-01"
+
+- image: "group3.1.png"
+  alt: "AI Musings Workshop Group Photo - Cohort 3 Session 1"
+  caption: "Builder Series Workshop - Cohort 3 Session 1"
+  pillar: "workshops"
+  level: 200
+  date: "2025-09-01"
+
+- image: "group3.2.png"
+  alt: "AI Musings Workshop Group Photo - Cohort 3 Session 2"
+  caption: "Builder Series Workshop - Cohort 3 Session 2"
+  pillar: "workshops"
+  level: 200
+  date: "2025-09-08"
+
+- image: "group4.jpeg"
+  alt: "AI Musings Workshop Group Photo - Cohort 4"
+  caption: "Builder Series Workshop - Cohort 4"
+  pillar: "workshops"
+  level: 200
+  date: "2025-09-15"
+
+- image: "group5.jpeg"
+  alt: "AI Musings Workshop Group Photo - Cohort 5"
+  caption: "Builder Series Workshop - Cohort 5"
+  pillar: "workshops"
+  level: 200
+  date: "2025-10-01"
+
+- image: "group5.1.jpeg"
+  alt: "AI Musings Workshop Group Photo - Cohort 5 Session 1"
+  caption: "Builder Series Workshop - Cohort 5 Session 1"
+  pillar: "workshops"
+  level: 200
+  date: "2025-10-01"
+
+- image: "group5.2.jpeg"
+  alt: "AI Musings Workshop Group Photo - Cohort 5 Session 2"
+  caption: "Builder Series Workshop - Cohort 5 Session 2"
+  pillar: "workshops"
+  level: 200
+  date: "2025-10-08"
+
+- image: "group5.3.png"
+  alt: "AI Musings Workshop Group Photo - Cohort 5 Session 3"
+  caption: "Builder Series Workshop - Cohort 5 Session 3"
+  pillar: "workshops"
+  level: 200
+  date: "2025-10-15"
+
+- image: "group6.jpeg"
+  alt: "AI Musings Workshop Group Photo - Cohort 6"
+  caption: "Builder Series Workshop - Cohort 6"
+  pillar: "workshops"
+  level: 200
+  date: "2025-11-01"
+
+- image: "group7.jpeg"
+  alt: "AI Musings Workshop Group Photo - Cohort 7"
+  caption: "Builder Series Workshop - Cohort 7"
+  pillar: "workshops"
+  level: 200
+  date: "2025-11-15"
+
+- image: "group8.jpeg"
+  alt: "AI Musings Workshop Group Photo - Cohort 8"
+  caption: "Builder Series Workshop - Cohort 8"
+  pillar: "workshops"
+  level: 200
+  date: "2025-12-01"
+
+# Instructor Photos
+- image: "instructors1.jpeg"
+  alt: "Swati and Sree - AI Musings Instructors"
+  caption: "Your AI Learning Guides - Swati & Sree"
+  pillar: "workshops"
+  featured: true
+
+- image: "instructors2.jpeg"
+  alt: "AI Musings Instructors Teaching"
+  caption: "Hands-on AI Learning Experience"
+  pillar: "workshops"
+  featured: true
+
+# Individual Instructor Photos
+- image: "sree.jpeg"
+  alt: "Sree - AI Musings Co-Founder"
+  caption: "Sree - Technical Lead & Instructor"
+  pillar: "workshops"
+
+- image: "swati.jpeg"
+  alt: "Swati - AI Musings Co-Founder"
+  caption: "Swati - Lead Instructor & Facilitator"
+  pillar: "workshops"
+
+# Workshop Session Photos
+- image: "ws4.1.jpeg"
+  alt: "AI Workshop Session - Hands-on Learning"
+  caption: "Interactive Workshop Session"
+  pillar: "workshops"
+  level: 200
+  date: "2025-09-15"
+
+- image: "ws4.2.jpeg"
+  alt: "AI Workshop Session - Collaborative Learning"
+  caption: "Collaborative Problem Solving"
+  pillar: "workshops"
+  level: 200
+  date: "2025-09-15"
+
+- image: "class7.png"
+  alt: "AI Workshop Class Session"
+  caption: "Engaged Learners in Action"
+  pillar: "workshops"
+  level: 200
+  date: "2025-11-15"
+
+# Event Flyers
+- image: "flyer5.png"
+  alt: "AI Musings Workshop Flyer - Cohort 5"
+  caption: "Workshop Announcement - Cohort 5"
+  pillar: "workshops"
+  date: "2025-10-01"
+
+- image: "flyer6.png"
+  alt: "AI Musings Workshop Flyer - Cohort 6"
+  caption: "Workshop Announcement - Cohort 6"
+  pillar: "workshops"
+  date: "2025-11-01"
+
+- image: "flyer7.png"
+  alt: "AI Musings Workshop Flyer - Cohort 7"
+  caption: "Workshop Announcement - Cohort 7"
+  pillar: "workshops"
+  date: "2025-11-15"
+
+# Made with Bob

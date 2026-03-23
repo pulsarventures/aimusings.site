@@ -20,6 +20,10 @@
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
     
+    <!-- Swiper.js -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    
     <!-- Tailwind Config -->
     <script>
     tailwind.config = {
@@ -193,6 +197,149 @@
             background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
             color: white;
         }
+        
+        /* Wave Divider Styles */
+        .wave-divider {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+        }
+        
+        .wave-divider svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 80px;
+        }
+        
+        @media (max-width: 768px) {
+            .wave-divider svg {
+                height: 50px;
+            }
+        }
+        
+        .wave-divider .wave-path {
+            animation: wave-animation 10s ease-in-out infinite;
+        }
+        
+        @keyframes wave-animation {
+            0%, 100% {
+                d: path("M0,50 Q300,20 600,50 T1200,50 L1200,100 L0,100 Z");
+            }
+            50% {
+                d: path("M0,50 Q300,80 600,50 T1200,50 L1200,100 L0,100 Z");
+            }
+        }
+        
+        /* Scroll-to-Top Button */
+        .scroll-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 3rem;
+            height: 3rem;
+            background: linear-gradient(135deg, #7c3aed 0%, #a78bfa 100%);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+            z-index: 40;
+            box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);
+        }
+        
+        .scroll-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .scroll-to-top:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 6px 16px rgba(124, 58, 237, 0.4);
+        }
+        
+        @media (max-width: 768px) {
+            .scroll-to-top {
+                width: 3.5rem;
+                height: 3.5rem;
+                bottom: 1.5rem;
+                right: 1.5rem;
+            }
+        }
+        
+        /* Swiper Carousel Styles */
+        .photo-carousel .swiper-slide {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .photo-carousel .swiper-slide img {
+            width: 100%;
+            height: auto;
+            max-height: 500px;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+        
+        .photo-carousel .swiper-pagination-bullet {
+            background: #7c3aed;
+            opacity: 0.5;
+        }
+        
+        .photo-carousel .swiper-pagination-bullet-active {
+            opacity: 1;
+            background: #7c3aed;
+        }
+        
+        .photo-carousel .swiper-button-next,
+        .photo-carousel .swiper-button-prev {
+            color: #7c3aed;
+        }
+        
+        .thumbnail-carousel .swiper-slide {
+            opacity: 0.5;
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+        }
+        
+        .thumbnail-carousel .swiper-slide-thumb-active {
+            opacity: 1;
+        }
+        
+        .thumbnail-carousel .swiper-slide img {
+            width: 100%;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        
+        /* Testimonials Carousel */
+        .testimonials-carousel .swiper-slide {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 300px;
+        }
+        
+        .testimonials-carousel .swiper-pagination-bullet {
+            background: #7c3aed;
+            opacity: 0.5;
+        }
+        
+        .testimonials-carousel .swiper-pagination-bullet-active {
+            opacity: 1;
+            background: #7c3aed;
+        }
+        
+        .star-rating {
+            color: #fbbf24;
+        }
     </style>
     
     <!-- Open Graph -->
@@ -249,6 +396,11 @@
     <main class="pt-20">
         {{ content }}
     </main>
+    
+    <!-- Scroll-to-Top Button -->
+    <button id="scroll-to-top" class="scroll-to-top" aria-label="Scroll to top">
+        <i data-lucide="arrow-up" class="w-5 h-5"></i>
+    </button>
     
     <!-- Footer -->
     <footer class="bg-slate-50 text-slate-700 py-12 mt-20">
@@ -358,6 +510,25 @@
                 }
             });
         });
+        
+        // Scroll-to-top button functionality
+        const scrollToTopBtn = document.getElementById('scroll-to-top');
+        if (scrollToTopBtn) {
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    scrollToTopBtn.classList.add('visible');
+                } else {
+                    scrollToTopBtn.classList.remove('visible');
+                }
+            });
+            
+            scrollToTopBtn.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        }
     </script>
 </body>
 </html>

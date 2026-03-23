@@ -20,17 +20,20 @@ This is the comprehensive landing page showcasing all AI Musings engagement acti
 _data/
 ├── talks.yml          # Talk events data
 ├── meetups.yml        # Meetup events data
-└── workshops.yml      # Workshop events data (all 3 levels)
+├── workshops.yml      # Workshop events data (all 3 levels)
+├── photos.yml         # Photo gallery data (NEW)
+└── testimonials.yml   # Testimonials data (NEW)
 
 _layouts/
-└── landing-v2.html    # Modern Tailwind CSS layout
+└── landing-v2.html    # Modern Tailwind CSS layout with Swiper.js
 
-v2.html                # Main V2 landing page
+v2.html                # Main V2 landing page with carousels
 
 docs/
 ├── V2_IMPLEMENTATION_PLAN.md      # Detailed implementation plan
 ├── V2_SITE_ARCHITECTURE.md        # Architecture and diagrams
 ├── V2_DEPLOYMENT_SUMMARY.md       # Deployment checklist
+├── V2_ENHANCEMENT_PLAN.md         # V2 enhancements plan (NEW)
 ├── BOB_CONTEXT_SUMMARY.md         # Executive summary
 └── CONTENT_EDITING_GUIDE.md       # How to edit content
 ```
@@ -96,6 +99,11 @@ Hands-on training at three levels:
 - ✅ Scrollable tables (10 rows visible)
 - ✅ Level badges with colors
 - ✅ Hover effects
+- ✅ **Photo carousel** with thumbnails (Swiper.js)
+- ✅ **Testimonials carousel** with auto-rotate
+- ✅ **Wave dividers** between sections
+- ✅ **Scroll-to-top button**
+- ✅ **YouTube channel section**
 
 ---
 
@@ -233,12 +241,13 @@ git push origin feature/v2-landing-page
 
 Potential additions for future versions:
 - Individual event detail pages
-- Photo galleries with lightbox
-- Video testimonials carousel
+- Lightbox for full-size photo viewing
+- Video testimonials embedded
 - Search and filter functionality
 - Calendar view
 - Export to calendar
 - Newsletter signup
+- Photo upload form for participants
 
 ---
 

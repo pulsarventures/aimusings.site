@@ -387,7 +387,11 @@ aimusings.site/
 ├── _data/
 │   ├── talks.yml          ← Edit talks here
 │   ├── meetups.yml        ← Edit meetups here
-│   └── workshops.yml      ← Edit workshops here
+│   ├── workshops.yml      ← Edit workshops here
+│   ├── photos.yml         ← Edit photo gallery here
+│   └── testimonials.yml   ← Edit testimonials here
+├── assets/
+│   └── images/            ← Add photos here
 ├── v2.html                ← Main V2 page (don't edit)
 └── _layouts/
     └── landing-v2.html    ← Layout file (don't edit)
@@ -470,6 +474,102 @@ git push
 - [ ] Changes committed with descriptive message
 - [ ] Changes pushed to GitHub
 - [ ] Live site verified
+
+---
+
+
+---
+
+## Adding Photos to Gallery
+
+### Step 1: Add Image to Assets
+Place your image file in `assets/images/` directory
+
+### Step 2: Open Photos Data File
+Open `_data/photos.yml` in your text editor
+
+### Step 3: Add Photo Entry
+```yaml
+- image: "your-photo.jpeg"
+  alt: "Descriptive alt text for accessibility"
+  caption: "Photo caption displayed on carousel"
+  pillar: "workshops"  # or "talks" or "meetups"
+  level: 200           # Optional: 100, 200, or 300 for workshops
+  date: "2026-03-23"   # Optional: ISO date for sorting
+  featured: true       # Optional: true for hero carousel
+```
+
+### Field Descriptions
+
+| Field | Required | Description | Example |
+|-------|----------|-------------|---------|
+| `image` | Yes | Filename in assets/images/ | "group1.jpeg" |
+| `alt` | Yes | Accessibility text | "Workshop group photo" |
+| `caption` | Yes | Display caption | "Builder Series - Cohort 1" |
+| `pillar` | Yes | Category | "workshops", "talks", "meetups" |
+| `level` | No | Workshop level | 100, 200, 300 |
+| `date` | No | ISO date | "2026-03-23" |
+| `featured` | No | Featured photo | true or false |
+
+---
+
+## Adding Testimonials
+
+### Step 1: Open Testimonials Data File
+Open `_data/testimonials.yml` in your text editor
+
+### Step 2: Add Testimonial Entry
+```yaml
+- name: "John Doe"
+  rating: 5
+  text: "This workshop transformed my understanding of AI. The hands-on approach and expert guidance made complex concepts accessible."
+  role: "Product Manager"
+  date: "2026-03-23"
+```
+
+### Field Descriptions
+
+| Field | Required | Description | Example |
+|-------|----------|-------------|---------|
+| `name` | Yes | Reviewer name | "Jane Smith" |
+| `rating` | Yes | Star rating (1-5) | 5 |
+| `text` | Yes | Review text | "Amazing experience..." |
+| `role` | No | Participant role | "Workshop Participant" |
+| `date` | No | Review date | "2026-03-23" |
+
+### Best Practices for Testimonials
+- Keep text concise (2-4 sentences)
+- Focus on specific outcomes or benefits
+- Include diverse perspectives
+- Update regularly with recent feedback
+
+---
+
+## Managing Carousels
+
+### Photo Carousel
+- Auto-plays every 5 seconds
+- Pauses on hover
+- Supports keyboard navigation (arrow keys)
+- Thumbnail navigation below main image
+- Shows pillar badge on each photo
+
+### Testimonials Carousel
+- Auto-rotates every 8 seconds
+- Fade transition effect
+- Pauses on hover
+- Displays star ratings
+- Shows reviewer name and role
+
+### Customization
+To adjust carousel settings, edit the Swiper initialization in `v2.html`:
+```javascript
+autoplay: {
+    delay: 5000,  // Change delay in milliseconds
+    disableOnInteraction: false,
+    pauseOnMouseEnter: true
+}
+```
 
 ---
 
