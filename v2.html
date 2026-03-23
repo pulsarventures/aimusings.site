@@ -51,9 +51,36 @@ description: "Comprehensive AI engagement activities: Learn through talks, conne
             
             <!-- CTA Buttons -->
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="https://cal.com/sree.pradhip" target="_blank" class="px-8 py-4 bg-brand-600 text-white rounded-lg hover:bg-brand-700 transition-colors font-semibold text-lg shadow-lg hover:shadow-xl">
-                    <i class="fas fa-calendar-alt mr-2"></i>Schedule a Call
-                </a>
+                {% assign upcoming_events = "" | split: "" %}
+                {% for talk in site.data.talks %}
+                    {% if talk.status == "upcoming" and talk.registration_link and talk.registration_link != "" %}
+                        {% assign upcoming_events = upcoming_events | push: talk %}
+                    {% endif %}
+                {% endfor %}
+                {% for meetup in site.data.meetups %}
+                    {% if meetup.status == "upcoming" and meetup.registration_link and meetup.registration_link != "" %}
+                        {% assign upcoming_events = upcoming_events | push: meetup %}
+                    {% endif %}
+                {% endfor %}
+                {% for workshop in site.data.workshops %}
+                    {% if workshop.status == "scheduled" or workshop.status == "upcoming" %}
+                        {% if workshop.registration_link and workshop.registration_link != "" %}
+                            {% assign upcoming_events = upcoming_events | push: workshop %}
+                        {% endif %}
+                    {% endif %}
+                {% endfor %}
+                
+                {% if upcoming_events.size > 0 %}
+                    {% assign sorted_events = upcoming_events | sort: "date" %}
+                    {% assign next_event = sorted_events | first %}
+                    <a href="{{ next_event.registration_link }}" target="_blank" class="px-8 py-4 bg-brand-600 text-white rounded-lg hover:bg-brand-700 transition-colors font-semibold text-lg shadow-lg hover:shadow-xl">
+                        <i class="fas fa-ticket-alt mr-2"></i>Register Now
+                    </a>
+                {% else %}
+                    <a href="https://cal.com/sree.pradhip" target="_blank" class="px-8 py-4 bg-brand-600 text-white rounded-lg hover:bg-brand-700 transition-colors font-semibold text-lg shadow-lg hover:shadow-xl">
+                        <i class="fas fa-calendar-alt mr-2"></i>Schedule a Call
+                    </a>
+                {% endif %}
                 <a href="mailto:spradhip@pulsarventures.io" class="px-8 py-4 bg-white text-brand-600 border-2 border-brand-600 rounded-lg hover:bg-brand-50 transition-colors font-semibold text-lg shadow-lg hover:shadow-xl">
                     <i class="fas fa-envelope mr-2"></i>Email Us
                 </a>
@@ -820,7 +847,7 @@ document.addEventListener('DOMContentLoaded', function() {
         spaceBetween: 30,
         loop: true,
         autoplay: {
-            delay: 8000,
+            delay: 3000,
             disableOnInteraction: false,
             pauseOnMouseEnter: true
         },
