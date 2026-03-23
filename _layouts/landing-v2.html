@@ -366,8 +366,48 @@
                     <a href="#meetups" class="text-slate-700 hover:text-brand-600 transition-colors">Meetups</a>
                     <a href="#workshops" class="text-slate-700 hover:text-brand-600 transition-colors">Workshops</a>
                     <a href="#contact" class="text-slate-700 hover:text-brand-600 transition-colors">Contact</a>
-                    <a href="{{ '/' | relative_url }}" class="px-4 py-2 bg-brand-600 text-white rounded-lg hover:bg-brand-700 transition-colors">
-                        Current Site
+                    {% comment %}
+                    Dynamic Event Registration Button
+                    Automatically links to the next upcoming event (talk, meetup, or workshop)
+                    Falls back to homepage if no upcoming events exist
+                    {% endcomment %}
+                    {% assign today = 'now' | date: '%Y-%m-%d' %}
+                    {% assign all_events = '' | split: '' %}
+                    
+                    {% comment %} Collect all events with registration links {% endcomment %}
+                    {% for talk in site.data.talks %}
+                        {% if talk.registration_link and talk.registration_link != '' and talk.date >= today %}
+                            {% assign all_events = all_events | push: talk %}
+                        {% endif %}
+                    {% endfor %}
+                    
+                    {% for meetup in site.data.meetups %}
+                        {% if meetup.registration_link and meetup.registration_link != '' and meetup.date >= today %}
+                            {% assign all_events = all_events | push: meetup %}
+                        {% endif %}
+                    {% endfor %}
+                    
+                    {% for workshop in site.data.workshops %}
+                        {% if workshop.registration_link and workshop.registration_link != '' and workshop.date >= today %}
+                            {% assign all_events = all_events | push: workshop %}
+                        {% endif %}
+                    {% endfor %}
+                    
+                    {% comment %} Sort events by date and get the first one {% endcomment %}
+                    {% assign sorted_events = all_events | sort: 'date' %}
+                    {% assign next_event = sorted_events | first %}
+                    
+                    {% comment %} Set button destination and text {% endcomment %}
+                    {% if next_event %}
+                        {% assign button_url = next_event.registration_link %}
+                        {% assign button_text = 'Register Now' %}
+                    {% else %}
+                        {% assign button_url = '/' | relative_url %}
+                        {% assign button_text = 'Current Site' %}
+                    {% endif %}
+                    
+                    <a href="{{ button_url }}" class="px-4 py-2 bg-brand-600 text-white rounded-lg hover:bg-brand-700 transition-colors" {% if next_event %}target="_blank" rel="noopener noreferrer"{% endif %}>
+                        {{ button_text }}
                     </a>
                 </div>
                 
