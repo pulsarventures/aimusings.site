@@ -1,0 +1,559 @@
+---
+layout: landing-v2
+title: "AI Musings - Talks, Meetups & Workshops"
+description: "Comprehensive AI engagement activities: Learn through talks, connect at meetups, and build skills in workshops"
+---
+
+<!-- Hero Section -->
+<section class="hero-grid bg-gradient-to-br from-brand-50 via-white to-brand-50 py-20">
+    <div class="container mx-auto px-4">
+        <div class="max-w-4xl mx-auto text-center reveal">
+            <h1 class="text-5xl md:text-6xl font-bold mb-6">
+                <span class="gradient-text">AI Musings</span>
+            </h1>
+            <p class="text-2xl md:text-3xl text-slate-700 mb-4 font-semibold">
+                Learn, Connect, Build
+            </p>
+            <p class="text-lg text-slate-600 mb-12 max-w-2xl mx-auto">
+                Comprehensive AI engagement through talks, meetups, and hands-on workshops. 
+                Join our community and accelerate your AI journey.
+            </p>
+            
+            <!-- Three Pillar Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+                <!-- Talks Card -->
+                <a href="#talks" class="pillar-card bg-white rounded-xl p-8 shadow-lg border-2 border-transparent hover:border-brand-500">
+                    <div class="text-brand-600 mb-4">
+                        <i data-lucide="mic" class="w-16 h-16 mx-auto"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-slate-900 mb-2">Talks</h3>
+                    <p class="text-slate-600">Speaking engagements and presentations on AI topics</p>
+                </a>
+                
+                <!-- Meetups Card -->
+                <a href="#meetups" class="pillar-card bg-white rounded-xl p-8 shadow-lg border-2 border-transparent hover:border-brand-500">
+                    <div class="text-brand-600 mb-4">
+                        <i data-lucide="users" class="w-16 h-16 mx-auto"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-slate-900 mb-2">Meetups</h3>
+                    <p class="text-slate-600">Community events for networking and learning</p>
+                </a>
+                
+                <!-- Workshops Card -->
+                <a href="#workshops" class="pillar-card bg-white rounded-xl p-8 shadow-lg border-2 border-transparent hover:border-brand-500">
+                    <div class="text-brand-600 mb-4">
+                        <i data-lucide="graduation-cap" class="w-16 h-16 mx-auto"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-slate-900 mb-2">Workshops</h3>
+                    <p class="text-slate-600">Hands-on training from beginner to advanced</p>
+                </a>
+            </div>
+            
+            <!-- CTA Buttons -->
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="https://cal.com/sree.pradhip" target="_blank" class="px-8 py-4 bg-brand-600 text-white rounded-lg hover:bg-brand-700 transition-colors font-semibold text-lg shadow-lg hover:shadow-xl">
+                    <i class="fas fa-calendar-alt mr-2"></i>Schedule a Call
+                </a>
+                <a href="mailto:spradhip@pulsarventures.io" class="px-8 py-4 bg-white text-brand-600 border-2 border-brand-600 rounded-lg hover:bg-brand-50 transition-colors font-semibold text-lg shadow-lg hover:shadow-xl">
+                    <i class="fas fa-envelope mr-2"></i>Email Us
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Talks Section -->
+<section id="talks" class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+        <div class="max-w-6xl mx-auto">
+            <!-- Section Header -->
+            <div class="text-center mb-12 reveal">
+                <div class="inline-flex items-center justify-center w-16 h-16 bg-brand-100 rounded-full mb-4">
+                    <i data-lucide="mic" class="w-8 h-8 text-brand-600"></i>
+                </div>
+                <h2 class="text-4xl font-bold text-slate-900 mb-4">Talks</h2>
+                <p class="text-lg text-slate-600 max-w-2xl mx-auto">
+                    Speaking engagements and presentations where we share insights on AI trends, 
+                    practical applications, and industry best practices.
+                </p>
+            </div>
+            
+            <!-- Talks Table -->
+            <div class="reveal reveal-delay-1">
+                <div class="table-scroll-container">
+                    <table class="w-full">
+                        <thead>
+                            <tr class="bg-slate-50">
+                                <th class="px-6 py-4 text-left text-sm font-semibold text-slate-900">Event Name</th>
+                                <th class="px-6 py-4 text-left text-sm font-semibold text-slate-900">Date(s)</th>
+                                <th class="px-6 py-4 text-left text-sm font-semibold text-slate-900">Status</th>
+                                <th class="px-6 py-4 text-left text-sm font-semibold text-slate-900">Posts & Recap</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-200">
+                            {% assign sorted_talks = site.data.talks | sort: "date" | reverse %}
+                            {% for talk in sorted_talks %}
+                            <tr class="hover:bg-slate-50 transition-colors">
+                                <td class="px-6 py-4">
+                                    <div class="font-medium text-slate-900">{{ talk.name }}</div>
+                                    {% if talk.location %}
+                                    <div class="text-sm text-slate-500 mt-1">
+                                        <i class="fas fa-map-marker-alt mr-1"></i>{{ talk.location }}
+                                    </div>
+                                    {% endif %}
+                                </td>
+                                <td class="px-6 py-4 text-slate-700">{{ talk.dates }}</td>
+                                <td class="px-6 py-4">
+                                    {% if talk.status == "upcoming" %}
+                                    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800">
+                                        🎤 Upcoming
+                                    </span>
+                                    {% elsif talk.status == "completed" %}
+                                    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-100 text-green-800">
+                                        ✓ Completed
+                                    </span>
+                                    {% elsif talk.status == "cancelled" %}
+                                    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-red-100 text-red-800">
+                                        ❌ Cancelled
+                                    </span>
+                                    {% endif %}
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="flex flex-wrap gap-2">
+                                        {% if talk.registration_link and talk.registration_link != "" %}
+                                        <a href="{{ talk.registration_link }}" target="_blank" class="inline-flex items-center px-3 py-1 bg-brand-600 text-white rounded-lg hover:bg-brand-700 transition-colors text-sm">
+                                            <i class="fas fa-ticket-alt mr-1"></i>Register
+                                        </a>
+                                        {% endif %}
+                                        {% for link in talk.recap_links %}
+                                        <a href="{{ link.url }}" target="_blank" class="inline-flex items-center px-3 py-1 bg-slate-100 text-slate-700 rounded-lg hover:bg-slate-200 transition-colors text-sm">
+                                            <i class="{{ link.icon }} mr-1"></i>{{ link.type }}
+                                        </a>
+                                        {% endfor %}
+                                    </div>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                <p class="text-center text-sm text-slate-500 mt-4">
+                    <i class="fas fa-arrow-down mr-1"></i>Scroll to view more events
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Meetups Section -->
+<section id="meetups" class="py-20 bg-slate-50">
+    <div class="container mx-auto px-4">
+        <div class="max-w-6xl mx-auto">
+            <!-- Section Header -->
+            <div class="text-center mb-12 reveal">
+                <div class="inline-flex items-center justify-center w-16 h-16 bg-brand-100 rounded-full mb-4">
+                    <i data-lucide="users" class="w-8 h-8 text-brand-600"></i>
+                </div>
+                <h2 class="text-4xl font-bold text-slate-900 mb-4">Meetups</h2>
+                <p class="text-lg text-slate-600 max-w-2xl mx-auto">
+                    Community meetup events where AI enthusiasts, practitioners, and learners 
+                    come together to network, share experiences, and grow together.
+                </p>
+            </div>
+            
+            <!-- Meetups Table -->
+            <div class="reveal reveal-delay-1">
+                <div class="table-scroll-container bg-white">
+                    <table class="w-full">
+                        <thead>
+                            <tr class="bg-slate-50">
+                                <th class="px-6 py-4 text-left text-sm font-semibold text-slate-900">Event Name</th>
+                                <th class="px-6 py-4 text-left text-sm font-semibold text-slate-900">Date(s)</th>
+                                <th class="px-6 py-4 text-left text-sm font-semibold text-slate-900">Status</th>
+                                <th class="px-6 py-4 text-left text-sm font-semibold text-slate-900">Posts & Recap</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-200">
+                            {% assign sorted_meetups = site.data.meetups | sort: "date" | reverse %}
+                            {% for meetup in sorted_meetups %}
+                            <tr class="hover:bg-slate-50 transition-colors">
+                                <td class="px-6 py-4">
+                                    <div class="font-medium text-slate-900">{{ meetup.name }}</div>
+                                    {% if meetup.location %}
+                                    <div class="text-sm text-slate-500 mt-1">
+                                        <i class="fas fa-map-marker-alt mr-1"></i>{{ meetup.location }}
+                                    </div>
+                                    {% endif %}
+                                    {% if meetup.attendees %}
+                                    <div class="text-sm text-slate-500 mt-1">
+                                        <i class="fas fa-users mr-1"></i>{{ meetup.attendees }} attendees
+                                    </div>
+                                    {% endif %}
+                                </td>
+                                <td class="px-6 py-4 text-slate-700">{{ meetup.dates }}</td>
+                                <td class="px-6 py-4">
+                                    {% if meetup.status == "upcoming" %}
+                                    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800">
+                                        🤝 Upcoming
+                                    </span>
+                                    {% elsif meetup.status == "completed" %}
+                                    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-100 text-green-800">
+                                        ✓ Completed
+                                    </span>
+                                    {% elsif meetup.status == "cancelled" %}
+                                    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-red-100 text-red-800">
+                                        ❌ Cancelled
+                                    </span>
+                                    {% endif %}
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="flex flex-wrap gap-2">
+                                        {% if meetup.registration_link and meetup.registration_link != "" %}
+                                        <a href="{{ meetup.registration_link }}" target="_blank" class="inline-flex items-center px-3 py-1 bg-brand-600 text-white rounded-lg hover:bg-brand-700 transition-colors text-sm">
+                                            <i class="fas fa-ticket-alt mr-1"></i>Register
+                                        </a>
+                                        {% endif %}
+                                        {% for link in meetup.recap_links %}
+                                        <a href="{{ link.url }}" target="_blank" class="inline-flex items-center px-3 py-1 bg-slate-100 text-slate-700 rounded-lg hover:bg-slate-200 transition-colors text-sm">
+                                            <i class="{{ link.icon }} mr-1"></i>{{ link.type }}
+                                        </a>
+                                        {% endfor %}
+                                    </div>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                <p class="text-center text-sm text-slate-500 mt-4">
+                    <i class="fas fa-arrow-down mr-1"></i>Scroll to view more events
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Workshops Section -->
+<section id="workshops" class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+        <div class="max-w-6xl mx-auto">
+            <!-- Section Header -->
+            <div class="text-center mb-12 reveal">
+                <div class="inline-flex items-center justify-center w-16 h-16 bg-brand-100 rounded-full mb-4">
+                    <i data-lucide="graduation-cap" class="w-8 h-8 text-brand-600"></i>
+                </div>
+                <h2 class="text-4xl font-bold text-slate-900 mb-4">Workshops</h2>
+                <p class="text-lg text-slate-600 max-w-2xl mx-auto">
+                    Hands-on AI workshops designed for all skill levels. From beginner introductions 
+                    to advanced platform-specific deep dives.
+                </p>
+            </div>
+            
+            <!-- Level 100: Beginner Intro -->
+            <div class="mb-16 reveal reveal-delay-1">
+                <div class="bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl p-8 mb-6">
+                    <div class="flex items-center mb-4">
+                        <span class="level-badge level-100 mr-4">100</span>
+                        <div>
+                            <h3 class="text-2xl font-bold text-slate-900">Beginner Intro</h3>
+                            <p class="text-slate-600">Perfect for those new to AI - no technical background required</p>
+                        </div>
+                    </div>
+                    <p class="text-slate-700 mb-4">
+                        Introduction to AI concepts, tools, and practical applications. Learn the fundamentals 
+                        and get hands-on experience with popular AI tools in a supportive environment.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-white rounded-full text-sm text-slate-700">
+                            <i class="fas fa-clock mr-1"></i>3 hours
+                        </span>
+                        <span class="px-3 py-1 bg-white rounded-full text-sm text-slate-700">
+                            <i class="fas fa-laptop mr-1"></i>Virtual
+                        </span>
+                        <span class="px-3 py-1 bg-white rounded-full text-sm text-slate-700">
+                            <i class="fas fa-users mr-1"></i>Small groups
+                        </span>
+                    </div>
+                </div>
+                
+                <!-- Level 100 Workshops Table -->
+                <div class="table-scroll-container">
+                    <table class="w-full">
+                        <thead>
+                            <tr class="bg-slate-50">
+                                <th class="px-6 py-4 text-left text-sm font-semibold text-slate-900">Workshop</th>
+                                <th class="px-6 py-4 text-left text-sm font-semibold text-slate-900">Date(s)</th>
+                                <th class="px-6 py-4 text-left text-sm font-semibold text-slate-900">Status</th>
+                                <th class="px-6 py-4 text-left text-sm font-semibold text-slate-900">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-200">
+                            {% assign level_100 = site.data.workshops | where: "level", 100 | sort: "date" | reverse %}
+                            {% for workshop in level_100 %}
+                            <tr class="hover:bg-slate-50 transition-colors">
+                                <td class="px-6 py-4">
+                                    <div class="font-medium text-slate-900">{{ workshop.name }}</div>
+                                    <div class="text-sm text-slate-500 mt-1">{{ workshop.description }}</div>
+                                </td>
+                                <td class="px-6 py-4 text-slate-700">{{ workshop.dates }}</td>
+                                <td class="px-6 py-4">
+                                    {% if workshop.status == "upcoming" or workshop.status == "scheduled" %}
+                                    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800">
+                                        📅 Scheduled
+                                    </span>
+                                    {% elsif workshop.status == "completed" %}
+                                    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-100 text-green-800">
+                                        ✓ Completed
+                                    </span>
+                                    {% endif %}
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="flex flex-wrap gap-2">
+                                        {% if workshop.registration_link and workshop.registration_link != "" %}
+                                        <a href="{{ workshop.registration_link }}" target="_blank" class="inline-flex items-center px-3 py-1 bg-brand-600 text-white rounded-lg hover:bg-brand-700 transition-colors text-sm">
+                                            <i class="fas fa-ticket-alt mr-1"></i>Register
+                                        </a>
+                                        {% endif %}
+                                        {% for link in workshop.recap_links %}
+                                        <a href="{{ link.url }}" target="_blank" class="inline-flex items-center px-3 py-1 bg-slate-100 text-slate-700 rounded-lg hover:bg-slate-200 transition-colors text-sm">
+                                            <i class="{{ link.icon }} mr-1"></i>{{ link.type }}
+                                        </a>
+                                        {% endfor %}
+                                    </div>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <!-- Level 200: Builder Series -->
+            <div class="mb-16 reveal reveal-delay-2">
+                <div class="bg-gradient-to-r from-brand-50 to-purple-50 rounded-xl p-8 mb-6">
+                    <div class="flex items-center mb-4">
+                        <span class="level-badge level-200 mr-4">200</span>
+                        <div>
+                            <h3 class="text-2xl font-bold text-slate-900">Builder Series</h3>
+                            <p class="text-slate-600">Hands-on workshops to build real AI solutions</p>
+                        </div>
+                    </div>
+                    <p class="text-slate-700 mb-4">
+                        Our flagship workshop series where you learn, build, and apply AI tools to create 
+                        working prototypes and AI agents. Two-session format with hands-on exercises and 
+                        personalized guidance from expert instructors.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-white rounded-full text-sm text-slate-700">
+                            <i class="fas fa-clock mr-1"></i>2 sessions
+                        </span>
+                        <span class="px-3 py-1 bg-white rounded-full text-sm text-slate-700">
+                            <i class="fas fa-laptop mr-1"></i>Virtual on Zoom
+                        </span>
+                        <span class="px-3 py-1 bg-white rounded-full text-sm text-slate-700">
+                            <i class="fas fa-tools mr-1"></i>10+ AI tools
+                        </span>
+                    </div>
+                </div>
+                
+                <!-- Level 200 Workshops Table -->
+                <div class="table-scroll-container">
+                    <table class="w-full">
+                        <thead>
+                            <tr class="bg-slate-50">
+                                <th class="px-6 py-4 text-left text-sm font-semibold text-slate-900">Workshop</th>
+                                <th class="px-6 py-4 text-left text-sm font-semibold text-slate-900">Date(s)</th>
+                                <th class="px-6 py-4 text-left text-sm font-semibold text-slate-900">Status</th>
+                                <th class="px-6 py-4 text-left text-sm font-semibold text-slate-900">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-200">
+                            {% assign level_200 = site.data.workshops | where: "level", 200 | sort: "date" | reverse %}
+                            {% for workshop in level_200 %}
+                            <tr class="hover:bg-slate-50 transition-colors">
+                                <td class="px-6 py-4">
+                                    <div class="font-medium text-slate-900">{{ workshop.series }}</div>
+                                    <div class="text-sm text-slate-500 mt-1">{{ workshop.format }}</div>
+                                </td>
+                                <td class="px-6 py-4 text-slate-700">{{ workshop.dates }}</td>
+                                <td class="px-6 py-4">
+                                    {% if workshop.status == "scheduled" %}
+                                    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800">
+                                        📅 Scheduled
+                                    </span>
+                                    {% elsif workshop.status == "completed" %}
+                                    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-100 text-green-800">
+                                        ✓ Completed
+                                    </span>
+                                    {% endif %}
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="flex flex-wrap gap-2">
+                                        {% if workshop.registration_link and workshop.registration_link != "" %}
+                                        <a href="{{ workshop.registration_link }}" target="_blank" class="inline-flex items-center px-3 py-1 bg-brand-600 text-white rounded-lg hover:bg-brand-700 transition-colors text-sm">
+                                            <i class="fas fa-ticket-alt mr-1"></i>Register
+                                        </a>
+                                        {% endif %}
+                                        {% for link in workshop.recap_links %}
+                                        <a href="{{ link.url }}" target="_blank" class="inline-flex items-center px-3 py-1 bg-slate-100 text-slate-700 rounded-lg hover:bg-slate-200 transition-colors text-sm">
+                                            <i class="{{ link.icon }} mr-1"></i>{{ link.type }}
+                                        </a>
+                                        {% endfor %}
+                                    </div>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                <p class="text-center text-sm text-slate-500 mt-4">
+                    <i class="fas fa-arrow-down mr-1"></i>Scroll to view all Builder Series workshops
+                </p>
+            </div>
+            
+            <!-- Level 300: Advanced Deep Dive -->
+            <div class="reveal reveal-delay-3">
+                <div class="bg-gradient-to-r from-orange-50 to-amber-50 rounded-xl p-8 mb-6">
+                    <div class="flex items-center mb-4">
+                        <span class="level-badge level-300 mr-4">300</span>
+                        <div>
+                            <h3 class="text-2xl font-bold text-slate-900">Advanced Deep Dive</h3>
+                            <p class="text-slate-600">Platform-specific mastery workshops</p>
+                        </div>
+                    </div>
+                    <p class="text-slate-700 mb-4">
+                        Intensive deep-dive sessions focused on specific AI platforms and ecosystems. 
+                        Master Claude, Copilot, Gemini, and other enterprise AI tools with advanced 
+                        techniques, integrations, and best practices.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="px-3 py-1 bg-white rounded-full text-sm text-slate-700">
+                            <i class="fas fa-clock mr-1"></i>Single intensive session
+                        </span>
+                        <span class="px-3 py-1 bg-white rounded-full text-sm text-slate-700">
+                            <i class="fas fa-laptop mr-1"></i>Virtual on Zoom
+                        </span>
+                        <span class="px-3 py-1 bg-white rounded-full text-sm text-slate-700">
+                            <i class="fas fa-star mr-1"></i>Platform-specific
+                        </span>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div class="bg-white rounded-lg p-4 border-2 border-orange-200">
+                            <h4 class="font-semibold text-slate-900 mb-2">
+                                <i class="fas fa-robot mr-2 text-orange-600"></i>Claude Series
+                            </h4>
+                            <p class="text-sm text-slate-600">Anthropic's Claude ecosystem, MCP, and extensions</p>
+                        </div>
+                        <div class="bg-white rounded-lg p-4 border-2 border-orange-200">
+                            <h4 class="font-semibold text-slate-900 mb-2">
+                                <i class="fab fa-microsoft mr-2 text-orange-600"></i>Copilot Series
+                            </h4>
+                            <p class="text-sm text-slate-600">Microsoft Copilot across Office 365 and GitHub</p>
+                        </div>
+                        <div class="bg-white rounded-lg p-4 border-2 border-orange-200">
+                            <h4 class="font-semibold text-slate-900 mb-2">
+                                <i class="fab fa-google mr-2 text-orange-600"></i>Gemini Series
+                            </h4>
+                            <p class="text-sm text-slate-600">Google's Gemini AI and Workspace integration</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Level 300 Workshops Table -->
+                <div class="table-scroll-container">
+                    <table class="w-full">
+                        <thead>
+                            <tr class="bg-slate-50">
+                                <th class="px-6 py-4 text-left text-sm font-semibold text-slate-900">Workshop</th>
+                                <th class="px-6 py-4 text-left text-sm font-semibold text-slate-900">Platform</th>
+                                <th class="px-6 py-4 text-left text-sm font-semibold text-slate-900">Date(s)</th>
+                                <th class="px-6 py-4 text-left text-sm font-semibold text-slate-900">Status</th>
+                                <th class="px-6 py-4 text-left text-sm font-semibold text-slate-900">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-200">
+                            {% assign level_300 = site.data.workshops | where: "level", 300 | sort: "date" | reverse %}
+                            {% for workshop in level_300 %}
+                            <tr class="hover:bg-slate-50 transition-colors">
+                                <td class="px-6 py-4">
+                                    <div class="font-medium text-slate-900">{{ workshop.series }}</div>
+                                    <div class="text-sm text-slate-500 mt-1">{{ workshop.description }}</div>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-orange-100 text-orange-800">
+                                        {{ workshop.platform }}
+                                    </span>
+                                </td>
+                                <td class="px-6 py-4 text-slate-700">{{ workshop.dates }}</td>
+                                <td class="px-6 py-4">
+                                    {% if workshop.status == "scheduled" or workshop.status == "upcoming" %}
+                                    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800">
+                                        🎯 Scheduled
+                                    </span>
+                                    {% elsif workshop.status == "completed" %}
+                                    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-100 text-green-800">
+                                        ✓ Completed
+                                    </span>
+                                    {% endif %}
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="flex flex-wrap gap-2">
+                                        {% if workshop.registration_link and workshop.registration_link != "" %}
+                                        <a href="{{ workshop.registration_link }}" target="_blank" class="inline-flex items-center px-3 py-1 bg-brand-600 text-white rounded-lg hover:bg-brand-700 transition-colors text-sm">
+                                            <i class="fas fa-ticket-alt mr-1"></i>Register
+                                        </a>
+                                        {% endif %}
+                                        {% for link in workshop.recap_links %}
+                                        <a href="{{ link.url }}" target="_blank" class="inline-flex items-center px-3 py-1 bg-slate-100 text-slate-700 rounded-lg hover:bg-slate-200 transition-colors text-sm">
+                                            <i class="{{ link.icon }} mr-1"></i>{{ link.type }}
+                                        </a>
+                                        {% endfor %}
+                                    </div>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="py-20 bg-gradient-to-br from-brand-600 to-brand-800 text-white">
+    <div class="container mx-auto px-4">
+        <div class="max-w-4xl mx-auto text-center reveal">
+            <h2 class="text-4xl font-bold mb-6">Ready to Accelerate Your AI Journey?</h2>
+            <p class="text-xl mb-8 text-brand-100">
+                Join our community of professionals transforming their work with practical AI skills.
+            </p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+                <a href="https://cal.com/sree.pradhip" target="_blank" class="bg-white text-brand-600 px-8 py-6 rounded-xl hover:bg-brand-50 transition-all shadow-xl hover:shadow-2xl transform hover:-translate-y-1">
+                    <i class="fas fa-calendar-alt text-3xl mb-3"></i>
+                    <h3 class="text-xl font-bold mb-2">Schedule a Call</h3>
+                    <p class="text-slate-600">Book a free consultation to discuss your AI learning goals</p>
+                </a>
+                
+                <a href="mailto:spradhip@pulsarventures.io" class="bg-white text-brand-600 px-8 py-6 rounded-xl hover:bg-brand-50 transition-all shadow-xl hover:shadow-2xl transform hover:-translate-y-1">
+                    <i class="fas fa-envelope text-3xl mb-3"></i>
+                    <h3 class="text-xl font-bold mb-2">Email Us</h3>
+                    <p class="text-slate-600">Get in touch with questions or custom workshop requests</p>
+                </a>
+            </div>
+            
+            <div class="flex flex-wrap justify-center gap-6 text-brand-100">
+                <a href="https://www.linkedin.com/company/pulsar-ventures-llc" target="_blank" class="hover:text-white transition-colors">
+                    <i class="fab fa-linkedin text-2xl mr-2"></i>LinkedIn
+                </a>
+                <a href="https://www.youtube.com/@AIMusingsBuilderCommunitySnS" target="_blank" class="hover:text-white transition-colors">
+                    <i class="fab fa-youtube text-2xl mr-2"></i>YouTube
+                </a>
+                <a href="https://chat.whatsapp.com/GRydfVAJke8AKdnKHFohnS" target="_blank" class="hover:text-white transition-colors">
+                    <i class="fab fa-whatsapp text-2xl mr-2"></i>WhatsApp Community
+                </a>
+            </div>
+        </div>
+    </div>
+</section>

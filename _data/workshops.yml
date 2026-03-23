@@ -1,0 +1,293 @@
+# AI Musings - Workshops Data
+# Organized by level: 100 (Beginner), 200 (Builder Series), 300 (Advanced)
+
+# Level 100: Beginner Intro Workshops
+- name: "AI Fundamentals: Getting Started"
+  level: 100
+  level_name: "Beginner Intro"
+  series: "Intro Series - 1"
+  date: "2026-05-05"
+  dates: "May 5, 2026"
+  status: "upcoming"
+  format: "Virtual on Zoom"
+  duration: "3 hours"
+  description: "Introduction to AI concepts, tools, and practical applications for beginners"
+  topics:
+    - "What is AI and how does it work?"
+    - "Overview of popular AI tools"
+    - "Basic prompt engineering"
+    - "Hands-on exercises with ChatGPT"
+  registration_link: "https://cal.com/sree.pradhip"
+  recap_links: []
+
+- name: "AI for Business Professionals"
+  level: 100
+  level_name: "Beginner Intro"
+  series: "Intro Series - 2"
+  date: "2026-06-02"
+  dates: "June 2, 2026"
+  status: "scheduled"
+  format: "Virtual on Zoom"
+  duration: "3 hours"
+  description: "Learn how to leverage AI in your daily business workflows"
+  topics:
+    - "AI use cases for business"
+    - "Productivity tools overview"
+    - "Email and document automation"
+    - "Meeting summaries with AI"
+  registration_link: "https://cal.com/sree.pradhip"
+  recap_links: []
+
+# Level 200: Builder Series Workshops (Existing Content)
+- name: "AI Builder: Builder Series - 9"
+  level: 200
+  level_name: "Builder Series"
+  series: "Builder Series - 9"
+  date: "2026-04-19"
+  dates: "April 19 & 22, 2026"
+  status: "scheduled"
+  format: "Virtual on Zoom"
+  duration: "2 sessions"
+  description: "Hands-on AI workshop - Learn, Build, Apply with industry-leading tools"
+  topics:
+    - "AI Fundamentals & Mechanics"
+    - "AI Tools Deep Dive"
+    - "Build Your First Prototype"
+    - "Build Your First AI Agent"
+  tools:
+    - "ChatGPT"
+    - "Claude"
+    - "Lovable"
+    - "Replit"
+    - "Cursor"
+    - "MindStudio"
+    - "n8n"
+    - "Langflow"
+  registration_link: "https://www.tixtree.com/e/accelerate-your-ai-game-learn-build-apply-1fa6b0fa1d96"
+  recap_links: []
+
+- name: "AI Builder: Builder Series - 8"
+  level: 200
+  level_name: "Builder Series"
+  series: "Builder Series - 8"
+  date: "2026-02-22"
+  dates: "February 22 & 26, 2026"
+  status: "completed"
+  format: "Virtual on Zoom"
+  duration: "2 sessions"
+  description: "Hands-on AI workshop series"
+  topics:
+    - "AI Fundamentals"
+    - "Tool Mastery"
+    - "Prototype Building"
+    - "AI Agents"
+  registration_link: ""
+  recap_links: []
+
+- name: "AI Builder: Builder Series - 7"
+  level: 200
+  level_name: "Builder Series"
+  series: "Builder Series - 7"
+  date: "2026-01-25"
+  dates: "January 25 & 27, 2026"
+  status: "completed"
+  format: "Virtual on Zoom"
+  duration: "2 sessions"
+  description: "Hands-on AI workshop series"
+  topics:
+    - "AI Fundamentals"
+    - "Tool Mastery"
+    - "Prototype Building"
+    - "AI Agents"
+  registration_link: ""
+  recap_links:
+    - url: "https://www.linkedin.com/posts/sree-pradhip_%F0%9D%97%94%F0%9D%97%9C-%F0%9D%97%A0%F0%9D%98%82%F0%9D%98%80%F0%9D%97%B6%F0%9D%97%BB%F0%9D%97%B4%F0%9D%98%80-%F0%9D%97%96%F0%9D%97%B9%F0%9D%97%AE%F0%9D%98%80%F0%9D%98%80-activity-7430179908187947009-wR2_"
+      type: "Workshop Recap"
+      icon: "fab fa-linkedin"
+
+- name: "AI Builder: Builder Series - 6"
+  level: 200
+  level_name: "Builder Series"
+  series: "Builder Series - 6"
+  date: "2025-12-15"
+  dates: "December 15 & 17, 2025"
+  status: "completed"
+  format: "Virtual on Zoom"
+  duration: "2 sessions"
+  description: "Hands-on AI workshop series"
+  topics:
+    - "AI Fundamentals"
+    - "Tool Mastery"
+    - "Prototype Building"
+    - "AI Agents"
+  registration_link: ""
+  recap_links:
+    - url: "https://www.linkedin.com/posts/sree-pradhip_aimusings-activity-7416267911411269632-_8p2"
+      type: "Workshop Recap"
+      icon: "fab fa-linkedin"
+
+- name: "AI Builder: Builder Series - 5"
+  level: 200
+  level_name: "Builder Series"
+  series: "Builder Series - 5"
+  date: "2025-11-09"
+  dates: "November 9 & 12, 2025"
+  status: "completed"
+  format: "Virtual on Zoom"
+  duration: "2 sessions"
+  description: "Hands-on AI workshop series"
+  topics:
+    - "AI Fundamentals"
+    - "Tool Mastery"
+    - "Prototype Building"
+    - "AI Agents"
+  registration_link: ""
+  recap_links:
+    - url: "https://www.linkedin.com/feed/update/urn:li:ugcPost:7395528327127576576/"
+      type: "Workshop Recap"
+      icon: "fab fa-linkedin"
+
+- name: "AI Builder: Builder Series - 4"
+  level: 200
+  level_name: "Builder Series"
+  series: "Builder Series - 4"
+  date: "2025-10-05"
+  dates: "October 5 & 8, 2025"
+  status: "completed"
+  format: "Virtual on Zoom"
+  duration: "2 sessions"
+  description: "Hands-on AI workshop series"
+  topics:
+    - "AI Fundamentals"
+    - "Tool Mastery"
+    - "Prototype Building"
+    - "AI Agents"
+  registration_link: ""
+  recap_links:
+    - url: "https://www.linkedin.com/posts/sree-pradhip_aimusings-activity-7385787469566431233-w6wk"
+      type: "Workshop Recap"
+      icon: "fab fa-linkedin"
+
+- name: "AI Builder: Builder Series - 3"
+  level: 200
+  level_name: "Builder Series"
+  series: "Builder Series - 3"
+  date: "2025-09-07"
+  dates: "September 7 & 9, 2025"
+  status: "completed"
+  format: "Virtual on Zoom"
+  duration: "2 sessions"
+  description: "Hands-on AI workshop series"
+  topics:
+    - "AI Fundamentals"
+    - "Tool Mastery"
+    - "Prototype Building"
+    - "AI Agents"
+  registration_link: ""
+  recap_links:
+    - url: "https://www.linkedin.com/posts/sree-pradhip_aifirstmindset-ainativetools-aimusings-activity-7371681894704361472-Z29c"
+      type: "Workshop Recap"
+      icon: "fab fa-linkedin"
+
+- name: "AI Builder: Builder Series - 2"
+  level: 200
+  level_name: "Builder Series"
+  series: "Builder Series - 2"
+  date: "2025-08-12"
+  dates: "August 12 & 14, 2025"
+  status: "completed"
+  format: "Virtual on Zoom"
+  duration: "2 sessions"
+  description: "Hands-on AI workshop series"
+  topics:
+    - "AI Fundamentals"
+    - "Tool Mastery"
+    - "Prototype Building"
+    - "AI Agents"
+  registration_link: ""
+  recap_links:
+    - url: "https://www.linkedin.com/feed/update/urn:li:activity:7363985175409483776/"
+      type: "Recap 1"
+      icon: "fab fa-linkedin"
+    - url: "https://www.linkedin.com/posts/swatijainatl_our-second-%F0%9D%97%94%F0%9D%97%9C-%F0%9D%97%95%F0%9D%98%82%F0%9D%97%B6%F0%9D%97%B9%F0%9D%97%B1%F0%9D%97%B2%F0%9D%97%BF-%F0%9D%97%AA%F0%9D%97%BC%F0%9D%97%BF%F0%9D%97%B8%F0%9D%98%80-activity-7363925327116468225-OZik"
+      type: "Recap 2"
+      icon: "fab fa-linkedin"
+
+- name: "AI Builder: Builder Series - 1"
+  level: 200
+  level_name: "Builder Series"
+  series: "Builder Series - 1"
+  date: "2025-08-01"
+  dates: "August 1, 2025"
+  status: "completed"
+  format: "Virtual on Zoom"
+  duration: "1 session"
+  description: "Inaugural AI Builder workshop"
+  topics:
+    - "AI Fundamentals"
+    - "Tool Introduction"
+    - "First Prototype"
+  registration_link: ""
+  recap_links:
+    - url: "https://www.linkedin.com/feed/update/urn:li:activity:7358135825819205634/"
+      type: "Workshop Recap"
+      icon: "fab fa-linkedin"
+
+# Level 300: Advanced Deep Dive Workshops
+- name: "AI Builder: Claude Series - 1"
+  level: 300
+  level_name: "Advanced Deep Dive"
+  series: "Claude Series - 1"
+  platform: "Anthropic Claude"
+  date: "2026-03-30"
+  dates: "March 30, 2026"
+  status: "scheduled"
+  format: "Virtual on Zoom"
+  duration: "Single session"
+  description: "Deep dive into Anthropic's Claude ecosystem - Chat, Cowork, Code, Extensions, and MCP"
+  topics:
+    - "Claude Chat, Cowork, and Code modes"
+    - "Extensions and Integrations"
+    - "Skills and MCP (Model Context Protocol)"
+    - "Advanced prompt engineering with Claude"
+  registration_link: "https://www.tixtree.com/e/ai-builder-claude-series-e54a3c4af09a"
+  recap_links: []
+
+- name: "Microsoft Copilot Mastery"
+  level: 300
+  level_name: "Advanced Deep Dive"
+  series: "Copilot Series - 1"
+  platform: "Microsoft Copilot"
+  date: "2026-07-15"
+  dates: "July 15, 2026"
+  status: "upcoming"
+  format: "Virtual on Zoom"
+  duration: "Single session"
+  description: "Master Microsoft Copilot across Office 365, GitHub, and Windows"
+  topics:
+    - "Copilot in Word, Excel, PowerPoint"
+    - "GitHub Copilot for developers"
+    - "Windows Copilot integration"
+    - "Enterprise deployment strategies"
+  registration_link: "https://cal.com/sree.pradhip"
+  recap_links: []
+
+- name: "Google Gemini Deep Dive"
+  level: 300
+  level_name: "Advanced Deep Dive"
+  series: "Gemini Series - 1"
+  platform: "Google Gemini"
+  date: "2026-08-20"
+  dates: "August 20, 2026"
+  status: "upcoming"
+  format: "Virtual on Zoom"
+  duration: "Single session"
+  description: "Explore Google's Gemini AI across Workspace and Cloud"
+  topics:
+    - "Gemini in Google Workspace"
+    - "Gemini API and integrations"
+    - "Multimodal capabilities"
+    - "Enterprise AI with Gemini"
+  registration_link: "https://cal.com/sree.pradhip"
+  recap_links: []
+

@@ -1,0 +1,49 @@
+# AI Musings - Talks Data
+# Add new talks by copying the template below and updating the values
+
+# Template:
+# - name: "Talk Title"
+#   date: "2026-04-15"
+#   dates: "April 15, 2026"
+#   status: "upcoming"  # upcoming, completed, cancelled
+#   location: "Virtual / City, Venue"
+#   description: "Brief description of the talk"
+#   speakers:
+#     - "Speaker Name 1"
+#     - "Speaker Name 2"
+#   registration_link: "https://..."
+#   recap_links:
+#     - url: "https://linkedin.com/..."
+#       type: "LinkedIn Post"
+#       icon: "fab fa-linkedin"
+#     - url: "https://youtube.com/..."
+#       type: "Video Recording"
+#       icon: "fab fa-youtube"
+
+# Sample Talks (Placeholder - Replace with actual events)
+- name: "AI in Business: Practical Applications"
+  date: "2026-05-15"
+  dates: "May 15, 2026"
+  status: "upcoming"
+  location: "Virtual"
+  description: "Exploring practical AI applications for business transformation"
+  speakers:
+    - "Sree Pradhip"
+    - "Swati Jain"
+  registration_link: "https://cal.com/sree.pradhip"
+  recap_links: []
+
+- name: "The Future of AI Agents"
+  date: "2026-03-20"
+  dates: "March 20, 2026"
+  status: "completed"
+  location: "Atlanta, GA"
+  description: "Deep dive into AI agent architectures and workflows"
+  speakers:
+    - "Sree Pradhip"
+  registration_link: ""
+  recap_links:
+    - url: "https://www.linkedin.com/company/pulsar-ventures-llc"
+      type: "Event Recap"
+      icon: "fab fa-linkedin"
+

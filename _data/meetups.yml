@@ -1,0 +1,54 @@
+# AI Musings - Meetups Data
+# Add new meetups by copying the template below and updating the values
+
+# Template:
+# - name: "Meetup Title"
+#   date: "2026-05-20"
+#   dates: "May 20, 2026"
+#   status: "upcoming"  # upcoming, completed, cancelled
+#   location: "City, Venue"
+#   description: "Brief description of the meetup"
+#   attendees: 25  # Expected or actual number
+#   registration_link: "https://..."
+#   recap_links:
+#     - url: "https://linkedin.com/..."
+#       type: "Event Recap"
+#       icon: "fab fa-linkedin"
+#     - url: "https://youtube.com/..."
+#       type: "Photo Gallery"
+#       icon: "fas fa-images"
+
+# Sample Meetups (Placeholder - Replace with actual events)
+- name: "AI Builders Community Meetup"
+  date: "2026-06-10"
+  dates: "June 10, 2026"
+  status: "upcoming"
+  location: "Atlanta, GA - Tech Square"
+  description: "Monthly community meetup for AI enthusiasts and builders"
+  attendees: 30
+  registration_link: "https://cal.com/sree.pradhip"
+  recap_links: []
+
+- name: "AI Tools & Techniques Networking"
+  date: "2026-04-25"
+  dates: "April 25, 2026"
+  status: "upcoming"
+  location: "Virtual"
+  description: "Connect with fellow AI practitioners and share experiences"
+  attendees: 50
+  registration_link: "https://cal.com/sree.pradhip"
+  recap_links: []
+
+- name: "AI Musings Launch Meetup"
+  date: "2025-12-15"
+  dates: "December 15, 2025"
+  status: "completed"
+  location: "Atlanta, GA"
+  description: "Inaugural meetup to launch the AI Musings community"
+  attendees: 25
+  registration_link: ""
+  recap_links:
+    - url: "https://www.linkedin.com/company/pulsar-ventures-llc"
+      type: "Event Recap"
+      icon: "fab fa-linkedin"
+
