@@ -1099,12 +1099,16 @@ function toggleEventType(type) {
     btn.classList.toggle('active');
     
     // Update timeline view - filter event cards
-    const cards = document.querySelectorAll(`.event-${type}`);
+    // Note: Timeline cards use event_type in Jekyll, so we need to match that
+    const cards = document.querySelectorAll('.event-card');
     cards.forEach(card => {
-        if (activeFilters[type]) {
-            card.classList.remove('hidden');
-        } else {
-            card.classList.add('hidden');
+        // Check if card has the event type class
+        if (card.classList.contains(`event-${type}`)) {
+            if (activeFilters[type]) {
+                card.classList.remove('hidden');
+            } else {
+                card.classList.add('hidden');
+            }
         }
     });
     
