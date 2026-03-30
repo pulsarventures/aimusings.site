@@ -112,7 +112,7 @@ description: "Comprehensive AI engagement activities: Learn through talks, conne
                 <div class="inline-flex items-center justify-center w-16 h-16 bg-brand-100 rounded-full mb-4">
                     <i data-lucide="camera" class="w-8 h-8 text-brand-600"></i>
                 </div>
-                <h2 class="text-4xl font-bold text-slate-900 mb-4">Workshop Moments</h2>
+                <h2 class="text-4xl font-bold text-slate-900 mb-4">Event Moments</h2>
                 <p class="text-lg text-slate-600 max-w-2xl mx-auto">
                     Capturing the energy, collaboration, and learning from our AI workshops and community events.
                 </p>
@@ -707,6 +707,186 @@ description: "Comprehensive AI engagement activities: Learn through talks, conne
     </svg>
 </div>
 
+<!-- Calendar Section -->
+<section id="calendar" class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+        <div class="max-w-7xl mx-auto">
+            <!-- Section Header -->
+            <div class="text-center mb-12 reveal">
+                <div class="inline-flex items-center justify-center w-16 h-16 bg-brand-100 rounded-full mb-4">
+                    <i data-lucide="calendar" class="w-8 h-8 text-brand-600"></i>
+                </div>
+                <h2 class="text-4xl font-bold text-slate-900 mb-4">Events Calendar</h2>
+                <p class="text-lg text-slate-600 max-w-2xl mx-auto">
+                    View all upcoming and past events in one place. Filter by event type and choose your preferred view.
+                </p>
+            </div>
+            
+            <!-- Filter Toggles -->
+            <div class="flex flex-wrap justify-center gap-4 mb-8 reveal reveal-delay-1">
+                <button onclick="toggleEventType('workshop')" id="filter-workshop" class="filter-btn active px-6 py-3 rounded-lg font-semibold transition-all shadow-md hover:shadow-lg">
+                    <span class="inline-block w-3 h-3 rounded-full bg-green-500 mr-2"></span>
+                    Workshops
+                </button>
+                <button onclick="toggleEventType('meetup')" id="filter-meetup" class="filter-btn active px-6 py-3 rounded-lg font-semibold transition-all shadow-md hover:shadow-lg">
+                    <span class="inline-block w-3 h-3 rounded-full bg-purple-500 mr-2"></span>
+                    Meetups
+                </button>
+                <button onclick="toggleEventType('talk')" id="filter-talk" class="filter-btn active px-6 py-3 rounded-lg font-semibold transition-all shadow-md hover:shadow-lg">
+                    <span class="inline-block w-3 h-3 rounded-full bg-blue-500 mr-2"></span>
+                    Talks
+                </button>
+            </div>
+            
+            <!-- View Toggle Tabs -->
+            <div class="flex justify-center mb-8 reveal reveal-delay-2">
+                <div class="inline-flex bg-slate-100 rounded-lg p-1">
+                    <button onclick="switchView('timeline')" id="view-timeline" class="view-tab active px-6 py-2 rounded-md font-semibold transition-all">
+                        <i data-lucide="list" class="w-4 h-4 inline mr-2"></i>Timeline
+                    </button>
+                    <button onclick="switchView('month')" id="view-month" class="view-tab px-6 py-2 rounded-md font-semibold transition-all">
+                        <i data-lucide="calendar-days" class="w-4 h-4 inline mr-2"></i>Month View
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Timeline View -->
+            <div id="timeline-view" class="calendar-view reveal reveal-delay-3">
+                <div class="space-y-4">
+                    {% comment %} Collect and sort all events {% endcomment %}
+                    {% assign all_calendar_events = '' | split: '' %}
+                    
+                    {% for workshop in site.data.workshops %}
+                        {% assign event = workshop | default: {} %}
+                        {% assign event_with_type = event | merge: '{"event_type": "workshop", "color": "green"}' %}
+                        {% assign all_calendar_events = all_calendar_events | push: event_with_type %}
+                    {% endfor %}
+                    
+                    {% for meetup in site.data.meetups %}
+                        {% assign event = meetup | default: {} %}
+                        {% assign event_with_type = event | merge: '{"event_type": "meetup", "color": "purple"}' %}
+                        {% assign all_calendar_events = all_calendar_events | push: event_with_type %}
+                    {% endfor %}
+                    
+                    {% for talk in site.data.talks %}
+                        {% assign event = talk | default: {} %}
+                        {% assign event_with_type = event | merge: '{"event_type": "talk", "color": "blue"}' %}
+                        {% assign all_calendar_events = all_calendar_events | push: event_with_type %}
+                    {% endfor %}
+                    
+                    {% assign sorted_calendar_events = all_calendar_events | sort: 'date' | reverse %}
+                    
+                    {% for event in sorted_calendar_events %}
+                    <div class="event-card event-{{ event.event_type }} bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-all border-l-4
+                        {% if event.event_type == 'workshop' %}border-green-500{% elsif event.event_type == 'meetup' %}border-purple-500{% else %}border-blue-500{% endif %}">
+                        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                            <div class="flex-1">
+                                <div class="flex items-center gap-3 mb-2">
+                                    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-semibold
+                                        {% if event.event_type == 'workshop' %}bg-green-100 text-green-800{% elsif event.event_type == 'meetup' %}bg-purple-100 text-purple-800{% else %}bg-blue-100 text-blue-800{% endif %}">
+                                        {% if event.event_type == 'workshop' %}
+                                            <i data-lucide="graduation-cap" class="w-4 h-4 mr-1"></i>Workshop
+                                        {% elsif event.event_type == 'meetup' %}
+                                            <i data-lucide="users" class="w-4 h-4 mr-1"></i>Meetup
+                                        {% else %}
+                                            <i data-lucide="mic" class="w-4 h-4 mr-1"></i>Talk
+                                        {% endif %}
+                                    </span>
+                                    {% if event.status == "upcoming" or event.status == "scheduled" %}
+                                    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800">
+                                        📅 Upcoming
+                                    </span>
+                                    {% elsif event.status == "completed" %}
+                                    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-100 text-green-800">
+                                        ✓ Completed
+                                    </span>
+                                    {% endif %}
+                                </div>
+                                <h3 class="text-xl font-bold text-slate-900 mb-2">
+                                    {% if event.series %}{{ event.series }}{% else %}{{ event.name }}{% endif %}
+                                </h3>
+                                <div class="flex flex-wrap gap-4 text-sm text-slate-600">
+                                    <span><i data-lucide="calendar" class="w-4 h-4 inline mr-1"></i>{{ event.dates }}</span>
+                                    {% if event.location %}
+                                    <span><i data-lucide="map-pin" class="w-4 h-4 inline mr-1"></i>{{ event.location }}</span>
+                                    {% elsif event.format %}
+                                    <span><i data-lucide="video" class="w-4 h-4 inline mr-1"></i>{{ event.format }}</span>
+                                    {% endif %}
+                                </div>
+                                {% if event.description %}
+                                <p class="text-slate-600 mt-2">{{ event.description }}</p>
+                                {% endif %}
+                            </div>
+                            <div class="flex flex-col gap-2">
+                                {% if event.registration_link and event.registration_link != "" %}
+                                <a href="{{ event.registration_link }}" target="_blank" class="inline-flex items-center justify-center px-6 py-3 bg-brand-600 text-white rounded-lg hover:bg-brand-700 transition-colors font-semibold text-center whitespace-nowrap">
+                                    <i class="fas fa-ticket-alt mr-2"></i>Register
+                                </a>
+                                {% endif %}
+                                {% for link in event.recap_links %}
+                                <a href="{{ link.url }}" target="_blank" class="inline-flex items-center justify-center px-4 py-2 bg-slate-100 text-slate-700 rounded-lg hover:bg-slate-200 transition-colors text-sm text-center">
+                                    <i class="{{ link.icon }} mr-2"></i>{{ link.type }}
+                                </a>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            
+            <!-- Month View -->
+            <div id="month-view" class="calendar-view hidden reveal reveal-delay-3">
+                <div class="bg-white rounded-xl shadow-lg p-6">
+                    <div class="flex items-center justify-between mb-6">
+                        <button onclick="previousMonth()" class="p-2 hover:bg-slate-100 rounded-lg transition-colors">
+                            <i data-lucide="chevron-left" class="w-6 h-6"></i>
+                        </button>
+                        <h3 id="current-month" class="text-2xl font-bold text-slate-900"></h3>
+                        <button onclick="nextMonth()" class="p-2 hover:bg-slate-100 rounded-lg transition-colors">
+                            <i data-lucide="chevron-right" class="w-6 h-6"></i>
+                        </button>
+                    </div>
+                    
+                    <!-- Calendar Grid -->
+                    <div class="grid grid-cols-7 gap-2 mb-4">
+                        <div class="text-center font-semibold text-slate-600 py-2">Sun</div>
+                        <div class="text-center font-semibold text-slate-600 py-2">Mon</div>
+                        <div class="text-center font-semibold text-slate-600 py-2">Tue</div>
+                        <div class="text-center font-semibold text-slate-600 py-2">Wed</div>
+                        <div class="text-center font-semibold text-slate-600 py-2">Thu</div>
+                        <div class="text-center font-semibold text-slate-600 py-2">Fri</div>
+                        <div class="text-center font-semibold text-slate-600 py-2">Sat</div>
+                    </div>
+                    
+                    <div id="calendar-grid" class="grid grid-cols-7 gap-2">
+                        <!-- Calendar days will be generated by JavaScript -->
+                    </div>
+                    
+                    <!-- Events for selected date -->
+                    <div id="selected-date-events" class="mt-6 pt-6 border-t border-slate-200">
+                        <p class="text-center text-slate-500">Click on a date to view events</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Wave Divider -->
+<div class="wave-divider">
+    <svg viewBox="0 0 1200 100" preserveAspectRatio="none">
+        <defs>
+            <linearGradient id="wave-gradient-calendar" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" style="stop-color:#7c3aed;stop-opacity:0.3" />
+                <stop offset="50%" style="stop-color:#a78bfa;stop-opacity:0.3" />
+                <stop offset="100%" style="stop-color:#7c3aed;stop-opacity:0.3" />
+            </linearGradient>
+        </defs>
+        <path class="wave-path" d="M0,50 Q300,20 600,50 T1200,50 L1200,100 L0,100 Z" fill="url(#wave-gradient-calendar)"></path>
+    </svg>
+</div>
+
 <!-- YouTube Channel Section -->
 <section class="py-20 bg-white">
     <div class="container mx-auto px-4">
@@ -802,6 +982,7 @@ description: "Comprehensive AI engagement activities: Learn through talks, conne
         </div>
     </div>
 </section>
+
 <script>
 // Initialize Swiper carousels after page load
 document.addEventListener('DOMContentLoaded', function() {
@@ -864,4 +1045,266 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+// Calendar JavaScript
+const calendarEvents = [
+    {% for workshop in site.data.workshops %}
+    {
+        name: "{{ workshop.series | default: workshop.name | escape }}",
+        date: "{{ workshop.date }}",
+        dates: "{{ workshop.dates }}",
+        type: "workshop",
+        color: "green",
+        status: "{{ workshop.status }}",
+        registration_link: "{{ workshop.registration_link }}",
+        description: "{{ workshop.description | escape }}",
+        location: "{{ workshop.format | default: workshop.location | escape }}"
+    },
+    {% endfor %}
+    {% for meetup in site.data.meetups %}
+    {
+        name: "{{ meetup.name | escape }}",
+        date: "{{ meetup.date }}",
+        dates: "{{ meetup.dates }}",
+        type: "meetup",
+        color: "purple",
+        status: "{{ meetup.status }}",
+        registration_link: "{{ meetup.registration_link }}",
+        description: "{{ meetup.description | escape }}",
+        location: "{{ meetup.location | escape }}"
+    },
+    {% endfor %}
+    {% for talk in site.data.talks %}
+    {
+        name: "{{ talk.name | escape }}",
+        date: "{{ talk.date }}",
+        dates: "{{ talk.dates }}",
+        type: "talk",
+        color: "blue",
+        status: "{{ talk.status }}",
+        registration_link: "{{ talk.registration_link }}",
+        description: "{{ talk.description | escape }}",
+        location: "{{ talk.location | escape }}"
+    },
+    {% endfor %}
+].filter(e => e.date); // Remove any events without dates
+
+let currentMonth = new Date();
+let selectedDate = null;
+let activeFilters = { workshop: true, meetup: true, talk: true };
+
+// Toggle event type filter
+function toggleEventType(type) {
+    activeFilters[type] = !activeFilters[type];
+    const btn = document.getElementById(`filter-${type}`);
+    btn.classList.toggle('active');
+    
+    // Update timeline view
+    const cards = document.querySelectorAll(`.event-${type}`);
+    cards.forEach(card => {
+        if (activeFilters[type]) {
+            card.classList.remove('hidden');
+        } else {
+            card.classList.add('hidden');
+        }
+    });
+    
+    // Update month view if active
+    if (document.getElementById('month-view').classList.contains('hidden') === false) {
+        renderCalendar();
+    }
+}
+
+// Switch between timeline and month view
+function switchView(view) {
+    const timelineView = document.getElementById('timeline-view');
+    const monthView = document.getElementById('month-view');
+    const timelineBtn = document.getElementById('view-timeline');
+    const monthBtn = document.getElementById('view-month');
+    
+    if (view === 'timeline') {
+        timelineView.classList.remove('hidden');
+        monthView.classList.add('hidden');
+        timelineBtn.classList.add('active');
+        monthBtn.classList.remove('active');
+    } else {
+        timelineView.classList.add('hidden');
+        monthView.classList.remove('hidden');
+        timelineBtn.classList.remove('active');
+        monthBtn.classList.add('active');
+        renderCalendar();
+    }
+    
+    // Re-initialize Lucide icons
+    if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+    }
+}
+
+// Navigate to previous month
+function previousMonth() {
+    currentMonth.setMonth(currentMonth.getMonth() - 1);
+    renderCalendar();
+}
+
+// Navigate to next month
+function nextMonth() {
+    currentMonth.setMonth(currentMonth.getMonth() + 1);
+    renderCalendar();
+}
+
+// Render calendar for current month
+function renderCalendar() {
+    const year = currentMonth.getFullYear();
+    const month = currentMonth.getMonth();
+    
+    // Update month header
+    const monthNames = ['January', 'February', 'March', 'April', 'May', 'June',
+                       'July', 'August', 'September', 'October', 'November', 'December'];
+    document.getElementById('current-month').textContent = `${monthNames[month]} ${year}`;
+    
+    // Get first day of month and number of days
+    const firstDay = new Date(year, month, 1).getDay();
+    const daysInMonth = new Date(year, month + 1, 0).getDate();
+    const daysInPrevMonth = new Date(year, month, 0).getDate();
+    
+    // Get today's date for comparison
+    const today = new Date();
+    const isCurrentMonth = today.getFullYear() === year && today.getMonth() === month;
+    const todayDate = today.getDate();
+    
+    // Build calendar grid
+    const grid = document.getElementById('calendar-grid');
+    grid.innerHTML = '';
+    
+    // Previous month days
+    for (let i = firstDay - 1; i >= 0; i--) {
+        const day = daysInPrevMonth - i;
+        const cell = createDayCell(day, year, month - 1, true);
+        grid.appendChild(cell);
+    }
+    
+    // Current month days
+    for (let day = 1; day <= daysInMonth; day++) {
+        const isToday = isCurrentMonth && day === todayDate;
+        const cell = createDayCell(day, year, month, false, isToday);
+        grid.appendChild(cell);
+    }
+    
+    // Next month days to fill grid
+    const totalCells = grid.children.length;
+    const remainingCells = 42 - totalCells; // 6 rows * 7 days
+    for (let day = 1; day <= remainingCells; day++) {
+        const cell = createDayCell(day, year, month + 1, true);
+        grid.appendChild(cell);
+    }
+    
+    // Re-initialize Lucide icons
+    if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+    }
+}
+
+// Create a day cell for the calendar
+function createDayCell(day, year, month, isOtherMonth, isToday = false) {
+    const cell = document.createElement('div');
+    const dateStr = `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+    
+    // Get events for this date
+    const dayEvents = calendarEvents.filter(e => {
+        return e.date === dateStr && activeFilters[e.type];
+    });
+    
+    cell.className = 'calendar-day';
+    if (isOtherMonth) cell.classList.add('other-month');
+    if (isToday) cell.classList.add('today');
+    if (dayEvents.length > 0) cell.classList.add('has-events');
+    
+    cell.innerHTML = `<div class="font-semibold">${day}</div>`;
+    
+    // Add event dots
+    if (dayEvents.length > 0) {
+        const dotsContainer = document.createElement('div');
+        dotsContainer.className = 'event-dots';
+        dayEvents.slice(0, 3).forEach(event => {
+            const dot = document.createElement('div');
+            dot.className = 'event-dot';
+            dot.style.backgroundColor = event.color === 'green' ? '#10b981' : 
+                                       event.color === 'purple' ? '#a855f7' : '#3b82f6';
+            dotsContainer.appendChild(dot);
+        });
+        cell.appendChild(dotsContainer);
+    }
+    
+    // Add click handler
+    cell.onclick = () => showEventsForDate(dateStr, dayEvents, cell);
+    
+    return cell;
+}
+
+// Show events for selected date
+function showEventsForDate(dateStr, events, cell) {
+    // Remove previous selection
+    document.querySelectorAll('.calendar-day.selected').forEach(d => d.classList.remove('selected'));
+    cell.classList.add('selected');
+    
+    const container = document.getElementById('selected-date-events');
+    
+    if (events.length === 0) {
+        container.innerHTML = '<p class="text-center text-slate-500">No events on this date</p>';
+        return;
+    }
+    
+    const date = new Date(dateStr);
+    const dateFormatted = date.toLocaleDateString('en-US', { 
+        weekday: 'long', 
+        year: 'numeric', 
+        month: 'long', 
+        day: 'numeric' 
+    });
+    
+    let html = `<h4 class="text-xl font-bold text-slate-900 mb-4">${dateFormatted}</h4>`;
+    html += '<div class="space-y-3">';
+    
+    events.forEach(event => {
+        const colorClass = event.type === 'workshop' ? 'border-green-500 bg-green-50' :
+                          event.type === 'meetup' ? 'border-purple-500 bg-purple-50' :
+                          'border-blue-500 bg-blue-50';
+        
+        const typeLabel = event.type === 'workshop' ? 'Workshop' :
+                         event.type === 'meetup' ? 'Meetup' : 'Talk';
+        
+        const typeColor = event.type === 'workshop' ? 'bg-green-100 text-green-800' :
+                         event.type === 'meetup' ? 'bg-purple-100 text-purple-800' :
+                         'bg-blue-100 text-blue-800';
+        
+        html += `
+            <div class="border-l-4 ${colorClass} p-4 rounded-lg">
+                <div class="flex items-center justify-between mb-2">
+                    <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-semibold ${typeColor}">
+                        ${typeLabel}
+                    </span>
+                    ${event.status === 'upcoming' || event.status === 'scheduled' ? 
+                        '<span class="text-xs text-blue-600 font-medium">📅 Upcoming</span>' : 
+                        '<span class="text-xs text-green-600 font-medium">✓ Completed</span>'}
+                </div>
+                <h5 class="font-bold text-slate-900 mb-1">${event.name}</h5>
+                ${event.location ? `<p class="text-sm text-slate-600 mb-2"><i data-lucide="map-pin" class="w-3 h-3 inline mr-1"></i>${event.location}</p>` : ''}
+                ${event.description ? `<p class="text-sm text-slate-600 mb-2">${event.description}</p>` : ''}
+                ${event.registration_link ? 
+                    `<a href="${event.registration_link}" target="_blank" class="inline-flex items-center px-3 py-1 bg-brand-600 text-white rounded-lg hover:bg-brand-700 transition-colors text-sm mt-2">
+                        <i class="fas fa-ticket-alt mr-1"></i>Register
+                    </a>` : ''}
+            </div>
+        `;
+    });
+    
+    html += '</div>';
+    container.innerHTML = html;
+    
+    // Re-initialize Lucide icons
+    if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+    }
+}
+
 </script>
