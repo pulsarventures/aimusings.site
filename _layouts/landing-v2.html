@@ -501,7 +501,23 @@
                 
                 <!-- Desktop Menu -->
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="#workshops" class="text-slate-700 hover:text-brand-600 transition-colors">Workshops</a>
+                    <div class="relative group">
+                        <a href="#workshops" class="text-slate-700 hover:text-brand-600 transition-colors flex items-center">
+                            Workshops
+                            <i data-lucide="chevron-down" class="w-4 h-4 ml-1"></i>
+                        </a>
+                        <div class="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                            <a href="#workshops" onclick="switchTab('agenda'); return true;" class="block px-4 py-3 text-slate-700 hover:bg-brand-50 hover:text-brand-600 transition-colors rounded-t-lg">
+                                <i data-lucide="calendar" class="w-4 h-4 inline mr-2"></i>Agenda
+                            </a>
+                            <a href="#workshops" onclick="switchTab('tools'); return true;" class="block px-4 py-3 text-slate-700 hover:bg-brand-50 hover:text-brand-600 transition-colors">
+                                <i data-lucide="wrench" class="w-4 h-4 inline mr-2"></i>Tools
+                            </a>
+                            <a href="#workshops" onclick="switchTab('resources'); return true;" class="block px-4 py-3 text-slate-700 hover:bg-brand-50 hover:text-brand-600 transition-colors rounded-b-lg">
+                                <i data-lucide="book-open" class="w-4 h-4 inline mr-2"></i>Resources
+                            </a>
+                        </div>
+                    </div>
                     <a href="#meetups" class="text-slate-700 hover:text-brand-600 transition-colors">Meetups</a>
                     <a href="#talks" class="text-slate-700 hover:text-brand-600 transition-colors">Talks</a>
                     <div class="relative group">
