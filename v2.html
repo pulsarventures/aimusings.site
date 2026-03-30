@@ -753,40 +753,49 @@ description: "Comprehensive AI engagement activities: Learn through talks, conne
             <!-- Timeline View -->
             <div id="timeline-view" class="calendar-view reveal reveal-delay-3">
                 <div class="space-y-4 max-h-[800px] overflow-y-auto pr-2" style="scrollbar-width: thin; scrollbar-color: #6366f1 #e2e8f0;">
-                    {% comment %} Collect and sort all events {% endcomment %}
-                    {% assign all_calendar_events = '' | split: '' %}
+                    {% comment %} Collect all events with type tracking {% endcomment %}
+                    {% assign all_events = '' | split: '' %}
                     
                     {% for workshop in site.data.workshops %}
-                        {% assign event = workshop | default: {} %}
-                        {% assign event_with_type = event | merge: '{"event_type": "workshop", "color": "green"}' %}
-                        {% assign all_calendar_events = all_calendar_events | push: event_with_type %}
+                        {% assign all_events = all_events | push: workshop %}
                     {% endfor %}
-                    
                     {% for meetup in site.data.meetups %}
-                        {% assign event = meetup | default: {} %}
-                        {% assign event_with_type = event | merge: '{"event_type": "meetup", "color": "purple"}' %}
-                        {% assign all_calendar_events = all_calendar_events | push: event_with_type %}
+                        {% assign all_events = all_events | push: meetup %}
                     {% endfor %}
-                    
                     {% for talk in site.data.talks %}
-                        {% assign event = talk | default: {} %}
-                        {% assign event_with_type = event | merge: '{"event_type": "talk", "color": "blue"}' %}
-                        {% assign all_calendar_events = all_calendar_events | push: event_with_type %}
+                        {% assign all_events = all_events | push: talk %}
                     {% endfor %}
                     
-                    {% assign sorted_calendar_events = all_calendar_events | sort: 'date' | reverse %}
+                    {% assign sorted_events = all_events | sort: 'date' | reverse %}
                     
-                    {% for event in sorted_calendar_events %}
-                    <div class="event-card event-{{ event.event_type }} bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-all border-l-4
-                        {% if event.event_type == 'workshop' %}border-green-500{% elsif event.event_type == 'meetup' %}border-purple-500{% else %}border-blue-500{% endif %}">
+                    {% for event in sorted_events %}
+                    {% comment %} Determine event type by checking which collection it belongs to {% endcomment %}
+                    {% assign event_type = 'talk' %}
+                    {% for workshop in site.data.workshops %}
+                        {% if workshop.name == event.name and workshop.date == event.date %}
+                            {% assign event_type = 'workshop' %}
+                            {% break %}
+                        {% endif %}
+                    {% endfor %}
+                    {% if event_type == 'talk' %}
+                        {% for meetup in site.data.meetups %}
+                            {% if meetup.name == event.name and meetup.date == event.date %}
+                                {% assign event_type = 'meetup' %}
+                                {% break %}
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
+                    
+                    <div class="event-card event-{{ event_type }} bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-all border-l-4
+                        {% if event_type == 'workshop' %}border-green-500{% elsif event_type == 'meetup' %}border-purple-500{% else %}border-blue-500{% endif %}">
                         <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
                             <div class="flex-1">
                                 <div class="flex items-center gap-3 mb-2">
                                     <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-semibold
-                                        {% if event.event_type == 'workshop' %}bg-green-100 text-green-800{% elsif event.event_type == 'meetup' %}bg-purple-100 text-purple-800{% else %}bg-blue-100 text-blue-800{% endif %}">
-                                        {% if event.event_type == 'workshop' %}
+                                        {% if event_type == 'workshop' %}bg-green-100 text-green-800{% elsif event_type == 'meetup' %}bg-purple-100 text-purple-800{% else %}bg-blue-100 text-blue-800{% endif %}">
+                                        {% if event_type == 'workshop' %}
                                             <i data-lucide="graduation-cap" class="w-4 h-4 mr-1"></i>Workshop
-                                        {% elsif event.event_type == 'meetup' %}
+                                        {% elsif event_type == 'meetup' %}
                                             <i data-lucide="users" class="w-4 h-4 mr-1"></i>Meetup
                                         {% else %}
                                             <i data-lucide="mic" class="w-4 h-4 mr-1"></i>Talk
