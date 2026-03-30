@@ -22,13 +22,27 @@ description: "Comprehensive AI engagement activities: Learn through talks, conne
             <!-- Three Pillar Cards -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
                 <!-- Workshops Card -->
-                <a href="#workshops" class="pillar-card bg-white rounded-xl p-8 shadow-lg border-2 border-transparent hover:border-brand-500">
-                    <div class="text-brand-600 mb-4">
-                        <i data-lucide="graduation-cap" class="w-16 h-16 mx-auto"></i>
+                <div class="pillar-card bg-white rounded-xl p-8 shadow-lg border-2 border-transparent hover:border-brand-500 relative group">
+                    <a href="#workshops" class="block">
+                        <div class="text-brand-600 mb-4">
+                            <i data-lucide="graduation-cap" class="w-16 h-16 mx-auto"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-slate-900 mb-2">Workshops</h3>
+                        <p class="text-slate-600">Hands-on training from beginner to advanced</p>
+                    </a>
+                    <!-- Sub-menu -->
+                    <div class="absolute top-full left-0 right-0 mt-2 bg-white rounded-lg shadow-xl border border-slate-200 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-10">
+                        <a href="#workshops" onclick="switchTab('agenda'); return true;" class="block px-6 py-3 text-slate-700 hover:bg-brand-50 hover:text-brand-600 transition-colors rounded-t-lg">
+                            <i data-lucide="calendar" class="w-4 h-4 inline mr-2"></i>Agenda
+                        </a>
+                        <a href="#workshops" onclick="switchTab('tools'); return true;" class="block px-6 py-3 text-slate-700 hover:bg-brand-50 hover:text-brand-600 transition-colors">
+                            <i data-lucide="wrench" class="w-4 h-4 inline mr-2"></i>Tools
+                        </a>
+                        <a href="#workshops" onclick="switchTab('resources'); return true;" class="block px-6 py-3 text-slate-700 hover:bg-brand-50 hover:text-brand-600 transition-colors rounded-b-lg">
+                            <i data-lucide="book-open" class="w-4 h-4 inline mr-2"></i>Resources
+                        </a>
                     </div>
-                    <h3 class="text-2xl font-bold text-slate-900 mb-2">Workshops</h3>
-                    <p class="text-slate-600">Hands-on training from beginner to advanced</p>
-                </a>
+                </div>
                 
                 <!-- Meetups Card -->
                 <a href="#meetups" class="pillar-card bg-white rounded-xl p-8 shadow-lg border-2 border-transparent hover:border-brand-500">
@@ -188,6 +202,184 @@ description: "Comprehensive AI engagement activities: Learn through talks, conne
                     Hands-on AI workshops designed for all skill levels. From beginner introductions 
                     to advanced platform-specific deep dives.
                 </p>
+            
+            <!-- Tabbed Navigation -->
+            <div class="mb-12 reveal reveal-delay-1">
+                <div class="flex justify-center border-b border-slate-200">
+                    <button class="workshop-tab px-6 py-3 font-semibold text-brand-600 border-b-2 border-brand-600 transition-colors" data-tab="agenda">
+                        Agenda
+                    </button>
+                    <button class="workshop-tab px-6 py-3 font-semibold text-slate-600 hover:text-brand-600 border-b-2 border-transparent transition-colors" data-tab="tools">
+                        Tools
+                    </button>
+                    <button class="workshop-tab px-6 py-3 font-semibold text-slate-600 hover:text-brand-600 border-b-2 border-transparent transition-colors" data-tab="resources">
+                        Resources
+                    </button>
+                </div>
+                
+                <!-- Tab Content -->
+                <div class="mt-8">
+                    <!-- Agenda Tab -->
+                    <div id="agenda-tab" class="tab-content">
+                        <div class="bg-slate-50 rounded-xl p-8">
+                            <h3 class="text-2xl font-bold text-slate-900 mb-6">Workshop Agenda: Your AI Journey in One Day</h3>
+                            <div class="space-y-4">
+                                <div class="flex items-start">
+                                    <div class="flex-shrink-0 w-24 text-brand-600 font-semibold">1</div>
+                                    <div class="flex-1">
+                                        <h4 class="font-semibold text-slate-900">AI Fundamentals & Mechanics</h4>
+                                        <p class="text-slate-600">Discover how large language models work and the key principles behind effective AI prompting. Build a solid foundation for everything that follows.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="flex-shrink-0 w-24 text-brand-600 font-semibold">2</div>
+                                    <div class="flex-1">
+                                        <h4 class="font-semibold text-slate-900">AI Tools Deep Dive</h4>
+                                        <p class="text-slate-600">Get hands-on with today's most powerful AI tools. Learn the unique strengths of each platform and when to use them for different tasks.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="flex-shrink-0 w-24 text-brand-600 font-semibold">3</div>
+                                    <div class="flex-1">
+                                        <h4 class="font-semibold text-slate-900">Build Your First Prototype</h4>
+                                        <p class="text-slate-600">Apply your new knowledge to create a working prototype that solves a real problem in your business or career. Receive personalized guidance from our instructors.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="flex-shrink-0 w-24 text-brand-600 font-semibold">4</div>
+                                    <div class="flex-1">
+                                        <h4 class="font-semibold text-slate-900">Build Your First AI Agent</h4>
+                                        <p class="text-slate-600">Take your skills to the next level by creating an automated AI agent that can handle complex tasks with minimal supervision.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="flex-shrink-0 w-24 text-brand-600 font-semibold">2:00 PM</div>
+                                    <div class="flex-1">
+                                        <h4 class="font-semibold text-slate-900">Advanced Topics</h4>
+                                        <p class="text-slate-600">Deep dive into specific use cases</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="flex-shrink-0 w-24 text-brand-600 font-semibold">4:00 PM</div>
+                                    <div class="flex-1">
+                                        <h4 class="font-semibold text-slate-900">Q&A & Wrap-up</h4>
+                                        <p class="text-slate-600">Questions, next steps, and resources</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Tools Tab -->
+                    <div id="tools-tab" class="tab-content hidden">
+                        <div class="bg-slate-50 rounded-xl p-8">
+                            <h3 class="text-2xl font-bold text-slate-900 mb-6">Tools You'll Master</h3>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div class="bg-white rounded-lg p-6 shadow-sm">
+                                    <div class="flex items-center mb-3">
+                                        <i data-lucide="laptop" class="w-6 h-6 text-brand-600 mr-3"></i>
+                                        <h4 class="font-semibold text-slate-900">Core</h4>
+                                    </div>
+                                    <ul class="space-y-2 text-slate-600">
+                                        <li>• ChatGPT and Gemini for versatile text generation, reasoning, and problem-solving</li>
+                                        <li>• Perplexity for research that cites sources</li>
+                                        <li>• Terminal/Command line access</li>
+                                        <li>• NotebookLM for research synthesis and organization</li>
+                                        <li>• Gamma for presentations and visual content</li>
+                                    </ul>
+                                </div>
+                                <div class="bg-white rounded-lg p-6 shadow-sm">
+                                    <div class="flex items-center mb-3">
+                                        <i data-lucide="cloud" class="w-6 h-6 text-brand-600 mr-3"></i>
+                                        <h4 class="font-semibold text-slate-900">Prototyping & Development</h4>
+                                    </div>
+                                    <ul class="space-y-2 text-slate-600">
+                                        <li>• Lovable for rapid prototype development</li>
+                                        <li>• Replit for coding without development environment setup</li>
+                                        <li>• Cursor for AI-assisted coding and debugging</li>
+                                        <li>• Claude Code and Gemini CLI for command-line development workflows</li>
+                                    </ul>
+                                </div>
+                                <div class="bg-white rounded-lg p-6 shadow-sm">
+                                    <div class="flex items-center mb-3">
+                                        <i data-lucide="package" class="w-6 h-6 text-brand-600 mr-3"></i>
+                                        <h4 class="font-semibold text-slate-900">Automation & Workflow</h4>
+                                    </div>
+                                    <ul class="space-y-2 text-slate-600">
+                                        <li>• MindStudio for building your first AI agents with guided templates</li>
+                                        <li>• n8n for advanced workflow automation with detailed control</li>
+                                        <li>• Langflow for advanced visual AI pipeline development</li>
+                                    </ul>
+                                </div>
+                                <div class="bg-white rounded-lg p-6 shadow-sm">
+                                    <div class="flex items-center mb-3">
+                                        <i data-lucide="book-open" class="w-6 h-6 text-brand-600 mr-3"></i>
+                                        <h4 class="font-semibold text-slate-900">Pre-workshop Prep</h4>
+                                    </div>
+                                    <ul class="space-y-2 text-slate-600">
+                                        <li>• Review setup guide (sent via email)</li>
+                                        <li>• Install required dependencies</li>
+                                        <li>• Test API connections</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Resources Tab -->
+                    <div id="resources-tab" class="tab-content hidden">
+                        <div class="bg-slate-50 rounded-xl p-8">
+                            <h3 class="text-2xl font-bold text-slate-900 mb-6">Workshop Resources</h3>
+                            <div class="space-y-6">
+                                <div>
+                                    <h4 class="font-semibold text-slate-900 mb-3 flex items-center">
+                                        <i data-lucide="file-text" class="w-5 h-5 text-brand-600 mr-2"></i>
+                                        Documentation & Guides
+                                    </h4>
+                                    <ul class="space-y-2 text-slate-600 ml-7">
+                                        <li>• <a href="#" class="text-brand-600 hover:underline">Workshop slides and materials</a></li>
+                                        <li>• <a href="#" class="text-brand-600 hover:underline">Code examples and templates</a></li>
+                                        <li>• <a href="#" class="text-brand-600 hover:underline">Best practices guide</a></li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-slate-900 mb-3 flex items-center">
+                                        <i data-lucide="video" class="w-5 h-5 text-brand-600 mr-2"></i>
+                                        Video Tutorials
+                                    </h4>
+                                    <ul class="space-y-2 text-slate-600 ml-7">
+                                        <li>• <a href="#" class="text-brand-600 hover:underline">Getting started with AI APIs</a></li>
+                                        <li>• <a href="#" class="text-brand-600 hover:underline">Building your first chatbot</a></li>
+                                        <li>• <a href="#" class="text-brand-600 hover:underline">Advanced prompt engineering</a></li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-slate-900 mb-3 flex items-center">
+                                        <i data-lucide="users" class="w-5 h-5 text-brand-600 mr-2"></i>
+                                        Community & Support
+                                    </h4>
+                                    <ul class="space-y-2 text-slate-600 ml-7">
+                                        <li>• <a href="#" class="text-brand-600 hover:underline">Join our WhatsApp community</a></li>
+                                        <li>• <a href="#" class="text-brand-600 hover:underline">Weekly office hours</a></li>
+                                        <li>• <a href="#" class="text-brand-600 hover:underline">Alumni network</a></li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-slate-900 mb-3 flex items-center">
+                                        <i data-lucide="link" class="w-5 h-5 text-brand-600 mr-2"></i>
+                                        External Resources
+                                    </h4>
+                                    <ul class="space-y-2 text-slate-600 ml-7">
+                                        <li>• <a href="https://platform.openai.com/docs" target="_blank" class="text-brand-600 hover:underline">OpenAI Documentation</a></li>
+                                        <li>• <a href="https://huggingface.co/docs" target="_blank" class="text-brand-600 hover:underline">Hugging Face Docs</a></li>
+                                        <li>• <a href="https://python.langchain.com" target="_blank" class="text-brand-600 hover:underline">LangChain Documentation</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             </div>
             
             <!-- Level 100: Beginner Intro -->
@@ -289,7 +481,7 @@ description: "Comprehensive AI engagement activities: Learn through talks, conne
                             <i class="fas fa-clock mr-1"></i>2 sessions
                         </span>
                         <span class="px-3 py-1 bg-white rounded-full text-sm text-slate-700">
-                            <i class="fas fa-laptop mr-1"></i>Virtual on Zoom
+                            <i class="fas fa-laptop mr-1"></i>Virtual
                         </span>
                         <span class="px-3 py-1 bg-white rounded-full text-sm text-slate-700">
                             <i class="fas fa-tools mr-1"></i>10+ AI tools
@@ -1053,7 +1245,61 @@ document.addEventListener('DOMContentLoaded', function() {
             enabled: true,
         }
     });
+    
+    // Workshop tabs functionality
+    function switchTab(tabName) {
+        // Hide all tab contents
+        document.querySelectorAll('.tab-content').forEach(content => {
+            content.classList.add('hidden');
+        });
+        
+        // Remove active state from all tabs
+        document.querySelectorAll('.workshop-tab').forEach(tab => {
+            tab.classList.remove('text-brand-600', 'border-brand-600');
+            tab.classList.add('text-slate-600', 'border-transparent');
+        });
+        
+        // Show selected tab content
+        const selectedContent = document.getElementById(`${tabName}-tab`);
+        if (selectedContent) {
+            selectedContent.classList.remove('hidden');
+        }
+        
+        // Add active state to selected tab
+        const selectedTab = document.querySelector(`[data-tab="${tabName}"]`);
+        if (selectedTab) {
+            selectedTab.classList.remove('text-slate-600', 'border-transparent');
+            selectedTab.classList.add('text-brand-600', 'border-brand-600');
+        }
+        
+        // Scroll to workshops section
+        setTimeout(() => {
+            document.getElementById('workshops').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 100);
+    }
+    
+    // Add click handlers to tabs
+    document.querySelectorAll('.workshop-tab').forEach(tab => {
+        tab.addEventListener('click', function(e) {
+            e.preventDefault();
+            const tabName = this.getAttribute('data-tab');
+            switchTab(tabName);
+        });
+    });
+    
+    // Check URL hash on page load for direct tab access
+    window.addEventListener('load', function() {
+        const hash = window.location.hash;
+        if (hash === '#workshops-agenda') {
+            switchTab('agenda');
+        } else if (hash === '#workshops-tools') {
+            switchTab('tools');
+        } else if (hash === '#workshops-resources') {
+            switchTab('resources');
+        }
+    });
 });
+
 // Calendar JavaScript
 const calendarEvents = [
     {% for workshop in site.data.workshops %}
