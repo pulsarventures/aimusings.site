@@ -21,13 +21,13 @@ description: "Comprehensive AI engagement activities: Learn through talks, conne
             
             <!-- Three Pillar Cards -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-                <!-- Talks Card -->
-                <a href="#talks" class="pillar-card bg-white rounded-xl p-8 shadow-lg border-2 border-transparent hover:border-brand-500">
+                <!-- Workshops Card -->
+                <a href="#workshops" class="pillar-card bg-white rounded-xl p-8 shadow-lg border-2 border-transparent hover:border-brand-500">
                     <div class="text-brand-600 mb-4">
-                        <i data-lucide="mic" class="w-16 h-16 mx-auto"></i>
+                        <i data-lucide="graduation-cap" class="w-16 h-16 mx-auto"></i>
                     </div>
-                    <h3 class="text-2xl font-bold text-slate-900 mb-2">Talks</h3>
-                    <p class="text-slate-600">Speaking engagements and presentations on AI topics</p>
+                    <h3 class="text-2xl font-bold text-slate-900 mb-2">Workshops</h3>
+                    <p class="text-slate-600">Hands-on training from beginner to advanced</p>
                 </a>
                 
                 <!-- Meetups Card -->
@@ -38,23 +38,25 @@ description: "Comprehensive AI engagement activities: Learn through talks, conne
                     <h3 class="text-2xl font-bold text-slate-900 mb-2">Meetups</h3>
                     <p class="text-slate-600">Community events for networking and learning</p>
                 </a>
-                
-                <!-- Workshops Card -->
-                <a href="#workshops" class="pillar-card bg-white rounded-xl p-8 shadow-lg border-2 border-transparent hover:border-brand-500">
+
+                <!-- Talks Card -->
+                <a href="#talks" class="pillar-card bg-white rounded-xl p-8 shadow-lg border-2 border-transparent hover:border-brand-500">
                     <div class="text-brand-600 mb-4">
-                        <i data-lucide="graduation-cap" class="w-16 h-16 mx-auto"></i>
+                        <i data-lucide="mic" class="w-16 h-16 mx-auto"></i>
                     </div>
-                    <h3 class="text-2xl font-bold text-slate-900 mb-2">Workshops</h3>
-                    <p class="text-slate-600">Hands-on training from beginner to advanced</p>
+                    <h3 class="text-2xl font-bold text-slate-900 mb-2">Talks</h3>
+                    <p class="text-slate-600">Speaking engagements and presentations on AI topics</p>
                 </a>
             </div>
             
             <!-- CTA Buttons -->
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
                 {% assign upcoming_events = "" | split: "" %}
-                {% for talk in site.data.talks %}
-                    {% if talk.status == "upcoming" and talk.registration_link and talk.registration_link != "" %}
-                        {% assign upcoming_events = upcoming_events | push: talk %}
+                {% for workshop in site.data.workshops %}
+                    {% if workshop.status == "scheduled" or workshop.status == "upcoming" %}
+                        {% if workshop.registration_link and workshop.registration_link != "" %}
+                            {% assign upcoming_events = upcoming_events | push: workshop %}
+                        {% endif %}
                     {% endif %}
                 {% endfor %}
                 {% for meetup in site.data.meetups %}
@@ -62,11 +64,9 @@ description: "Comprehensive AI engagement activities: Learn through talks, conne
                         {% assign upcoming_events = upcoming_events | push: meetup %}
                     {% endif %}
                 {% endfor %}
-                {% for workshop in site.data.workshops %}
-                    {% if workshop.status == "scheduled" or workshop.status == "upcoming" %}
-                        {% if workshop.registration_link and workshop.registration_link != "" %}
-                            {% assign upcoming_events = upcoming_events | push: workshop %}
-                        {% endif %}
+                {% for talk in site.data.talks %}
+                    {% if talk.status == "upcoming" and talk.registration_link and talk.registration_link != "" %}
+                        {% assign upcoming_events = upcoming_events | push: talk %}
                     {% endif %}
                 {% endfor %}
                 
@@ -173,177 +173,6 @@ description: "Comprehensive AI engagement activities: Learn through talks, conne
         <path class="wave-path" d="M0,50 Q300,80 600,50 T1200,50 L1200,100 L0,100 Z" fill="url(#wave-gradient-2)"></path>
     </svg>
 </div>
-
-<!-- Talks Section -->
-<section id="talks" class="py-20 bg-white">
-    <div class="container mx-auto px-4">
-        <div class="max-w-6xl mx-auto">
-            <!-- Section Header -->
-            <div class="text-center mb-12 reveal">
-                <div class="inline-flex items-center justify-center w-16 h-16 bg-brand-100 rounded-full mb-4">
-                    <i data-lucide="mic" class="w-8 h-8 text-brand-600"></i>
-                </div>
-                <h2 class="text-4xl font-bold text-slate-900 mb-4">Talks</h2>
-                <p class="text-lg text-slate-600 max-w-2xl mx-auto">
-                    Speaking engagements and presentations where we share insights on AI trends, 
-                    practical applications, and industry best practices.
-                </p>
-            </div>
-            
-            <!-- Talks Table -->
-            <div class="reveal reveal-delay-1">
-                <div class="table-scroll-container">
-                    <table class="w-full">
-                        <thead>
-                            <tr class="bg-slate-50">
-                                <th class="px-6 py-4 text-left text-sm font-semibold text-slate-900">Event Name</th>
-                                <th class="px-6 py-4 text-left text-sm font-semibold text-slate-900">Date(s)</th>
-                                <th class="px-6 py-4 text-left text-sm font-semibold text-slate-900">Status</th>
-                                <th class="px-6 py-4 text-left text-sm font-semibold text-slate-900">Posts & Recap</th>
-                            </tr>
-                        </thead>
-                        <tbody class="divide-y divide-slate-200">
-                            {% assign sorted_talks = site.data.talks | sort: "date" | reverse %}
-                            {% for talk in sorted_talks %}
-                            <tr class="hover:bg-slate-50 transition-colors">
-                                <td class="px-6 py-4">
-                                    <div class="font-medium text-slate-900">{{ talk.name }}</div>
-                                    {% if talk.location %}
-                                    <div class="text-sm text-slate-500 mt-1">
-                                        <i class="fas fa-map-marker-alt mr-1"></i>{{ talk.location }}
-                                    </div>
-                                    {% endif %}
-                                </td>
-                                <td class="px-6 py-4 text-slate-700">{{ talk.dates }}</td>
-                                <td class="px-6 py-4">
-                                    {% if talk.status == "upcoming" %}
-                                    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800">
-                                        🎤 Upcoming
-                                    </span>
-                                    {% elsif talk.status == "completed" %}
-                                    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-100 text-green-800">
-                                        ✓ Completed
-                                    </span>
-                                    {% elsif talk.status == "cancelled" %}
-                                    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-red-100 text-red-800">
-                                        ❌ Cancelled
-                                    </span>
-                                    {% endif %}
-                                </td>
-                                <td class="px-6 py-4">
-                                    <div class="flex flex-wrap gap-2">
-                                        {% if talk.registration_link and talk.registration_link != "" %}
-                                        <a href="{{ talk.registration_link }}" target="_blank" class="inline-flex items-center px-3 py-1 bg-brand-600 text-white rounded-lg hover:bg-brand-700 transition-colors text-sm">
-                                            <i class="fas fa-ticket-alt mr-1"></i>Register
-                                        </a>
-                                        {% endif %}
-                                        {% for link in talk.recap_links %}
-                                        <a href="{{ link.url }}" target="_blank" class="inline-flex items-center px-3 py-1 bg-slate-100 text-slate-700 rounded-lg hover:bg-slate-200 transition-colors text-sm">
-                                            <i class="{{ link.icon }} mr-1"></i>{{ link.type }}
-                                        </a>
-                                        {% endfor %}
-                                    </div>
-                                </td>
-                            </tr>
-                            {% endfor %}
-                        </tbody>
-                    </table>
-                </div>
-                <p class="text-center text-sm text-slate-500 mt-4">
-                    <i class="fas fa-arrow-down mr-1"></i>Scroll to view more events
-                </p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Meetups Section -->
-<section id="meetups" class="py-20 bg-slate-50">
-    <div class="container mx-auto px-4">
-        <div class="max-w-6xl mx-auto">
-            <!-- Section Header -->
-            <div class="text-center mb-12 reveal">
-                <div class="inline-flex items-center justify-center w-16 h-16 bg-brand-100 rounded-full mb-4">
-                    <i data-lucide="users" class="w-8 h-8 text-brand-600"></i>
-                </div>
-                <h2 class="text-4xl font-bold text-slate-900 mb-4">Meetups</h2>
-                <p class="text-lg text-slate-600 max-w-2xl mx-auto">
-                    Community meetup events where AI enthusiasts, practitioners, and learners 
-                    come together to network, share experiences, and grow together.
-                </p>
-            </div>
-            
-            <!-- Meetups Table -->
-            <div class="reveal reveal-delay-1">
-                <div class="table-scroll-container bg-white">
-                    <table class="w-full">
-                        <thead>
-                            <tr class="bg-slate-50">
-                                <th class="px-6 py-4 text-left text-sm font-semibold text-slate-900">Event Name</th>
-                                <th class="px-6 py-4 text-left text-sm font-semibold text-slate-900">Date(s)</th>
-                                <th class="px-6 py-4 text-left text-sm font-semibold text-slate-900">Status</th>
-                                <th class="px-6 py-4 text-left text-sm font-semibold text-slate-900">Posts & Recap</th>
-                            </tr>
-                        </thead>
-                        <tbody class="divide-y divide-slate-200">
-                            {% assign sorted_meetups = site.data.meetups | sort: "date" | reverse %}
-                            {% for meetup in sorted_meetups %}
-                            <tr class="hover:bg-slate-50 transition-colors">
-                                <td class="px-6 py-4">
-                                    <div class="font-medium text-slate-900">{{ meetup.name }}</div>
-                                    {% if meetup.location %}
-                                    <div class="text-sm text-slate-500 mt-1">
-                                        <i class="fas fa-map-marker-alt mr-1"></i>{{ meetup.location }}
-                                    </div>
-                                    {% endif %}
-                                    {% if meetup.attendees %}
-                                    <div class="text-sm text-slate-500 mt-1">
-                                        <i class="fas fa-users mr-1"></i>{{ meetup.attendees }} attendees
-                                    </div>
-                                    {% endif %}
-                                </td>
-                                <td class="px-6 py-4 text-slate-700">{{ meetup.dates }}</td>
-                                <td class="px-6 py-4">
-                                    {% if meetup.status == "upcoming" %}
-                                    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800">
-                                        🤝 Upcoming
-                                    </span>
-                                    {% elsif meetup.status == "completed" %}
-                                    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-100 text-green-800">
-                                        ✓ Completed
-                                    </span>
-                                    {% elsif meetup.status == "cancelled" %}
-                                    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-red-100 text-red-800">
-                                        ❌ Cancelled
-                                    </span>
-                                    {% endif %}
-                                </td>
-                                <td class="px-6 py-4">
-                                    <div class="flex flex-wrap gap-2">
-                                        {% if meetup.registration_link and meetup.registration_link != "" %}
-                                        <a href="{{ meetup.registration_link }}" target="_blank" class="inline-flex items-center px-3 py-1 bg-brand-600 text-white rounded-lg hover:bg-brand-700 transition-colors text-sm">
-                                            <i class="fas fa-ticket-alt mr-1"></i>Register
-                                        </a>
-                                        {% endif %}
-                                        {% for link in meetup.recap_links %}
-                                        <a href="{{ link.url }}" target="_blank" class="inline-flex items-center px-3 py-1 bg-slate-100 text-slate-700 rounded-lg hover:bg-slate-200 transition-colors text-sm">
-                                            <i class="{{ link.icon }} mr-1"></i>{{ link.type }}
-                                        </a>
-                                        {% endfor %}
-                                    </div>
-                                </td>
-                            </tr>
-                            {% endfor %}
-                        </tbody>
-                    </table>
-                </div>
-                <p class="text-center text-sm text-slate-500 mt-4">
-                    <i class="fas fa-arrow-down mr-1"></i>Scroll to view more events
-                </p>
-            </div>
-        </div>
-    </div>
-</section>
 
 <!-- Workshops Section -->
 <section id="workshops" class="py-20 bg-white">
@@ -627,6 +456,177 @@ description: "Comprehensive AI engagement activities: Learn through talks, conne
                         </tbody>
                     </table>
                 </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Meetups Section -->
+<section id="meetups" class="py-20 bg-slate-50">
+    <div class="container mx-auto px-4">
+        <div class="max-w-6xl mx-auto">
+            <!-- Section Header -->
+            <div class="text-center mb-12 reveal">
+                <div class="inline-flex items-center justify-center w-16 h-16 bg-brand-100 rounded-full mb-4">
+                    <i data-lucide="users" class="w-8 h-8 text-brand-600"></i>
+                </div>
+                <h2 class="text-4xl font-bold text-slate-900 mb-4">Meetups</h2>
+                <p class="text-lg text-slate-600 max-w-2xl mx-auto">
+                    Community meetup events where AI enthusiasts, practitioners, and learners 
+                    come together to network, share experiences, and grow together.
+                </p>
+            </div>
+            
+            <!-- Meetups Table -->
+            <div class="reveal reveal-delay-1">
+                <div class="table-scroll-container bg-white">
+                    <table class="w-full">
+                        <thead>
+                            <tr class="bg-slate-50">
+                                <th class="px-6 py-4 text-left text-sm font-semibold text-slate-900">Event Name</th>
+                                <th class="px-6 py-4 text-left text-sm font-semibold text-slate-900">Date(s)</th>
+                                <th class="px-6 py-4 text-left text-sm font-semibold text-slate-900">Status</th>
+                                <th class="px-6 py-4 text-left text-sm font-semibold text-slate-900">Posts & Recap</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-200">
+                            {% assign sorted_meetups = site.data.meetups | sort: "date" | reverse %}
+                            {% for meetup in sorted_meetups %}
+                            <tr class="hover:bg-slate-50 transition-colors">
+                                <td class="px-6 py-4">
+                                    <div class="font-medium text-slate-900">{{ meetup.name }}</div>
+                                    {% if meetup.location %}
+                                    <div class="text-sm text-slate-500 mt-1">
+                                        <i class="fas fa-map-marker-alt mr-1"></i>{{ meetup.location }}
+                                    </div>
+                                    {% endif %}
+                                    {% if meetup.attendees %}
+                                    <div class="text-sm text-slate-500 mt-1">
+                                        <i class="fas fa-users mr-1"></i>{{ meetup.attendees }} attendees
+                                    </div>
+                                    {% endif %}
+                                </td>
+                                <td class="px-6 py-4 text-slate-700">{{ meetup.dates }}</td>
+                                <td class="px-6 py-4">
+                                    {% if meetup.status == "upcoming" %}
+                                    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800">
+                                        🤝 Upcoming
+                                    </span>
+                                    {% elsif meetup.status == "completed" %}
+                                    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-100 text-green-800">
+                                        ✓ Completed
+                                    </span>
+                                    {% elsif meetup.status == "cancelled" %}
+                                    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-red-100 text-red-800">
+                                        ❌ Cancelled
+                                    </span>
+                                    {% endif %}
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="flex flex-wrap gap-2">
+                                        {% if meetup.registration_link and meetup.registration_link != "" %}
+                                        <a href="{{ meetup.registration_link }}" target="_blank" class="inline-flex items-center px-3 py-1 bg-brand-600 text-white rounded-lg hover:bg-brand-700 transition-colors text-sm">
+                                            <i class="fas fa-ticket-alt mr-1"></i>Register
+                                        </a>
+                                        {% endif %}
+                                        {% for link in meetup.recap_links %}
+                                        <a href="{{ link.url }}" target="_blank" class="inline-flex items-center px-3 py-1 bg-slate-100 text-slate-700 rounded-lg hover:bg-slate-200 transition-colors text-sm">
+                                            <i class="{{ link.icon }} mr-1"></i>{{ link.type }}
+                                        </a>
+                                        {% endfor %}
+                                    </div>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                <p class="text-center text-sm text-slate-500 mt-4">
+                    <i class="fas fa-arrow-down mr-1"></i>Scroll to view more events
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Talks Section -->
+<section id="talks" class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+        <div class="max-w-6xl mx-auto">
+            <!-- Section Header -->
+            <div class="text-center mb-12 reveal">
+                <div class="inline-flex items-center justify-center w-16 h-16 bg-brand-100 rounded-full mb-4">
+                    <i data-lucide="mic" class="w-8 h-8 text-brand-600"></i>
+                </div>
+                <h2 class="text-4xl font-bold text-slate-900 mb-4">Talks</h2>
+                <p class="text-lg text-slate-600 max-w-2xl mx-auto">
+                    Speaking engagements and presentations where we share insights on AI trends, 
+                    practical applications, and industry best practices.
+                </p>
+            </div>
+            
+            <!-- Talks Table -->
+            <div class="reveal reveal-delay-1">
+                <div class="table-scroll-container">
+                    <table class="w-full">
+                        <thead>
+                            <tr class="bg-slate-50">
+                                <th class="px-6 py-4 text-left text-sm font-semibold text-slate-900">Event Name</th>
+                                <th class="px-6 py-4 text-left text-sm font-semibold text-slate-900">Date(s)</th>
+                                <th class="px-6 py-4 text-left text-sm font-semibold text-slate-900">Status</th>
+                                <th class="px-6 py-4 text-left text-sm font-semibold text-slate-900">Posts & Recap</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-200">
+                            {% assign sorted_talks = site.data.talks | sort: "date" | reverse %}
+                            {% for talk in sorted_talks %}
+                            <tr class="hover:bg-slate-50 transition-colors">
+                                <td class="px-6 py-4">
+                                    <div class="font-medium text-slate-900">{{ talk.name }}</div>
+                                    {% if talk.location %}
+                                    <div class="text-sm text-slate-500 mt-1">
+                                        <i class="fas fa-map-marker-alt mr-1"></i>{{ talk.location }}
+                                    </div>
+                                    {% endif %}
+                                </td>
+                                <td class="px-6 py-4 text-slate-700">{{ talk.dates }}</td>
+                                <td class="px-6 py-4">
+                                    {% if talk.status == "upcoming" %}
+                                    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800">
+                                        🎤 Upcoming
+                                    </span>
+                                    {% elsif talk.status == "completed" %}
+                                    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-100 text-green-800">
+                                        ✓ Completed
+                                    </span>
+                                    {% elsif talk.status == "cancelled" %}
+                                    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-red-100 text-red-800">
+                                        ❌ Cancelled
+                                    </span>
+                                    {% endif %}
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="flex flex-wrap gap-2">
+                                        {% if talk.registration_link and talk.registration_link != "" %}
+                                        <a href="{{ talk.registration_link }}" target="_blank" class="inline-flex items-center px-3 py-1 bg-brand-600 text-white rounded-lg hover:bg-brand-700 transition-colors text-sm">
+                                            <i class="fas fa-ticket-alt mr-1"></i>Register
+                                        </a>
+                                        {% endif %}
+                                        {% for link in talk.recap_links %}
+                                        <a href="{{ link.url }}" target="_blank" class="inline-flex items-center px-3 py-1 bg-slate-100 text-slate-700 rounded-lg hover:bg-slate-200 transition-colors text-sm">
+                                            <i class="{{ link.icon }} mr-1"></i>{{ link.type }}
+                                        </a>
+                                        {% endfor %}
+                                    </div>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                <p class="text-center text-sm text-slate-500 mt-4">
+                    <i class="fas fa-arrow-down mr-1"></i>Scroll to view more events
+                </p>
             </div>
         </div>
     </div>

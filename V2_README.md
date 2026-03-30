@@ -8,8 +8,8 @@ This is the comprehensive landing page showcasing all AI Musings engagement acti
 
 ## 🚀 Quick Access
 
-- **V2 Page**: `https://aimusings.space/v2`
-- **Current Site**: `https://aimusings.space` (unchanged)
+- **V2 Page**: `https://aimusings.site/v2`
+- **Current Site**: `https://aimusings.site` (unchanged)
 
 ---
 
@@ -139,11 +139,11 @@ http://localhost:4000/v2
 ```
 
 ### After Deployment
-1. Visit `https://aimusings.space/v2`
+1. Visit `https://aimusings.site/v2`
 2. Test all navigation links
 3. Verify tables scroll correctly
 4. Check mobile responsiveness
-5. Confirm current site unchanged at `https://aimusings.space`
+5. Confirm current site unchanged at `https://aimusings.site`
 
 ---
 
