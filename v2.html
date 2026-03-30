@@ -1280,12 +1280,14 @@ function showEventsForDate(dateStr, events, cell) {
         return;
     }
     
-    const date = new Date(dateStr);
-    const dateFormatted = date.toLocaleDateString('en-US', { 
-        weekday: 'long', 
-        year: 'numeric', 
-        month: 'long', 
-        day: 'numeric' 
+    // Parse date string manually to avoid timezone issues
+    const [year, month, day] = dateStr.split('-').map(Number);
+    const date = new Date(year, month - 1, day); // month is 0-indexed
+    const dateFormatted = date.toLocaleDateString('en-US', {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
     });
     
     let html = `<h4 class="text-xl font-bold text-slate-900 mb-4">${dateFormatted}</h4>`;
