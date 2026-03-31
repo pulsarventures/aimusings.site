@@ -234,6 +234,25 @@
       icon: "fab fa-linkedin"
 
 # Level 300: Advanced Deep Dive Workshops
+- name: "AI Builder: Claude Series - 2"
+  level: 300
+  level_name: "Advanced Deep Dive"
+  series: "Claude Series - 2"
+  platform: "Anthropic Claude"
+  date: "2026-05-03"
+  dates: "May 3 & 5, 2026"
+  status: "scheduled"
+  format: "Virtual on Zoom"
+  duration: "2 sessions"
+  description: "Deep dive into Anthropic's Claude ecosystem - Chat, Cowork, Code, Extensions, and MCP"
+  topics:
+    - "Claude Chat, Cowork, and Code modes"
+    - "Extensions and Integrations"
+    - "Skills and MCP (Model Context Protocol)"
+    - "Advanced prompt engineering with Claude"
+  registration_link: "https://www.tixtree.com/e/claude-series-719e255321d4"
+  recap_links: []
+
 - name: "AI Builder: Claude Series - 1"
   level: 300
   level_name: "Advanced Deep Dive"
@@ -241,7 +260,7 @@
   platform: "Anthropic Claude"
   date: "2026-03-30"
   dates: "March 30, 2026"
-  status: "scheduled"
+  status: "completed"
   format: "Virtual on Zoom"
   duration: "Single session"
   description: "Deep dive into Anthropic's Claude ecosystem - Chat, Cowork, Code, Extensions, and MCP"
@@ -250,7 +269,7 @@
     - "Extensions and Integrations"
     - "Skills and MCP (Model Context Protocol)"
     - "Advanced prompt engineering with Claude"
-  registration_link: "https://www.tixtree.com/e/ai-builder-claude-series-e54a3c4af09a"
+  registration_link: ""
   recap_links: []
 
 - name: "Microsoft Copilot Mastery"
