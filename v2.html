@@ -792,31 +792,53 @@ description: "Comprehensive AI engagement activities: Learn through talks, conne
                             </tr>
                         </thead>
                         <tbody id="meetup-upcoming" class="divide-y divide-slate-200">
+                            {% assign meetups_sorted = site.data.meetups | sort: "date" %}
+                            {% for meetup in meetups_sorted %}
+                            {% if meetup.status == "scheduled" or meetup.status == "upcoming" %}
                             <tr class="hover:bg-slate-50 transition-colors">
                                 <td class="px-6 py-4 align-top text-left">
-                                    <div class="font-medium text-slate-900">AI Musings Meetup</div>
-                                    <div class="text-sm text-slate-500 mt-1">Virtual</div>
+                                    <div class="font-medium text-slate-900">{{ meetup.name }}</div>
+                                    <div class="text-sm text-slate-500 mt-1">{{ meetup.location }}</div>
                                 </td>
-                                <td class="px-6 py-4 align-top text-left text-slate-700">TBA</td>
+                                <td class="px-6 py-4 align-top text-left text-slate-700">
+                                    {% if meetup.dates and meetup.dates != "" %}{{ meetup.dates }}{% if meetup.time %} · {{ meetup.time }}{% endif %}{% else %}TBA{% endif %}
+                                </td>
                                 <td class="px-6 py-4 align-top text-left">
-                                    <span class="inline-flex items-center px-3 py-1 bg-slate-100 text-slate-500 rounded-lg text-sm">Coming soon</span>
+                                    <div class="flex flex-wrap gap-2">
+                                        {% if meetup.registration_link and meetup.registration_link != "" %}
+                                        <a href="{{ meetup.registration_link }}" target="_blank" class="inline-flex items-center px-3 py-1 bg-brand-600 text-white rounded-lg hover:bg-brand-700 transition-colors text-sm">
+                                            <i class="fas fa-ticket-alt mr-1"></i>Register
+                                        </a>
+                                        {% else %}
+                                        <span class="inline-flex items-center px-3 py-1 bg-slate-100 text-slate-500 rounded-lg text-sm">Coming soon</span>
+                                        {% endif %}
+                                    </div>
                                 </td>
                             </tr>
-                            <tr class="hover:bg-slate-50 transition-colors">
-                                <td class="px-6 py-4 align-top text-left">
-                                    <div class="font-medium text-slate-900">AI Musings Meetup</div>
-                                    <div class="text-sm text-slate-500 mt-1">Virtual</div>
-                                </td>
-                                <td class="px-6 py-4 align-top text-left text-slate-700">TBA</td>
-                                <td class="px-6 py-4 align-top text-left">
-                                    <span class="inline-flex items-center px-3 py-1 bg-slate-100 text-slate-500 rounded-lg text-sm">Coming soon</span>
-                                </td>
-                            </tr>
+                            {% endif %}
+                            {% endfor %}
                         </tbody>
                         <tbody id="meetup-past" class="divide-y divide-slate-200 hidden">
-                            <tr>
-                                <td colspan="3" class="px-6 py-8 text-center text-sm text-slate-400">No past meetups yet.</td>
+                            {% for meetup in meetups_sorted reversed %}
+                            {% if meetup.status == "completed" %}
+                            <tr class="hover:bg-slate-50 transition-colors">
+                                <td class="px-6 py-4 align-top text-left">
+                                    <div class="font-medium text-slate-900">{{ meetup.name }}</div>
+                                    <div class="text-sm text-slate-500 mt-1">{{ meetup.location }}</div>
+                                </td>
+                                <td class="px-6 py-4 align-top text-left text-slate-700">{{ meetup.dates }}</td>
+                                <td class="px-6 py-4 align-top text-left">
+                                    <div class="flex flex-wrap gap-2">
+                                        {% for link in meetup.recap_links %}
+                                        <a href="{{ link.url }}" target="_blank" class="inline-flex items-center px-3 py-1 bg-slate-100 text-slate-700 rounded-lg hover:bg-slate-200 transition-colors text-sm">
+                                            <i class="{{ link.icon }} mr-1"></i>{{ link.type }}
+                                        </a>
+                                        {% endfor %}
+                                    </div>
+                                </td>
                             </tr>
+                            {% endif %}
+                            {% endfor %}
                         </tbody>
                     </table>
                 </div>
