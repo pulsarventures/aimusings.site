@@ -133,12 +133,12 @@
             border-radius: 8px;
         }
         
-        .table-scroll-container thead {
+        .table-scroll-container thead th {
             position: sticky;
             top: 0;
-            background: white;
+            background: #f8fafc;
             z-index: 10;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            box-shadow: 0 1px 0 #e5e7eb;
         }
         
         /* Custom scrollbar */
@@ -501,79 +501,31 @@
                 
                 <!-- Desktop Menu -->
                 <div class="hidden md:flex items-center space-x-8">
-                    <div class="relative group">
-                        <a href="#workshops" class="text-slate-700 hover:text-brand-600 transition-colors flex items-center">
-                            Workshops
-                            <i data-lucide="chevron-down" class="w-4 h-4 ml-1"></i>
-                        </a>
-                        <div class="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-                            <a href="#workshops" onclick="switchTab('agenda'); return true;" class="block px-4 py-3 text-slate-700 hover:bg-brand-50 hover:text-brand-600 transition-colors rounded-t-lg">
-                                <i data-lucide="calendar" class="w-4 h-4 inline mr-2"></i>Agenda
-                            </a>
-                            <a href="#workshops" onclick="switchTab('tools'); return true;" class="block px-4 py-3 text-slate-700 hover:bg-brand-50 hover:text-brand-600 transition-colors">
-                                <i data-lucide="wrench" class="w-4 h-4 inline mr-2"></i>Tools
-                            </a>
-                            <a href="#workshops" onclick="switchTab('resources'); return true;" class="block px-4 py-3 text-slate-700 hover:bg-brand-50 hover:text-brand-600 transition-colors rounded-b-lg">
-                                <i data-lucide="book-open" class="w-4 h-4 inline mr-2"></i>Resources
-                            </a>
-                        </div>
-                    </div>
+                    <a href="#learning-path" class="text-slate-700 hover:text-brand-600 transition-colors">Workshops</a>
                     <a href="#meetups" class="text-slate-700 hover:text-brand-600 transition-colors">Meetups</a>
                     <a href="#talks" class="text-slate-700 hover:text-brand-600 transition-colors">Talks</a>
+                    <a href="#calendar" class="text-slate-700 hover:text-brand-600 transition-colors">Calendar</a>
                     <div class="relative group">
                         <button class="text-slate-700 hover:text-brand-600 transition-colors flex items-center">
-                            Events
+                            About
                             <i data-lucide="chevron-down" class="w-4 h-4 ml-1"></i>
                         </button>
                         <div class="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-                            <a href="#calendar" class="block px-4 py-3 text-slate-700 hover:bg-brand-50 hover:text-brand-600 transition-colors rounded-lg">
-                                <i data-lucide="calendar" class="w-4 h-4 inline mr-2"></i>Calendar
+                            <a href="#why" class="block px-4 py-3 text-slate-700 hover:bg-brand-50 hover:text-brand-600 transition-colors rounded-t-lg">
+                                <i data-lucide="zap" class="w-4 h-4 inline mr-2"></i>Why AI Musings
+                            </a>
+                            <a href="#who-for" class="block px-4 py-3 text-slate-700 hover:bg-brand-50 hover:text-brand-600 transition-colors">
+                                <i data-lucide="users" class="w-4 h-4 inline mr-2"></i>Who It's For
+                            </a>
+                            <a href="#instructors" class="block px-4 py-3 text-slate-700 hover:bg-brand-50 hover:text-brand-600 transition-colors rounded-b-lg">
+                                <i data-lucide="user" class="w-4 h-4 inline mr-2"></i>Instructors
                             </a>
                         </div>
                     </div>
+                    <a href="#faq" class="text-slate-700 hover:text-brand-600 transition-colors">FAQ</a>
                     <a href="#contact" class="text-slate-700 hover:text-brand-600 transition-colors">Contact</a>
-                    {% comment %}
-                    Dynamic Event Registration Button
-                    Automatically links to the next upcoming event (talk, meetup, or workshop)
-                    Falls back to homepage if no upcoming events exist
-                    {% endcomment %}
-                    {% assign today = 'now' | date: '%Y-%m-%d' %}
-                    {% assign all_events = '' | split: '' %}
-                    
-                    {% comment %} Collect all events with registration links {% endcomment %}
-                    {% for talk in site.data.talks %}
-                        {% if talk.registration_link and talk.registration_link != '' and talk.date >= today %}
-                            {% assign all_events = all_events | push: talk %}
-                        {% endif %}
-                    {% endfor %}
-                    
-                    {% for meetup in site.data.meetups %}
-                        {% if meetup.registration_link and meetup.registration_link != '' and meetup.date >= today %}
-                            {% assign all_events = all_events | push: meetup %}
-                        {% endif %}
-                    {% endfor %}
-                    
-                    {% for workshop in site.data.workshops %}
-                        {% if workshop.registration_link and workshop.registration_link != '' and workshop.date >= today %}
-                            {% assign all_events = all_events | push: workshop %}
-                        {% endif %}
-                    {% endfor %}
-                    
-                    {% comment %} Sort events by date and get the first one {% endcomment %}
-                    {% assign sorted_events = all_events | sort: 'date' %}
-                    {% assign next_event = sorted_events | first %}
-                    
-                    {% comment %} Set button destination and text {% endcomment %}
-                    {% if next_event %}
-                        {% assign button_url = next_event.registration_link %}
-                        {% assign button_text = 'Register Now' %}
-                    {% else %}
-                        {% assign button_url = '/' | relative_url %}
-                        {% assign button_text = 'Current Site' %}
-                    {% endif %}
-                    
-                    <a href="{{ button_url }}" class="px-4 py-2 bg-brand-600 text-white rounded-lg hover:bg-brand-700 transition-colors" {% if next_event %}target="_blank" rel="noopener noreferrer"{% endif %}>
-                        {{ button_text }}
+                    <a href="#hero" class="px-4 py-2 bg-brand-600 text-white rounded-lg hover:bg-brand-700 transition-colors">
+                        Register
                     </a>
                 </div>
                 
@@ -592,9 +544,13 @@
                     <a href="#calendar" class="text-slate-700 hover:text-brand-600 transition-colors">
                         <i data-lucide="calendar" class="w-4 h-4 inline mr-2"></i>Calendar
                     </a>
+                    <a href="#why" class="text-slate-700 hover:text-brand-600 transition-colors">Why AI Musings</a>
+                    <a href="#who-for" class="text-slate-700 hover:text-brand-600 transition-colors">Who It's For</a>
+                    <a href="#instructors" class="text-slate-700 hover:text-brand-600 transition-colors">Instructors</a>
+                    <a href="#faq" class="text-slate-700 hover:text-brand-600 transition-colors">FAQ</a>
                     <a href="#contact" class="text-slate-700 hover:text-brand-600 transition-colors">Contact</a>
-                    <a href="{{ '/' | relative_url }}" class="px-4 py-2 bg-brand-600 text-white rounded-lg hover:bg-brand-700 transition-colors text-center">
-                        Register Now
+                    <a href="#hero" class="px-4 py-2 bg-brand-600 text-white rounded-lg hover:bg-brand-700 transition-colors text-center">
+                        Register
                     </a>
                 </div>
             </div>
@@ -614,21 +570,19 @@
     <!-- Footer -->
     <footer class="bg-slate-50 text-slate-700 py-12 mt-20">
         <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-5 gap-8">
                 <div>
                     <h5 class="text-lg font-bold mb-4"><span class="gradient-text">AI</span> Musings</h5>
-                    <p class="text-sm text-slate-600">
-                        Accelerate Your AI Game through Talks, Meetups, and Workshops.
-                    </p>
                 </div>
-                
+
                 <div>
                     <h6 class="font-semibold mb-4">Quick Links</h6>
                     <ul class="space-y-2 text-sm">
+                        <li><a href="#learning-path" class="hover:text-brand-600 transition-colors">Learning Path</a></li>
                         <li><a href="#workshops" class="hover:text-brand-600 transition-colors">Workshops</a></li>
                         <li><a href="#meetups" class="hover:text-brand-600 transition-colors">Meetups</a></li>
                         <li><a href="#talks" class="hover:text-brand-600 transition-colors">Talks</a></li>
-                        <li><a href="{{ '/' | relative_url }}" class="hover:text-brand-600 transition-colors">Current Site</a></li>
+                        <li><a href="#calendar" class="hover:text-brand-600 transition-colors">Calendar</a></li>
                     </ul>
                 </div>
                 
@@ -637,16 +591,25 @@
                     <ul class="space-y-2 text-sm">
                         <li><a href="https://cal.com/sree.pradhip" target="_blank" class="hover:text-brand-600 transition-colors">Schedule a Call</a></li>
                         <li><a href="mailto:spradhip@pulsarventures.io" class="hover:text-brand-600 transition-colors">Email Us</a></li>
-                        <li><a href="https://www.linkedin.com/company/pulsar-ventures-llc" target="_blank" class="hover:text-brand-600 transition-colors">LinkedIn</a></li>
-                        <li><a href="https://www.youtube.com/@AIMusingsBuilderCommunitySnS" target="_blank" class="hover:text-brand-600 transition-colors">YouTube</a></li>
+                        <li><a href="https://www.linkedin.com/in/sree-pradhip/" target="_blank" class="hover:text-brand-600 transition-colors">LinkedIn</a></li>
                     </ul>
                 </div>
-                
+
                 <div>
                     <h6 class="font-semibold mb-4">Community</h6>
                     <ul class="space-y-2 text-sm">
                         <li><a href="https://chat.whatsapp.com/GRydfVAJke8AKdnKHFohnS" target="_blank" class="hover:text-brand-600 transition-colors">WhatsApp Group</a></li>
                         <li><a href="https://www.youtube.com/@AIMusingsBuilderCommunitySnS" target="_blank" class="hover:text-brand-600 transition-colors">YouTube Channel</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h6 class="font-semibold mb-4">About</h6>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#why" class="hover:text-brand-600 transition-colors">Why AI Musings</a></li>
+                        <li><a href="#who-for" class="hover:text-brand-600 transition-colors">Who It's For</a></li>
+                        <li><a href="#instructors" class="hover:text-brand-600 transition-colors">Instructors</a></li>
+                        <li><a href="#faq" class="hover:text-brand-600 transition-colors">FAQ</a></li>
                     </ul>
                 </div>
             </div>
