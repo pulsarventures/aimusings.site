@@ -3,24 +3,134 @@
 # how they're building it (approach, tools, tech stacks),
 # and real lessons learned. Come for the demos, stay for the conversations.
 
+# --- Upcoming ---
+
 - name: "AI Builders Meetup"
+  number: 6
   date: "2026-05-12"
   dates: "May 12, 2026"
   time: "5:30 PM - 7:30 PM ET"
   status: "scheduled"
   location: "Tech North Atlanta, Alpharetta, GA"
   description: "5-7 AI startups share what they're building, how they're building it, and real lessons learned"
+  sponsor: "Improving"
   attendees:
   registration_link: ""
+  presenters: []
   recap_links: []
 
 - name: "AI Builders Meetup"
+  number: 5
   date: "2026-04-29"
   dates: "April 29, 2026"
   time: "5:30 PM - 7:30 PM ET"
   status: "scheduled"
   location: "Tech North Atlanta, Alpharetta, GA"
   description: "5-7 AI startups share what they're building, how they're building it, and real lessons learned"
+  sponsor: "Improving"
   attendees:
   registration_link: "https://www.eventbrite.com/e/tech-north-atlantas-april-29th-ai-builders-meetup-tickets-1984973796058"
+  presenters: []
+  recap_links: []
+
+# --- Completed ---
+
+- name: "AI Builders Meetup"
+  number: 4
+  date: "2026-03-11"
+  dates: "March 11, 2026"
+  time: "5:30 PM - 7:30 PM ET"
+  status: "completed"
+  location: "Tech North Atlanta, Alpharetta, GA"
+  description: "5-7 AI startups share what they're building, how they're building it, and real lessons learned"
+  sponsor: "Improving"
+  attendees:
+  registration_link: ""
+  presenters:
+    - name: "Aaron Skinner"
+      topic: "AI for Job Search"
+    - name: "Tavor Chayen"
+      topic: "Spectra"
+    - name: "Nathaniel Williams"
+      topic: "QueueKey"
+    - name: "Duvall Smith"
+      topic: "Oyu AI"
+    - name: "Gbenga Arotiba"
+      topic: "Good Action"
+    - name: "McKay Caston"
+      topic: "Preach360"
+  recap_links: []
+
+- name: "AI Builders Meetup"
+  number: 3
+  date: "2026-02-12"
+  dates: "February 12, 2026"
+  time: "5:30 PM - 7:30 PM ET"
+  status: "completed"
+  location: "Tech Alpharetta, Alpharetta, GA"
+  description: "5-7 AI startups share what they're building, how they're building it, and real lessons learned. No slides - show your tools and tech stack live."
+  sponsor: "Improving"
+  attendees:
+  registration_link: ""
+  presenters:
+    - name: "Noam Laufer"
+      topic: "Hapon"
+    - name: "Salila Sharma"
+      topic: "Ansa Group"
+    - name: "Hankins Parichabutr"
+      topic: "Offerdox"
+    - name: "Rich Cannon"
+      topic: "coachmyVIBE"
+  recap_links: []
+
+- name: "AI Builders Meetup"
+  number: 2
+  date: "2026-01-14"
+  dates: "January 14, 2026"
+  time: "5:30 PM - 7:30 PM ET"
+  status: "completed"
+  location: "Tech Alpharetta, Alpharetta, GA"
+  description: "5-7 AI startups share what they're building, how they're building it, and real lessons learned"
+  sponsor: "Improving"
+  attendees:
+  registration_link: ""
+  presenters:
+    - name: "Sushil Bhattachan"
+      topic: "CoWrkk"
+    - name: "Sree Pradhip"
+      topic: "LinkLibrary.ai"
+    - name: "Pooja Rastogi"
+      topic: "AI in Project Management"
+    - name: "Dave Albano"
+      topic: "Dislike"
+    - name: "Carlos Gorricho"
+      topic: "AI in Build Screening"
+    - name: "David Christman"
+      topic: "ShiftNow"
+  recap_links: []
+
+- name: "AI Builders Meetup"
+  number: 1
+  date: "2025-12-04"
+  dates: "December 4, 2025"
+  time: "5:30 PM - 7:30 PM ET"
+  status: "completed"
+  location: "Tech Alpharetta, Alpharetta, GA"
+  description: "Inaugural AI Builders Meetup - AI startups share what they're building, how they're building it, and real lessons learned"
+  sponsor: "Improving"
+  attendees:
+  registration_link: ""
+  presenters:
+    - name: "Joseph Daniels"
+      topic: "Vanish Labs"
+    - name: "Ameet Shedge"
+      topic: "UXBoost.ai"
+    - name: "Mak Bhatamrekar"
+      topic: "Wajooba"
+    - name: "Nicole Straham"
+      topic: "Alley"
+    - name: "Dhaval Desai"
+      topic: "Health 1st AI"
+    - name: "Ron Johnson"
+      topic: "Tacilent.ai"
   recap_links: []
