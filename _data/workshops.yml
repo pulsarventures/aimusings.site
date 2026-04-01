@@ -236,9 +236,10 @@
 # Level 300: Advanced Deep Dive Workshops
 - name: "AI Builder: Claude Series - 2"
   level: 300
-  level_name: "Advanced Deep Dive"
+  level_name: "Platform Series"
   series: "Claude Series - 2"
-  platform: "Anthropic Claude"
+  platform: "Claude"
+  company: "Anthropic"
   date: "2026-05-03"
   dates: "May 3 & 5, 2026"
   status: "scheduled"
@@ -255,9 +256,10 @@
 
 - name: "AI Builder: Claude Series - 1"
   level: 300
-  level_name: "Advanced Deep Dive"
+  level_name: "Platform Series"
   series: "Claude Series - 1"
-  platform: "Anthropic Claude"
+  platform: "Claude"
+  company: "Anthropic"
   date: "2026-03-30"
   dates: "March 30, 2026"
   status: "completed"
@@ -274,12 +276,13 @@
 
 - name: "Microsoft Copilot Mastery"
   level: 300
-  level_name: "Advanced Deep Dive"
+  level_name: "Platform Series"
   series: "Copilot Series - 1"
-  platform: "Microsoft Copilot"
-  date: "2026-07-15"
-  dates: "July 15, 2026"
-  status: "upcoming"
+  platform: "Copilot"
+  company: "Microsoft"
+  date: ""
+  dates: ""
+  status: "scheduled"
   format: "Virtual on Zoom"
   duration: "Single session"
   description: "Master Microsoft Copilot across Office 365, GitHub, and Windows"
@@ -288,17 +291,18 @@
     - "GitHub Copilot for developers"
     - "Windows Copilot integration"
     - "Enterprise deployment strategies"
-  registration_link: "https://cal.com/sree.pradhip"
+  registration_link: ""
   recap_links: []
 
 - name: "Google Gemini Deep Dive"
   level: 300
-  level_name: "Advanced Deep Dive"
+  level_name: "Platform Series"
   series: "Gemini Series - 1"
-  platform: "Google Gemini"
-  date: "2026-08-20"
-  dates: "August 20, 2026"
-  status: "upcoming"
+  platform: "Gemini"
+  company: "Google"
+  date: ""
+  dates: ""
+  status: "scheduled"
   format: "Virtual on Zoom"
   duration: "Single session"
   description: "Explore Google's Gemini AI across Workspace and Cloud"
@@ -307,6 +311,6 @@
     - "Gemini API and integrations"
     - "Multimodal capabilities"
     - "Enterprise AI with Gemini"
-  registration_link: "https://cal.com/sree.pradhip"
+  registration_link: ""
   recap_links: []
 

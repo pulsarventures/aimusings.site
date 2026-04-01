@@ -5,7 +5,7 @@ description: "Comprehensive AI engagement activities: Learn through talks, conne
 ---
 
 <!-- Hero Section -->
-<section class="hero-grid bg-gradient-to-br from-brand-50 via-white to-brand-50 py-20">
+<section id="hero" class="hero-grid bg-gradient-to-br from-brand-50 via-white to-brand-50 py-20">
     <div class="container mx-auto px-4">
         <div class="max-w-4xl mx-auto text-center reveal">
             <h1 class="text-5xl md:text-6xl font-bold mb-6">
@@ -51,39 +51,36 @@ description: "Comprehensive AI engagement activities: Learn through talks, conne
             
             <!-- CTA Buttons -->
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                {% assign upcoming_events = "" | split: "" %}
+                {% assign ws200_next = nil %}
+                {% assign ws300_next = nil %}
                 {% for workshop in site.data.workshops %}
-                    {% if workshop.status == "scheduled" or workshop.status == "upcoming" %}
-                        {% if workshop.registration_link and workshop.registration_link != "" %}
-                            {% assign upcoming_events = upcoming_events | push: workshop %}
+                    {% if workshop.registration_link and workshop.registration_link != "" %}
+                        {% if workshop.status == "scheduled" or workshop.status == "upcoming" %}
+                            {% if workshop.level == 200 and ws200_next == nil %}
+                                {% assign ws200_next = workshop %}
+                            {% endif %}
+                            {% if workshop.level == 300 and ws300_next == nil %}
+                                {% assign ws300_next = workshop %}
+                            {% endif %}
                         {% endif %}
                     {% endif %}
                 {% endfor %}
-                {% for meetup in site.data.meetups %}
-                    {% if meetup.status == "upcoming" and meetup.registration_link and meetup.registration_link != "" %}
-                        {% assign upcoming_events = upcoming_events | push: meetup %}
-                    {% endif %}
-                {% endfor %}
-                {% for talk in site.data.talks %}
-                    {% if talk.status == "upcoming" and talk.registration_link and talk.registration_link != "" %}
-                        {% assign upcoming_events = upcoming_events | push: talk %}
-                    {% endif %}
-                {% endfor %}
-                
-                {% if upcoming_events.size > 0 %}
-                    {% assign sorted_events = upcoming_events | sort: "date" %}
-                    {% assign next_event = sorted_events | first %}
-                    <a href="{{ next_event.registration_link }}" target="_blank" class="px-8 py-4 bg-brand-600 text-white rounded-lg hover:bg-brand-700 transition-colors font-semibold text-lg shadow-lg hover:shadow-xl">
-                        <i class="fas fa-ticket-alt mr-2"></i>Register Now
+
+                {% if ws200_next %}
+                    <a href="{{ ws200_next.registration_link }}" target="_blank" class="px-8 py-4 bg-brand-600 text-white rounded-lg hover:bg-brand-700 transition-colors font-semibold text-lg shadow-lg hover:shadow-xl">
+                        <i class="fas fa-ticket-alt mr-2"></i>Register: Builder Series 200
                     </a>
-                {% else %}
+                {% endif %}
+                {% if ws300_next %}
+                    <a href="{{ ws300_next.registration_link }}" target="_blank" class="px-8 py-4 bg-white text-brand-700 border-2 border-brand-600 rounded-lg hover:bg-brand-50 transition-colors font-semibold text-lg shadow-lg hover:shadow-xl">
+                        <i class="fas fa-ticket-alt mr-2"></i>Register: Platform Series 300
+                    </a>
+                {% endif %}
+                {% if ws200_next == nil and ws300_next == nil %}
                     <a href="https://cal.com/sree.pradhip" target="_blank" class="px-8 py-4 bg-brand-600 text-white rounded-lg hover:bg-brand-700 transition-colors font-semibold text-lg shadow-lg hover:shadow-xl">
                         <i class="fas fa-calendar-alt mr-2"></i>Schedule a Call
                     </a>
                 {% endif %}
-                <a href="mailto:spradhip@pulsarventures.io" class="px-8 py-4 bg-white text-brand-600 border-2 border-brand-600 rounded-lg hover:bg-brand-50 transition-colors font-semibold text-lg shadow-lg hover:shadow-xl">
-                    <i class="fas fa-envelope mr-2"></i>Email Us
-                </a>
             </div>
         </div>
     </div>
@@ -174,6 +171,217 @@ description: "Comprehensive AI engagement activities: Learn through talks, conne
     </svg>
 </div>
 
+<!-- Why AI Musings Section -->
+<section id="why" class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+        <div class="max-w-5xl mx-auto reveal">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-slate-900 mb-4">Why AI Musings</h2>
+                <p class="text-lg text-slate-600 mb-8">Most AI learning options fall short for working professionals:</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
+                    <div class="p-4 bg-red-50 rounded-xl text-left">
+                        <p class="text-slate-700"><i class="fas fa-times text-red-500 mr-2"></i><strong>Online courses</strong> like Udemy and Coursera are hard to follow along with — delivery-oriented without real interaction.</p>
+                    </div>
+                    <div class="p-4 bg-red-50 rounded-xl text-left">
+                        <p class="text-slate-700"><i class="fas fa-times text-red-500 mr-2"></i><strong>University programs</strong> require time commitments that working professionals simply cannot make.</p>
+                    </div>
+                    <div class="p-4 bg-red-50 rounded-xl text-left">
+                        <p class="text-slate-700"><i class="fas fa-times text-red-500 mr-2"></i><strong>Vendor certifications</strong> focus on tool features rather than practical problem-solving.</p>
+                    </div>
+                </div>
+                <p class="text-lg font-semibold text-brand-600 mb-10">AI Musings bridges these gaps with a different approach:</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
+                <div>
+                    <div class="inline-flex items-center justify-center w-14 h-14 bg-brand-100 rounded-full mb-4">
+                        <i class="fas fa-tachometer-alt text-brand-600 text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900 mb-2">Accelerated Learning</h3>
+                    <p class="text-slate-600 text-sm">Condenses months of self-directed learning into focused, intensive sessions curated around practical AI knowledge.</p>
+                </div>
+                <div>
+                    <div class="inline-flex items-center justify-center w-14 h-14 bg-brand-100 rounded-full mb-4">
+                        <i class="fas fa-globe text-brand-600 text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900 mb-2">Real-World Application</h3>
+                    <p class="text-slate-600 text-sm">Every concept is tied to practical examples from various industries — see how others solve problems similar to yours.</p>
+                </div>
+                <div>
+                    <div class="inline-flex items-center justify-center w-14 h-14 bg-brand-100 rounded-full mb-4">
+                        <i class="fas fa-hammer text-brand-600 text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900 mb-2">Build, Don't Just Learn</h3>
+                    <p class="text-slate-600 text-sm">You'll spend most of your time actively building and testing real AI solutions — not watching demos.</p>
+                </div>
+                <div>
+                    <div class="inline-flex items-center justify-center w-14 h-14 bg-brand-100 rounded-full mb-4">
+                        <i class="fas fa-users text-brand-600 text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900 mb-2">Personalized Guidance</h3>
+                    <p class="text-slate-600 text-sm">Small group formats ensure individualized feedback tailored to your specific goals and industry context.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Wave Divider -->
+<div class="wave-divider">
+    <svg viewBox="0 0 1200 100" preserveAspectRatio="none">
+        <defs>
+            <linearGradient id="wave-gradient-why" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" style="stop-color:#a78bfa;stop-opacity:0.3" />
+                <stop offset="50%" style="stop-color:#7c3aed;stop-opacity:0.3" />
+                <stop offset="100%" style="stop-color:#a78bfa;stop-opacity:0.3" />
+            </linearGradient>
+        </defs>
+        <path class="wave-path" d="M0,50 Q300,20 600,50 T1200,50 L1200,100 L0,100 Z" fill="url(#wave-gradient-why)"></path>
+    </svg>
+</div>
+
+<!-- Who It's For Section -->
+<section id="who-for" class="py-20 bg-slate-50">
+    <div class="container mx-auto px-4">
+        <div class="max-w-5xl mx-auto reveal">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-slate-900 mb-4">Who It's For</h2>
+                <p class="text-lg text-slate-600">Designed for non-technical professionals who want practical AI skills without learning to code.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                <div class="bg-white rounded-xl p-6 text-center shadow-md hover:shadow-lg transition-shadow">
+                    <div class="inline-flex items-center justify-center w-14 h-14 bg-brand-100 rounded-full mb-4">
+                        <i class="fas fa-briefcase text-brand-600 text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900 mb-2">Business Professionals</h3>
+                    <p class="text-slate-600 text-sm">Product Managers, Program Managers, and others looking to leverage AI to streamline workflows and enhance decision-making.</p>
+                </div>
+                <div class="bg-white rounded-xl p-6 text-center shadow-md hover:shadow-lg transition-shadow">
+                    <div class="inline-flex items-center justify-center w-14 h-14 bg-brand-100 rounded-full mb-4">
+                        <i class="fas fa-rocket text-brand-600 text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900 mb-2">Entrepreneurs & Founders</h3>
+                    <p class="text-slate-600 text-sm">Seeking to integrate AI into your business model or solve operational challenges without hiring technical specialists.</p>
+                </div>
+                <div class="bg-white rounded-xl p-6 text-center shadow-md hover:shadow-lg transition-shadow">
+                    <div class="inline-flex items-center justify-center w-14 h-14 bg-brand-100 rounded-full mb-4">
+                        <i class="fas fa-chalkboard-teacher text-brand-600 text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900 mb-2">Coaches & Consultants</h3>
+                    <p class="text-slate-600 text-sm">Wanting to expand service offerings, create AI-powered resources for clients, and stay at the forefront of your industry.</p>
+                </div>
+                <div class="bg-white rounded-xl p-6 text-center shadow-md hover:shadow-lg transition-shadow">
+                    <div class="inline-flex items-center justify-center w-14 h-14 bg-brand-100 rounded-full mb-4">
+                        <i class="fas fa-palette text-brand-600 text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900 mb-2">Creative Professionals</h3>
+                    <p class="text-slate-600 text-sm">Aiming to enhance your creative process, automate routine work, and explore new AI-enabled possibilities.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Wave Divider -->
+<div class="wave-divider">
+    <svg viewBox="0 0 1200 100" preserveAspectRatio="none">
+        <defs>
+            <linearGradient id="wave-gradient-who" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" style="stop-color:#7c3aed;stop-opacity:0.3" />
+                <stop offset="50%" style="stop-color:#a78bfa;stop-opacity:0.3" />
+                <stop offset="100%" style="stop-color:#7c3aed;stop-opacity:0.3" />
+            </linearGradient>
+        </defs>
+        <path class="wave-path" d="M0,50 Q300,80 600,50 T1200,50 L1200,100 L0,100 Z" fill="url(#wave-gradient-who)"></path>
+    </svg>
+</div>
+
+<!-- Learning Path Section -->
+<section id="learning-path" class="py-20 bg-slate-50">
+    <div class="container mx-auto px-4">
+        <div class="max-w-5xl mx-auto reveal">
+            <div class="text-center mb-14">
+                <h2 class="text-4xl font-bold text-slate-900 mb-4">Your Learning Path</h2>
+                <p class="text-lg text-slate-600">A structured progression from foundations to advanced AI mastery.</p>
+            </div>
+
+            <!-- Path -->
+            <div class="relative">
+                <!-- Connecting line (desktop) -->
+                <div class="hidden md:block absolute top-16 left-0 right-0 h-1 bg-gradient-to-r from-slate-300 via-brand-400 to-orange-400" style="margin: 0 10%;"></div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+                    <!-- 100 Series -->
+                    <div class="relative flex flex-col items-center text-center">
+                        <div class="w-14 h-14 rounded-full bg-slate-200 border-4 border-white shadow-lg flex items-center justify-center mb-4 z-10">
+                            <span class="text-slate-600 font-bold text-sm">100</span>
+                        </div>
+                        <span class="inline-block px-3 py-1 bg-slate-100 text-slate-500 text-xs font-semibold rounded-full mb-3">Coming Soon</span>
+                        <h3 class="text-xl font-bold text-slate-700 mb-2">Foundation Series</h3>
+                        <p class="text-slate-500 text-sm mb-4">Intro to AI and foundational concepts. Understand the landscape, core tools, and how to think about AI — without building yet.</p>
+                        <ul class="text-left text-sm text-slate-500 space-y-1 w-full">
+                            <li><i class="fas fa-circle text-slate-300 mr-2" style="font-size:6px;vertical-align:middle;"></i>AI Intro & Landscape</li>
+                            <li><i class="fas fa-circle text-slate-300 mr-2" style="font-size:6px;vertical-align:middle;"></i>Core Tools Overview</li>
+                            <li><i class="fas fa-circle text-slate-300 mr-2" style="font-size:6px;vertical-align:middle;"></i>Prompting Fundamentals</li>
+                        </ul>
+                    </div>
+
+                    <!-- 200 Series -->
+                    <div class="relative flex flex-col items-center text-center">
+                        <div class="w-14 h-14 rounded-full bg-brand-600 border-4 border-white shadow-lg flex items-center justify-center mb-4 z-10">
+                            <span class="text-white font-bold text-sm">200</span>
+                        </div>
+                        <span class="inline-block px-3 py-1 bg-brand-100 text-brand-700 text-xs font-semibold rounded-full mb-3">Start Here</span>
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">Builder Series</h3>
+                        <p class="text-slate-600 text-sm mb-4">Our flagship series. Go beyond ChatGPT, build your first AI-powered app, and create your first AI agent — all in hands-on sessions.</p>
+                        <ul class="text-left text-sm text-slate-700 space-y-1 w-full">
+                            <li><i class="fas fa-check text-brand-600 mr-2"></i>Tools Beyond ChatGPT</li>
+                            <li><i class="fas fa-check text-brand-600 mr-2"></i>Build Your First App</li>
+                            <li><i class="fas fa-check text-brand-600 mr-2"></i>Build Your First Agent</li>
+                        </ul>
+                    </div>
+
+                    <!-- 300 Series -->
+                    <div class="relative flex flex-col items-center text-center">
+                        <div class="w-14 h-14 rounded-full bg-orange-400 border-4 border-white shadow-lg flex items-center justify-center mb-4 z-10">
+                            <span class="text-white font-bold text-sm">300</span>
+                        </div>
+                        <span class="inline-block px-3 py-1 bg-orange-100 text-orange-700 text-xs font-semibold rounded-full mb-3">Platform-Specific</span>
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">Platform Series</h3>
+                        <p class="text-slate-600 text-sm mb-4">Go deep on the platform that matters most to you — Claude, Copilot, or Gemini — with ecosystems, integrations, and real-world techniques.</p>
+                        <ul class="text-left text-sm text-slate-700 space-y-1 w-full">
+                            <li><i class="fas fa-check text-orange-500 mr-2"></i>Claude Series</li>
+                            <li><i class="fas fa-check text-orange-500 mr-2"></i>Copilot Series</li>
+                            <li><i class="fas fa-check text-orange-500 mr-2"></i>Gemini Series</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <a href="#workshops" class="inline-block px-8 py-3 bg-brand-600 text-white rounded-lg hover:bg-brand-700 transition-colors font-semibold shadow-lg">
+                    View All Workshops
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Wave Divider -->
+<div class="wave-divider">
+    <svg viewBox="0 0 1200 100" preserveAspectRatio="none">
+        <defs>
+            <linearGradient id="wave-gradient-path" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" style="stop-color:#a78bfa;stop-opacity:0.3" />
+                <stop offset="50%" style="stop-color:#7c3aed;stop-opacity:0.3" />
+                <stop offset="100%" style="stop-color:#a78bfa;stop-opacity:0.3" />
+            </linearGradient>
+        </defs>
+        <path class="wave-path" d="M0,50 Q300,20 600,50 T1200,50 L1200,100 L0,100 Z" fill="url(#wave-gradient-path)"></path>
+    </svg>
+</div>
+
 <!-- Workshops Section -->
 <section id="workshops" class="py-20 bg-white">
     <div class="container mx-auto px-4">
@@ -185,297 +393,66 @@ description: "Comprehensive AI engagement activities: Learn through talks, conne
                 </div>
                 <h2 class="text-4xl font-bold text-slate-900 mb-4">Workshops</h2>
                 <p class="text-lg text-slate-600 max-w-2xl mx-auto">
-                    Hands-on AI workshops designed for all skill levels. From beginner introductions 
-                    to advanced platform-specific deep dives.
+                    Hands-on AI workshops designed for all skill levels. From foundational introductions
+                    to platform-specific mastery.
                 </p>
             
-            <!-- Tabbed Navigation -->
-            <div class="mb-12 reveal reveal-delay-1">
-                <div class="flex justify-center border-b border-slate-200">
-                    <button class="workshop-tab px-6 py-3 font-semibold text-brand-600 border-b-2 border-brand-600 transition-colors" data-tab="agenda">
-                        Agenda
-                    </button>
-                    <button class="workshop-tab px-6 py-3 font-semibold text-slate-600 hover:text-brand-600 border-b-2 border-transparent transition-colors" data-tab="tools">
-                        Tools
-                    </button>
-                    <button class="workshop-tab px-6 py-3 font-semibold text-slate-600 hover:text-brand-600 border-b-2 border-transparent transition-colors" data-tab="resources">
-                        Resources
-                    </button>
-                </div>
-                
-                <!-- Tab Content -->
-                <div class="mt-8">
-                    <!-- Agenda Tab -->
-                    <div id="agenda-tab" class="tab-content">
-                        <div class="bg-slate-50 rounded-xl p-8">
-                            <h3 class="text-2xl font-bold text-slate-900 mb-6">Workshop Agenda: Your AI Journey in One Day</h3>
-                            <div class="space-y-4">
-                                <div class="flex items-start">
-                                    <div class="flex-1">
-                                        <h4 class="font-semibold text-brand-600 font-semibold">AI Fundamentals & Mechanics</h4>
-                                        <p class="text-slate-600">Discover how large language models work and the key principles behind effective AI prompting. Build a solid foundation for everything that follows.</p>
-                                    </div>
-                                </div>
-                                <div class="flex items-start">
-                                    <div class="flex-1">
-                                        <h4 class="font-semibold text-brand-600 font-semibold">AI Tools Deep Dive</h4>
-                                        <p class="text-slate-600">Get hands-on with today's most powerful AI tools. Learn the unique strengths of each platform and when to use them for different tasks.</p>
-                                    </div>
-                                </div>
-                                <div class="flex items-start">
-                                    <div class="flex-1">
-                                        <h4 class="font-semibold text-brand-600 font-semibold">Build Your First Prototype</h4>
-                                        <p class="text-slate-600">Apply your new knowledge to create a working prototype that solves a real problem in your business or career. Receive personalized guidance from our instructors.</p>
-                                    </div>
-                                </div>
-                                <div class="flex items-start">
-                                    <div class="flex-1">
-                                        <h4 class="font-semibold text-brand-600 font-semibold">Build Your First AI Agent</h4>
-                                        <p class="text-slate-600">Take your skills to the next level by creating an automated AI agent that can handle complex tasks with minimal supervision.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+            <!-- Resources (always visible) -->
+            <div class="mb-16 reveal reveal-delay-1">
+                <h3 class="text-xl font-bold text-slate-900 mb-6 text-center">What's Included With Every Workshop</h3>
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                    <div class="bg-slate-50 rounded-xl p-6 text-center">
+                        <i data-lucide="file-text" class="w-8 h-8 text-brand-600 mx-auto mb-3"></i>
+                        <h4 class="font-semibold text-slate-900 mb-2">Pre-Read Material</h4>
+                        <p class="text-sm text-slate-600">A 10-page orientation outline sent 3 days before your session</p>
                     </div>
-                    
-                    <!-- Tools Tab -->
-                    <div id="tools-tab" class="tab-content hidden">
-                        <div class="bg-slate-50 rounded-xl p-8">
-                            <h3 class="text-2xl font-bold text-slate-900 mb-6">Tools You'll Master</h3>
-                            <p class="lead text-muted mb-5">Our workshop gives you hands-on experience with today's most powerful AI tools, selected for their practical applications across different business needs.</p>
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                <div class="bg-white rounded-lg p-6 shadow-sm">
-                                    <div class="flex items-center mb-3">
-                                        <i data-lucide="laptop" class="w-6 h-6 text-brand-600 mr-3"></i>
-                                        <h4 class="font-semibold text-slate-900">Core</h4>
-                                    </div>
-                                    <ul class="space-y-3 text-slate-600">
-                                        <li class="flex items-start">
-                                            <i data-lucide="check-circle" class="w-5 h-5 text-green-600 mr-3 mt-0.5 flex-shrink-0"></i>
-                                            <span><strong class="text-slate-900">ChatGPT and Gemini</strong> for versatile text generation, reasoning, and problem-solving</span>
-                                        </li>
-                                        <li class="flex items-start">
-                                            <i data-lucide="check-circle" class="w-5 h-5 text-green-600 mr-3 mt-0.5 flex-shrink-0"></i>
-                                            <span><strong class="text-slate-900">Perplexity</strong> for research that cites sources</span>
-                                        </li>
-                                        <li class="flex items-start">
-                                            <i data-lucide="check-circle" class="w-5 h-5 text-green-600 mr-3 mt-0.5 flex-shrink-0"></i>
-                                            <span><strong class="text-slate-900">Terminal/Command line</strong> access</span>
-                                        </li>
-                                        <li class="flex items-start">
-                                            <i data-lucide="check-circle" class="w-5 h-5 text-green-600 mr-3 mt-0.5 flex-shrink-0"></i>
-                                            <span><strong class="text-slate-900">NotebookLM</strong> for research synthesis and organization</span>
-                                        </li>
-                                        <li class="flex items-start">
-                                            <i data-lucide="check-circle" class="w-5 h-5 text-green-600 mr-3 mt-0.5 flex-shrink-0"></i>
-                                            <span><strong class="text-slate-900">Gamma</strong> for presentations and visual content</span>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="bg-white rounded-lg p-6 shadow-sm">
-                                    <div class="flex items-center mb-3">
-                                        <i data-lucide="cloud" class="w-6 h-6 text-brand-600 mr-3"></i>
-                                        <h4 class="font-semibold text-slate-900">Prototyping & Development</h4>
-                                    </div>
-                                    <ul class="space-y-3 text-slate-600">
-                                        <li class="flex items-start">
-                                            <i data-lucide="check-circle" class="w-5 h-5 text-green-600 mr-3 mt-0.5 flex-shrink-0"></i>
-                                            <span><strong class="text-slate-900">Lovable</strong> for rapid prototype development</span>
-                                        </li>
-                                        <li class="flex items-start">
-                                            <i data-lucide="check-circle" class="w-5 h-5 text-green-600 mr-3 mt-0.5 flex-shrink-0"></i>
-                                            <span><strong class="text-slate-900">Replit</strong> for coding without development environment setup</span>
-                                        </li>
-                                        <li class="flex items-start">
-                                            <i data-lucide="check-circle" class="w-5 h-5 text-green-600 mr-3 mt-0.5 flex-shrink-0"></i>
-                                            <span><strong class="text-slate-900">Cursor</strong> for AI-assisted coding and debugging</span>
-                                        </li>
-                                        <li class="flex items-start">
-                                            <i data-lucide="check-circle" class="w-5 h-5 text-green-600 mr-3 mt-0.5 flex-shrink-0"></i>
-                                            <span><strong class="text-slate-900">Claude Code and Gemini CLI</strong> for command-line development workflows</span>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="bg-white rounded-lg p-6 shadow-sm">
-                                    <div class="flex items-center mb-3">
-                                        <i data-lucide="package" class="w-6 h-6 text-brand-600 mr-3"></i>
-                                        <h4 class="font-semibold text-slate-900">Automation & Workflow</h4>
-                                    </div>
-                                    <ul class="space-y-3 text-slate-600">
-                                        <li class="flex items-start">
-                                            <i data-lucide="check-circle" class="w-5 h-5 text-green-600 mr-3 mt-0.5 flex-shrink-0"></i>
-                                            <span><strong class="text-slate-900">MindStudio</strong> for building your first AI agents with guided templates</span>
-                                        </li>
-                                        <li class="flex items-start">
-                                            <i data-lucide="check-circle" class="w-5 h-5 text-green-600 mr-3 mt-0.5 flex-shrink-0"></i>
-                                            <span><strong class="text-slate-900">n8n</strong> for advanced workflow automation with detailed control</span>
-                                        </li>
-                                        <li class="flex items-start">
-                                            <i data-lucide="check-circle" class="w-5 h-5 text-green-600 mr-3 mt-0.5 flex-shrink-0"></i>
-                                            <span><strong class="text-slate-900">Langflow</strong> for advanced visual AI pipeline development</span>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="bg-slate-50 rounded-xl p-6 text-center">
+                        <i data-lucide="video" class="w-8 h-8 text-brand-600 mx-auto mb-3"></i>
+                        <h4 class="font-semibold text-slate-900 mb-2">Sign Up Instructions</h4>
+                        <p class="text-sm text-slate-600">Step-by-step tool setup instructions sent 3 days before your session</p>
                     </div>
-                    
-                    <!-- Resources Tab -->
-                    <div id="resources-tab" class="tab-content hidden">
-                        <div class="bg-slate-50 rounded-xl p-8">
-                            <h3 class="text-2xl font-bold text-slate-900 mb-6">Workshop Resources</h3>
-                            <p class="lead text-muted mb-5">Everything you need to make the most of your workshop experience, from preparation to ongoing support.</p>
-                            <div class="space-y-6">
-                                <div>
-                                    <h4 class="font-semibold text-slate-900 mb-3 flex items-center justify-center">
-                                        <i data-lucide="file-text" class="w-5 h-5 text-brand-600 mr-2"></i>
-                                        Pre-Read Material
-                                    </h4>
-                                    <dl class="space-y-3 text-slate-600">
-                                        <div>
-                                            <dt class="font-medium text-slate-900 mb-1">What You'll Receive:</dt>
-                                            <dd class="ml-0">A comprehensive 10-page orientation outline to help you prepare for the workshop</dd>
-                                        </div>
-                                        <div>
-                                            <dt class="font-medium text-slate-900 mb-1">Delivery Timeline:</dt>
-                                            <dd class="ml-0">Provided 3 days before the workshop session</dd>
-                                        </div>
-                                    </dl>
-                                </div>
-                                <div>
-                                    <h4 class="font-semibold text-slate-900 mb-3 flex items-center justify-center">
-                                        <i data-lucide="video" class="w-5 h-5 text-brand-600 mr-2"></i>
-                                        Sign Up Instructions
-                                    </h4>
-                                    <dl class="space-y-3 text-slate-600">
-                                        <div>
-                                            <dt class="font-medium text-slate-900 mb-1">What You'll Receive:</dt>
-                                            <dd class="ml-0">Detailed step-by-step instructions for setting up your accounts and tools before the workshop</dd>
-                                        </div>
-                                        <div>
-                                            <dt class="font-medium text-slate-900 mb-1">Delivery Timeline:</dt>
-                                            <dd class="ml-0">Provided 3 days before the workshop session</dd>
-                                        </div>
-                                    </dl>
-                                </div>
-                                <div>
-                                    <h4 class="font-semibold text-slate-900 mb-3 flex items-center justify-center">
-                                        <i data-lucide="users" class="w-5 h-5 text-brand-600 mr-2"></i>
-                                        Developer Credits
-                                    </h4>
-                                    <dl class="space-y-3 text-slate-600">
-                                        <div>
-                                            <dt class="font-medium text-slate-900 mb-1">What You'll Receive:</dt>
-                                            <dd class="ml-0">Developer credits for several AI tools to use during and after the workshop</dd>
-                                        </div>
-                                        <div>
-                                            <dt class="font-medium text-slate-900 mb-1">Availability:</dt>
-                                            <dd class="ml-0">Included with your workshop registration</dd>
-                                        </div>
-                                    </dl>
-                                </div>
-                                <div>
-                                    <h4 class="font-semibold text-slate-900 mb-3 flex items-center justify-center">
-                                        <i data-lucide="link" class="w-5 h-5 text-brand-600 mr-2"></i>
-                                        Workbook
-                                    </h4>
-                                    <dl class="space-y-3 text-slate-600">
-                                        <div>
-                                            <dt class="font-medium text-slate-900 mb-1">What You'll Receive:</dt>
-                                            <dd class="ml-0">A hands-on workbook with step-by-step instructions for all workshop activities</dd>
-                                        </div>
-                                        <div>
-                                            <dt class="font-medium text-slate-900 mb-1">Delivery Timeline:</dt>
-                                            <dd class="ml-0">Provided on workshop day</dd>
-                                        </div>
-                                    </dl>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="bg-slate-50 rounded-xl p-6 text-center">
+                        <i data-lucide="credit-card" class="w-8 h-8 text-brand-600 mx-auto mb-3"></i>
+                        <h4 class="font-semibold text-slate-900 mb-2">Developer Credits <span class="text-xs font-normal text-slate-400">(where applicable)</span></h4>
+                        <p class="text-sm text-slate-600">Credits for select AI tools may be available to use during and after the workshop</p>
+                    </div>
+                    <div class="bg-slate-50 rounded-xl p-6 text-center">
+                        <i data-lucide="book-open" class="w-8 h-8 text-brand-600 mx-auto mb-3"></i>
+                        <h4 class="font-semibold text-slate-900 mb-2">Workbook</h4>
+                        <p class="text-sm text-slate-600">A hands-on workbook with step-by-step instructions for all activities</p>
                     </div>
                 </div>
-            </div>
             </div>
             
-            <!-- Level 100: Beginner Intro -->
+            <!-- Level 100: Foundation Series -->
             <div class="mb-16 reveal reveal-delay-1">
-                <div class="bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl p-8 mb-6">
+                <div class="bg-gradient-to-r from-slate-50 to-slate-100 rounded-xl p-8 border-2 border-dashed border-slate-300">
                     <div class="flex items-center mb-4">
-                        <span class="level-badge level-100 mr-4">100</span>
+                        <span class="level-badge mr-4" style="background:#64748b;color:white;padding:6px 14px;border-radius:9999px;font-weight:700;font-size:0.9rem;">100</span>
                         <div>
-                            <h3 class="text-2xl font-bold text-slate-900">Beginner Intro</h3>
-                            <p class="text-slate-600">Perfect for those new to AI - no technical background required</p>
+                            <h3 class="text-2xl font-bold text-slate-700">Foundation Series</h3>
+                            <p class="text-slate-500">AI intro, landscape, and core tools</p>
                         </div>
+                        <span class="ml-auto inline-block px-4 py-1 bg-slate-200 text-slate-600 text-sm font-semibold rounded-full">Coming Soon</span>
                     </div>
-                    <p class="text-slate-700 mb-4">
-                        Introduction to AI concepts, tools, and practical applications. Learn the fundamentals 
-                        and get hands-on experience with popular AI tools in a supportive environment.
+                    <p class="text-slate-600 mb-4">
+                        Introduction to AI concepts, tools, and practical applications. Learn the fundamentals and get hands-on experience with popular AI tools in a supportive environment — without diving into app or agent development.
                     </p>
                     <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-1 bg-white rounded-full text-sm text-slate-700">
-                            <i class="fas fa-clock mr-1"></i>3 hours
+                        <span class="px-3 py-1 bg-white rounded-full text-sm text-slate-600 border border-slate-200">
+                            <i class="fas fa-book-open mr-1"></i>AI Intro & Landscape
                         </span>
-                        <span class="px-3 py-1 bg-white rounded-full text-sm text-slate-700">
-                            <i class="fas fa-laptop mr-1"></i>Virtual
+                        <span class="px-3 py-1 bg-white rounded-full text-sm text-slate-600 border border-slate-200">
+                            <i class="fas fa-tools mr-1"></i>Core Tools Overview
                         </span>
-                        <span class="px-3 py-1 bg-white rounded-full text-sm text-slate-700">
-                            <i class="fas fa-users mr-1"></i>Small groups
+                        <span class="px-3 py-1 bg-white rounded-full text-sm text-slate-600 border border-slate-200">
+                            <i class="fas fa-comment-alt mr-1"></i>Prompting Fundamentals
                         </span>
                     </div>
-                </div>
-                
-                <!-- Level 100 Workshops Table -->
-                <div class="table-scroll-container">
-                    <table class="w-full">
-                        <thead>
-                            <tr class="bg-slate-50">
-                                <th class="px-6 py-4 text-left text-sm font-semibold text-slate-900">Workshop</th>
-                                <th class="px-6 py-4 text-left text-sm font-semibold text-slate-900">Date(s)</th>
-                                <th class="px-6 py-4 text-left text-sm font-semibold text-slate-900">Status</th>
-                                <th class="px-6 py-4 text-left text-sm font-semibold text-slate-900">Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody class="divide-y divide-slate-200">
-                            {% assign level_100 = site.data.workshops | where: "level", 100 | sort: "date" | reverse %}
-                            {% for workshop in level_100 %}
-                            <tr class="hover:bg-slate-50 transition-colors">
-                                <td class="px-6 py-4">
-                                    <div class="font-medium text-slate-900">{{ workshop.name }}</div>
-                                    <div class="text-sm text-slate-500 mt-1">{{ workshop.description }}</div>
-                                </td>
-                                <td class="px-6 py-4 text-slate-700">{{ workshop.dates }}</td>
-                                <td class="px-6 py-4">
-                                    {% if workshop.status == "upcoming" or workshop.status == "scheduled" %}
-                                    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800">
-                                        📅 Scheduled
-                                    </span>
-                                    {% elsif workshop.status == "completed" %}
-                                    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-100 text-green-800">
-                                        ✓ Completed
-                                    </span>
-                                    {% endif %}
-                                </td>
-                                <td class="px-6 py-4">
-                                    <div class="flex flex-wrap gap-2">
-                                        {% if workshop.registration_link and workshop.registration_link != "" %}
-                                        <a href="{{ workshop.registration_link }}" target="_blank" class="inline-flex items-center px-3 py-1 bg-brand-600 text-white rounded-lg hover:bg-brand-700 transition-colors text-sm">
-                                            <i class="fas fa-ticket-alt mr-1"></i>Register
-                                        </a>
-                                        {% endif %}
-                                        {% for link in workshop.recap_links %}
-                                        <a href="{{ link.url }}" target="_blank" class="inline-flex items-center px-3 py-1 bg-slate-100 text-slate-700 rounded-lg hover:bg-slate-200 transition-colors text-sm">
-                                            <i class="{{ link.icon }} mr-1"></i>{{ link.type }}
-                                        </a>
-                                        {% endfor %}
-                                    </div>
-                                </td>
-                            </tr>
-                            {% endfor %}
-                        </tbody>
-                    </table>
+                    <p class="text-sm text-slate-500 mt-6 italic">Registration opens soon. <a href="#contact" class="text-brand-600 hover:underline">Get in touch</a> to be notified.</p>
                 </div>
             </div>
-            
+
             <!-- Level 200: Builder Series -->
             <div class="mb-16 reveal reveal-delay-2">
                 <div class="bg-gradient-to-r from-brand-50 to-purple-50 rounded-xl p-8 mb-6">
@@ -504,44 +481,132 @@ description: "Comprehensive AI engagement activities: Learn through talks, conne
                     </div>
                 </div>
                 
+                <!-- Agenda -->
+                <div class="mb-6">
+                    <h4 class="text-lg font-bold text-slate-900 mb-4">Session Agenda</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="bg-white rounded-lg p-5 border border-brand-100">
+                            <h5 class="font-semibold text-brand-600 mb-1">AI Fundamentals & Mechanics</h5>
+                            <p class="text-slate-600 text-sm">How large language models work and the key principles behind effective AI prompting.</p>
+                        </div>
+                        <div class="bg-white rounded-lg p-5 border border-brand-100">
+                            <h5 class="font-semibold text-brand-600 mb-1">AI Tools Deep Dive</h5>
+                            <p class="text-slate-600 text-sm">Hands-on with today's most powerful AI tools — strengths, use cases, and when to use each.</p>
+                        </div>
+                        <div class="bg-white rounded-lg p-5 border border-brand-100">
+                            <h5 class="font-semibold text-brand-600 mb-1">Build Your First Prototype</h5>
+                            <p class="text-slate-600 text-sm">Create a working prototype that solves a real problem in your business or career, with personalized instructor guidance.</p>
+                        </div>
+                        <div class="bg-white rounded-lg p-5 border border-brand-100">
+                            <h5 class="font-semibold text-brand-600 mb-1">Build Your First AI Agent</h5>
+                            <p class="text-slate-600 text-sm">Create an automated AI agent that handles complex tasks with minimal supervision.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tools -->
+                <div class="mb-6">
+                    <h4 class="text-lg font-bold text-slate-900 mb-4">Tools You'll Use</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div class="bg-white rounded-lg p-5 border border-brand-100">
+                            <div class="flex items-center mb-3">
+                                <i data-lucide="laptop" class="w-5 h-5 text-brand-600 mr-2"></i>
+                                <h5 class="font-semibold text-slate-900">Core</h5>
+                            </div>
+                            <ul class="text-sm text-slate-600 space-y-1 text-left">
+                                <li><strong>ChatGPT & Gemini</strong></li>
+                                <li><strong>Perplexity</strong></li>
+                                <li><strong>NotebookLM</strong></li>
+                                <li><strong>Gamma</strong></li>
+                            </ul>
+                        </div>
+                        <div class="bg-white rounded-lg p-5 border border-brand-100">
+                            <div class="flex items-center mb-3">
+                                <i data-lucide="cloud" class="w-5 h-5 text-brand-600 mr-2"></i>
+                                <h5 class="font-semibold text-slate-900">Prototyping</h5>
+                            </div>
+                            <ul class="text-sm text-slate-600 space-y-1 text-left">
+                                <li><strong>Lovable</strong></li>
+                                <li><strong>Claude</strong></li>
+                                <li><strong>Claude Code & Gemini CLI</strong></li>
+                            </ul>
+                        </div>
+                        <div class="bg-white rounded-lg p-5 border border-brand-100">
+                            <div class="flex items-center mb-3">
+                                <i data-lucide="package" class="w-5 h-5 text-brand-600 mr-2"></i>
+                                <h5 class="font-semibold text-slate-900">Automation</h5>
+                            </div>
+                            <ul class="text-sm text-slate-600 space-y-1 text-left">
+                                <li><strong>MindStudio</strong></li>
+                                <li><strong>n8n</strong></li>
+                                <li><strong>Langflow</strong></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- Level 200 Workshops Table -->
+                {% assign level_200 = site.data.workshops | where: "level", 200 | sort: "date" | reverse %}
+                {% assign past_200_count = level_200 | where: "status", "completed" | size %}
+
+                <!-- Tab buttons -->
+                <div class="flex border-b border-slate-200 mb-0">
+                    <button id="ws200-tab-upcoming" onclick="switchWs200('upcoming')"
+                        class="px-5 py-3 text-sm font-semibold text-brand-600 border-b-2 border-brand-600 transition-colors">
+                        Upcoming
+                    </button>
+                    <button id="ws200-tab-past" onclick="switchWs200('past')"
+                        class="px-5 py-3 text-sm font-semibold text-slate-500 border-b-2 border-transparent hover:text-brand-600 transition-colors">
+                        Past <span class="ml-1 px-2 py-0.5 bg-slate-100 text-slate-500 rounded-full text-xs">{{ past_200_count }}</span>
+                    </button>
+                </div>
+
                 <div class="table-scroll-container">
-                    <table class="w-full">
+                    <table class="w-full table-fixed">
                         <thead>
                             <tr class="bg-slate-50">
-                                <th class="px-6 py-4 text-left text-sm font-semibold text-slate-900">Workshop</th>
-                                <th class="px-6 py-4 text-left text-sm font-semibold text-slate-900">Date(s)</th>
-                                <th class="px-6 py-4 text-left text-sm font-semibold text-slate-900">Status</th>
-                                <th class="px-6 py-4 text-left text-sm font-semibold text-slate-900">Actions</th>
+                                <th class="w-1/3 px-6 py-4 text-left text-sm font-semibold text-slate-900">Workshop</th>
+                                <th class="w-1/3 px-6 py-4 text-left text-sm font-semibold text-slate-900">Date(s)</th>
+                                <th class="w-1/3 px-6 py-4 text-left text-sm font-semibold text-slate-900">Actions</th>
                             </tr>
                         </thead>
-                        <tbody class="divide-y divide-slate-200">
-                            {% assign level_200 = site.data.workshops | where: "level", 200 | sort: "date" | reverse %}
+
+                        <!-- Upcoming -->
+                        <tbody id="ws200-upcoming" class="divide-y divide-slate-200">
                             {% for workshop in level_200 %}
+                            {% if workshop.status == "scheduled" or workshop.status == "upcoming" %}
                             <tr class="hover:bg-slate-50 transition-colors">
-                                <td class="px-6 py-4">
-                                    <div class="font-medium text-slate-900">{{ workshop.series }}</div>
+                                <td class="px-6 py-4 align-top text-left">
+                                    <div class="font-medium text-slate-900">Builder Series 200</div>
                                     <div class="text-sm text-slate-500 mt-1">{{ workshop.format }}</div>
                                 </td>
-                                <td class="px-6 py-4 text-slate-700">{{ workshop.dates }}</td>
-                                <td class="px-6 py-4">
-                                    {% if workshop.status == "scheduled" %}
-                                    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800">
-                                        📅 Scheduled
-                                    </span>
-                                    {% elsif workshop.status == "completed" %}
-                                    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-100 text-green-800">
-                                        ✓ Completed
-                                    </span>
-                                    {% endif %}
-                                </td>
-                                <td class="px-6 py-4">
+                                <td class="px-6 py-4 align-top text-left text-slate-700">{{ workshop.dates }}</td>
+                                <td class="px-6 py-4 align-top text-left">
                                     <div class="flex flex-wrap gap-2">
                                         {% if workshop.registration_link and workshop.registration_link != "" %}
                                         <a href="{{ workshop.registration_link }}" target="_blank" class="inline-flex items-center px-3 py-1 bg-brand-600 text-white rounded-lg hover:bg-brand-700 transition-colors text-sm">
                                             <i class="fas fa-ticket-alt mr-1"></i>Register
                                         </a>
                                         {% endif %}
+                                    </div>
+                                </td>
+                            </tr>
+                            {% endif %}
+                            {% endfor %}
+                        </tbody>
+
+                        <!-- Past -->
+                        <tbody id="ws200-past" class="divide-y divide-slate-200 hidden">
+                            {% for workshop in level_200 %}
+                            {% if workshop.status == "completed" %}
+                            <tr class="hover:bg-slate-50 transition-colors">
+                                <td class="px-6 py-4 align-top text-left">
+                                    <div class="font-medium text-slate-900">Builder Series 200</div>
+                                    <div class="text-sm text-slate-500 mt-1">{{ workshop.format }}</div>
+                                </td>
+                                <td class="px-6 py-4 align-top text-left text-slate-700">{{ workshop.dates }}</td>
+                                <td class="px-6 py-4 align-top text-left">
+                                    <div class="flex flex-wrap gap-2">
                                         {% for link in workshop.recap_links %}
                                         <a href="{{ link.url }}" target="_blank" class="inline-flex items-center px-3 py-1 bg-slate-100 text-slate-700 rounded-lg hover:bg-slate-200 transition-colors text-sm">
                                             <i class="{{ link.icon }} mr-1"></i>{{ link.type }}
@@ -550,23 +615,21 @@ description: "Comprehensive AI engagement activities: Learn through talks, conne
                                     </div>
                                 </td>
                             </tr>
+                            {% endif %}
                             {% endfor %}
                         </tbody>
                     </table>
                 </div>
-                <p class="text-center text-sm text-slate-500 mt-4">
-                    <i class="fas fa-arrow-down mr-1"></i>Scroll to view all Builder Series workshops
-                </p>
             </div>
             
-            <!-- Level 300: Advanced Deep Dive -->
+            <!-- Level 300: Platform Series -->
             <div class="reveal reveal-delay-3">
                 <div class="bg-gradient-to-r from-orange-50 to-amber-50 rounded-xl p-8 mb-6">
                     <div class="flex items-center mb-4">
                         <span class="level-badge level-300 mr-4">300</span>
                         <div>
-                            <h3 class="text-2xl font-bold text-slate-900">Advanced Deep Dive</h3>
-                            <p class="text-slate-600">Platform-specific mastery workshops</p>
+                            <h3 class="text-2xl font-bold text-slate-900">Platform Series</h3>
+                            <p class="text-slate-600">Go deep on the platform that matters most to you</p>
                         </div>
                     </div>
                     <p class="text-slate-700 mb-4">
@@ -608,49 +671,71 @@ description: "Comprehensive AI engagement activities: Learn through talks, conne
                 </div>
                 
                 <!-- Level 300 Workshops Table -->
+                {% assign level_300 = site.data.workshops | where: "level", 300 | sort: "date" %}
+                {% assign past_300_count = level_300 | where: "status", "completed" | size %}
+
+                <!-- Tab buttons -->
+                <div class="flex border-b border-slate-200 mb-0">
+                    <button id="ws300-tab-upcoming" onclick="switchWs300('upcoming')"
+                        class="px-5 py-3 text-sm font-semibold text-brand-600 border-b-2 border-brand-600 transition-colors">
+                        Upcoming
+                    </button>
+                    <button id="ws300-tab-past" onclick="switchWs300('past')"
+                        class="px-5 py-3 text-sm font-semibold text-slate-500 border-b-2 border-transparent hover:text-brand-600 transition-colors">
+                        Past <span class="ml-1 px-2 py-0.5 bg-slate-100 text-slate-500 rounded-full text-xs">{{ past_300_count }}</span>
+                    </button>
+                </div>
+
                 <div class="table-scroll-container">
-                    <table class="w-full">
+                    <table class="w-full table-fixed">
                         <thead>
                             <tr class="bg-slate-50">
-                                <th class="px-6 py-4 text-left text-sm font-semibold text-slate-900">Workshop</th>
-                                <th class="px-6 py-4 text-left text-sm font-semibold text-slate-900">Platform</th>
-                                <th class="px-6 py-4 text-left text-sm font-semibold text-slate-900">Date(s)</th>
-                                <th class="px-6 py-4 text-left text-sm font-semibold text-slate-900">Status</th>
-                                <th class="px-6 py-4 text-left text-sm font-semibold text-slate-900">Actions</th>
+                                <th class="w-1/3 px-6 py-4 text-left text-sm font-semibold text-slate-900">Workshop</th>
+                                <th class="w-1/3 px-6 py-4 text-left text-sm font-semibold text-slate-900">Date(s)</th>
+                                <th class="w-1/3 px-6 py-4 text-left text-sm font-semibold text-slate-900">Actions</th>
                             </tr>
                         </thead>
-                        <tbody class="divide-y divide-slate-200">
-                            {% assign level_300 = site.data.workshops | where: "level", 300 | sort: "date" | reverse %}
+
+                        <!-- Upcoming -->
+                        <tbody id="ws300-upcoming" class="divide-y divide-slate-200">
                             {% for workshop in level_300 %}
+                            {% if workshop.status == "scheduled" or workshop.status == "upcoming" %}
                             <tr class="hover:bg-slate-50 transition-colors">
-                                <td class="px-6 py-4">
-                                    <div class="font-medium text-slate-900">{{ workshop.series }}</div>
-                                    <div class="text-sm text-slate-500 mt-1">{{ workshop.description }}</div>
+                                <td class="px-6 py-4 align-top text-left">
+                                    <div class="font-medium text-slate-900">Builder Series 300</div>
+                                    <div class="text-sm text-slate-500 mt-1">{{ workshop.company }} {{ workshop.platform }}</div>
                                 </td>
-                                <td class="px-6 py-4">
-                                    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-orange-100 text-orange-800">
-                                        {{ workshop.platform }}
-                                    </span>
+                                <td class="px-6 py-4 align-top text-left text-slate-700">
+                                    {% if workshop.dates and workshop.dates != "" %}{{ workshop.dates }}{% else %}—{% endif %}
                                 </td>
-                                <td class="px-6 py-4 text-slate-700">{{ workshop.dates }}</td>
-                                <td class="px-6 py-4">
-                                    {% if workshop.status == "scheduled" or workshop.status == "upcoming" %}
-                                    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800">
-                                        🎯 Scheduled
-                                    </span>
-                                    {% elsif workshop.status == "completed" %}
-                                    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-100 text-green-800">
-                                        ✓ Completed
+                                <td class="px-6 py-4 align-top text-left">
+                                    {% if workshop.registration_link and workshop.registration_link != "" %}
+                                    <a href="{{ workshop.registration_link }}" target="_blank" class="inline-flex items-center px-3 py-1 bg-brand-600 text-white rounded-lg hover:bg-brand-700 transition-colors text-sm">
+                                        <i class="fas fa-ticket-alt mr-1"></i>Register
+                                    </a>
+                                    {% else %}
+                                    <span class="inline-flex items-center px-3 py-1 bg-slate-100 text-slate-500 rounded-lg text-sm">
+                                        Coming soon
                                     </span>
                                     {% endif %}
                                 </td>
-                                <td class="px-6 py-4">
+                            </tr>
+                            {% endif %}
+                            {% endfor %}
+                        </tbody>
+
+                        <!-- Past -->
+                        <tbody id="ws300-past" class="divide-y divide-slate-200 hidden">
+                            {% for workshop in level_300 %}
+                            {% if workshop.status == "completed" %}
+                            <tr class="hover:bg-slate-50 transition-colors">
+                                <td class="px-6 py-4 align-top text-left">
+                                    <div class="font-medium text-slate-900">Builder Series 300</div>
+                                    <div class="text-sm text-slate-500 mt-1">{{ workshop.company }} {{ workshop.platform }}</div>
+                                </td>
+                                <td class="px-6 py-4 align-top text-left text-slate-700">{{ workshop.dates }}</td>
+                                <td class="px-6 py-4 align-top text-left">
                                     <div class="flex flex-wrap gap-2">
-                                        {% if workshop.registration_link and workshop.registration_link != "" %}
-                                        <a href="{{ workshop.registration_link }}" target="_blank" class="inline-flex items-center px-3 py-1 bg-brand-600 text-white rounded-lg hover:bg-brand-700 transition-colors text-sm">
-                                            <i class="fas fa-ticket-alt mr-1"></i>Register
-                                        </a>
-                                        {% endif %}
                                         {% for link in workshop.recap_links %}
                                         <a href="{{ link.url }}" target="_blank" class="inline-flex items-center px-3 py-1 bg-slate-100 text-slate-700 rounded-lg hover:bg-slate-200 transition-colors text-sm">
                                             <i class="{{ link.icon }} mr-1"></i>{{ link.type }}
@@ -659,6 +744,7 @@ description: "Comprehensive AI engagement activities: Learn through talks, conne
                                     </div>
                                 </td>
                             </tr>
+                            {% endif %}
                             {% endfor %}
                         </tbody>
                     </table>
@@ -686,71 +772,54 @@ description: "Comprehensive AI engagement activities: Learn through talks, conne
             
             <!-- Meetups Table -->
             <div class="reveal reveal-delay-1">
-                <div class="table-scroll-container bg-white">
-                    <table class="w-full">
+                <div class="flex border-b border-slate-200 mb-0">
+                    <button id="meetup-tab-upcoming" onclick="switchMeetup('upcoming')"
+                        class="px-5 py-3 text-sm font-semibold text-brand-600 border-b-2 border-brand-600 transition-colors">
+                        Upcoming
+                    </button>
+                    <button id="meetup-tab-past" onclick="switchMeetup('past')"
+                        class="px-5 py-3 text-sm font-semibold text-slate-500 border-b-2 border-transparent hover:text-brand-600 transition-colors">
+                        Past
+                    </button>
+                </div>
+                <div class="table-scroll-container">
+                    <table class="w-full table-fixed">
                         <thead>
                             <tr class="bg-slate-50">
-                                <th class="px-6 py-4 text-left text-sm font-semibold text-slate-900">Event Name</th>
-                                <th class="px-6 py-4 text-left text-sm font-semibold text-slate-900">Date(s)</th>
-                                <th class="px-6 py-4 text-left text-sm font-semibold text-slate-900">Status</th>
-                                <th class="px-6 py-4 text-left text-sm font-semibold text-slate-900">Posts & Recap</th>
+                                <th class="w-1/3 px-6 py-4 text-left text-sm font-semibold text-slate-900">Event</th>
+                                <th class="w-1/3 px-6 py-4 text-left text-sm font-semibold text-slate-900">Date(s)</th>
+                                <th class="w-1/3 px-6 py-4 text-left text-sm font-semibold text-slate-900">Actions</th>
                             </tr>
                         </thead>
-                        <tbody class="divide-y divide-slate-200">
-                            {% assign sorted_meetups = site.data.meetups | sort: "date" | reverse %}
-                            {% for meetup in sorted_meetups %}
+                        <tbody id="meetup-upcoming" class="divide-y divide-slate-200">
                             <tr class="hover:bg-slate-50 transition-colors">
-                                <td class="px-6 py-4">
-                                    <div class="font-medium text-slate-900">{{ meetup.name }}</div>
-                                    {% if meetup.location %}
-                                    <div class="text-sm text-slate-500 mt-1">
-                                        <i class="fas fa-map-marker-alt mr-1"></i>{{ meetup.location }}
-                                    </div>
-                                    {% endif %}
-                                    {% if meetup.attendees %}
-                                    <div class="text-sm text-slate-500 mt-1">
-                                        <i class="fas fa-users mr-1"></i>{{ meetup.attendees }} attendees
-                                    </div>
-                                    {% endif %}
+                                <td class="px-6 py-4 align-top text-left">
+                                    <div class="font-medium text-slate-900">AI Musings Meetup</div>
+                                    <div class="text-sm text-slate-500 mt-1">Virtual</div>
                                 </td>
-                                <td class="px-6 py-4 text-slate-700">{{ meetup.dates }}</td>
-                                <td class="px-6 py-4">
-                                    {% if meetup.status == "upcoming" %}
-                                    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800">
-                                        🤝 Upcoming
-                                    </span>
-                                    {% elsif meetup.status == "completed" %}
-                                    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-100 text-green-800">
-                                        ✓ Completed
-                                    </span>
-                                    {% elsif meetup.status == "cancelled" %}
-                                    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-red-100 text-red-800">
-                                        ❌ Cancelled
-                                    </span>
-                                    {% endif %}
-                                </td>
-                                <td class="px-6 py-4">
-                                    <div class="flex flex-wrap gap-2">
-                                        {% if meetup.registration_link and meetup.registration_link != "" %}
-                                        <a href="{{ meetup.registration_link }}" target="_blank" class="inline-flex items-center px-3 py-1 bg-brand-600 text-white rounded-lg hover:bg-brand-700 transition-colors text-sm">
-                                            <i class="fas fa-ticket-alt mr-1"></i>Register
-                                        </a>
-                                        {% endif %}
-                                        {% for link in meetup.recap_links %}
-                                        <a href="{{ link.url }}" target="_blank" class="inline-flex items-center px-3 py-1 bg-slate-100 text-slate-700 rounded-lg hover:bg-slate-200 transition-colors text-sm">
-                                            <i class="{{ link.icon }} mr-1"></i>{{ link.type }}
-                                        </a>
-                                        {% endfor %}
-                                    </div>
+                                <td class="px-6 py-4 align-top text-left text-slate-700">TBA</td>
+                                <td class="px-6 py-4 align-top text-left">
+                                    <span class="inline-flex items-center px-3 py-1 bg-slate-100 text-slate-500 rounded-lg text-sm">Coming soon</span>
                                 </td>
                             </tr>
-                            {% endfor %}
+                            <tr class="hover:bg-slate-50 transition-colors">
+                                <td class="px-6 py-4 align-top text-left">
+                                    <div class="font-medium text-slate-900">AI Musings Meetup</div>
+                                    <div class="text-sm text-slate-500 mt-1">Virtual</div>
+                                </td>
+                                <td class="px-6 py-4 align-top text-left text-slate-700">TBA</td>
+                                <td class="px-6 py-4 align-top text-left">
+                                    <span class="inline-flex items-center px-3 py-1 bg-slate-100 text-slate-500 rounded-lg text-sm">Coming soon</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tbody id="meetup-past" class="divide-y divide-slate-200 hidden">
+                            <tr>
+                                <td colspan="3" class="px-6 py-8 text-center text-sm text-slate-400">No past meetups yet.</td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
-                <p class="text-center text-sm text-slate-500 mt-4">
-                    <i class="fas fa-arrow-down mr-1"></i>Scroll to view more events
-                </p>
             </div>
         </div>
     </div>
@@ -774,66 +843,54 @@ description: "Comprehensive AI engagement activities: Learn through talks, conne
             
             <!-- Talks Table -->
             <div class="reveal reveal-delay-1">
+                <div class="flex border-b border-slate-200 mb-0">
+                    <button id="talk-tab-upcoming" onclick="switchTalk('upcoming')"
+                        class="px-5 py-3 text-sm font-semibold text-brand-600 border-b-2 border-brand-600 transition-colors">
+                        Upcoming
+                    </button>
+                    <button id="talk-tab-past" onclick="switchTalk('past')"
+                        class="px-5 py-3 text-sm font-semibold text-slate-500 border-b-2 border-transparent hover:text-brand-600 transition-colors">
+                        Past
+                    </button>
+                </div>
                 <div class="table-scroll-container">
-                    <table class="w-full">
+                    <table class="w-full table-fixed">
                         <thead>
                             <tr class="bg-slate-50">
-                                <th class="px-6 py-4 text-left text-sm font-semibold text-slate-900">Event Name</th>
-                                <th class="px-6 py-4 text-left text-sm font-semibold text-slate-900">Date(s)</th>
-                                <th class="px-6 py-4 text-left text-sm font-semibold text-slate-900">Status</th>
-                                <th class="px-6 py-4 text-left text-sm font-semibold text-slate-900">Posts & Recap</th>
+                                <th class="w-1/3 px-6 py-4 text-left text-sm font-semibold text-slate-900">Event</th>
+                                <th class="w-1/3 px-6 py-4 text-left text-sm font-semibold text-slate-900">Date(s)</th>
+                                <th class="w-1/3 px-6 py-4 text-left text-sm font-semibold text-slate-900">Actions</th>
                             </tr>
                         </thead>
-                        <tbody class="divide-y divide-slate-200">
-                            {% assign sorted_talks = site.data.talks | sort: "date" | reverse %}
-                            {% for talk in sorted_talks %}
+                        <tbody id="talk-upcoming" class="divide-y divide-slate-200">
                             <tr class="hover:bg-slate-50 transition-colors">
-                                <td class="px-6 py-4">
-                                    <div class="font-medium text-slate-900">{{ talk.name }}</div>
-                                    {% if talk.location %}
-                                    <div class="text-sm text-slate-500 mt-1">
-                                        <i class="fas fa-map-marker-alt mr-1"></i>{{ talk.location }}
-                                    </div>
-                                    {% endif %}
+                                <td class="px-6 py-4 align-top text-left">
+                                    <div class="font-medium text-slate-900">AI Musings Talk</div>
+                                    <div class="text-sm text-slate-500 mt-1">Virtual</div>
                                 </td>
-                                <td class="px-6 py-4 text-slate-700">{{ talk.dates }}</td>
-                                <td class="px-6 py-4">
-                                    {% if talk.status == "upcoming" %}
-                                    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800">
-                                        🎤 Upcoming
-                                    </span>
-                                    {% elsif talk.status == "completed" %}
-                                    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-100 text-green-800">
-                                        ✓ Completed
-                                    </span>
-                                    {% elsif talk.status == "cancelled" %}
-                                    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-red-100 text-red-800">
-                                        ❌ Cancelled
-                                    </span>
-                                    {% endif %}
-                                </td>
-                                <td class="px-6 py-4">
-                                    <div class="flex flex-wrap gap-2">
-                                        {% if talk.registration_link and talk.registration_link != "" %}
-                                        <a href="{{ talk.registration_link }}" target="_blank" class="inline-flex items-center px-3 py-1 bg-brand-600 text-white rounded-lg hover:bg-brand-700 transition-colors text-sm">
-                                            <i class="fas fa-ticket-alt mr-1"></i>Register
-                                        </a>
-                                        {% endif %}
-                                        {% for link in talk.recap_links %}
-                                        <a href="{{ link.url }}" target="_blank" class="inline-flex items-center px-3 py-1 bg-slate-100 text-slate-700 rounded-lg hover:bg-slate-200 transition-colors text-sm">
-                                            <i class="{{ link.icon }} mr-1"></i>{{ link.type }}
-                                        </a>
-                                        {% endfor %}
-                                    </div>
+                                <td class="px-6 py-4 align-top text-left text-slate-700">TBA</td>
+                                <td class="px-6 py-4 align-top text-left">
+                                    <span class="inline-flex items-center px-3 py-1 bg-slate-100 text-slate-500 rounded-lg text-sm">Coming soon</span>
                                 </td>
                             </tr>
-                            {% endfor %}
+                            <tr class="hover:bg-slate-50 transition-colors">
+                                <td class="px-6 py-4 align-top text-left">
+                                    <div class="font-medium text-slate-900">AI Musings Talk</div>
+                                    <div class="text-sm text-slate-500 mt-1">Virtual</div>
+                                </td>
+                                <td class="px-6 py-4 align-top text-left text-slate-700">TBA</td>
+                                <td class="px-6 py-4 align-top text-left">
+                                    <span class="inline-flex items-center px-3 py-1 bg-slate-100 text-slate-500 rounded-lg text-sm">Coming soon</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tbody id="talk-past" class="divide-y divide-slate-200 hidden">
+                            <tr>
+                                <td colspan="3" class="px-6 py-8 text-center text-sm text-slate-400">No past talks yet.</td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
-                <p class="text-center text-sm text-slate-500 mt-4">
-                    <i class="fas fa-arrow-down mr-1"></i>Scroll to view more events
-                </p>
             </div>
         </div>
     </div>
@@ -895,6 +952,45 @@ description: "Comprehensive AI engagement activities: Learn through talks, conne
                     {% endfor %}
                 </div>
                 <div class="swiper-pagination mt-8"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Instructors Section -->
+<section id="instructors" class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+        <div class="max-w-5xl mx-auto reveal">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-slate-900 mb-4">Meet Your Instructors</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Swati -->
+                <div class="bg-slate-50 rounded-xl p-8 shadow-md">
+                    <div class="flex flex-col items-center text-center mb-6">
+                        <img src="{{ '/assets/images/swati.jpeg' | relative_url }}" alt="Swati Jain" class="w-28 h-28 rounded-full object-cover mb-4" style="border: 3px solid #7c3aed;">
+                        <h3 class="text-xl font-bold text-slate-900 mb-1">Swati Jain</h3>
+                        <p class="text-brand-600 font-semibold mb-3">AI Transformation Leader</p>
+                        <a href="https://www.linkedin.com/in/swatijainatl/" target="_blank" class="text-sm text-blue-600 hover:text-blue-800 transition-colors">
+                            <i class="fab fa-linkedin mr-1"></i>Connect on LinkedIn
+                        </a>
+                    </div>
+                    <p class="text-slate-600 text-sm mb-4">With over 20 years in digital product innovation, Swati guides organizations through AI integration strategies that deliver real business outcomes. She's advised Fortune 500 companies and startups alike on implementing AI solutions that solve genuine problems.</p>
+                    <blockquote class="text-slate-500 text-sm italic border-l-4 border-brand-300 pl-4">"My goal is to demystify AI and help you find practical applications that create immediate value in your work."</blockquote>
+                </div>
+                <!-- Sree -->
+                <div class="bg-slate-50 rounded-xl p-8 shadow-md">
+                    <div class="flex flex-col items-center text-center mb-6">
+                        <img src="{{ '/assets/images/sree.jpeg' | relative_url }}" alt="Sree Pradhip" class="w-28 h-28 rounded-full object-cover mb-4" style="border: 3px solid #7c3aed;">
+                        <h3 class="text-xl font-bold text-slate-900 mb-1">Sree Pradhip</h3>
+                        <p class="text-brand-600 font-semibold mb-3">Fractional CTO & Builder</p>
+                        <a href="https://www.linkedin.com/in/sree-pradhip/" target="_blank" class="text-sm text-blue-600 hover:text-blue-800 transition-colors">
+                            <i class="fab fa-linkedin mr-1"></i>Connect on LinkedIn
+                        </a>
+                    </div>
+                    <p class="text-slate-600 text-sm mb-4">Former Amazon leader and Founder of Pulsar Ventures, Sree brings hands-on experience building B2B and B2C products at scale. He specializes in translating complex technical concepts into actionable strategies for non-technical professionals.</p>
+                    <blockquote class="text-slate-500 text-sm italic border-l-4 border-brand-300 pl-4">"I'm passionate about showing people how to build working AI solutions without needing a computer science degree."</blockquote>
+                </div>
             </div>
         </div>
     </div>
@@ -1103,45 +1199,154 @@ description: "Comprehensive AI engagement activities: Learn through talks, conne
     </svg>
 </div>
 
-<!-- YouTube Channel Section -->
+<!-- Community Section -->
 <section class="py-20 bg-white">
     <div class="container mx-auto px-4">
-        <div class="max-w-4xl mx-auto text-center reveal">
-            <div class="inline-flex items-center justify-center w-16 h-16 bg-red-100 rounded-full mb-4">
-                <i class="fab fa-youtube text-red-600 text-3xl"></i>
-            </div>
-            <h2 class="text-4xl font-bold text-slate-900 mb-4">Join Our YouTube Community</h2>
-            <p class="text-lg text-slate-600 mb-8">
-                Subscribe to our channel for workshop recordings, AI tutorials, tool reviews, and community updates.
+        <div class="max-w-5xl mx-auto text-center reveal">
+            <h2 class="text-4xl font-bold text-slate-900 mb-4">Join Our Community</h2>
+            <p class="text-lg text-slate-600 mb-10">
+                Connect with us where you learn best — live conversations or on-demand content.
             </p>
-            
-            <div class="bg-gradient-to-r from-red-50 to-pink-50 rounded-xl p-8 mb-8">
-                <div class="flex flex-col md:flex-row items-center justify-between gap-6">
-                    <div class="text-left">
-                        <h3 class="text-2xl font-bold text-slate-900 mb-2">AI Musings Builder Community</h3>
-                        <p class="text-slate-600 mb-4">
-                            <i class="fab fa-youtube text-red-600 mr-2"></i>
-                            Practical AI content for builders and learners
-                        </p>
-                        <ul class="text-left text-slate-700 space-y-2">
-                            <li><i class="fas fa-check text-green-600 mr-2"></i>Workshop recordings and highlights</li>
-                            <li><i class="fas fa-check text-green-600 mr-2"></i>AI tool tutorials and demos</li>
-                            <li><i class="fas fa-check text-green-600 mr-2"></i>Community Q&A sessions</li>
-                            <li><i class="fas fa-check text-green-600 mr-2"></i>Industry insights and trends</li>
-                        </ul>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- WhatsApp -->
+                <div class="bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl p-8">
+                    <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                        <div class="text-left">
+                            <h3 class="text-2xl font-bold text-slate-900 mb-2">WhatsApp Community</h3>
+                            <p class="text-slate-600 mb-4">
+                                <i class="fab fa-whatsapp text-green-600 mr-2"></i>
+                                Stay connected with the builder community
+                            </p>
+                            <ul class="text-left text-slate-700 space-y-2">
+                                <li><i class="fas fa-check text-green-600 mr-2"></i>Event announcements and updates</li>
+                                <li><i class="fas fa-check text-green-600 mr-2"></i>Community discussions</li>
+                                <li><i class="fas fa-check text-green-600 mr-2"></i>Peer networking</li>
+                                <li><i class="fas fa-check text-green-600 mr-2"></i>Exclusive member resources</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <a href="https://chat.whatsapp.com/GRydfVAJke8AKdnKHFohnS" target="_blank"
+                               class="inline-block px-8 py-4 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1 font-semibold text-lg">
+                                <i class="fab fa-whatsapp mr-2"></i>Join Group
+                            </a>
+                        </div>
                     </div>
-                    <div>
-                        <a href="https://www.youtube.com/@AIMusingsBuilderCommunitySnS" target="_blank" 
-                           class="inline-block px-8 py-4 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1 font-semibold text-lg">
-                            <i class="fab fa-youtube mr-2"></i>Subscribe Now
-                        </a>
+                </div>
+
+                <!-- YouTube -->
+                <div class="bg-gradient-to-r from-red-50 to-pink-50 rounded-xl p-8">
+                    <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                        <div class="text-left">
+                            <h3 class="text-2xl font-bold text-slate-900 mb-2">AI Musings Builder Community</h3>
+                            <p class="text-slate-600 mb-4">
+                                <i class="fab fa-youtube text-red-600 mr-2"></i>
+                                Practical AI content for builders and learners
+                            </p>
+                            <ul class="text-left text-slate-700 space-y-2">
+                                <li><i class="fas fa-check text-green-600 mr-2"></i>Workshop recordings and highlights</li>
+                                <li><i class="fas fa-check text-green-600 mr-2"></i>AI tool tutorials and demos</li>
+                                <li><i class="fas fa-check text-green-600 mr-2"></i>Community Q&A sessions</li>
+                                <li><i class="fas fa-check text-green-600 mr-2"></i>Industry insights and trends</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <a href="https://www.youtube.com/@AIMusingsBuilderCommunitySnS" target="_blank"
+                               class="inline-block px-8 py-4 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1 font-semibold text-lg">
+                                <i class="fab fa-youtube mr-2"></i>Subscribe Now
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
-            
-            <p class="text-sm text-slate-500">
-                <i class="fas fa-bell mr-1"></i>Turn on notifications to never miss new content
-            </p>
+
+        </div>
+    </div>
+</section>
+
+<!-- FAQ Section -->
+<section id="faq" class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+        <div class="max-w-3xl mx-auto reveal">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-slate-900 mb-4">Frequently Asked Questions</h2>
+            </div>
+            <div class="space-y-4">
+                <details class="bg-slate-50 rounded-xl p-6 group">
+                    <summary class="font-semibold text-slate-900 cursor-pointer list-none flex justify-between items-center">
+                        Who is this workshop for?
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-brand-600 transition-transform group-open:rotate-180"></i>
+                    </summary>
+                    <div class="mt-4 text-slate-600 text-sm space-y-2">
+                        <p>For professionals ready to move from curiosity to capability — Product Managers, Program Managers, Product Marketers, Solution Architects, Executives, Entrepreneurs, and Business Consultants.</p>
+                        <p>Whether you're just starting out with AI or looking to sharpen your skills, this hands-on workshop is designed to help you gain clear, confident understanding of core AI concepts and jumpstart your journey as an AI builder.</p>
+                    </div>
+                </details>
+                <details class="bg-slate-50 rounded-xl p-6 group">
+                    <summary class="font-semibold text-slate-900 cursor-pointer list-none flex justify-between items-center">
+                        Do I need any AI, technical, or coding experience?
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-brand-600 transition-transform group-open:rotate-180"></i>
+                    </summary>
+                    <div class="mt-4 text-slate-600 text-sm space-y-2">
+                        <p>No prior AI or coding experience is required — just curiosity and a willingness to learn.</p>
+                        <p>We'll start with the fundamentals and guide you step by step through practical, hands-on exercises with experienced facilitators available throughout.</p>
+                    </div>
+                </details>
+                <details class="bg-slate-50 rounded-xl p-6 group">
+                    <summary class="font-semibold text-slate-900 cursor-pointer list-none flex justify-between items-center">
+                        What kind of tools will we use?
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-brand-600 transition-transform group-open:rotate-180"></i>
+                    </summary>
+                    <div class="mt-4 text-slate-600 text-sm">
+                        <p>We explore tools such as Lovable, Replit, Cursor, MindStudio, n8n, Langflow, Perplexity, Grok, Gamma, and NotebookLM — so you can go well beyond ChatGPT and build real workflows.</p>
+                    </div>
+                </details>
+                <details class="bg-slate-50 rounded-xl p-6 group">
+                    <summary class="font-semibold text-slate-900 cursor-pointer list-none flex justify-between items-center">
+                        How is this different from an online course?
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-brand-600 transition-transform group-open:rotate-180"></i>
+                    </summary>
+                    <div class="mt-4 text-slate-600 text-sm">
+                        <p>This is an intensive, hands-on, instructor-led experience. You'll actively build, prototype, and get real-time guidance — compressing months of self-study into one focused session.</p>
+                    </div>
+                </details>
+                <details class="bg-slate-50 rounded-xl p-6 group">
+                    <summary class="font-semibold text-slate-900 cursor-pointer list-none flex justify-between items-center">
+                        What should I bring?
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-brand-600 transition-transform group-open:rotate-180"></i>
+                    </summary>
+                    <div class="mt-4 text-slate-600 text-sm">
+                        <p>A laptop with working internet, your charger, and your ideas. We'll provide materials, resources, and refreshments.</p>
+                    </div>
+                </details>
+                <details class="bg-slate-50 rounded-xl p-6 group">
+                    <summary class="font-semibold text-slate-900 cursor-pointer list-none flex justify-between items-center">
+                        How many people will be there?
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-brand-600 transition-transform group-open:rotate-180"></i>
+                    </summary>
+                    <div class="mt-4 text-slate-600 text-sm">
+                        <p>Seats are limited to keep the workshop highly interactive. Expect a small group setting to ensure personalized attention.</p>
+                    </div>
+                </details>
+                <details class="bg-slate-50 rounded-xl p-6 group">
+                    <summary class="font-semibold text-slate-900 cursor-pointer list-none flex justify-between items-center">
+                        Will there be networking opportunities?
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-brand-600 transition-transform group-open:rotate-180"></i>
+                    </summary>
+                    <div class="mt-4 text-slate-600 text-sm">
+                        <p>Yes! You'll meet peers from diverse industries and backgrounds, share ideas, and build connections that last beyond the event.</p>
+                    </div>
+                </details>
+                <details class="bg-slate-50 rounded-xl p-6 group">
+                    <summary class="font-semibold text-slate-900 cursor-pointer list-none flex justify-between items-center">
+                        I'm currently in a job transition. Are there accommodations available?
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-brand-600 transition-transform group-open:rotate-180"></i>
+                    </summary>
+                    <div class="mt-4 text-slate-600 text-sm">
+                        <p>We understand that investing in upskilling during a career shift can be challenging. Please reach out to us directly to discuss available accommodations. We review requests individually.</p>
+                    </div>
+                </details>
+            </div>
         </div>
     </div>
 </section>
@@ -1170,29 +1375,23 @@ description: "Comprehensive AI engagement activities: Learn through talks, conne
                 Join our community of professionals transforming their work with practical AI skills.
             </p>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <a href="https://cal.com/sree.pradhip" target="_blank" class="bg-white text-brand-600 px-8 py-6 rounded-xl hover:bg-brand-50 transition-all shadow-xl hover:shadow-2xl transform hover:-translate-y-1">
                     <i class="fas fa-calendar-alt text-3xl mb-3"></i>
                     <h3 class="text-xl font-bold mb-2">Schedule a Call</h3>
                     <p class="text-slate-600">Book a free consultation to discuss your AI learning goals</p>
                 </a>
-                
+
                 <a href="mailto:spradhip@pulsarventures.io" class="bg-white text-brand-600 px-8 py-6 rounded-xl hover:bg-brand-50 transition-all shadow-xl hover:shadow-2xl transform hover:-translate-y-1">
                     <i class="fas fa-envelope text-3xl mb-3"></i>
                     <h3 class="text-xl font-bold mb-2">Email Us</h3>
                     <p class="text-slate-600">Get in touch with questions or custom workshop requests</p>
                 </a>
-            </div>
-            
-            <div class="flex flex-wrap justify-center gap-6 text-brand-100">
-                <a href="https://www.linkedin.com/company/pulsar-ventures-llc" target="_blank" class="hover:text-white transition-colors">
-                    <i class="fab fa-linkedin text-2xl mr-2"></i>LinkedIn
-                </a>
-                <a href="https://www.youtube.com/@AIMusingsBuilderCommunitySnS" target="_blank" class="hover:text-white transition-colors">
-                    <i class="fab fa-youtube text-2xl mr-2"></i>YouTube
-                </a>
-                <a href="https://chat.whatsapp.com/GRydfVAJke8AKdnKHFohnS" target="_blank" class="hover:text-white transition-colors">
-                    <i class="fab fa-whatsapp text-2xl mr-2"></i>WhatsApp Community
+
+                <a href="https://www.linkedin.com/in/sree-pradhip/" target="_blank" class="bg-white text-brand-600 px-8 py-6 rounded-xl hover:bg-brand-50 transition-all shadow-xl hover:shadow-2xl transform hover:-translate-y-1">
+                    <i class="fab fa-linkedin text-3xl mb-3"></i>
+                    <h3 class="text-xl font-bold mb-2">LinkedIn</h3>
+                    <p class="text-slate-600">Connect with me on LinkedIn</p>
                 </a>
             </div>
         </div>
@@ -1200,6 +1399,98 @@ description: "Comprehensive AI engagement activities: Learn through talks, conne
 </section>
 
 <script>
+// Builder Series 200 — Upcoming / Past tab toggle
+function switchWs200(tab) {
+    const upcoming = document.getElementById('ws200-upcoming');
+    const past     = document.getElementById('ws200-past');
+    const tabUp    = document.getElementById('ws200-tab-upcoming');
+    const tabPast  = document.getElementById('ws200-tab-past');
+
+    const activeClass   = ['text-brand-600', 'border-brand-600'];
+    const inactiveClass = ['text-slate-500', 'border-transparent'];
+
+    if (tab === 'upcoming') {
+        upcoming.classList.remove('hidden');
+        past.classList.add('hidden');
+        tabUp.classList.add(...activeClass);
+        tabUp.classList.remove(...inactiveClass);
+        tabPast.classList.remove(...activeClass);
+        tabPast.classList.add(...inactiveClass);
+    } else {
+        past.classList.remove('hidden');
+        upcoming.classList.add('hidden');
+        tabPast.classList.add(...activeClass);
+        tabPast.classList.remove(...inactiveClass);
+        tabUp.classList.remove(...activeClass);
+        tabUp.classList.add(...inactiveClass);
+    }
+}
+
+// Meetups — Upcoming / Past tab toggle
+function switchMeetup(tab) {
+    const upcoming = document.getElementById('meetup-upcoming');
+    const past     = document.getElementById('meetup-past');
+    const tabUp    = document.getElementById('meetup-tab-upcoming');
+    const tabPast  = document.getElementById('meetup-tab-past');
+    const activeClass   = ['text-brand-600', 'border-brand-600'];
+    const inactiveClass = ['text-slate-500', 'border-transparent'];
+    if (tab === 'upcoming') {
+        upcoming.classList.remove('hidden'); past.classList.add('hidden');
+        tabUp.classList.add(...activeClass); tabUp.classList.remove(...inactiveClass);
+        tabPast.classList.remove(...activeClass); tabPast.classList.add(...inactiveClass);
+    } else {
+        past.classList.remove('hidden'); upcoming.classList.add('hidden');
+        tabPast.classList.add(...activeClass); tabPast.classList.remove(...inactiveClass);
+        tabUp.classList.remove(...activeClass); tabUp.classList.add(...inactiveClass);
+    }
+}
+
+// Talks — Upcoming / Past tab toggle
+function switchTalk(tab) {
+    const upcoming = document.getElementById('talk-upcoming');
+    const past     = document.getElementById('talk-past');
+    const tabUp    = document.getElementById('talk-tab-upcoming');
+    const tabPast  = document.getElementById('talk-tab-past');
+    const activeClass   = ['text-brand-600', 'border-brand-600'];
+    const inactiveClass = ['text-slate-500', 'border-transparent'];
+    if (tab === 'upcoming') {
+        upcoming.classList.remove('hidden'); past.classList.add('hidden');
+        tabUp.classList.add(...activeClass); tabUp.classList.remove(...inactiveClass);
+        tabPast.classList.remove(...activeClass); tabPast.classList.add(...inactiveClass);
+    } else {
+        past.classList.remove('hidden'); upcoming.classList.add('hidden');
+        tabPast.classList.add(...activeClass); tabPast.classList.remove(...inactiveClass);
+        tabUp.classList.remove(...activeClass); tabUp.classList.add(...inactiveClass);
+    }
+}
+
+// Platform Series 300 — Upcoming / Past tab toggle
+function switchWs300(tab) {
+    const upcoming = document.getElementById('ws300-upcoming');
+    const past     = document.getElementById('ws300-past');
+    const tabUp    = document.getElementById('ws300-tab-upcoming');
+    const tabPast  = document.getElementById('ws300-tab-past');
+
+    const activeClass   = ['text-brand-600', 'border-brand-600'];
+    const inactiveClass = ['text-slate-500', 'border-transparent'];
+
+    if (tab === 'upcoming') {
+        upcoming.classList.remove('hidden');
+        past.classList.add('hidden');
+        tabUp.classList.add(...activeClass);
+        tabUp.classList.remove(...inactiveClass);
+        tabPast.classList.remove(...activeClass);
+        tabPast.classList.add(...inactiveClass);
+    } else {
+        past.classList.remove('hidden');
+        upcoming.classList.add('hidden');
+        tabPast.classList.add(...activeClass);
+        tabPast.classList.remove(...inactiveClass);
+        tabUp.classList.remove(...activeClass);
+        tabUp.classList.add(...inactiveClass);
+    }
+}
+
 // Initialize Swiper carousels after page load
 document.addEventListener('DOMContentLoaded', function() {
     // Photo carousel with thumbnails
