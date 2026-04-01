@@ -20,30 +20,5 @@
 #       type: "Video Recording"
 #       icon: "fab fa-youtube"
 
-# Sample Talks (Placeholder - Replace with actual events)
-- name: "AI in Business: Practical Applications"
-  date: "2026-05-15"
-  dates: "May 15, 2026"
-  status: "upcoming"
-  location: "Virtual"
-  description: "Exploring practical AI applications for business transformation"
-  speakers:
-    - "Sree Pradhip"
-    - "Swati Jain"
-  registration_link: "https://cal.com/sree.pradhip"
-  recap_links: []
-
-- name: "The Future of AI Agents"
-  date: "2026-03-20"
-  dates: "March 20, 2026"
-  status: "completed"
-  location: "Atlanta, GA"
-  description: "Deep dive into AI agent architectures and workflows"
-  speakers:
-    - "Sree Pradhip"
-  registration_link: ""
-  recap_links:
-    - url: "https://www.linkedin.com/company/pulsar-ventures-llc"
-      type: "Event Recap"
-      icon: "fab fa-linkedin"
+# Add your talks below using the template above
 

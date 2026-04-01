@@ -5,7 +5,7 @@
 - name: "AI Builder: Builder Series - 9"
   level: 200
   level_name: "Builder Series"
-  series: "Builder Series - 9"
+  series: "Builder Series 200"
   date: "2026-04-19"
   dates: "April 19 & 22, 2026"
   status: "scheduled"
@@ -32,7 +32,7 @@
 - name: "AI Builder: Builder Series - 8"
   level: 200
   level_name: "Builder Series"
-  series: "Builder Series - 8"
+  series: "Builder Series 200"
   date: "2026-02-22"
   dates: "February 22 & 26, 2026"
   status: "completed"
@@ -50,7 +50,7 @@
 - name: "AI Builder: Builder Series - 7"
   level: 200
   level_name: "Builder Series"
-  series: "Builder Series - 7"
+  series: "Builder Series 200"
   date: "2026-01-25"
   dates: "January 25 & 27, 2026"
   status: "completed"
@@ -71,7 +71,7 @@
 - name: "AI Builder: Builder Series - 6"
   level: 200
   level_name: "Builder Series"
-  series: "Builder Series - 6"
+  series: "Builder Series 200"
   date: "2025-12-15"
   dates: "December 15 & 17, 2025"
   status: "completed"
@@ -92,7 +92,7 @@
 - name: "AI Builder: Builder Series - 5"
   level: 200
   level_name: "Builder Series"
-  series: "Builder Series - 5"
+  series: "Builder Series 200"
   date: "2025-11-09"
   dates: "November 9 & 12, 2025"
   status: "completed"
@@ -113,7 +113,7 @@
 - name: "AI Builder: Builder Series - 4"
   level: 200
   level_name: "Builder Series"
-  series: "Builder Series - 4"
+  series: "Builder Series 200"
   date: "2025-10-05"
   dates: "October 5 & 8, 2025"
   status: "completed"
@@ -134,7 +134,7 @@
 - name: "AI Builder: Builder Series - 3"
   level: 200
   level_name: "Builder Series"
-  series: "Builder Series - 3"
+  series: "Builder Series 200"
   date: "2025-09-07"
   dates: "September 7 & 9, 2025"
   status: "completed"
@@ -155,7 +155,7 @@
 - name: "AI Builder: Builder Series - 2"
   level: 200
   level_name: "Builder Series"
-  series: "Builder Series - 2"
+  series: "Builder Series 200"
   date: "2025-08-12"
   dates: "August 12 & 14, 2025"
   status: "completed"
@@ -179,7 +179,7 @@
 - name: "AI Builder: Builder Series - 1"
   level: 200
   level_name: "Builder Series"
-  series: "Builder Series - 1"
+  series: "Builder Series 200"
   date: "2025-08-01"
   dates: "August 1, 2025"
   status: "completed"
@@ -197,10 +197,10 @@
       icon: "fab fa-linkedin"
 
 # Level 300: Advanced Deep Dive Workshops
-- name: "AI Builder: Claude Series - 2"
+- name: "AI Builder: Builder Series 300 - Anthropic Claude"
   level: 300
   level_name: "Platform Series"
-  series: "Claude Series - 2"
+  series: "Builder Series 300 - Anthropic Claude"
   platform: "Claude"
   company: "Anthropic"
   date: "2026-05-03"
@@ -217,10 +217,10 @@
   registration_link: "https://www.tixtree.com/e/claude-series-719e255321d4"
   recap_links: []
 
-- name: "AI Builder: Claude Series - 1"
+- name: "AI Builder: Builder Series 300 - Anthropic Claude"
   level: 300
   level_name: "Platform Series"
-  series: "Claude Series - 1"
+  series: "Builder Series 300 - Anthropic Claude"
   platform: "Claude"
   company: "Anthropic"
   date: "2026-03-30"
@@ -237,10 +237,10 @@
   registration_link: ""
   recap_links: []
 
-- name: "Microsoft Copilot Mastery"
+- name: "AI Builder: Builder Series 300 - Microsoft Copilot"
   level: 300
   level_name: "Platform Series"
-  series: "Copilot Series - 1"
+  series: "Builder Series 300 - Microsoft Copilot"
   platform: "Copilot"
   company: "Microsoft"
   date: ""
@@ -257,10 +257,10 @@
   registration_link: ""
   recap_links: []
 
-- name: "Google Gemini Deep Dive"
+- name: "AI Builder: Builder Series 300 - Google Gemini"
   level: 300
   level_name: "Platform Series"
-  series: "Gemini Series - 1"
+  series: "Builder Series 300 - Google Gemini"
   platform: "Gemini"
   company: "Google"
   date: ""
