@@ -1,54 +1,26 @@
 # AI Musings - Meetups Data
-# Add new meetups by copying the template below and updating the values
+# AI Builders Meetup: 5-7 AI startups share what they're building,
+# how they're building it (approach, tools, tech stacks),
+# and real lessons learned. Come for the demos, stay for the conversations.
 
-# Template:
-# - name: "Meetup Title"
-#   date: "2026-05-20"
-#   dates: "May 20, 2026"
-#   status: "upcoming"  # upcoming, completed, cancelled
-#   location: "City, Venue"
-#   description: "Brief description of the meetup"
-#   attendees: 25  # Expected or actual number
-#   registration_link: "https://..."
-#   recap_links:
-#     - url: "https://linkedin.com/..."
-#       type: "Event Recap"
-#       icon: "fab fa-linkedin"
-#     - url: "https://youtube.com/..."
-#       type: "Photo Gallery"
-#       icon: "fas fa-images"
-
-# Sample Meetups (Placeholder - Replace with actual events)
-- name: "AI Builders Community Meetup"
-  date: "2026-06-10"
-  dates: "June 10, 2026"
-  status: "upcoming"
-  location: "Atlanta, GA - Tech Square"
-  description: "Monthly community meetup for AI enthusiasts and builders"
-  attendees: 30
-  registration_link: "https://cal.com/sree.pradhip"
-  recap_links: []
-
-- name: "AI Tools & Techniques Networking"
-  date: "2026-04-25"
-  dates: "April 25, 2026"
-  status: "upcoming"
-  location: "Virtual"
-  description: "Connect with fellow AI practitioners and share experiences"
-  attendees: 50
-  registration_link: "https://cal.com/sree.pradhip"
-  recap_links: []
-
-- name: "AI Musings Launch Meetup"
-  date: "2025-12-15"
-  dates: "December 15, 2025"
-  status: "completed"
-  location: "Atlanta, GA"
-  description: "Inaugural meetup to launch the AI Musings community"
-  attendees: 25
+- name: "AI Builders Meetup"
+  date: "2026-05-12"
+  dates: "May 12, 2026"
+  time: "5:30 PM - 7:30 PM ET"
+  status: "scheduled"
+  location: "Tech North Atlanta, Alpharetta, GA"
+  description: "5-7 AI startups share what they're building, how they're building it, and real lessons learned"
+  attendees:
   registration_link: ""
-  recap_links:
-    - url: "https://www.linkedin.com/company/pulsar-ventures-llc"
-      type: "Event Recap"
-      icon: "fab fa-linkedin"
+  recap_links: []
 
+- name: "AI Builders Meetup"
+  date: "2026-04-29"
+  dates: "April 29, 2026"
+  time: "5:30 PM - 7:30 PM ET"
+  status: "scheduled"
+  location: "Tech North Atlanta, Alpharetta, GA"
+  description: "5-7 AI startups share what they're building, how they're building it, and real lessons learned"
+  attendees:
+  registration_link: "https://www.eventbrite.com/e/tech-north-atlantas-april-29th-ai-builders-meetup-tickets-1984973796058"
+  recap_links: []

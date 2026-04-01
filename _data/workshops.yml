@@ -1,43 +1,6 @@
 # AI Musings - Workshops Data
 # Organized by level: 100 (Beginner), 200 (Builder Series), 300 (Advanced)
 
-# Level 100: Beginner Intro Workshops
-- name: "AI Fundamentals: Getting Started"
-  level: 100
-  level_name: "Beginner Intro"
-  series: "Intro Series - 1"
-  date: "2026-05-05"
-  dates: "May 5, 2026"
-  status: "upcoming"
-  format: "Virtual on Zoom"
-  duration: "3 hours"
-  description: "Introduction to AI concepts, tools, and practical applications for beginners"
-  topics:
-    - "What is AI and how does it work?"
-    - "Overview of popular AI tools"
-    - "Basic prompt engineering"
-    - "Hands-on exercises with ChatGPT"
-  registration_link: "https://cal.com/sree.pradhip"
-  recap_links: []
-
-- name: "AI for Business Professionals"
-  level: 100
-  level_name: "Beginner Intro"
-  series: "Intro Series - 2"
-  date: "2026-06-02"
-  dates: "June 2, 2026"
-  status: "scheduled"
-  format: "Virtual on Zoom"
-  duration: "3 hours"
-  description: "Learn how to leverage AI in your daily business workflows"
-  topics:
-    - "AI use cases for business"
-    - "Productivity tools overview"
-    - "Email and document automation"
-    - "Meeting summaries with AI"
-  registration_link: "https://cal.com/sree.pradhip"
-  recap_links: []
-
 # Level 200: Builder Series Workshops (Existing Content)
 - name: "AI Builder: Builder Series - 9"
   level: 200
