@@ -53,6 +53,7 @@ description: "Comprehensive AI engagement activities: Learn through talks, conne
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
                 {% assign ws200_next = nil %}
                 {% assign ws300_next = nil %}
+                {% assign meetup_next = nil %}
                 {% for workshop in site.data.workshops %}
                     {% if workshop.registration_link and workshop.registration_link != "" %}
                         {% if workshop.status == "scheduled" or workshop.status == "upcoming" %}
@@ -61,6 +62,15 @@ description: "Comprehensive AI engagement activities: Learn through talks, conne
                             {% endif %}
                             {% if workshop.level == 300 and ws300_next == nil %}
                                 {% assign ws300_next = workshop %}
+                            {% endif %}
+                        {% endif %}
+                    {% endif %}
+                {% endfor %}
+                {% for meetup in site.data.meetups %}
+                    {% if meetup.registration_link and meetup.registration_link != "" %}
+                        {% if meetup.status == "scheduled" or meetup.status == "upcoming" %}
+                            {% if meetup_next == nil %}
+                                {% assign meetup_next = meetup %}
                             {% endif %}
                         {% endif %}
                     {% endif %}
@@ -76,7 +86,12 @@ description: "Comprehensive AI engagement activities: Learn through talks, conne
                         <i class="fas fa-ticket-alt mr-2"></i>Register: Platform Series 300
                     </a>
                 {% endif %}
-                {% if ws200_next == nil and ws300_next == nil %}
+                {% if meetup_next %}
+                    <a href="{{ meetup_next.registration_link }}" target="_blank" class="px-8 py-4 bg-white text-brand-700 border-2 border-brand-600 rounded-lg hover:bg-brand-50 transition-colors font-semibold text-lg shadow-lg hover:shadow-xl">
+                        <i class="fas fa-users mr-2"></i>Register: Meetup #{{ meetup_next.number }}
+                    </a>
+                {% endif %}
+                {% if ws200_next == nil and ws300_next == nil and meetup_next == nil %}
                     <a href="https://cal.com/sree.pradhip" target="_blank" class="px-8 py-4 bg-brand-600 text-white rounded-lg hover:bg-brand-700 transition-colors font-semibold text-lg shadow-lg hover:shadow-xl">
                         <i class="fas fa-calendar-alt mr-2"></i>Schedule a Call
                     </a>
