@@ -24,14 +24,11 @@
 <meta property="og:url" content="{{ page.url | absolute_url }}">
 <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
 <meta property="og:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
-<meta property="og:image" content="{{ '/assets/images/instructors1.jpeg' | absolute_url }}">
-
 <!-- Twitter -->
-<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:card" content="summary">
 <meta property="twitter:url" content="{{ page.url | absolute_url }}">
 <meta property="twitter:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
 <meta property="twitter:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
-<meta property="twitter:image" content="{{ '/assets/images/instructors1.jpeg' | absolute_url }}">
 
 <!-- SEO -->
 {% seo %}
@@ -43,7 +40,7 @@
   "@type": "Organization",
   "name": "AI Musings",
   "url": "https://aimusings.space",
-  "logo": "https://aimusings.space/assets/images/instructors1.jpeg",
+  "logo": "https://aimusings.space/assets/images/logo.png",
   "description": "Hands-on AI workshops designed for corporate professionals, entrepreneurs, and executives who want to transform their work with practical AI skills.",
   "contactPoint": {
     "@type": "ContactPoint",
