@@ -59,7 +59,10 @@
       topic: "Good Action"
     - name: "McKay Caston"
       topic: "Preach360"
-  recap_links: []
+  recap_links:
+    - url: "https://www.linkedin.com/feed/update/urn:li:ugcPost:7438300308058849281/"
+      icon: "fab fa-linkedin"
+      type: "LinkedIn"
 
 - name: "AI Builders Meetup"
   number: 3
@@ -81,7 +84,10 @@
       topic: "Offerdox"
     - name: "Rich Cannon"
       topic: "coachmyVIBE"
-  recap_links: []
+  recap_links:
+    - url: "https://www.linkedin.com/feed/update/urn:li:ugcPost:7429531993945583616/"
+      icon: "fab fa-linkedin"
+      type: "LinkedIn"
 
 - name: "AI Builders Meetup"
   number: 2
@@ -107,7 +113,10 @@
       topic: "AI in Build Screening"
     - name: "David Christman"
       topic: "ShiftNow"
-  recap_links: []
+  recap_links:
+    - url: "https://www.linkedin.com/feed/update/urn:li:ugcPost:7420172304053182464/"
+      icon: "fab fa-linkedin"
+      type: "LinkedIn"
 
 - name: "AI Builders Meetup"
   number: 1
@@ -133,4 +142,7 @@
       topic: "Health 1st AI"
     - name: "Ron Johnson"
       topic: "Tacilent.ai"
-  recap_links: []
+  recap_links:
+    - url: "https://www.linkedin.com/feed/update/urn:li:ugcPost:7403463678580125696/"
+      icon: "fab fa-linkedin"
+      type: "LinkedIn"
