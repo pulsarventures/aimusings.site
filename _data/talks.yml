@@ -22,5 +22,56 @@
 
 # Add your talks below using the template above
 
-- name: "AI Musings Talk"
-  status: "upcoming"
+- name: "AI Tinkerers"
+  date: "2025-01-15"
+  dates: "January 2025"
+  status: "completed"
+  location: "Atlanta Tech Park"
+  description: "Speaking engagement at AI Tinkerers meetup at Atlanta Tech Park"
+  speakers:
+    - "Sree Pradhip"
+
+- name: "Hackathon — AWS Builder Loft"
+  date: "2025-09-20"
+  dates: "September 2025"
+  status: "completed"
+  location: "San Francisco, CA"
+  description: "2nd place winner at the AWS Builder Loft Hackathon"
+  speakers:
+    - "Sree Pradhip"
+
+- name: "Product Coffee"
+  date: "2025-12-10"
+  dates: "December 2025"
+  status: "completed"
+  location: "SCAD"
+  description: "Speaking engagement at Product Camp hosted by SCAD"
+  speakers:
+    - "Sree Pradhip"
+
+- name: "AI Tinkerers"
+  date: "2026-01-15"
+  dates: "January 2026"
+  status: "completed"
+  location: "Atlanta"
+  description: "Speaking engagement at AI Tinkerers"
+  speakers:
+    - "Sree Pradhip"
+
+- name: "Tech Series AI"
+  date: "2026-02-12"
+  dates: "February 2026"
+  status: "completed"
+  location: "Lifetime Works"
+  description: "Speaking engagement on AI networking and collaboration"
+  speakers:
+    - "Sree Pradhip"
+
+- name: "Storyteller Tables — How to Talk to AI"
+  date: "2026-02-25"
+  dates: "February 2026"
+  status: "completed"
+  location: "Atlanta"
+  description: "Speaking on how to effectively communicate with AI systems"
+  speakers:
+    - "Sree Pradhip"
