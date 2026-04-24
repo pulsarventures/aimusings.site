@@ -22,6 +22,17 @@
 
 # Add your talks below using the template above
 
+- name: "Georgia Miners Association"
+  date: "2026-04-29"
+  dates: "April 29, 2026"
+  status: "upcoming"
+  location: "Macon, GA"
+  description: "Speaking engagement at the Georgia Miners Association"
+  speakers:
+    - "Sree Pradhip"
+  registration_link: ""
+  recap_links: []
+
 - name: "AI Tinkerers"
   date: "2025-01-15"
   dates: "January 2025"
