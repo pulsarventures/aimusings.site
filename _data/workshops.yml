@@ -2,12 +2,12 @@
 # Organized by level: 100 (Beginner), 200 (Builder Series), 300 (Advanced)
 
 # Level 200: Builder Series Workshops (Existing Content)
-- name: "AI Builder: Builder Series - 9"
+- name: "AI Builder: Builder Series - 10"
   level: 200
   level_name: "Builder Series"
   series: "Builder Series 200"
-  date: "2026-04-19"
-  dates: "April 19 & 22, 2026"
+  date: "2026-05-10"
+  dates: "May 10 & 13, 2026"
   status: "scheduled"
   format: "Virtual on Zoom"
   duration: "2 sessions"
@@ -26,7 +26,34 @@
     - "MindStudio"
     - "n8n"
     - "Langflow"
-  registration_link: "https://www.tixtree.com/e/accelerate-your-ai-game-learn-build-apply-1fa6b0fa1d96"
+  registration_link: ""
+  recap_links: []
+
+- name: "AI Builder: Builder Series - 9"
+  level: 200
+  level_name: "Builder Series"
+  series: "Builder Series 200"
+  date: "2026-04-19"
+  dates: "April 19 & 22, 2026"
+  status: "completed"
+  format: "Virtual on Zoom"
+  duration: "2 sessions"
+  description: "Hands-on AI workshop - Learn, Build, Apply with industry-leading tools"
+  topics:
+    - "AI Fundamentals & Mechanics"
+    - "AI Tools Deep Dive"
+    - "Build Your First Prototype"
+    - "Build Your First AI Agent"
+  tools:
+    - "ChatGPT"
+    - "Claude"
+    - "Lovable"
+    - "Replit"
+    - "Cursor"
+    - "MindStudio"
+    - "n8n"
+    - "Langflow"
+  registration_link: ""
   recap_links: []
 
 - name: "AI Builder: Builder Series - 8"
@@ -203,8 +230,8 @@
   series: "Builder Series 300 - Anthropic Claude"
   platform: "Claude"
   company: "Anthropic"
-  date: "2026-05-10"
-  dates: "May 10 & 13, 2026"
+  date: "2026-05-17"
+  dates: "May 17 & 19, 2026"
   status: "scheduled"
   format: "Virtual on Zoom"
   duration: "2 sessions"
