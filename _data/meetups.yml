@@ -15,25 +15,25 @@
   description: "5-7 AI startups share what they're building, how they're building it, and real lessons learned"
   sponsor: "Improving"
   attendees:
-  registration_link: ""
+  registration_link: "https://www.eventbrite.com/e/ai-builders-meetup-may-12th-tickets-1987817905867?aff=oddtdtcreator"
   presenters: []
   recap_links: []
+
+# --- Completed ---
 
 - name: "AI Builders Meetup"
   number: 5
   date: "2026-04-29"
   dates: "April 29, 2026"
   time: "5:30 PM - 7:30 PM ET"
-  status: "scheduled"
+  status: "completed"
   location: "Tech North Atlanta, Alpharetta, GA"
   description: "5-7 AI startups share what they're building, how they're building it, and real lessons learned"
   sponsor: "Improving"
   attendees:
-  registration_link: "https://www.eventbrite.com/e/tech-north-atlantas-april-29th-ai-builders-meetup-tickets-1984973796058"
+  registration_link: ""
   presenters: []
   recap_links: []
-
-# --- Completed ---
 
 - name: "AI Builders Meetup"
   number: 4
