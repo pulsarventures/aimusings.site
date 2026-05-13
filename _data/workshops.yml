@@ -2,12 +2,12 @@
 # Organized by level: 100 (Beginner), 200 (Builder Series), 300 (Advanced)
 
 # Level 200: Builder Series Workshops (Existing Content)
-- name: "AI Builder: Builder Series - 10"
+- name: "AI Builder: Builder Series - 11"
   level: 200
   level_name: "Builder Series"
   series: "Builder Series 200"
-  date: "2026-05-11"
-  dates: "May 11 & 13, 2026"
+  date: "2026-06-01"
+  dates: "June 1 & 3, 2026"
   status: "scheduled"
   format: "Virtual on Zoom"
   duration: "2 sessions"
@@ -26,7 +26,34 @@
     - "MindStudio"
     - "n8n"
     - "Langflow"
-  registration_link: "https://www.tixtree.com/e/accelerate-your-ai-game-learn-build-apply-e625730a0778"
+  registration_link: "https://www.tixtree.com/e/accelerate-your-ai-game-learn-build-apply-31e0f4fd822b"
+  recap_links: []
+
+- name: "AI Builder: Builder Series - 10"
+  level: 200
+  level_name: "Builder Series"
+  series: "Builder Series 200"
+  date: "2026-05-11"
+  dates: "May 11 & 13, 2026"
+  status: "completed"
+  format: "Virtual on Zoom"
+  duration: "2 sessions"
+  description: "Hands-on AI workshop - Learn, Build, Apply with industry-leading tools"
+  topics:
+    - "AI Fundamentals & Mechanics"
+    - "AI Tools Deep Dive"
+    - "Build Your First Prototype"
+    - "Build Your First AI Agent"
+  tools:
+    - "ChatGPT"
+    - "Claude"
+    - "Lovable"
+    - "Replit"
+    - "Cursor"
+    - "MindStudio"
+    - "n8n"
+    - "Langflow"
+  registration_link: ""
   recap_links: []
 
 - name: "AI Builder: Builder Series - 9"
