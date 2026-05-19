@@ -26,6 +26,10 @@ A modern, responsive website for Pulsar Ventures built with Jekyll and deployed 
    ```bash
    bundle exec jekyll serve
    ```
+   
+   **Timer**
+   cd assets/timer
+   python3 -m http.server 8000
 
 4. **Visit the site**
    Open http://localhost:4000 in your browser

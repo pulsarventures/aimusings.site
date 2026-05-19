@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>YouTube Focus Timer</title>
+
+  <style>
+
+    body {
+      margin: 0;
+      background: #111;
+      color: white;
+      font-family: Arial, sans-serif;
+
+      height: 100vh;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .app {
+
+      width: 520px;
+
+      background: #1f1f1f;
+
+      padding: 30px;
+
+      border-radius: 24px;
+
+      text-align: center;
+
+      box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+    }
+
+    #zoneCard {
+
+      height: 240px;
+
+      border-radius: 24px;
+
+      display: flex;
+
+      flex-direction: column;
+
+      justify-content: center;
+      align-items: center;
+
+      transition: background 0.4s ease;
+
+      background: #2ecc71;
+
+      margin-bottom: 20px;
+    }
+
+    #countdown {
+
+      font-size: 72px;
+
+      font-weight: bold;
+    }
+
+    #zoneLabel {
+
+      font-size: 28px;
+
+      margin-top: 12px;
+    }
+
+    #status {
+
+      margin-bottom: 20px;
+
+      color: #ccc;
+
+      font-size: 18px;
+    }
+
+    .buttons {
+
+      display: flex;
+
+      justify-content: center;
+
+      gap: 10px;
+
+      flex-wrap: wrap;
+
+      margin-bottom: 20px;
+    }
+
+    button {
+
+      padding: 12px 18px;
+
+      border: none;
+
+      border-radius: 12px;
+
+      cursor: pointer;
+
+      font-size: 16px;
+
+      background: white;
+
+      color: black;
+    }
+
+    button:hover {
+
+      opacity: 0.85;
+    }
+
+    .progressOuter {
+
+      height: 16px;
+
+      background: #444;
+
+      border-radius: 999px;
+
+      overflow: hidden;
+
+      margin-bottom: 20px;
+    }
+
+    #progressBar {
+
+      height: 100%;
+
+      width: 0%;
+
+      background: white;
+
+      transition: width 1s linear;
+    }
+
+    #player {
+
+      width: 320px;
+
+      height: 180px;
+
+      margin: 20px auto 0 auto;
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <div class="app">
+
+    <div id="zoneCard">
+
+      <div id="countdown">10:00</div>
+
+      <div id="zoneLabel">Green Zone</div>
+
+    </div>
+
+    <div class="progressOuter">
+
+      <div id="progressBar"></div>
+
+    </div>
+
+    <div id="status">Ready</div>
+
+    <div class="buttons">
+
+      <button onclick="startTimer()">Play</button>
+
+      <button onclick="pauseTimer()">Pause</button>
+
+      <button onclick="resumeTimer()">Resume</button>
+
+      <button onclick="stopTimer()">Stop</button>
+
+    </div>
+
+    <div class="buttons">
+
+      <button onclick="testYouTube()">Test YouTube</button>
+
+    </div>
+
+    <div id="player"></div>
+
+  </div>
+
+  <!-- YouTube API -->
+
+  <script src="https://www.youtube.com/iframe_api"></script>
+
+  <script>
+
+    //////////////////////////////////////////////////////
+    // CONFIG
+    //////////////////////////////////////////////////////
+
+    const VIDEO_ID = "LQjoEvSd0Z0";
+
+    const TOTAL_SECONDS = 10 * 60;
+
+    //////////////////////////////////////////////////////
+    // STATE
+    //////////////////////////////////////////////////////
+
+    let player;
+
+    let timer = null;
+
+    let elapsedSeconds = 0;
+
+    let isPaused = false;
+
+    let bluePlayed = false;
+
+    let yellowPlayed = false;
+
+    let redPlayed = false;
+
+    //////////////////////////////////////////////////////
+    // YOUTUBE PLAYER
+    //////////////////////////////////////////////////////
+
+    function onYouTubeIframeAPIReady() {
+
+      player = new YT.Player("player", {
+
+        height: "180",
+
+        width: "320",
+
+        videoId: VIDEO_ID,
+
+        playerVars: {
+
+          autoplay: 0,
+
+          controls: 1,
+
+          modestbranding: 1,
+
+          rel: 0
+        },
+
+        events: {
+
+          onReady: function () {
+
+            console.log("YouTube Player Ready");
+          },
+
+          onError: function (event) {
+
+            console.log("YouTube Error:", event.data);
+          }
+        }
+      });
+    }
+
+    //////////////////////////////////////////////////////
+    // TIMER CONTROLS
+    //////////////////////////////////////////////////////
+
+    function startTimer() {
+
+      stopTimer();
+
+      elapsedSeconds = 0;
+
+      isPaused = false;
+
+      bluePlayed = false;
+
+      yellowPlayed = false;
+
+      redPlayed = false;
+
+      document.getElementById("status").textContent = "Running";
+
+      timer = setInterval(function () {
+
+        if (isPaused) return;
+
+        elapsedSeconds++;
+
+        updateUI();
+
+        checkMilestones();
+
+      }, 1000);
+    }
+
+    function pauseTimer() {
+
+      isPaused = true;
+
+      document.getElementById("status").textContent = "Paused";
+
+      if (player) {
+
+        player.pauseVideo();
+      }
+    }
+
+    function resumeTimer() {
+
+      isPaused = false;
+
+      document.getElementById("status").textContent = "Running";
+    }
+
+    function stopTimer() {
+
+      clearInterval(timer);
+
+      timer = null;
+
+      elapsedSeconds = 0;
+
+      isPaused = false;
+
+      document.getElementById("status").textContent = "Stopped";
+
+      if (player) {
+
+        player.stopVideo();
+      }
+
+      updateUI();
+    }
+
+    //////////////////////////////////////////////////////
+    // UI
+    //////////////////////////////////////////////////////
+
+    function updateUI() {
+
+      const remaining = TOTAL_SECONDS - elapsedSeconds;
+
+      const minutes = Math.floor(remaining / 60);
+
+      const seconds = remaining % 60;
+
+      document.getElementById("countdown").textContent =
+
+        String(minutes).padStart(2, "0") +
+
+        ":" +
+
+        String(seconds).padStart(2, "0");
+
+      const progress =
+
+        (elapsedSeconds / TOTAL_SECONDS) * 100;
+
+      document.getElementById("progressBar").style.width =
+
+        progress + "%";
+
+      const card = document.getElementById("zoneCard");
+
+      const label = document.getElementById("zoneLabel");
+
+      // RED
+      if (elapsedSeconds >= 600) {
+
+        card.style.background = "#e74c3c";
+
+        label.textContent = "Red Zone";
+      }
+
+      // YELLOW
+      else if (elapsedSeconds >= 480) {
+
+        card.style.background = "#f1c40f";
+
+        label.textContent = "Yellow Zone";
+      }
+
+      // BLUE
+      else if (elapsedSeconds >= 240) {
+
+        card.style.background = "#007bff";
+
+        label.textContent = "Blue Zone";
+      }
+
+      // GREEN
+      else {
+
+        card.style.background = "#2ecc71";
+
+        label.textContent = "Green Zone";
+      }
+    }
+
+    //////////////////////////////////////////////////////
+    // TIMER MILESTONES
+    //////////////////////////////////////////////////////
+
+    function checkMilestones() {
+
+      // 4 MINUTES
+      if (elapsedSeconds >= 240 && !bluePlayed) {
+
+        bluePlayed = true;
+
+        playYouTubeClip(10, 2);
+      }
+
+      // 8 MINUTES
+      if (elapsedSeconds >= 480 && !yellowPlayed) {
+
+        yellowPlayed = true;
+
+        playYouTubeClip(25, 2);
+      }
+
+      // 10 MINUTES
+      if (elapsedSeconds >= 600 && !redPlayed) {
+
+        redPlayed = true;
+
+        playYouTubeClip(100, 30);
+      }
+    }
+
+    //////////////////////////////////////////////////////
+    // PLAY YOUTUBE
+    //////////////////////////////////////////////////////
+
+    function playYouTubeClip(volume, durationSeconds) {
+
+      if (!player) {
+
+        console.log("Player not ready");
+
+        return;
+      }
+
+      console.log("Playing YouTube");
+
+      player.setVolume(volume);
+
+      player.seekTo(0);
+
+      player.playVideo();
+
+      setTimeout(function () {
+
+        player.stopVideo();
+
+      }, durationSeconds * 1000);
+    }
+
+    //////////////////////////////////////////////////////
+    // TEST BUTTON
+    //////////////////////////////////////////////////////
+
+    function testYouTube() {
+
+      playYouTubeClip(100, 5);
+    }
+
+    //////////////////////////////////////////////////////
+    // INITIALIZE
+    //////////////////////////////////////////////////////
+
+    updateUI();
+
+  </script>
+
+</body>
+
+</html>
