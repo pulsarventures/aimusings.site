@@ -2,12 +2,12 @@
 # Organized by level: 100 (Beginner), 200 (Builder Series), 300 (Advanced)
 
 # Level 200: Builder Series Workshops (Existing Content)
-- name: "AI Builder: Builder Series - 11"
+- name: "AI Builder: Builder Series - 12"
   level: 200
   level_name: "Builder Series"
   series: "Builder Series 200"
-  date: "2026-06-02"
-  dates: "June 2 & 8, 2026"
+  date: "2026-07-09"
+  dates: "July 9 & 16, 2026"
   status: "scheduled"
   format: "Virtual on Zoom"
   duration: "2 sessions"
@@ -26,7 +26,34 @@
     - "MindStudio"
     - "n8n"
     - "Langflow"
-  registration_link: "https://www.tixtree.com/e/accelerate-your-ai-game-learn-build-apply-31e0f4fd822b"
+  registration_link: "https://www.tixtree.com/e/accelerate-your-ai-game-learn-build-apply-a3ee545a2a08"
+  recap_links: []
+
+- name: "AI Builder: Builder Series - 11"
+  level: 200
+  level_name: "Builder Series"
+  series: "Builder Series 200"
+  date: "2026-06-02"
+  dates: "June 2 & 8, 2026"
+  status: "in-progress"
+  format: "Virtual on Zoom"
+  duration: "2 sessions"
+  description: "Hands-on AI workshop - Learn, Build, Apply with industry-leading tools"
+  topics:
+    - "AI Fundamentals & Mechanics"
+    - "AI Tools Deep Dive"
+    - "Build Your First Prototype"
+    - "Build Your First AI Agent"
+  tools:
+    - "ChatGPT"
+    - "Claude"
+    - "Lovable"
+    - "Replit"
+    - "Cursor"
+    - "MindStudio"
+    - "n8n"
+    - "Langflow"
+  registration_link: ""
   recap_links: []
 
 - name: "AI Builder: Builder Series - 10"
@@ -259,7 +286,7 @@
   company: "Anthropic"
   date: "2026-06-01"
   dates: "June 1 & 10, 2026"
-  status: "scheduled"
+  status: "in-progress"
   format: "Virtual on Zoom"
   duration: "2 sessions"
   description: "Deep dive into Anthropic's Claude ecosystem - Chat, Cowork, Code, Extensions, and MCP"
@@ -268,7 +295,7 @@
     - "Extensions and Integrations"
     - "Skills and MCP (Model Context Protocol)"
     - "Advanced prompt engineering with Claude"
-  registration_link: "https://www.tixtree.com/e/claude-series-719e255321d4"
+  registration_link: ""
   recap_links: []
 
 - name: "AI Builder: Builder Series 300 - Anthropic Claude"

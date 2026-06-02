@@ -638,7 +638,7 @@ description: "Comprehensive AI engagement activities: Connect at meetups, build 
                         <!-- Upcoming -->
                         <tbody id="ws200-upcoming" class="divide-y divide-slate-200">
                             {% for workshop in level_200 %}
-                            {% if workshop.status == "scheduled" or workshop.status == "upcoming" %}
+                            {% if workshop.status == "scheduled" or workshop.status == "upcoming" or workshop.status == "in-progress" %}
                             <tr class="hover:bg-slate-50 transition-colors">
                                 <td class="px-6 py-4 align-top text-left">
                                     <div class="font-medium text-slate-900">Builder Series 200</div>
@@ -647,7 +647,11 @@ description: "Comprehensive AI engagement activities: Connect at meetups, build 
                                 <td class="px-6 py-4 align-top text-left text-slate-700">{{ workshop.dates }}</td>
                                 <td class="px-6 py-4 align-top text-left">
                                     <div class="flex flex-wrap gap-2">
-                                        {% if workshop.registration_link and workshop.registration_link != "" %}
+                                        {% if workshop.status == "in-progress" %}
+                                        <span class="inline-flex items-center px-3 py-1 bg-amber-100 text-amber-800 rounded-lg text-sm font-semibold">
+                                            <i class="fas fa-spinner fa-pulse mr-1"></i>In Progress
+                                        </span>
+                                        {% elsif workshop.registration_link and workshop.registration_link != "" %}
                                         <a href="{{ workshop.registration_link }}" target="_blank" class="inline-flex items-center px-3 py-1 bg-brand-600 text-white rounded-lg hover:bg-brand-700 transition-colors text-sm">
                                             <i class="fas fa-ticket-alt mr-1"></i>Register
                                         </a>
@@ -763,7 +767,7 @@ description: "Comprehensive AI engagement activities: Connect at meetups, build 
                         <!-- Upcoming -->
                         <tbody id="ws300-upcoming" class="divide-y divide-slate-200">
                             {% for workshop in level_300 %}
-                            {% if workshop.status == "scheduled" or workshop.status == "upcoming" %}
+                            {% if workshop.status == "scheduled" or workshop.status == "upcoming" or workshop.status == "in-progress" %}
                             <tr class="hover:bg-slate-50 transition-colors">
                                 <td class="px-6 py-4 align-top text-left">
                                     <div class="font-medium text-slate-900">Builder Series 300</div>
@@ -773,7 +777,11 @@ description: "Comprehensive AI engagement activities: Connect at meetups, build 
                                     {% if workshop.dates and workshop.dates != "" %}{{ workshop.dates }}{% else %}—{% endif %}
                                 </td>
                                 <td class="px-6 py-4 align-top text-left">
-                                    {% if workshop.registration_link and workshop.registration_link != "" %}
+                                    {% if workshop.status == "in-progress" %}
+                                    <span class="inline-flex items-center px-3 py-1 bg-amber-100 text-amber-800 rounded-lg text-sm font-semibold">
+                                        <i class="fas fa-spinner fa-pulse mr-1"></i>In Progress
+                                    </span>
+                                    {% elsif workshop.registration_link and workshop.registration_link != "" %}
                                     <a href="{{ workshop.registration_link }}" target="_blank" class="inline-flex items-center px-3 py-1 bg-brand-600 text-white rounded-lg hover:bg-brand-700 transition-colors text-sm">
                                         <i class="fas fa-ticket-alt mr-1"></i>Register
                                     </a>
@@ -1298,7 +1306,11 @@ description: "Comprehensive AI engagement activities: Connect at meetups, build 
                                             <i data-lucide="mic" class="w-4 h-4 mr-1"></i>Talk
                                         {% endif %}
                                     </span>
-                                    {% if event.status == "upcoming" or event.status == "scheduled" %}
+                                    {% if event.status == "in-progress" %}
+                                    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-amber-100 text-amber-800">
+                                        <i class="fas fa-spinner fa-pulse mr-1"></i> In Progress
+                                    </span>
+                                    {% elsif event.status == "upcoming" or event.status == "scheduled" %}
                                     <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800">
                                         📅 Upcoming
                                     </span>
@@ -2086,8 +2098,10 @@ function showEventsForDate(dateStr, events, cell) {
                     <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-semibold ${typeColor}">
                         ${typeLabel}
                     </span>
-                    ${event.status === 'upcoming' || event.status === 'scheduled' ? 
-                        '<span class="text-xs text-blue-600 font-medium">📅 Upcoming</span>' : 
+                    ${event.status === 'in-progress' ?
+                        '<span class="text-xs text-amber-600 font-medium"><i class="fas fa-spinner fa-pulse mr-1"></i>In Progress</span>' :
+                    event.status === 'upcoming' || event.status === 'scheduled' ?
+                        '<span class="text-xs text-blue-600 font-medium">📅 Upcoming</span>' :
                         '<span class="text-xs text-green-600 font-medium">✓ Completed</span>'}
                 </div>
                 <h5 class="font-bold text-slate-900 mb-1">${event.name}</h5>
