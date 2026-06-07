@@ -22,16 +22,18 @@ description: "Comprehensive AI engagement activities: Connect at meetups, build 
             <!-- Resolve next upcoming registrations -->
             {% assign ws200_next = nil %}
             {% assign ws300_next = nil %}
+            {% assign ws300_scheduled = nil %}
             {% assign meetup_next = nil %}
             {% for workshop in site.data.workshops %}
-                {% if workshop.registration_link and workshop.registration_link != "" %}
-                    {% if workshop.status == "scheduled" or workshop.status == "upcoming" %}
-                        {% if workshop.level == 200 and ws200_next == nil %}
-                            {% assign ws200_next = workshop %}
-                        {% endif %}
-                        {% if workshop.level == 300 and ws300_next == nil %}
-                            {% assign ws300_next = workshop %}
-                        {% endif %}
+                {% if workshop.status == "scheduled" or workshop.status == "upcoming" %}
+                    {% if workshop.level == 200 and ws200_next == nil and workshop.registration_link and workshop.registration_link != "" %}
+                        {% assign ws200_next = workshop %}
+                    {% endif %}
+                    {% if workshop.level == 300 and ws300_next == nil and workshop.registration_link and workshop.registration_link != "" %}
+                        {% assign ws300_next = workshop %}
+                    {% endif %}
+                    {% if workshop.level == 300 and ws300_scheduled == nil %}
+                        {% assign ws300_scheduled = workshop %}
                     {% endif %}
                 {% endif %}
             {% endfor %}
@@ -79,7 +81,11 @@ description: "Comprehensive AI engagement activities: Connect at meetups, build 
                     {% endif %}
                     {% if ws300_next %}
                         <a href="{{ ws300_next.registration_link }}" target="_blank" class="mt-2 px-6 py-3 bg-brand-600 text-white rounded-lg hover:bg-brand-700 transition-colors font-semibold shadow-lg hover:shadow-xl">
-                            <i class="fas fa-ticket-alt mr-2"></i>Register: Platform Series 300
+                            <i class="fas fa-ticket-alt mr-2"></i>Register: Claude Series
+                        </a>
+                    {% elsif ws300_scheduled %}
+                        <a href="#workshops" class="mt-2 px-6 py-3 bg-brand-600 text-white rounded-lg hover:bg-brand-700 transition-colors font-semibold shadow-lg hover:shadow-xl">
+                            <i class="fas fa-ticket-alt mr-2"></i>{{ ws300_scheduled.dates }} - {{ ws300_scheduled.platform }} Series
                         </a>
                     {% endif %}
                 </div>
