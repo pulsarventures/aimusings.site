@@ -60,7 +60,7 @@ description: "Comprehensive AI engagement activities: Connect at meetups, build 
                     </a>
                     {% if meetup_next %}
                         <a href="{{ meetup_next.registration_link }}" target="_blank" class="mt-3 px-6 py-3 bg-brand-600 text-white rounded-lg hover:bg-brand-700 transition-colors font-semibold shadow-lg hover:shadow-xl">
-                            <i class="fas fa-users mr-2"></i>Register: Meetup #{{ meetup_next.number }}
+                            <i class="fas fa-users mr-2"></i>Register: {{ meetup_next.date | date: "%B %Y" }}
                         </a>
                     {% endif %}
                 </div>
@@ -76,12 +76,12 @@ description: "Comprehensive AI engagement activities: Connect at meetups, build 
                     </a>
                     {% if ws200_next %}
                         <a href="{{ ws200_next.registration_link }}" target="_blank" class="mt-3 px-6 py-3 bg-brand-600 text-white rounded-lg hover:bg-brand-700 transition-colors font-semibold shadow-lg hover:shadow-xl">
-                            <i class="fas fa-ticket-alt mr-2"></i>Register: Builder Series 200
+                            <i class="fas fa-ticket-alt mr-2"></i>Register: {{ ws200_next.date | date: "%B %Y" }}
                         </a>
                     {% endif %}
                     {% if ws300_next %}
                         <a href="{{ ws300_next.registration_link }}" target="_blank" class="mt-2 px-6 py-3 bg-brand-600 text-white rounded-lg hover:bg-brand-700 transition-colors font-semibold shadow-lg hover:shadow-xl">
-                            <i class="fas fa-ticket-alt mr-2"></i>Register: Claude Series
+                            <i class="fas fa-ticket-alt mr-2"></i>Register: {{ ws300_next.date | date: "%B %Y" }}
                         </a>
                     {% elsif ws300_scheduled %}
                         <a href="#workshops" class="mt-2 px-6 py-3 bg-brand-600 text-white rounded-lg hover:bg-brand-700 transition-colors font-semibold shadow-lg hover:shadow-xl">
