@@ -1,5 +1,32 @@
 # AI Musings - Workshops Data
-# Organized by level: 100 (Beginner), 200 (Builder Series), 300 (Advanced)
+# Organized by level: 100 (Beginner), 200 (Builder Series), 300 (Advanced), 400 (Bootcamp)
+
+# Level 400: Bootcamp
+- name: "AI Builder: Bootcamp - Build a Real AI-Native App"
+  level: 400
+  level_name: "Bootcamp"
+  series: "Bootcamp 400"
+  date: "2026-07-18"
+  dates: "July 18 - 22, 2026"
+  status: "scheduled"
+  format: "Virtual on Zoom"
+  duration: "5 days"
+  description: "Intensive 5-day bootcamp where you go from idea to a fully functional AI-native application. Unlike our 2-session workshops, the bootcamp gives you dedicated time to architect, build, and deploy a complete AI-powered product."
+  topics:
+    - "AI-Native App Architecture & Design"
+    - "Building with AI-First Development Tools"
+    - "Integrating AI Agents into Your App"
+    - "Testing, Iteration & Deployment"
+  tools:
+    - "Claude"
+    - "Claude Code"
+    - "Lovable"
+    - "Cursor"
+    - "n8n"
+    - "Langflow"
+    - "MindStudio"
+  registration_link: "https://www.tixtree.com/e/bootcamp-build-a-real-ai-native-app-e0c20e119bc0"
+  recap_links: []
 
 # Level 200: Builder Series Workshops (Existing Content)
 - name: "AI Builder: Builder Series - 12"

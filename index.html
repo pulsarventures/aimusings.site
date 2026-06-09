@@ -23,6 +23,7 @@ description: "Comprehensive AI engagement activities: Connect at meetups, build 
             {% assign ws200_next = nil %}
             {% assign ws300_next = nil %}
             {% assign ws300_scheduled = nil %}
+            {% assign ws400_next = nil %}
             {% assign meetup_next = nil %}
             {% for workshop in site.data.workshops %}
                 {% if workshop.status == "scheduled" or workshop.status == "upcoming" %}
@@ -34,6 +35,9 @@ description: "Comprehensive AI engagement activities: Connect at meetups, build 
                     {% endif %}
                     {% if workshop.level == 300 and ws300_scheduled == nil %}
                         {% assign ws300_scheduled = workshop %}
+                    {% endif %}
+                    {% if workshop.level == 400 and ws400_next == nil and workshop.registration_link and workshop.registration_link != "" %}
+                        {% assign ws400_next = workshop %}
                     {% endif %}
                 {% endif %}
             {% endfor %}
@@ -47,7 +51,7 @@ description: "Comprehensive AI engagement activities: Connect at meetups, build 
                 {% endif %}
             {% endfor %}
 
-            <!-- Three Pillar Cards with CTA Buttons -->
+            <!-- Three Pillar Cards -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
                 <!-- Meetups -->
                 <div class="flex flex-col items-center">
@@ -58,11 +62,6 @@ description: "Comprehensive AI engagement activities: Connect at meetups, build 
                         <h3 class="text-2xl font-bold text-slate-900 mb-2">Meetups</h3>
                         <p class="text-slate-600">Community events for networking and learning</p>
                     </a>
-                    {% if meetup_next %}
-                        <a href="{{ meetup_next.registration_link }}" target="_blank" class="mt-3 px-5 py-2 bg-brand-600 text-white rounded-lg hover:bg-brand-700 transition-colors font-semibold shadow-lg hover:shadow-xl text-sm">
-                            <i class="fas fa-users mr-2"></i>AI Builders Meetup - {{ meetup_next.date | date: "%B %Y" }}
-                        </a>
-                    {% endif %}
                 </div>
 
                 <!-- Workshops -->
@@ -74,20 +73,6 @@ description: "Comprehensive AI engagement activities: Connect at meetups, build 
                         <h3 class="text-2xl font-bold text-slate-900 mb-2">Workshops</h3>
                         <p class="text-slate-600">Hands-on training from beginner to advanced</p>
                     </a>
-                    {% if ws200_next %}
-                        <a href="{{ ws200_next.registration_link }}" target="_blank" class="mt-3 px-5 py-2 bg-brand-600 text-white rounded-lg hover:bg-brand-700 transition-colors font-semibold shadow-lg hover:shadow-xl text-sm">
-                            <i class="fas fa-ticket-alt mr-2"></i>AI Builders Workshop - Foundation · {{ ws200_next.date | date: "%B %Y" }}
-                        </a>
-                    {% endif %}
-                    {% if ws300_next %}
-                        <a href="{{ ws300_next.registration_link }}" target="_blank" class="mt-2 px-5 py-2 bg-brand-600 text-white rounded-lg hover:bg-brand-700 transition-colors font-semibold shadow-lg hover:shadow-xl text-sm">
-                            <i class="fas fa-ticket-alt mr-2"></i>AI Builders Workshop - Claude · {{ ws300_next.date | date: "%B %Y" }}
-                        </a>
-                    {% elsif ws300_scheduled %}
-                        <a href="#workshops" class="mt-2 px-5 py-2 bg-brand-600 text-white rounded-lg hover:bg-brand-700 transition-colors font-semibold shadow-lg hover:shadow-xl text-sm">
-                            <i class="fas fa-ticket-alt mr-2"></i>AI Builders Workshop - Claude · {{ ws300_scheduled.date | date: "%B %Y" }}
-                        </a>
-                    {% endif %}
                 </div>
 
                 <!-- Talks -->
@@ -101,6 +86,41 @@ description: "Comprehensive AI engagement activities: Connect at meetups, build 
                     </a>
                 </div>
             </div>
+
+            <!-- Register for Upcoming Events -->
+            {% if meetup_next or ws200_next or ws300_next or ws300_scheduled or ws400_next %}
+            <div class="max-w-2xl mx-auto text-center mb-12">
+                <h3 class="text-lg font-bold text-slate-900 mb-4">
+                    <i class="fas fa-ticket-alt mr-2 text-brand-600"></i>Register for Upcoming Events
+                </h3>
+                <div class="flex flex-wrap justify-center gap-3">
+                    {% if meetup_next %}
+                        <a href="{{ meetup_next.registration_link }}" target="_blank" class="px-5 py-2 bg-brand-600 text-white rounded-lg hover:bg-brand-700 transition-colors font-semibold shadow-lg hover:shadow-xl text-sm">
+                            <i class="fas fa-users mr-2"></i>AI Builders Meetup · {{ meetup_next.date | date: "%B %Y" }}
+                        </a>
+                    {% endif %}
+                    {% if ws200_next %}
+                        <a href="{{ ws200_next.registration_link }}" target="_blank" class="px-5 py-2 bg-brand-600 text-white rounded-lg hover:bg-brand-700 transition-colors font-semibold shadow-lg hover:shadow-xl text-sm">
+                            <i class="fas fa-graduation-cap mr-2"></i>Builder Workshop · {{ ws200_next.date | date: "%B %Y" }}
+                        </a>
+                    {% endif %}
+                    {% if ws300_next %}
+                        <a href="{{ ws300_next.registration_link }}" target="_blank" class="px-5 py-2 bg-brand-600 text-white rounded-lg hover:bg-brand-700 transition-colors font-semibold shadow-lg hover:shadow-xl text-sm">
+                            <i class="fas fa-robot mr-2"></i>Claude Workshop · {{ ws300_next.date | date: "%B %Y" }}
+                        </a>
+                    {% elsif ws300_scheduled %}
+                        <a href="#workshops" class="px-5 py-2 bg-brand-600 text-white rounded-lg hover:bg-brand-700 transition-colors font-semibold shadow-lg hover:shadow-xl text-sm">
+                            <i class="fas fa-robot mr-2"></i>Claude Workshop · {{ ws300_scheduled.date | date: "%B %Y" }}
+                        </a>
+                    {% endif %}
+                    {% if ws400_next %}
+                        <a href="{{ ws400_next.registration_link }}" target="_blank" class="px-5 py-2 bg-brand-600 text-white rounded-lg hover:bg-brand-700 transition-colors font-semibold shadow-lg hover:shadow-xl text-sm">
+                            <i class="fas fa-rocket mr-2"></i>Bootcamp · {{ ws400_next.date | date: "%B %Y" }}
+                        </a>
+                    {% endif %}
+                </div>
+            </div>
+            {% endif %}
         </div>
     </div>
 </section>
@@ -367,9 +387,9 @@ description: "Comprehensive AI engagement activities: Connect at meetups, build 
             <!-- Path -->
             <div class="relative">
                 <!-- Connecting line (desktop) -->
-                <div class="hidden md:block absolute top-16 left-0 right-0 h-1 bg-gradient-to-r from-slate-300 via-brand-400 to-orange-400" style="margin: 0 10%;"></div>
+                <div class="hidden md:block absolute top-16 left-0 right-0 h-1 bg-gradient-to-r from-slate-300 via-brand-400 via-orange-400 to-red-500" style="margin: 0 5%;"></div>
 
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
 
                     <!-- 100 Series -->
                     <div class="relative flex flex-col items-center text-center">
@@ -413,6 +433,21 @@ description: "Comprehensive AI engagement activities: Connect at meetups, build 
                             <li><i class="fas fa-check text-orange-500 mr-2"></i>Claude Series</li>
                             <li><i class="fas fa-check text-orange-500 mr-2"></i>Copilot Series</li>
                             <li><i class="fas fa-check text-orange-500 mr-2"></i>Gemini Series</li>
+                        </ul>
+                    </div>
+
+                    <!-- 400 Bootcamp -->
+                    <div class="relative flex flex-col items-center text-center">
+                        <div class="w-14 h-14 rounded-full bg-red-500 border-4 border-white shadow-lg flex items-center justify-center mb-4 z-10">
+                            <span class="text-white font-bold text-sm">400</span>
+                        </div>
+                        <span class="inline-block px-3 py-1 bg-red-100 text-red-700 text-xs font-semibold rounded-full mb-3">Intensive</span>
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">Bootcamp</h3>
+                        <p class="text-slate-600 text-sm mb-4">A 5-day intensive where you build a real AI-native app from concept to deployment — architecture, agents, and production-ready code.</p>
+                        <ul class="text-left text-sm text-slate-700 space-y-1 w-full">
+                            <li><i class="fas fa-check text-red-500 mr-2"></i>AI-Native App Architecture</li>
+                            <li><i class="fas fa-check text-red-500 mr-2"></i>AI Agent Integration</li>
+                            <li><i class="fas fa-check text-red-500 mr-2"></i>Deploy a Real Product</li>
                         </ul>
                     </div>
 
@@ -810,6 +845,131 @@ description: "Comprehensive AI engagement activities: Connect at meetups, build 
                                 <td class="px-6 py-4 align-top text-left">
                                     <div class="font-medium text-slate-900">Builder Series 300</div>
                                     <div class="text-sm text-slate-500 mt-1">{{ workshop.company }} {{ workshop.platform }}</div>
+                                </td>
+                                <td class="px-6 py-4 align-top text-left text-slate-700">{{ workshop.dates }}</td>
+                                <td class="px-6 py-4 align-top text-left">
+                                    <div class="flex flex-wrap gap-2">
+                                        {% for link in workshop.recap_links %}
+                                        <a href="{{ link.url }}" target="_blank" class="inline-flex items-center px-3 py-1 bg-slate-100 text-slate-700 rounded-lg hover:bg-slate-200 transition-colors text-sm">
+                                            <i class="{{ link.icon }} mr-1"></i>{{ link.type }}
+                                        </a>
+                                        {% endfor %}
+                                    </div>
+                                </td>
+                            </tr>
+                            {% endif %}
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Level 400: Bootcamp -->
+            <div class="mt-16 reveal reveal-delay-4">
+                <div class="bg-gradient-to-r from-red-50 to-orange-50 rounded-xl p-8 mb-6">
+                    <div class="flex items-center mb-4">
+                        <span class="level-badge mr-4" style="background:linear-gradient(135deg,#ef4444 0%,#dc2626 100%);color:white;padding:6px 14px;border-radius:9999px;font-weight:700;font-size:0.9rem;">400</span>
+                        <div>
+                            <h3 class="text-2xl font-bold text-slate-900">Bootcamp</h3>
+                            <p class="text-slate-600">Build a real AI-native app in 5 days</p>
+                        </div>
+                        <span class="ml-auto inline-block px-4 py-1 bg-red-100 text-red-700 text-sm font-semibold rounded-full">New</span>
+                    </div>
+                    <p class="text-slate-700 mb-4">
+                        An intensive 5-day bootcamp where you go from idea to a fully functional AI-native application.
+                        Unlike our 2-session workshops, the bootcamp gives you dedicated time to architect, build, and
+                        deploy a complete AI-powered product with hands-on guidance every step of the way.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="px-3 py-1 bg-white rounded-full text-sm text-slate-700">
+                            <i class="fas fa-calendar-week mr-1"></i>5 days
+                        </span>
+                        <span class="px-3 py-1 bg-white rounded-full text-sm text-slate-700">
+                            <i class="fas fa-laptop mr-1"></i>Virtual on Zoom
+                        </span>
+                        <span class="px-3 py-1 bg-white rounded-full text-sm text-slate-700">
+                            <i class="fas fa-rocket mr-1"></i>Ship a real product
+                        </span>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="bg-white rounded-lg p-5 border border-red-200">
+                            <h5 class="font-semibold text-red-600 mb-1">AI-Native App Architecture & Design</h5>
+                            <p class="text-slate-600 text-sm">Learn to think AI-first — design your app's architecture with AI at the core, not bolted on.</p>
+                        </div>
+                        <div class="bg-white rounded-lg p-5 border border-red-200">
+                            <h5 class="font-semibold text-red-600 mb-1">Building with AI-First Development Tools</h5>
+                            <p class="text-slate-600 text-sm">Hands-on with Claude Code, Cursor, Lovable, and other AI development tools to accelerate your build.</p>
+                        </div>
+                        <div class="bg-white rounded-lg p-5 border border-red-200">
+                            <h5 class="font-semibold text-red-600 mb-1">Integrating AI Agents into Your App</h5>
+                            <p class="text-slate-600 text-sm">Add intelligent agents that handle complex tasks — from data processing to user interactions.</p>
+                        </div>
+                        <div class="bg-white rounded-lg p-5 border border-red-200">
+                            <h5 class="font-semibold text-red-600 mb-1">Testing, Iteration & Deployment</h5>
+                            <p class="text-slate-600 text-sm">Polish, test, and deploy your AI-native app — leave the bootcamp with a live, working product.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Level 400 Workshops Table -->
+                {% assign level_400 = site.data.workshops | where: "level", 400 | sort: "date" | reverse %}
+                {% assign past_400_count = level_400 | where: "status", "completed" | size %}
+
+                <div class="flex border-b border-slate-200 mb-0">
+                    <button id="ws400-tab-upcoming" onclick="switchWs400('upcoming')"
+                        class="px-5 py-3 text-sm font-semibold text-brand-600 border-b-2 border-brand-600 transition-colors">
+                        Upcoming
+                    </button>
+                    <button id="ws400-tab-past" onclick="switchWs400('past')"
+                        class="px-5 py-3 text-sm font-semibold text-slate-500 border-b-2 border-transparent hover:text-brand-600 transition-colors">
+                        Past <span class="ml-1 px-2 py-0.5 bg-slate-100 text-slate-500 rounded-full text-xs">{{ past_400_count }}</span>
+                    </button>
+                </div>
+
+                <div class="table-scroll-container">
+                    <table class="w-full table-fixed">
+                        <thead>
+                            <tr class="bg-slate-50">
+                                <th class="w-1/3 px-6 py-4 text-left text-sm font-semibold text-slate-900">Workshop</th>
+                                <th class="w-1/3 px-6 py-4 text-left text-sm font-semibold text-slate-900">Date(s)</th>
+                                <th class="w-1/3 px-6 py-4 text-left text-sm font-semibold text-slate-900">Actions</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="ws400-upcoming" class="divide-y divide-slate-200">
+                            {% for workshop in level_400 %}
+                            {% if workshop.status == "scheduled" or workshop.status == "upcoming" or workshop.status == "in-progress" %}
+                            <tr class="hover:bg-slate-50 transition-colors">
+                                <td class="px-6 py-4 align-top text-left">
+                                    <div class="font-medium text-slate-900">Bootcamp 400</div>
+                                    <div class="text-sm text-slate-500 mt-1">{{ workshop.format }}</div>
+                                </td>
+                                <td class="px-6 py-4 align-top text-left text-slate-700">{{ workshop.dates }}</td>
+                                <td class="px-6 py-4 align-top text-left">
+                                    <div class="flex flex-wrap gap-2">
+                                        {% if workshop.status == "in-progress" %}
+                                        <span class="inline-flex items-center px-3 py-1 bg-amber-100 text-amber-800 rounded-lg text-sm font-semibold">
+                                            <i class="fas fa-spinner fa-pulse mr-1"></i>In Progress
+                                        </span>
+                                        {% elsif workshop.registration_link and workshop.registration_link != "" %}
+                                        <a href="{{ workshop.registration_link }}" target="_blank" class="inline-flex items-center px-3 py-1 bg-brand-600 text-white rounded-lg hover:bg-brand-700 transition-colors text-sm">
+                                            <i class="fas fa-ticket-alt mr-1"></i>Register
+                                        </a>
+                                        {% endif %}
+                                    </div>
+                                </td>
+                            </tr>
+                            {% endif %}
+                            {% endfor %}
+                        </tbody>
+
+                        <tbody id="ws400-past" class="divide-y divide-slate-200 hidden">
+                            {% for workshop in level_400 %}
+                            {% if workshop.status == "completed" %}
+                            <tr class="hover:bg-slate-50 transition-colors">
+                                <td class="px-6 py-4 align-top text-left">
+                                    <div class="font-medium text-slate-900">Bootcamp 400</div>
+                                    <div class="text-sm text-slate-500 mt-1">{{ workshop.format }}</div>
                                 </td>
                                 <td class="px-6 py-4 align-top text-left text-slate-700">{{ workshop.dates }}</td>
                                 <td class="px-6 py-4 align-top text-left">
@@ -1683,6 +1843,32 @@ function switchWs300(tab) {
     const past     = document.getElementById('ws300-past');
     const tabUp    = document.getElementById('ws300-tab-upcoming');
     const tabPast  = document.getElementById('ws300-tab-past');
+
+    const activeClass   = ['text-brand-600', 'border-brand-600'];
+    const inactiveClass = ['text-slate-500', 'border-transparent'];
+
+    if (tab === 'upcoming') {
+        upcoming.classList.remove('hidden');
+        past.classList.add('hidden');
+        tabUp.classList.add(...activeClass);
+        tabUp.classList.remove(...inactiveClass);
+        tabPast.classList.remove(...activeClass);
+        tabPast.classList.add(...inactiveClass);
+    } else {
+        past.classList.remove('hidden');
+        upcoming.classList.add('hidden');
+        tabPast.classList.add(...activeClass);
+        tabPast.classList.remove(...inactiveClass);
+        tabUp.classList.remove(...activeClass);
+        tabUp.classList.add(...inactiveClass);
+    }
+}
+
+function switchWs400(tab) {
+    const upcoming = document.getElementById('ws400-upcoming');
+    const past     = document.getElementById('ws400-past');
+    const tabUp    = document.getElementById('ws400-tab-upcoming');
+    const tabPast  = document.getElementById('ws400-tab-past');
 
     const activeClass   = ['text-brand-600', 'border-brand-600'];
     const inactiveClass = ['text-slate-500', 'border-transparent'];
