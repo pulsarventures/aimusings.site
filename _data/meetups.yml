@@ -6,20 +6,34 @@
 # --- Upcoming ---
 
 - name: "AI Builders Meetup"
-  number: 7
-  date: "2026-06-09"
-  dates: "June 9, 2026"
+  number: 8
+  date: "2026-08-11"
+  dates: "August 11, 2026"
   time: "5:30 PM - 7:30 PM ET"
   status: "scheduled"
   location: "Tech North Atlanta, Alpharetta, GA"
   description: "5-7 AI startups share what they're building, how they're building it, and real lessons learned"
   sponsor: "Improving"
   attendees:
-  registration_link: "https://www.eventbrite.com/e/ai-builders-meetup-june-9th-tickets-1989396557657?aff=oddtdtcreator"
+  registration_link: "https://technorthatlanta.org/event/ai-builders-meetup-4/"
   presenters: []
   recap_links: []
 
 # --- Completed ---
+
+- name: "AI Builders Meetup"
+  number: 7
+  date: "2026-06-09"
+  dates: "June 9, 2026"
+  time: "5:30 PM - 7:30 PM ET"
+  status: "completed"
+  location: "Tech North Atlanta, Alpharetta, GA"
+  description: "5-7 AI startups share what they're building, how they're building it, and real lessons learned"
+  sponsor: "Improving"
+  attendees:
+  registration_link: ""
+  presenters: []
+  recap_links: []
 
 - name: "AI Builders Meetup"
   number: 6
