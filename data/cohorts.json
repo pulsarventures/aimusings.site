@@ -1,0 +1,6 @@
+---
+layout: null
+permalink: /data/cohorts.json
+sitemap: false
+---
+{{ site.data.cohorts | jsonify }}

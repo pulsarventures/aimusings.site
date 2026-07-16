@@ -1,0 +1,38 @@
+# "Hands-on with the tools that matter" grid on Home (learning path).
+# icon = path under /assets/v2/icons/tools/
+- label: "GENERAL PURPOSE"
+  items:
+    - name: "ChatGPT"
+      icon: "tools/openai.svg"
+    - name: "Claude"
+      icon: "tools/claude.svg"
+    - name: "Gemini"
+      icon: "tools/googlegemini.svg"
+- label: "BUILD"
+  items:
+    - name: "Lovable"
+      icon: "tools/lovable.svg"
+    - name: "Cursor"
+      icon: "tools/cursor.svg"
+    - name: "Claude Code"
+      icon: "tools/claudecode.svg"
+    - name: "Claude Design"
+      icon: "tools/claude.svg"
+- label: "AUTOMATION"
+  items:
+    - name: "MindStudio"
+      icon: "tools/mindstudio.svg"
+    - name: "n8n"
+      icon: "tools/n8n.svg"
+    - name: "Claude CoWork"
+      icon: "tools/claude.svg"
+    - name: "Codex"
+      icon: "tools/openai.svg"
+- label: "OTHER"
+  items:
+    - name: "Perplexity"
+      icon: "tools/perplexity.svg"
+    - name: "NotebookLM"
+      icon: "tools/notebooklm.svg"
+    - name: "Gamma"
+      icon: "tools/gamma.svg"

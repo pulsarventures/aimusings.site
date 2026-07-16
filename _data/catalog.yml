@@ -1,0 +1,27 @@
+# Workshops catalog (/workshops/). topics are " · "-separated; rendered as chips.
+# `next` / registration link are NOT stored here — they derive from _data/cohorts.json
+# (matched on `lvl`). No open cohort for a level -> "Cohorts on request" -> /corporate/.
+- lvl: 100
+  num: "100"
+  name: "Foundations"
+  flag: false
+  desc: "Your on-ramp. For professionals starting from zero — no technical background needed."
+  topics: "What AI can/can’t do · Prompting that works · Everyday workflows · Safe use at work"
+- lvl: 200
+  num: "200"
+  name: "Builder Series"
+  flag: true
+  desc: "The flagship. Two live sessions from fundamentals to your first prototype and first AI agent."
+  topics: "AI fundamentals & mechanics · Tools deep dive · First prototype · First agent"
+- lvl: 300
+  num: "300"
+  name: "Platform Series"
+  flag: false
+  desc: "One ecosystem at a time, in depth. Currently running: Anthropic Claude. Copilot and Gemini next."
+  topics: "Claude Chat, Cowork & Code · Extensions & integrations · Skills & MCP · Advanced prompting"
+- lvl: 400
+  num: "400"
+  name: "Bootcamp"
+  flag: false
+  desc: "Five intensive days where you architect, build, and deploy a complete AI-native application."
+  topics: "AI-native architecture · AI-first dev tools · Agents in your app · Testing & deployment"

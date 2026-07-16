@@ -1,0 +1,35 @@
+# Corporate page — "Four integrated offerings — one journey."
+# Reframed as Enable · Discover · Co-build · Sustain (no consulting/"rapid sprint" language).
+# icon = mono lucide svg under /assets/v2/icons/ (rendered via CSS mask in purple).
+- name: "AI Readiness & Enablement"
+  tag: "Enable"
+  desc: "Exec briefings and role-based fluency training across your org."
+  icon: "search-check.svg"
+  points:
+    - "Executive workshops & leadership alignment"
+    - "Role-based AI training (100–300)"
+    - "AI operating model design"
+- name: "AI Use Case Discovery"
+  tag: "Discover"
+  desc: "Workshops that map your workflows and surface the highest-value use cases."
+  icon: "map.svg"
+  points:
+    - "Workflow analysis & opportunity mapping"
+    - "Prioritization frameworks"
+    - "ROI identification"
+- name: "Pilot & Prototype Co-Building"
+  tag: "Co-build"
+  desc: "Your team builds working pilots — with our instructors beside them."
+  icon: "hammer.svg"
+  points:
+    - "Lightweight proof-of-concepts"
+    - "AI copilots & internal assistants"
+    - "Workflow automation prototypes"
+- name: "Embedded Advisory"
+  tag: "Sustain"
+  desc: "Ongoing advisory and internal champions, so adoption sticks."
+  icon: "trending-up.svg"
+  points:
+    - "Fractional AI strategy leadership"
+    - "Cross-functional facilitation"
+    - "Internal champion enablement"

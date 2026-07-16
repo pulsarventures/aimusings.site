@@ -1,0 +1,15 @@
+{%- include v2/open-cohorts.html -%}
+<div class="reg-card">
+  <div class="eyebrow eyebrow--sm">— Open for registration</div>
+  <div class="cohorts" data-cohort-list>
+    {%- for c in open_cohorts -%}
+    <a class="cohort{% if forloop.first %} is-dark{% endif %}" href="{{ c.link }}" target="_blank" rel="noopener">
+      <span class="cal{% if forloop.first %} cal--dark{% endif %}">
+        <span class="cal__m">{{ c.date | append: ' 12:00:00' | date: '%b' | upcase }}</span><span class="cal__d">{{ c.date | append: ' 12:00:00' | date: '%-d' }}</span>
+      </span>
+      <span class="cohort__b"><span class="cohort__n">{{ c.name }}</span><span class="cohort__meta">{{ c.dates }} · {{ c.duration }} · {{ c.format }}</span></span>
+      <span class="cohort__cta">Register →</span>
+    </a>
+    {%- endfor -%}
+  </div>
+</div>
