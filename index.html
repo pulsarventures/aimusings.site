@@ -15,7 +15,7 @@ permalink: /
     <div>
       <div class="eyebrow">— AI fluency, live and hands-on</div>
       <h1 class="h-56">Fluent in AI.<br>Fluent at <i>work.</i></h1>
-      <p class="lead" style="max-width:480px;margin:22px 0 30px">Live cohort workshops for professionals, corporate teams, and universities. Learn the tools, build real things, and apply them Monday morning.</p>
+      <p class="lead" style="max-width:480px;margin:22px 0 30px">AI fluency for professionals, corporate teams, and universities — live cohorts that take you from AI-curious to AI-builder. Learn the tools, build real things, and apply them Monday morning.</p>
       <div style="display:flex;gap:12px;align-items:center">
         <a class="btn btn--primary" href="{{ '/workshops/' | relative_url }}">Explore workshops</a>
       </div>
@@ -56,7 +56,7 @@ permalink: /
     <div class="eyebrow">— Who it's for</div>
     <div class="h-34" style="margin-bottom:32px">One goal, three <i>doors.</i></div>
     <div class="grid g3">
-      <a class="door" href="{{ '/professionals/' | relative_url }}">
+      <a class="door" href="#sec-personas">
         <div class="door__top" style="background:#efeafa">
           <div class="door__dot" style="background:#b9a8ea"></div>
           <span class="ic" style="--u:url('{{ ic | append: 'briefcase-business.svg' | relative_url }}');width:54px;height:54px;color:#6c4ac6"></span>
@@ -75,7 +75,7 @@ permalink: /
           <div class="door__dot" style="background:#e8b5d3"></div>
           <span class="ic" style="--u:url('{{ ic | append: 'graduation-cap.svg' | relative_url }}');width:56px;height:56px;color:#43265f"></span>
         </div>
-        <div class="door__body"><div class="door__t">Universities</div><div class="door__d">Guest lectures, semester workshops, and career-readiness AI fluency for students and faculty.</div></div>
+        <div class="door__body"><div class="door__t">Universities</div><div class="door__d">Guest lectures and hands-on courses — AI fluency for students, faculty, and alumni.</div></div>
       </a>
     </div>
     <div class="roles">
@@ -84,6 +84,39 @@ permalink: /
         <span class="chip">Product</span><span class="chip">Marketing</span><span class="chip">Ops</span><span class="chip">Sales</span><span class="chip">Customer Success</span><span class="chip">HR</span><span class="chip">Consulting</span><span class="chip">Founders</span>
       </div>
     </div>
+  </section>
+
+  <!-- Find yourself here (role picker — merged from the former Professionals page) -->
+  <section id="sec-personas" class="section section--divide" style="scroll-margin-top:80px">
+    <div class="eyebrow">— For professionals</div>
+    <div class="head-row" style="align-items:baseline;flex-wrap:wrap;margin-bottom:24px">
+      <div class="h-34">Which one sounds like <i>you?</i></div>
+      <div class="section-note">Six roles walk in. Everyone leaves with something built.</div>
+    </div>
+    <div class="roles-grid">
+      <div class="role-list">
+        <div class="role-label">PICK YOUR ROLE</div>
+        {%- for r in site.data.roles -%}
+        <button class="role-btn{% if forloop.first %} is-on{% endif %}" type="button" data-role="{{ forloop.index0 }}">
+          {{ r.role }} <span class="role-arrow">→</span>
+        </button>
+        {%- endfor -%}
+        <div class="role-cap">Every cohort: 15 seats max · live on Zoom</div>
+      </div>
+      {%- assign r0 = site.data.roles | first -%}
+      <div class="role-card">
+        <div class="role-card__eyebrow" data-role-name>{{ r0.role }}</div>
+        <div class="role-card__body">
+          <div class="role-card__q" data-role-pain>“{{ r0.pain }}”</div>
+          <div class="role-card__leave" data-role-leave>→ {{ r0.leave }}</div>
+        </div>
+        <div class="role-card__foot">
+          <div class="role-card__row"><span class="role-card__k">YOU'D BUILD</span><span class="role-card__v" data-role-build>{{ r0.build }}</span></div>
+          <div class="role-card__row"><span class="role-card__k">START AT</span><span class="role-card__start" data-role-start>{{ r0.start }}</span></div>
+        </div>
+      </div>
+    </div>
+    <script type="application/json" id="roles-data">{{ site.data.roles | jsonify }}</script>
   </section>
 
   <!-- Why AI Musings: shortfalls + cards -->
@@ -146,10 +179,9 @@ permalink: /
   <section class="section section--divide section--sand">
     <div class="eyebrow">— Outcomes</div>
     <div class="h-34" style="margin-bottom:36px">Numbers first. Then what you walk away <i>with.</i></div>
-    <div class="grid g5" style="gap:14px;margin-bottom:28px">
+    <div class="grid g4" style="gap:14px;margin-bottom:28px">
       <div class="stat"><div class="stat__n">{{ site.professionals_trained }}</div><div class="stat__l">professionals trained since Aug 2025</div></div>
       <div class="stat"><div class="stat__n">15+</div><div class="stat__l">workshops delivered across formats</div></div>
-      <div class="stat stat--dark"><div class="stat__n">4.8<span class="stat__star-lg">★</span></div><div class="stat__stars">★★★★★</div><div class="stat__l">average participant rating</div></div>
       <div class="stat"><div class="stat__n">12+</div><div class="stat__l">months of continuous monthly cohorts</div></div>
       <div class="stat"><div class="stat__n">10+</div><div class="stat__l">tools used hands-on, not demoed</div></div>
     </div>
@@ -220,8 +252,7 @@ permalink: /
         <div class="eyebrow">— Reviews</div>
         <div class="h-34">What past cohorts <i>say.</i></div>
         <div class="rev-rate">
-          <div style="display:flex;align-items:baseline;gap:8px"><span class="rev-rate__n">4.8</span><span class="rev-rate__stars">★★★★★</span></div>
-          <div class="section-note">from participant reviews across 12+ cohorts</div>
+          <div class="section-note">from participants across 12+ cohorts</div>
           <a class="review-link" href="{{ site.v2.linkedin }}" target="_blank" rel="noopener">Leave a review →</a>
         </div>
       </div>
@@ -236,14 +267,11 @@ permalink: /
         <div class="eyebrow eyebrow--on-dark" style="margin-bottom:2px">— Watch</div>
         <div class="h-22">Participants, in their own <i>words.</i></div>
         <div class="rev-side__d">Two minutes from inside a live cohort — the energy, the pace, and what people walked away with.</div>
-        <div class="rev-side__rate"><b>4.8</b><span class="rev-side__stars">★★★★★</span></div>
-        <div class="rev-side__sub">average participant rating · 12+ cohorts</div>
       </div>
     </div>
     <div class="grid g3 quotes" id="quotes">
       {%- for q in site.data.testimonials limit:3 -%}
       <div class="quote">
-        <div class="quote__stars">★★★★★</div>
         <div class="quote__t">“{{ q.text }}”</div>
         <div class="quote__n">{{ q.name }} <span>· Workshop participant</span></div>
       </div>
@@ -289,7 +317,7 @@ permalink: /
       <div class="corp-list__item"><span>01</span> Exec briefings — what AI changes for your business</div>
       <div class="corp-list__item"><span>02</span> Team fluency cohorts — role-specific, hands-on</div>
       <div class="corp-list__item"><span>03</span> Builder tracks — prototypes &amp; agents on your use cases</div>
-      <div class="corp-list__item"><span>04</span> University programs — lectures to semester workshops</div>
+      <div class="corp-list__item"><span>04</span> University programs — guest lectures and courses</div>
       <div class="corp-list__item"><span>05</span> Advisory &amp; speaking — keynotes and exec sessions</div>
     </div>
   </div>

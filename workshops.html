@@ -23,8 +23,10 @@ permalink: /workshops/
     </div>
     <div class="wide-note" style="margin-bottom:36px">Numbered like university courses: start at your level, climb as capability grows. All sessions run live on Zoom.</div>
 
+    {%- include v2/open-cohorts.html -%}
     <div style="display:flex;flex-direction:column;gap:16px">
       {%- for w in site.data.catalog -%}
+      {%- assign nc = open_cohorts | where: 'level', w.lvl | first -%}
       <div class="cat" data-lvl="{{ w.lvl }}">
         <div class="cat__num">{{ w.num }}</div>
         <div>
@@ -38,9 +40,9 @@ permalink: /workshops/
             {%- for tp in topics -%}<span class="cat__topic">{{ tp }}</span>{%- endfor -%}
           </div>
         </div>
-        <div class="cat__cta">
-          <div class="cat__next">{{ w.next }}</div>
-          {% if w.request %}<a class="cat__req" href="{{ '/corporate/' | relative_url }}">Request a cohort</a>{% else %}<a class="cat__reg" href="{{ w.link }}" target="_blank" rel="noopener">Register →</a>{% endif %}
+        <div class="cat__cta" data-cat-cta="{{ w.lvl }}">
+          <div class="cat__next">{% if nc %}Next: {{ nc.dates }}{% else %}Cohorts on request{% endif %}</div>
+          {% if nc %}<a class="cat__reg" href="{{ nc.link }}" target="_blank" rel="noopener">Register →</a>{% else %}<a class="cat__req" href="{{ '/corporate/' | relative_url }}">Request a cohort</a>{% endif %}
         </div>
       </div>
       {%- endfor -%}

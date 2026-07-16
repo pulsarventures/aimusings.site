@@ -2,26 +2,23 @@
 layout: v2
 nav_active: corporate
 title: "Corporate — your team, fluent in weeks"
-description: "From experimentation to measurable transformation — readiness assessment to embedded advisory. Private AI fluency cohorts, virtual or on-site."
+description: "We train your teams and build alongside them until adoption sticks — a 90-day capability plan up front, hours saved per role reported at the end. Virtual or on-site."
 permalink: /corporate/
 ---
 {%- assign ic = '/assets/v2/icons/' -%}
+{%- assign img = '/assets/v2/img/' -%}
 
 <!-- Dark hero (full-bleed) -->
 <div class="dark-hero">
   <div class="dark-hero__wrap">
     <div>
       <div class="aud-toggle aud-toggle--dark" style="margin-bottom:20px">
-        <a href="{{ '/professionals/' | relative_url }}">Professionals</a>
         <span class="is-on">Corporate</span>
         <a href="{{ '/universities/' | relative_url }}">Universities</a>
       </div>
       <div class="h-48">Your team, fluent in <i>weeks.</i></div>
-      <div class="dark-hero__lead">From experimentation to measurable transformation — readiness assessment to embedded advisory. Virtual or on-site.</div>
-      <div style="display:flex;gap:12px;flex-wrap:wrap">
-        <a class="btn btn--white" href="#sec-inquiry">Send an inquiry</a>
-        <a class="btn btn--ghost-dark" href="{{ site.v2.cal }}" target="_blank" rel="noopener">Book a discovery call</a>
-      </div>
+      <div class="dark-hero__lead">We train your teams and build alongside them until adoption sticks — a 90-day capability plan up front, hours saved per role reported at the end. Virtual or on-site.</div>
+      <a class="btn btn--white" href="{{ site.v2.cal }}" target="_blank" rel="noopener">Book a call</a>
     </div>
     <div class="grid g2" style="gap:12px">
       <div class="stat-glass"><b>1–2 wks</b><span>from discovery call to kickoff</span></div>
@@ -34,6 +31,23 @@ permalink: /corporate/
 
 <div class="wrap">
   <div class="section" style="padding-bottom:0">
+
+    <!-- Why teams pick us -->
+    <div class="eyebrow">— Why teams pick us</div>
+    <div class="grid g3" style="gap:16px;margin-bottom:52px">
+      <div class="card" style="padding:24px">
+        <div class="pick__t">Not a video library</div>
+        <div class="pick__d">Licenses go unwatched. Every session is live, hands-on, and runs inside your team's real workflows.</div>
+      </div>
+      <div class="card" style="padding:24px">
+        <div class="pick__t">Not a strategy deck</div>
+        <div class="pick__d">We don't leave at the roadmap. Your people co-build the pilots with us — the capability stays in-house.</div>
+      </div>
+      <div class="card" style="padding:24px">
+        <div class="pick__t">Not a one-off workshop</div>
+        <div class="pick__d">Readiness baseline, sequenced tiers, and a post-program ROI report — a program, not an event.</div>
+      </div>
+    </div>
 
     <!-- Transformation -->
     <div class="two two--transform">
@@ -52,6 +66,26 @@ permalink: /corporate/
       </div>
     </div>
 
+    <!-- Six pillars -->
+    <div style="margin-top:44px">
+      <div class="eyebrow">— Our philosophy</div>
+      <div class="head-row" style="align-items:baseline;flex-wrap:wrap;margin-bottom:18px">
+        <div class="h-24">Six pillars of successful <i>transformation.</i></div>
+        <div class="section-note" style="font-size:13px">Not the most tools — the best operationalized.</div>
+      </div>
+      <div class="pillars">
+        {%- for p in site.data.pillars -%}
+        <div class="pillar">
+          <div class="pillar__head">
+            <span class="ic" style="--u:url('{{ ic | append: p.icon | relative_url }}')"></span>
+            <span class="pillar__n">{{ p.num }}</span>
+          </div>
+          <div class="pillar__t">{{ p.name }}</div>
+        </div>
+        {%- endfor -%}
+      </div>
+    </div>
+
     <!-- What we deliver -->
     <div class="eyebrow" style="margin:52px 0 14px">— What we deliver</div>
     <div class="h-32" style="margin-bottom:32px">Four integrated offerings — one <i>journey.</i></div>
@@ -62,9 +96,55 @@ permalink: /corporate/
         <div style="flex:1">
           <div class="offer__top"><div class="offer__name">{{ o.name }}</div><div class="offer__tag">{{ o.tag }}</div></div>
           <div class="offer__d">{{ o.desc }}</div>
+          <div class="offer__points">
+            {%- for pt in o.points -%}
+            <div class="offer__pt"><span>·</span><span>{{ pt }}</span></div>
+            {%- endfor -%}
+          </div>
         </div>
       </div>
       {%- endfor -%}
+    </div>
+
+    <!-- The corporate program (4-week arc) -->
+    <div style="margin-top:52px">
+      <div class="eyebrow">— The corporate program</div>
+      <div class="h-32" style="margin-bottom:10px">Four weeks. One arc. <i>Measured.</i></div>
+      <div style="font:400 14px/1.6 var(--sans);color:var(--body);max-width:640px;margin-bottom:24px">Every engagement opens with a 60-minute <b>AI Readiness Diagnostic</b> — a readiness score and a custom 90-day capability plan. Then the program runs as one arc:</div>
+      <div class="grid g4" style="gap:12px">
+        {%- for a in site.data.program_arc -%}
+        <div class="arc">
+          <div class="arc__head"><div class="arc__wk">{{ a.wk }}</div><div class="arc__tag">{{ a.tag }}</div></div>
+          <div class="arc__t">{{ a.name }}</div>
+          <div class="arc__d">{{ a.desc }}</div>
+          <div class="arc__m">{{ a.meta }}</div>
+        </div>
+        {%- endfor -%}
+      </div>
+      <div class="section-note" style="font-size:12.5px;margin-top:12px">Runs sequenced over 2–4 weeks or as standalone modules — always private to your team, distinct from our public workshops.</div>
+    </div>
+
+    <!-- AI at work, function by function -->
+    <div style="margin-top:52px">
+      <div class="eyebrow">— Where agents land first</div>
+      <div class="h-32" style="margin-bottom:10px">AI at work, function by <i>function.</i></div>
+      <div style="font:400 14px/1.6 var(--sans);color:var(--body);max-width:640px;margin-bottom:24px">Start where the picture is clearest — high-frequency work with known outcomes — then expand autonomy as trust grows.</div>
+      <div class="grid g3" style="gap:16px">
+        {%- for f in site.data.functions -%}
+        <div class="fn">
+          <div class="fn__head">
+            <span class="fn__tile"><span class="ic" style="--u:url('{{ ic | append: f.icon | relative_url }}')"></span></span>
+            <span class="fn__t">{{ f.name }}</span>
+          </div>
+          <div class="fn__list">
+            {%- for c in f.cases -%}
+            <div class="fn__case"><span>·</span><span>{{ c }}</span></div>
+            {%- endfor -%}
+          </div>
+          <div class="fn__m">Measured by: {{ f.measured }}</div>
+        </div>
+        {%- endfor -%}
+      </div>
     </div>
 
     <!-- Representative engagements -->
@@ -91,45 +171,45 @@ permalink: /corporate/
           <div class="engage__r">Result: materially increased AI readiness</div>
         </div>
       </div>
-      <div class="section-note" style="margin-top:16px">Across every engagement: faster decisions, less repetitive work, higher adoption — outcomes tied to real workflows.</div>
+      <div class="section-note" style="font-size:13px;margin-top:16px">Across every engagement: faster decisions, less repetitive work, higher adoption — outcomes tied to real workflows. Client names and references shared on the call.</div>
     </div>
 
-    <!-- Ways to start -->
-    <div class="start" style="margin-top:52px;margin-bottom:56px">
-      <div class="cta-dark__row" style="align-items:baseline;margin-bottom:22px">
-        <div class="h-26" style="color:#fff">Three low-friction ways to <i>start.</i></div>
-        <div class="section-note" style="color:var(--on-dark-muted)">No lengthy RFP process. No generic frameworks.</div>
-      </div>
-      <div class="start__steps">
-        <span class="pill">1 · Discovery call</span><span class="arw">→</span>
-        <span class="pill">2 · Fluency baseline</span><span class="arw">→</span>
-        <span class="pill">3 · Tailored cohorts</span><span class="arw">→</span>
-        <span class="pill">4 · Capability map</span>
-      </div>
-      <div class="grid g3" style="gap:14px">
-        <div class="start-card">
-          <span class="ic" style="--u:url('{{ ic | append: 'calendar-check.svg' | relative_url }}')"></span>
-          <div class="start-card__t">Executive Discovery Session</div>
-          <div class="start-card__d">60 minutes. Readiness score + highest-value opportunities.</div>
+    <!-- Principals, not a bench -->
+    <div style="margin-top:52px">
+      <div class="eyebrow">— Who you'll work with</div>
+      <div class="h-32" style="margin-bottom:24px">Principals, not a <i>bench.</i></div>
+      <div class="grid g2" style="gap:16px">
+        <div class="principal">
+          <img src="{{ img | append: 'swati-jain.jpg' | relative_url }}" alt="Swati Jain" width="76" height="76">
+          <div>
+            <div class="principal__n">Swati Jain</div>
+            <div class="principal__r">AI Transformation Leader</div>
+            <div class="principal__d">20+ years driving enterprise AI adoption and product strategy; Fortune 500 advisor. Leads enablement and change management.</div>
+          </div>
         </div>
-        <div class="start-card">
-          <span class="ic" style="--u:url('{{ ic | append: 'gauge.svg' | relative_url }}')"></span>
-          <div class="start-card__t">AI Maturity Assessment</div>
-          <div class="start-card__d">Lightweight diagnostic: people, process, technology.</div>
-        </div>
-        <div class="start-card">
-          <span class="ic" style="--u:url('{{ ic | append: 'zap.svg' | relative_url }}')"></span>
-          <div class="start-card__t">Rapid Use Case Sprint</div>
-          <div class="start-card__d">Identify, prioritize, prototype your highest-ROI use case.</div>
+        <div class="principal">
+          <img src="{{ img | append: 'sree-pradhip.jpg' | relative_url }}" alt="Sree Pradhip" width="76" height="76">
+          <div>
+            <div class="principal__n">Sree Pradhip</div>
+            <div class="principal__r">Founder &amp; CEO, Pulsar Ventures</div>
+            <div class="principal__d">Decades across engineering, product, and enterprise architecture with leading retailers — merchandising to supply chain. Leads co-building.</div>
+          </div>
         </div>
       </div>
-      <div style="display:flex;gap:12px;margin-top:22px;flex-wrap:wrap">
-        <a class="btn btn--white btn--sm" href="#sec-inquiry" style="padding:13px 24px;font-size:14px">Send an inquiry</a>
-        <a class="btn btn--ghost-dark btn--sm" href="{{ site.v2.cal }}" target="_blank" rel="noopener" style="padding:12px 22px;font-size:14px">Or book a discovery session</a>
+      <div class="section-note" style="font-size:13px;margin-top:14px">Every engagement is delivered directly by both principals — no handoff after the sale.</div>
+    </div>
+
+    <!-- Closing CTA band (64px light gap before the footer) -->
+    <div class="cta-band">
+      <div>
+        <div class="h-26" style="color:#fff;margin-bottom:8px">Start with an Executive Discovery <i>Session.</i></div>
+        <div class="cta-band__d">60 minutes, no RFP. You leave with a readiness score, your highest-value use cases, and a 90-day capability plan — whether or not we work together.</div>
+      </div>
+      <div class="cta-band__right">
+        <a class="btn btn--white" href="{{ site.v2.cal }}" target="_blank" rel="noopener">Book the session</a>
+        <div class="cta-band__alt">or write to <a href="mailto:{{ site.v2.email_sree }}">{{ site.v2.email_sree }}</a></div>
       </div>
     </div>
 
   </div>
 </div>
-
-{% include v2/inquiry-card.html %}

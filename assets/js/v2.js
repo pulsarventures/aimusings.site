@@ -95,5 +95,103 @@
         });
       });
     }
+
+    /* ---- Role picker: auto-advance until the first click -------------- */
+    var rolesEl = document.getElementById('roles-data');
+    if (rolesEl) {
+      var roles = JSON.parse(rolesEl.textContent);
+      var rBtns = Array.prototype.slice.call(document.querySelectorAll('.role-btn'));
+      var f = function (sel) { return document.querySelector(sel); };
+      var rIdx = 0, rPaused = false;
+      var paintRole = function () {
+        var r = roles[rIdx];
+        if (!r) return;
+        f('[data-role-name]').textContent = r.role;
+        f('[data-role-pain]').textContent = '“' + r.pain + '”';
+        f('[data-role-leave]').textContent = '→ ' + r.leave;
+        f('[data-role-build]').textContent = r.build;
+        f('[data-role-start]').textContent = r.start;
+        rBtns.forEach(function (b, i) { b.classList.toggle('is-on', i === rIdx); });
+      };
+      rBtns.forEach(function (b, i) {
+        on(b, 'click', function () { rIdx = i; rPaused = true; paintRole(); });
+      });
+      setInterval(function () {
+        if (rPaused) return;
+        if (modal && modal.classList.contains('is-open')) return;
+        rIdx = (rIdx + 1) % roles.length;
+        paintRole();
+      }, 3800);
+    }
+
+    /* ---- Schedule: refresh from data/cohorts.json --------------------- */
+    /* The server-rendered markup is the embedded fallback; this refreshes it
+       on load so updating the JSON updates the site without a rebuild. */
+    var MONTHS = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
+    var el = function (tag, cls, text) {
+      var n = document.createElement(tag);
+      if (cls) n.className = cls;
+      if (text != null) n.textContent = text;
+      return n;
+    };
+    var calChip = function (c, first) {
+      var d = new Date(c.date + 'T12:00:00');
+      var cal = el('span', 'cal' + (first ? ' cal--dark' : ''));
+      cal.appendChild(el('span', 'cal__m', MONTHS[d.getMonth()]));
+      cal.appendChild(el('span', 'cal__d', String(d.getDate())));
+      return cal;
+    };
+    var cohortBody = function (c) {
+      var b = el('span', 'cohort__b');
+      b.appendChild(el('span', 'cohort__n', c.name));
+      b.appendChild(el('span', 'cohort__meta', c.dates + ' · ' + c.duration + ' · ' + c.format));
+      return b;
+    };
+    var row = function (c, first, kind) {
+      var a = el('a', kind === 'modal' ? 'modal__row' : 'cohort' + (first ? ' is-dark' : ''));
+      a.href = c.link; a.target = '_blank'; a.rel = 'noopener';
+      a.appendChild(calChip(c, first));
+      a.appendChild(cohortBody(c));
+      a.appendChild(el('span', kind === 'modal' ? 'modal__tix' : 'cohort__cta', kind === 'modal' ? 'Tixtree ↗' : 'Register →'));
+      return a;
+    };
+    var fill = function (node, open, kind) {
+      if (!node) return;
+      node.textContent = '';
+      open.forEach(function (c, i) { node.appendChild(row(c, i === 0, kind)); });
+    };
+    fetch('/data/cohorts.json', { cache: 'no-cache' }).then(function (r) { return r.json(); }).then(function (d) {
+      if (!Array.isArray(d)) return;
+      var today = new Date().toISOString().slice(0, 10);
+      var open = d.filter(function (c) {
+        return c.status === 'scheduled' && c.link && c.date && c.date >= today;
+      }).sort(function (a, b) { return a.date < b.date ? -1 : 1; });
+
+      document.querySelectorAll('[data-cohort-list]').forEach(function (n) { fill(n, open, 'list'); });
+      fill(document.querySelector('[data-cohort-modal]'), open, 'modal');
+
+      var blurb = document.querySelector('[data-reg-blurb]');
+      if (blurb) {
+        blurb.textContent = !open.length ? 'New cohorts are announced monthly — check back soon.'
+          : open.length === 1 ? 'One cohort is open for registration on Tixtree.'
+          : open.length + ' cohorts are open for registration on Tixtree.';
+      }
+
+      document.querySelectorAll('[data-cat-cta]').forEach(function (cta) {
+        var lvl = parseInt(cta.getAttribute('data-cat-cta'), 10);
+        var nc = open.filter(function (c) { return c.level === lvl; })[0];
+        cta.textContent = '';
+        cta.appendChild(el('div', 'cat__next', nc ? 'Next: ' + nc.dates : 'Cohorts on request'));
+        if (nc) {
+          var a = el('a', 'cat__reg', 'Register →');
+          a.href = nc.link; a.target = '_blank'; a.rel = 'noopener';
+          cta.appendChild(a);
+        } else {
+          var q = el('a', 'cat__req', 'Request a cohort');
+          q.href = '/corporate/';
+          cta.appendChild(q);
+        }
+      });
+    }).catch(function () { /* keep the server-rendered fallback */ });
   });
 })();

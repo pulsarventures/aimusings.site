@@ -12,19 +12,15 @@
       <a class="nav__item{% if a == 'workshops' %} is-active{% endif %}" href="{{ '/workshops/' | relative_url }}">Workshops</a>
 
       <div class="nav__dd">
-        <button class="nav__item{% if a == 'pros' or a == 'corporate' or a == 'university' %} is-active{% endif %}" type="button">Programs <span class="nav__caret">▾</span></button>
+        <button class="nav__item{% if a == 'corporate' or a == 'university' %} is-active{% endif %}" type="button">Programs <span class="nav__caret">▾</span></button>
         <div class="nav__menu nav__menu--left">
-          <a class="nav__row" href="{{ '/professionals/' | relative_url }}">
-            <span class="nav__tile" style="background:#efeafa"><span class="ic" style="--u:url('{{ ic | append: 'briefcase-business.svg' | relative_url }}');color:#6c4ac6"></span></span>
-            <span><span class="nav__rt">Professionals</span><span class="nav__rs">Join a public cohort</span></span>
-          </a>
           <a class="nav__row" href="{{ '/corporate/' | relative_url }}">
             <span class="nav__tile" style="background:#171028"><span class="ic" style="--u:url('{{ ic | append: 'building-2.svg' | relative_url }}');color:#b9a8ea"></span></span>
             <span><span class="nav__rt">Corporate</span><span class="nav__rs">Private programs for teams</span></span>
           </a>
           <a class="nav__row" href="{{ '/universities/' | relative_url }}">
             <span class="nav__tile" style="background:#f6dcec"><span class="ic" style="--u:url('{{ ic | append: 'graduation-cap.svg' | relative_url }}');color:#43265f"></span></span>
-            <span><span class="nav__rt">Universities</span><span class="nav__rs">Lectures to semester series</span></span>
+            <span><span class="nav__rt">Universities</span><span class="nav__rs">Guest lectures &amp; courses</span></span>
           </a>
         </div>
       </div>
@@ -54,7 +50,6 @@
     <a href="{{ '/' | relative_url }}">Home</a>
     <a href="{{ '/workshops/' | relative_url }}">Workshops</a>
     <div class="m-h">Programs</div>
-    <a href="{{ '/professionals/' | relative_url }}">Professionals</a>
     <a href="{{ '/corporate/' | relative_url }}">Corporate</a>
     <a href="{{ '/universities/' | relative_url }}">Universities</a>
     <a href="{{ '/#sec-instructors' | relative_url }}">Instructors</a>

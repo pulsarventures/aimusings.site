@@ -1,0 +1,39 @@
+# Home → "Find yourself here" role picker (#sec-personas).
+# Auto-advances every ~4s until the visitor clicks a role, then stops.
+# Informational only — no register CTAs in this section.
+- role: "Product Manager"
+  level: 200
+  pain: "I talk about AI features every week — I’ve never actually built one."
+  leave: "Leave with a prototype you built, not a deck about one."
+  build: "A working feature prototype your eng team can react to"
+  start: "Builder Series 200"
+- role: "Executive"
+  level: 200
+  pain: "Boards ask for my AI point of view. I need more than talking points."
+  leave: "Demo answers instead of describing them."
+  build: "A briefing agent working on your own market data"
+  start: "Foundations 100 → Builder 200"
+- role: "Consultant"
+  level: 200
+  pain: "Clients now expect an AI answer in every proposal."
+  leave: "Ship AI inside your very next engagement."
+  build: "A client-intake agent that drafts the first deliverable"
+  start: "Builder Series 200"
+- role: "Entrepreneur"
+  level: 200
+  pain: "I wear every hat. AI could take three of them — if I knew where to start."
+  leave: "Your first agent doing real work by session two."
+  build: "An ops agent that triages email and books meetings"
+  start: "Builder Series 200"
+- role: "Marketer"
+  level: 200
+  pain: "Everyone says AI makes content faster. Mine still takes all week."
+  leave: "A campaign workflow that runs itself."
+  build: "A brief-to-draft pipeline in your brand voice"
+  start: "Builder Series 200"
+- role: "Solution Architect"
+  level: 300
+  pain: "Clients ask how the pieces fit — agents, MCP, integrations."
+  leave: "Go deep on one platform at a time."
+  build: "A Claude-powered integration using MCP"
+  start: "Platform Series 300"
