@@ -1,0 +1,135 @@
+---
+layout: v2
+nav_active: corporate
+title: "Corporate — your team, fluent in weeks"
+description: "From experimentation to measurable transformation — readiness assessment to embedded advisory. Private AI fluency cohorts, virtual or on-site."
+permalink: /corporate/
+---
+{%- assign ic = '/assets/v2/icons/' -%}
+
+<!-- Dark hero (full-bleed) -->
+<div class="dark-hero">
+  <div class="dark-hero__wrap">
+    <div>
+      <div class="aud-toggle aud-toggle--dark" style="margin-bottom:20px">
+        <a href="{{ '/professionals/' | relative_url }}">Professionals</a>
+        <span class="is-on">Corporate</span>
+        <a href="{{ '/universities/' | relative_url }}">Universities</a>
+      </div>
+      <div class="h-48">Your team, fluent in <i>weeks.</i></div>
+      <div class="dark-hero__lead">From experimentation to measurable transformation — readiness assessment to embedded advisory. Virtual or on-site.</div>
+      <div style="display:flex;gap:12px;flex-wrap:wrap">
+        <a class="btn btn--white" href="#sec-inquiry">Send an inquiry</a>
+        <a class="btn btn--ghost-dark" href="{{ site.v2.cal }}" target="_blank" rel="noopener">Book a discovery call</a>
+      </div>
+    </div>
+    <div class="grid g2" style="gap:12px">
+      <div class="stat-glass"><b>1–2 wks</b><span>from discovery call to kickoff</span></div>
+      <div class="stat-glass"><b>Your stack</b><span>your tools &amp; data policies respected</span></div>
+      <div class="stat-glass"><b>Role-based</b><span>exec briefings to builder tracks</span></div>
+      <div class="stat-glass"><b>Measured</b><span>fluency baseline before, capability map after</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="section" style="padding-bottom:0">
+
+    <!-- Transformation -->
+    <div class="two two--transform">
+      <div>
+        <div class="eyebrow">— The transformation we drive</div>
+        <div class="h-28" style="margin-bottom:12px">From AI as a tool to AI as a <i>teammate.</i></div>
+        <div style="font:400 14px/1.65 var(--sans);color:var(--body)">The shift is not just technological — it is organizational. Every engagement moves you from fragmented experimentation to scaled, embedded adoption.</div>
+      </div>
+      <div class="cmp cmp--eq">
+        <div class="cmp__head"><div>CURRENT STATE</div><div>FUTURE STATE</div></div>
+        <div class="cmp__row"><div class="muted">Fragmented AI experimentation</div><div class="cmp__y">→ Scaled organizational adoption</div></div>
+        <div class="cmp__row"><div class="muted">AI as a "tool"</div><div class="cmp__y">→ AI as a "teammate"</div></div>
+        <div class="cmp__row"><div class="muted">Siloed workflows</div><div class="cmp__y">→ AI-augmented operational workflows</div></div>
+        <div class="cmp__row"><div class="muted">Manual decision support</div><div class="cmp__y">→ AI-assisted decision intelligence</div></div>
+        <div class="cmp__row"><div class="muted">Unclear ROI</div><div class="cmp__y">→ Measurable business outcomes</div></div>
+      </div>
+    </div>
+
+    <!-- What we deliver -->
+    <div class="eyebrow" style="margin:52px 0 14px">— What we deliver</div>
+    <div class="h-32" style="margin-bottom:32px">Four integrated offerings — one <i>journey.</i></div>
+    <div class="grid g2">
+      {%- for o in site.data.corp_offers -%}
+      <div class="offer">
+        <span class="ic" style="--u:url('{{ ic | append: o.icon | relative_url }}')"></span>
+        <div style="flex:1">
+          <div class="offer__top"><div class="offer__name">{{ o.name }}</div><div class="offer__tag">{{ o.tag }}</div></div>
+          <div class="offer__d">{{ o.desc }}</div>
+        </div>
+      </div>
+      {%- endfor -%}
+    </div>
+
+    <!-- Representative engagements -->
+    <div style="margin-top:52px">
+      <div class="eyebrow">— Representative engagements</div>
+      <div class="h-28" style="margin-bottom:24px">What that looks like in <i>practice.</i></div>
+      <div class="grid g3">
+        <div class="engage">
+          <div class="engage__k">BRANDING &amp; MEDIA</div>
+          <div class="engage__t">AI-driven marketing enablement</div>
+          <div class="engage__d">Branding, media ops, and research workflows — faster campaign iteration.</div>
+          <div class="engage__r">Result: measurably improved marketing efficiency and strong stakeholder adoption</div>
+        </div>
+        <div class="engage">
+          <div class="engage__k">MEDIA DISTRIBUTION</div>
+          <div class="engage__t">Operational efficiency at continental scale</div>
+          <div class="engage__d">Distribution and knowledge workflows, enabled across two continents.</div>
+          <div class="engage__r">Result: improved operational visibility and a clear AI roadmap</div>
+        </div>
+        <div class="engage">
+          <div class="engage__k">ENTERPRISE TECHNOLOGY</div>
+          <div class="engage__t">NextGen enablement initiative</div>
+          <div class="engage__d">Technology alignment and workflow redesign at enterprise scale.</div>
+          <div class="engage__r">Result: materially increased AI readiness</div>
+        </div>
+      </div>
+      <div class="section-note" style="margin-top:16px">Across every engagement: faster decisions, less repetitive work, higher adoption — outcomes tied to real workflows.</div>
+    </div>
+
+    <!-- Ways to start -->
+    <div class="start" style="margin-top:52px;margin-bottom:56px">
+      <div class="cta-dark__row" style="align-items:baseline;margin-bottom:22px">
+        <div class="h-26" style="color:#fff">Three low-friction ways to <i>start.</i></div>
+        <div class="section-note" style="color:var(--on-dark-muted)">No lengthy RFP process. No generic frameworks.</div>
+      </div>
+      <div class="start__steps">
+        <span class="pill">1 · Discovery call</span><span class="arw">→</span>
+        <span class="pill">2 · Fluency baseline</span><span class="arw">→</span>
+        <span class="pill">3 · Tailored cohorts</span><span class="arw">→</span>
+        <span class="pill">4 · Capability map</span>
+      </div>
+      <div class="grid g3" style="gap:14px">
+        <div class="start-card">
+          <span class="ic" style="--u:url('{{ ic | append: 'calendar-check.svg' | relative_url }}')"></span>
+          <div class="start-card__t">Executive Discovery Session</div>
+          <div class="start-card__d">60 minutes. Readiness score + highest-value opportunities.</div>
+        </div>
+        <div class="start-card">
+          <span class="ic" style="--u:url('{{ ic | append: 'gauge.svg' | relative_url }}')"></span>
+          <div class="start-card__t">AI Maturity Assessment</div>
+          <div class="start-card__d">Lightweight diagnostic: people, process, technology.</div>
+        </div>
+        <div class="start-card">
+          <span class="ic" style="--u:url('{{ ic | append: 'zap.svg' | relative_url }}')"></span>
+          <div class="start-card__t">Rapid Use Case Sprint</div>
+          <div class="start-card__d">Identify, prioritize, prototype your highest-ROI use case.</div>
+        </div>
+      </div>
+      <div style="display:flex;gap:12px;margin-top:22px;flex-wrap:wrap">
+        <a class="btn btn--white btn--sm" href="#sec-inquiry" style="padding:13px 24px;font-size:14px">Send an inquiry</a>
+        <a class="btn btn--ghost-dark btn--sm" href="{{ site.v2.cal }}" target="_blank" rel="noopener" style="padding:12px 22px;font-size:14px">Or book a discovery session</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+{% include v2/inquiry-card.html %}

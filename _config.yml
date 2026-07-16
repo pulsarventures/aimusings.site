@@ -1,128 +1,63 @@
-# Site settings - Updated for AI Workshop Series
+# ===========================================================================
+# AI Musings — site settings (v2)
+# ===========================================================================
 title: "AI Musings"
-description: "Accelerate Your AI Game: Learn, Build, Apply in One Immersive Session - Hands-on AI workshops for professionals, coaches, consultants, entrepreneurs, and business owners"
-url: "https://aimusings.space"
+description: "Live, hands-on AI fluency workshops for professionals, corporate teams, and universities. Learn the tools, build real things, and apply them Monday morning."
+url: "https://aimusings.site"
 baseurl: ""
+lang: "en"
 
-# Contact and Social Information
-contact:
-  email: "spradhip@pulsarventurs.co"
-  calendly: "https://calendly.com/spradhip"
-  linkedin: "https://www.linkedin.com/company/pulsar-ventures-llc"
-  office_hours:
-    weekdays: "9:00 AM - 6:00 PM (EST)"
-    weekends: "By appointment"
-    virtual: "Available worldwide"
+# --- Shared content the owner maintains -------------------------------------
+# Tweakable headline number, shown in the Outcomes stat band.
+professionals_trained: "200+"
 
-# Author information
-author:
-  name: "AI Musings"
-  email: "spradhip@pulsarventurs.co"
-  bio: "Hands-on AI workshops designed for professionals who want to transform their work with practical AI skills"
-  location: "Global"
-  links:
-    - label: "LinkedIn"
-      icon: "fab fa-linkedin"
-      url: "https://www.linkedin.com/company/pulsar-ventures-llc"
-    - label: "Calendly"
-      icon: "fas fa-calendar"
-      url: "https://calendly.com/spradhip"
+# Contact + external destinations used across nav, footer, and CTAs.
+v2:
+  email_sree: "sree@aimusings.site"
+  email_swati: "swati@aimusings.site"
+  cal: "https://cal.com/sree.pradhip"
+  whatsapp: "https://chat.whatsapp.com/GRydfVAJke8AKdnKHFohnS"
+  youtube: "https://www.youtube.com/@AIMusingsBuilderCommunitySnS"
+  linkedin: "https://www.linkedin.com/company/aimusings/"
+  linkedin_swati: "https://www.linkedin.com/in/swatijainatl/"
+  linkedin_sree: "https://www.linkedin.com/in/sree-pradhip/"
+  academy: "https://academy.aimusings.site"
+  testimonials_video: "https://www.youtube.com/embed/pU1DiMgk-ZY"
 
-# Build settings
+# --- Build settings ---------------------------------------------------------
 markdown: kramdown
 highlighter: rouge
-permalink: /:title/
-relative_links:
-  enabled: true
-  collections: true
 
-# Collections
-collections:
-  pages:
-    output: true
-    permalink: /:path/
-
-# Defaults
-defaults:
-  - scope:
-      path: ""
-      type: "posts"
-    values:
-      layout: "post"
-      author: "AI Musings"
-  - scope:
-      path: ""
-      type: "pages"
-    values:
-      layout: "page"
-      author: "AI Musings"
-
-# Plugins
+# Plugins (all GitHub Pages-supported)
 plugins:
-  - jekyll-feed
   - jekyll-seo-tag
   - jekyll-sitemap
-  - jekyll-paginate
 
-# Pagination
-paginate: 5
-paginate_path: "/blog/page:num/"
+# SEO / social defaults
+author:
+  name: "AI Musings"
+logo: "/assets/v2/img/logo.png"
+social:
+  name: "AI Musings"
+  links:
+    - "https://www.linkedin.com/company/aimusings/"
+    - "https://www.youtube.com/@AIMusingsBuilderCommunitySnS"
 
-# Exclude from processing
+# --- Housekeeping -----------------------------------------------------------
+timezone: "America/New_York"
+encoding: utf-8
+
 exclude:
   - Gemfile
   - Gemfile.lock
   - node_modules
-  - vendor/bundle/
-  - vendor/cache/
-  - vendor/gems/
-  - vendor/ruby/
+  - vendor/
   - .git/
   - .github/
   - README.md
+  - LICENSE
+  - docs/
 
-# Include files
-include:
-  - _pages
-  - _posts
-  - assets
-  - _sass
-
-# Social media
-social:
-  name: "AI Musings"
-  links:
-    - "https://www.linkedin.com/company/pulsar-ventures-llc"
-    - "https://calendly.com/spradhip"
-
-# Analytics (add your tracking codes here)
-analytics:
-  google: ""  # Add your Google Analytics ID
-  facebook: ""  # Add your Facebook Pixel ID
-
-# Comments (optional)
-comments:
-  provider: ""  # Add comment system provider
-
-# Search
-search: true
-
-# Timezone
-timezone: "UTC"
-
-# Encoding
-encoding: utf-8
-
-# Future posts
-future: false
-
-# Show drafts
-show_drafts: false
-
-# Limit posts
-limit_posts: 0
-
-# Keep files
 keep_files:
   - .git
   - .github

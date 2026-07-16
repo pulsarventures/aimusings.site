@@ -1,195 +1,77 @@
-# AIMusings.site Website
+# AI Musings — website (v2)
 
-A modern, responsive website for Pulsar Ventures built with Jekyll and deployed on GitHub Pages.
+Marketing site for **AI Musings** — live, hands-on AI fluency workshops for professionals, corporate teams, and universities. Built with **Jekyll**, deployed on **GitHub Pages** at **https://aimusings.site**.
 
-## 🚀 Quick Start
+This is the **v2 redesign** — a full visual overhaul recreated from the design handoff in `docs/superpowers/specs/`. Registration is handled externally on Tixtree; organization inquiries route to a scheduling link (cal.com) and email. There are **no forms and no backend**.
 
-### Prerequisites
-- Git
-- Ruby (for local development)
-- GitHub account
+## Pages (real routes)
 
-### Local Development Setup
+| Route | File | Purpose |
+|---|---|---|
+| `/` | `index.html` | Home |
+| `/workshops/` | `workshops.html` | Catalog (100/200/300/400), what's included, past cohorts |
+| `/professionals/` | `professionals.html` | Public cohorts for individuals |
+| `/corporate/` | `corporate.html` | Private programs for teams |
+| `/universities/` | `universities.html` | Campus programs |
 
-1. **Clone the repository**
-   ```bash
-   git clone git@github.com:pulsarventures/pv-website.git
-   cd pv-website
-   ```
+`Instructors` and `Stories` in the nav are anchors on the Home page (`/#sec-instructors`, `/#sec-stories`).
 
-2. **Install dependencies**
-   ```bash
-   bundle install
-   ```
+## Editing content
 
-3. **Run local server**
-   ```bash
-   bundle exec jekyll serve
-   ```
+Content the team maintains lives in **`_data/*.yml`** — edit these, no HTML needed:
 
-4. **Visit the site**
-   Open http://localhost:4000 in your browser
+- `cohorts.yml` — open-for-registration cohorts (Home + Professionals hero cards + Register modal)
+- `catalog.yml` — the four workshop levels shown on `/workshops/`
+- `levels.yml` — the learning-path cards on Home
+- `past_cohorts.yml` — the past-cohorts table (`recap:` is an optional LinkedIn URL)
+- `faqs.yml` — Home FAQ accordion
+- `testimonials.yml` — rotating reviews on Home
+- `tools.yml` — the "tools that matter" grid
+- `corp_offers.yml` — the four Corporate offerings
 
-### Deployment
+Shared links (emails, cal.com, WhatsApp, YouTube, LinkedIn, Academy) and the tweakable `professionals_trained` number live in **`_config.yml`** under the `v2:` block.
 
-The website automatically deploys to GitHub Pages when changes are pushed to the `main` branch.
-
-- **Live Site**: https://pulsarventures.co
-- **GitHub Pages**: https://pulsarventures.github.io/pv-website
-
-## 📁 Project Structure
+## Project structure
 
 ```
-pv-website/
-├── _config.yml                 # Jekyll configuration
-├── _layouts/                   # Page layouts
-├── _includes/                  # Reusable components
-├── _posts/                     # Blog posts
-├── _pages/                     # Static pages
-├── assets/                     # Static assets (CSS, JS, images)
-├── _sass/                      # SCSS styles
-├── index.html                  # Homepage
-├── 404.html                    # Custom 404 page
-├── .github/                    # GitHub Actions
-├── Gemfile                     # Ruby dependencies
-└── CNAME                       # Custom domain
+_config.yml            # Site config + shared URLs (v2: block)
+_data/*.yml            # All editable content
+_layouts/v2.html       # Base layout (head, nav, footer, register modal)
+_includes/v2/          # nav, footer, register-modal, inquiry-card, cohort-list, head
+assets/css/v2.css      # Design system (tokens, components, responsive)
+assets/js/v2.js        # Nav dropdowns, mobile menu, modal, testimonial rotation, FAQ, catalog filter
+assets/v2/             # Self-hosted fonts, icons, and images (no CDNs)
+index.html, *.html     # The five pages
+docs/superpowers/specs # Design spec (source of truth for the redesign)
 ```
 
-## 🎨 Content Management
+## Local development
 
-### Adding New Blog Posts
+### Option A — Ruby / Bundler
+```bash
+bundle install
+bundle exec jekyll serve      # http://localhost:4000
+```
 
-1. Create a new file in `_posts/` with the format: `YYYY-MM-DD-title.md`
-2. Add front matter:
-   ```yaml
-   ---
-   layout: post
-   title: "Your Post Title"
-   date: 2024-01-15
-   categories: [blog]
-   tags: [ai, business, technology]
-   ---
-   ```
-3. Write your content in Markdown
-4. Commit and push to deploy
+### Option B — Docker (no local Ruby needed)
+```bash
+docker run --rm -v "$PWD":/srv/jekyll -w /srv/jekyll -p 4000:4000 \
+  jekyll/jekyll:4.2.2 sh -c "bundle install && jekyll serve --host 0.0.0.0"
+```
 
-### Adding New Pages
+Then open http://localhost:4000.
 
-1. Create a new file in `_pages/` with the format: `page-name.md`
-2. Add front matter:
-   ```yaml
-   ---
-   layout: page
-   title: "Page Title"
-   permalink: /page-name/
-   ---
-   ```
-3. Write your content in Markdown
-4. Commit and push to deploy
+## Deployment
 
-### Updating Navigation
+Pushing to `main` publishes to GitHub Pages (custom domain `aimusings.site` via the `CNAME` file). The site uses only GitHub-Pages-supported plugins (`jekyll-seo-tag`, `jekyll-sitemap`).
 
-Edit `_includes/header.html` to add new navigation items.
+## Design system (quick reference)
 
-## 🛠️ Customization
-
-### Styling
-- Main styles: `assets/css/main.scss`
-- Bootstrap 5 is included for responsive design
-- Custom variables defined in SCSS
-
-### Layouts
-- `_layouts/default.html`: Base layout for all pages
-- `_layouts/page.html`: Layout for static pages
-- `_layouts/post.html`: Layout for blog posts
-
-### Components
-- `_includes/head.html`: Meta tags and CSS includes
-- `_includes/header.html`: Navigation
-- `_includes/footer.html`: Footer content
-
-## 🔧 Configuration
-
-### Jekyll Settings (`_config.yml`)
-- Site title and description
-- URL configuration
-- Plugin settings
-- Collection definitions
-
-### Custom Domain
-- Domain: pulsarventures.co
-- CNAME file included in repository
-- DNS configured for GitHub Pages
-
-## 🚀 Deployment
-
-### Automatic Deployment
-- GitHub Actions workflow: `.github/workflows/deploy.yml`
-- Triggers on push to `main` branch
-- Builds and deploys to GitHub Pages
-
-### Manual Deployment
-1. Push changes to `main` branch
-2. GitHub Actions will automatically build and deploy
-3. Site will be live in 2-5 minutes
-
-## 📝 Content Guidelines
-
-### Writing Blog Posts
-- Use clear, engaging titles
-- Include relevant tags and categories
-- Add meta descriptions for SEO
-- Use images when appropriate
-
-### Page Content
-- Keep content concise and scannable
-- Use headings for structure
-- Include call-to-action buttons
-- Optimize for mobile reading
-
-## 🔍 SEO
-
-- Meta tags automatically generated
-- Sitemap automatically created
-- Open Graph tags for social sharing
-- Structured data for search engines
-
-## 🐛 Troubleshooting
-
-### Common Issues
-
-1. **Site not updating after push**
-   - Check GitHub Actions tab for build status
-   - Verify changes are on `main` branch
-   - Wait 2-5 minutes for deployment
-
-2. **Local build errors**
-   - Run `bundle update`
-   - Check Ruby version compatibility
-   - Verify all dependencies installed
-
-3. **Custom domain not working**
-   - Check DNS settings
-   - Verify CNAME file in repository
-   - Contact domain provider if needed
-
-### Getting Help
-- Check GitHub Issues for known problems
-- Review Jekyll documentation
-- Contact the development team
-
-## 📄 License
-
-This project is proprietary to Pulsar Ventures.
-
-## 🤝 Contributing
-
-1. Create a feature branch
-2. Make your changes
-3. Test locally
-4. Submit a pull request
-5. Wait for review and merge
+- **Type:** Public Sans (UI/body) · Source Serif 4 (headings, italic accent words)
+- **Primary purple:** `#6c4ac6` (hover `#57379f`) · ink `#171028` · footer `#100a1f`
+- All tokens are defined as CSS custom properties at the top of `assets/css/v2.css`.
+- Fonts and icons are **self-hosted** in `assets/v2/` — do not reintroduce CDN links.
 
 ---
 
-**Built with ❤️ by Pulsar Ventures**
+© AI Musings

@@ -1,0 +1,26 @@
+# The learning path — four level cards on Home. All link to /workshops/.
+# dark: true -> dark card (used for the 200 flagship). flag: true -> FLAGSHIP badge.
+- num: "100"
+  name: "Foundations"
+  desc: "AI essentials for professionals — mindset, mechanics, and confident daily use."
+  meta: "1 session · Virtual"
+  flag: false
+  dark: false
+- num: "200"
+  name: "Builder Series"
+  desc: "Learn, build, network. Ship your first prototype and your first AI agent across two live sessions."
+  meta: "2 sessions · Virtual"
+  flag: true
+  dark: true
+- num: "300"
+  name: "Platform Series"
+  desc: "Deep dives into one ecosystem at a time — Anthropic Claude, Microsoft Copilot, Google Gemini."
+  meta: "1–2 sessions · Virtual"
+  flag: false
+  dark: false
+- num: "400"
+  name: "Bootcamp"
+  desc: "Five intensive days: idea to a deployed, fully functional AI-native application."
+  meta: "5 days · Virtual"
+  flag: false
+  dark: false

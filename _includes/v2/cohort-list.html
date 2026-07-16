@@ -1,0 +1,12 @@
+<div class="reg-card">
+  <div class="eyebrow eyebrow--sm">— Open for registration</div>
+  <div class="cohorts">
+    {%- for c in site.data.cohorts -%}
+    <a class="cohort{% if c.dark %} is-dark{% endif %}" href="{{ c.link }}" target="_blank" rel="noopener">
+      <span class="cal{% if c.dark %} cal--dark{% endif %}"><span class="cal__m">{{ c.mon }}</span><span class="cal__d">{{ c.day }}</span></span>
+      <span class="cohort__b"><span class="cohort__n">{{ c.name }}</span><span class="cohort__meta">{{ c.meta }}</span></span>
+      <span class="cohort__cta">Register →</span>
+    </a>
+    {%- endfor -%}
+  </div>
+</div>

@@ -1,0 +1,74 @@
+---
+layout: v2
+nav_active: workshops
+title: "Workshops — the catalog"
+description: "Numbered like university courses: Foundations (100), Builder Series (200), Platform Series (300), and Bootcamp (400). Live, hands-on AI workshops on Zoom."
+permalink: /workshops/
+---
+{%- assign ic = '/assets/v2/icons/' -%}
+
+<div class="wrap">
+  <div class="section" style="padding-top:52px;padding-bottom:64px">
+
+    <div class="eyebrow">— Workshops</div>
+    <div class="head-row" style="margin-bottom:10px">
+      <div class="h-44">The <i>catalog.</i></div>
+      <div class="filters">
+        <button class="filter is-active" type="button" data-filter="all">All levels</button>
+        <button class="filter" type="button" data-filter="100">100</button>
+        <button class="filter" type="button" data-filter="200">200</button>
+        <button class="filter" type="button" data-filter="300">300</button>
+        <button class="filter" type="button" data-filter="400">400</button>
+      </div>
+    </div>
+    <div class="wide-note" style="margin-bottom:36px">Numbered like university courses: start at your level, climb as capability grows. All sessions run live on Zoom.</div>
+
+    <div style="display:flex;flex-direction:column;gap:16px">
+      {%- for w in site.data.catalog -%}
+      <div class="cat" data-lvl="{{ w.lvl }}">
+        <div class="cat__num">{{ w.num }}</div>
+        <div>
+          <div class="cat__name">{{ w.name }}{% if w.flag %} <span class="cat__flag">FLAGSHIP</span>{% endif %}</div>
+          <div class="cat__desc">{{ w.desc }}</div>
+        </div>
+        <div class="cat__mid">
+          <div class="cat__label">YOU'LL LEARN</div>
+          <div class="cat__topics">
+            {%- assign topics = w.topics | split: ' · ' -%}
+            {%- for tp in topics -%}<span class="cat__topic">{{ tp }}</span>{%- endfor -%}
+          </div>
+        </div>
+        <div class="cat__cta">
+          <div class="cat__next">{{ w.next }}</div>
+          {% if w.request %}<a class="cat__req" href="{{ '/corporate/' | relative_url }}">Request a cohort</a>{% else %}<a class="cat__reg" href="{{ w.link }}" target="_blank" rel="noopener">Register →</a>{% endif %}
+        </div>
+      </div>
+      {%- endfor -%}
+    </div>
+
+    <div class="eyebrow" style="margin:52px 0 14px">— What's included</div>
+    <div class="h-28" style="margin-bottom:24px">Every cohort ships <i>with.</i></div>
+    <div class="grid g3" style="gap:14px">
+      <div class="incl"><span class="ic" style="--u:url('{{ ic | append: 'radio.svg' | relative_url }}')"></span><span>Live instructor-led sessions — never a video library</span></div>
+      <div class="incl"><span class="ic" style="--u:url('{{ ic | append: 'rocket.svg' | relative_url }}')"></span><span>Your own working prototype and first AI agent</span></div>
+      <div class="incl"><span class="ic" style="--u:url('{{ ic | append: 'video.svg' | relative_url }}')"></span><span>Pre-read material — a 10-page orientation outline, 3 days before your session</span></div>
+      <div class="incl"><span class="ic" style="--u:url('{{ ic | append: 'users-round.svg' | relative_url }}')"></span><span>Tool setup instructions, sent 3 days ahead — you arrive ready to build</span></div>
+      <div class="incl"><span class="ic" style="--u:url('{{ ic | append: 'radio.svg' | relative_url }}')"></span><span>Hands-on workbook with step-by-step instructions for every activity</span></div>
+      <div class="incl"><span class="ic" style="--u:url('{{ ic | append: 'users-round.svg' | relative_url }}')"></span><span>Developer credits for select AI tools* — during and after the workshop</span></div>
+    </div>
+    <div class="foot-note">* Where applicable — confirmed at registration.</div>
+
+    <div class="eyebrow" style="margin:52px 0 14px">— Past cohorts</div>
+    <div class="h-28" style="margin-bottom:24px">Twelve cohorts and <i>counting.</i></div>
+    <div class="past">
+      {%- for p in site.data.past_cohorts -%}
+      <div class="past__row">
+        <div class="past__name">{{ p.name }}</div>
+        <div class="muted">{{ p.dates }}</div>
+        {% if p.recap != "" %}<a class="past__recap" href="{{ p.recap }}" target="_blank" rel="noopener">{{ p.fmt }} · recap →</a>{% else %}<div class="muted">{{ p.fmt }}</div>{% endif %}
+      </div>
+      {%- endfor -%}
+    </div>
+
+  </div>
+</div>

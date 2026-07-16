@@ -1,0 +1,21 @@
+# Open-for-registration cohorts.
+# Shown on Home (hero card), Professionals (hero card), and the Register modal.
+# dark: true  -> emphasized row (tinted bg, dark calendar chip)
+- name: "Bootcamp 400 — Build a real AI-native app"
+  meta: "Jul 18–22 · 5 days · Virtual on Zoom"
+  mon: "JUL"
+  day: "18"
+  link: "https://www.tixtree.com/e/bootcamp-build-a-real-ai-native-app-e0c20e119bc0"
+  dark: true
+- name: "Builder Series 200 — Cohort 12"
+  meta: "Jul 12 & 19 · 2 sessions · Virtual on Zoom"
+  mon: "JUL"
+  day: "19"
+  link: "https://www.tixtree.com/e/accelerate-your-ai-game-learn-build-apply-a3ee545a2a08"
+  dark: false
+- name: "Platform Series 300 — Anthropic Claude"
+  meta: "Jul 13 & 20 · 2 sessions · Virtual on Zoom"
+  mon: "JUL"
+  day: "20"
+  link: "https://www.tixtree.com/e/claude-series-operate-with-claude-limited-seats-8e8d608c0015"
+  dark: false

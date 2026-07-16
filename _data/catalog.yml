@@ -1,0 +1,38 @@
+# Workshops catalog (/workshops/). topics are " · "-separated; rendered as chips.
+# request: true -> show "Request a cohort" (-> /corporate/) instead of a Register link.
+- lvl: "100"
+  num: "100"
+  name: "Foundations"
+  flag: false
+  desc: "Your on-ramp. For professionals starting from zero — no technical background needed."
+  topics: "What AI can/can’t do · Prompting that works · Everyday workflows · Safe use at work"
+  next: "Cohorts on request"
+  link: ""
+  request: true
+- lvl: "200"
+  num: "200"
+  name: "Builder Series"
+  flag: true
+  desc: "The flagship. Two live sessions from fundamentals to your first prototype and first AI agent."
+  topics: "AI fundamentals & mechanics · Tools deep dive · First prototype · First agent"
+  next: "Next: Jul 12 & 19 · Cohort 12"
+  link: "https://www.tixtree.com/e/accelerate-your-ai-game-learn-build-apply-a3ee545a2a08"
+  request: false
+- lvl: "300"
+  num: "300"
+  name: "Platform Series"
+  flag: false
+  desc: "One ecosystem at a time, in depth. Currently running: Anthropic Claude. Copilot and Gemini next."
+  topics: "Claude Chat, Cowork & Code · Extensions & integrations · Skills & MCP · Advanced prompting"
+  next: "Next: Jul 13 & 20 · Claude"
+  link: "https://www.tixtree.com/e/claude-series-operate-with-claude-limited-seats-8e8d608c0015"
+  request: false
+- lvl: "400"
+  num: "400"
+  name: "Bootcamp"
+  flag: false
+  desc: "Five intensive days where you architect, build, and deploy a complete AI-native application."
+  topics: "AI-native architecture · AI-first dev tools · Agents in your app · Testing & deployment"
+  next: "Next: Jul 18–22"
+  link: "https://www.tixtree.com/e/bootcamp-build-a-real-ai-native-app-e0c20e119bc0"
+  request: false
