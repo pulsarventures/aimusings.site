@@ -51,9 +51,8 @@
         for (var i = 0; i < cards.length; i++) {
           var q = all[(idx + i) % all.length];
           cards[i].querySelector('.quote__t').textContent = '“' + q.text + '”';
-          // .quote__n = [text node][<span>]; update only the leading text node (no innerHTML).
           var nameEl = cards[i].querySelector('.quote__n');
-          nameEl.firstChild.nodeValue = q.name + ' ';
+          nameEl.textContent = q.name;
         }
       };
       var rotate = function (dir) {
