@@ -223,7 +223,10 @@ permalink: /
           <div style="flex:1">
             <div class="inst__name">Swati Jain</div>
             <div class="inst__role">AI Product Management at Workday · Lead Instructor &amp; Facilitator</div>
-            <a class="btn btn--linkedin" href="{{ site.v2.linkedin_swati }}" target="_blank" rel="noopener"><span class="in">in</span> Connect on LinkedIn</a>
+            <div style="display:flex;gap:8px;flex-wrap:wrap">
+              <a class="btn btn--linkedin" href="{{ site.v2.linkedin_swati }}" target="_blank" rel="noopener"><span class="in">in</span> Connect on LinkedIn</a>
+              <a class="btn btn--ghost btn--sm" href="mailto:{{ site.v2.email_swati }}">✉ Email Swati</a>
+            </div>
           </div>
         </div>
         <div class="inst__bio">With over 20 years in digital product innovation, Swati has advised Fortune 500 companies and startups on AI integration strategies that deliver real business outcomes. She brings that boardroom experience into every session she teaches.</div>
@@ -235,7 +238,10 @@ permalink: /
           <div style="flex:1">
             <div class="inst__name">Sree Pradhip</div>
             <div class="inst__role">Builder &amp; Evangelist</div>
-            <a class="btn btn--linkedin" href="{{ site.v2.linkedin_sree }}" target="_blank" rel="noopener"><span class="in">in</span> Connect on LinkedIn</a>
+            <div style="display:flex;gap:8px;flex-wrap:wrap">
+              <a class="btn btn--linkedin" href="{{ site.v2.linkedin_sree }}" target="_blank" rel="noopener"><span class="in">in</span> Connect on LinkedIn</a>
+              <a class="btn btn--ghost btn--sm" href="mailto:{{ site.v2.email_sree }}">✉ Email Sree</a>
+            </div>
           </div>
         </div>
         <div class="inst__bio">Sree is an entrepreneur, builder, and community organizer who has worked across product, consulting, sales, and engineering in both enterprise and startup settings. He helps founders and technical leaders design and operate AI-first systems. A frequent speaker at AI events, he teaches AI the way he uses it every day: by building and shipping.</div>
@@ -245,13 +251,28 @@ permalink: /
     <div class="inst-note">Every cohort is co-taught live by both instructors and capped at 15 seats for personalized attention.</div>
   </section>
 
-  <!-- Social proof strip -->
-  <section class="proof-strip" style="padding-top:56px;border-top:1px solid var(--line-soft)">
-    <a class="proof-strip__inner" href="https://events.gtalumni.org/e/the-ai-native-professional-make-the-shift-to-be-future-ready/" target="_blank" rel="noopener">
-      <span class="proof-strip__badge">GT</span>
-      <span class="proof-strip__text">Featured by <b>Georgia Tech Alumni Association</b></span>
-      <span class="proof-strip__arrow">↗</span>
-    </a>
+  <!-- Featured by Georgia Tech -->
+  <section class="section section--divide">
+    <div class="eyebrow">Featured by Georgia Tech</div>
+    <div class="gt-grid">
+      <div class="card gt-card">
+        <div class="gt-card__head">
+          <div class="gt-badge">GT</div>
+          <div style="flex:1">
+            <div class="gt-card__t">Industry Insights — Career Newsletter</div>
+            <div class="gt-card__s">Georgia Tech Alumni Association · sent to alumni</div>
+          </div>
+          <div class="gt-chip">FEATURED</div>
+        </div>
+        <div class="gt-card__body">
+          <div class="gt-card__d">AI Musings workshops were featured in <b>Industry Insights</b>, the Georgia Tech Alumni Association's career newsletter — recommended to alumni as a hands-on way to build AI fluency for their careers.</div>
+          <a class="gt-shot" href="https://events.gtalumni.org/e/the-ai-native-professional-make-the-shift-to-be-future-ready/" target="_blank" rel="noopener">
+            <img src="{{ img | append: 'gt-feature.png' | relative_url }}" alt="Future-Proof Your Career with AI — Georgia Tech Alumni event with Swati Jain and Sree Pradhip, Aug 13" width="641" height="431" loading="lazy">
+          </a>
+          <div class="gt-card__cap">From the Georgia Tech Alumni events calendar — click to view the listing ↗</div>
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- Reviews -->
