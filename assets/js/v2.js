@@ -40,6 +40,22 @@
     on(modal, 'click', function (e) { if (e.target === modal) closeModal(); });
     on(document, 'keydown', function (e) { if (e.key === 'Escape') { closeModal(); closeAll(); nav && nav.classList.remove('is-menu-open'); } });
 
+    /* ---- Testimonials video: click-to-load facade -------------------- */
+    /* The poster is served locally; the YouTube iframe is injected only on
+       click. This keeps all third-party YouTube requests off the initial
+       page load (faster for users; and headless crawlers no longer hang
+       waiting on YouTube's player, which never reaches network-idle). */
+    document.querySelectorAll('.rev-play').forEach(function (btn) {
+      on(btn, 'click', function () {
+        var f = document.createElement('iframe');
+        f.src = btn.getAttribute('data-embed') + '?autoplay=1';
+        f.title = 'AI Workshop Testimonials';
+        f.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+        f.allowFullscreen = true;
+        btn.replaceWith(f);
+      });
+    });
+
     /* ---- Testimonials rotation (3 visible, 6s, 220ms fade) ------------ */
     var quotesEl = document.getElementById('quotes');
     var dataEl = document.getElementById('testimonials-data');

@@ -292,7 +292,7 @@ permalink: /
       </div>
     </div>
     <div class="rev-media">
-      <div class="rev-video"><iframe src="{{ site.v2.testimonials_video }}" title="AI Workshop Testimonials" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>
+      <div class="rev-video"><button type="button" class="rev-play" data-embed="{{ site.v2.testimonials_video }}" aria-label="Play testimonials video"><img src="{{ img | append: 'testimonials-poster.jpg' | relative_url }}" alt="AI Workshop Testimonials" loading="lazy"><span class="rev-play__btn" aria-hidden="true"></span></button></div>
       <div class="rev-side">
         <div class="eyebrow eyebrow--on-dark" style="margin-bottom:2px">Watch</div>
         <div class="h-22">Participants, in their own <i>words.</i></div>
