@@ -31,6 +31,16 @@
     var burger = document.querySelector('.nav__burger');
     on(burger, 'click', function (e) { e.stopPropagation(); nav.classList.toggle('is-menu-open'); });
 
+    /* ---- Mobile nav accordions (Programs / Connect) ------------------- */
+    document.querySelectorAll('.nav__mobile .m-grp').forEach(function (grp) {
+      var head = grp.querySelector('.m-grp__h');
+      on(head, 'click', function (e) {
+        e.stopPropagation();
+        var nowOpen = grp.classList.toggle('is-open');
+        head.setAttribute('aria-expanded', nowOpen ? 'true' : 'false');
+      });
+    });
+
     /* ---- Register modal ---------------------------------------------- */
     var modal = document.getElementById('reg-modal');
     var openModal = function (e) { if (e) e.preventDefault(); if (modal) { modal.classList.add('is-open'); document.body.style.overflow = 'hidden'; } };

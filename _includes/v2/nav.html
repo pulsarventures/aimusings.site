@@ -48,17 +48,29 @@
   <div class="nav__mobile">
     <a href="{{ '/' | relative_url }}">Home</a>
     <a href="{{ '/workshops/' | relative_url }}">Workshops</a>
-    <div class="m-h">Programs</div>
-    <a href="{{ '/corporate/' | relative_url }}">Corporate</a>
-    <a href="{{ '/universities/' | relative_url }}">Universities</a>
+
+    <div class="m-grp">
+      <button class="m-grp__h" type="button" aria-expanded="false" aria-controls="m-grp-programs">Programs <span class="m-grp__caret" aria-hidden="true">▾</span></button>
+      <div class="m-grp__body" id="m-grp-programs">
+        <a href="{{ '/corporate/' | relative_url }}">Corporate</a>
+        <a href="{{ '/universities/' | relative_url }}">Universities</a>
+      </div>
+    </div>
+
     <a href="{{ '/#sec-instructors' | relative_url }}">Instructors</a>
     <a href="{{ '/#sec-stories' | relative_url }}">Stories</a>
     <a href="{{ site.v2.academy }}" target="_blank" rel="noopener">Academy ↗</a>
-    <div class="m-h">Connect</div>
-    <a href="{{ site.v2.cal }}" target="_blank" rel="noopener">Schedule a call</a>
-    <a href="{{ site.v2.whatsapp }}" target="_blank" rel="noopener">WhatsApp community</a>
-    <a href="{{ site.v2.linkedin }}" target="_blank" rel="noopener">LinkedIn</a>
-    <a href="{{ site.v2.youtube }}" target="_blank" rel="noopener">YouTube</a>
+
+    <div class="m-grp">
+      <button class="m-grp__h" type="button" aria-expanded="false" aria-controls="m-grp-connect">Connect <span class="m-grp__caret" aria-hidden="true">▾</span></button>
+      <div class="m-grp__body" id="m-grp-connect">
+        <a href="{{ site.v2.cal }}" target="_blank" rel="noopener">Schedule a call</a>
+        <a href="{{ site.v2.whatsapp }}" target="_blank" rel="noopener">WhatsApp community</a>
+        <a href="{{ site.v2.linkedin }}" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="{{ site.v2.youtube }}" target="_blank" rel="noopener">YouTube</a>
+      </div>
+    </div>
+
     <button class="btn btn--primary m-cta" type="button" data-open-reg style="width:100%">Register</button>
   </div>
 </header>
