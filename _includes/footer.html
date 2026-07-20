@@ -1,0 +1,18 @@
+{%- assign ic = '/assets/icons/' -%}
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__brand">
+      <img src="{{ '/assets/img/logo.png' | relative_url }}" alt="" width="24" height="24">
+      <span>© AI Musings</span>
+    </div>
+    <div class="footer__links">
+      <a href="mailto:{{ site.links.email_sree }}"><span class="ic" style="--u:url('{{ ic | append: 'mail.svg' | relative_url }}')"></span>{{ site.links.email_sree }}</a>
+      <a href="mailto:{{ site.links.email_swati }}"><span class="ic" style="--u:url('{{ ic | append: 'mail.svg' | relative_url }}')"></span>{{ site.links.email_swati }}</a>
+      <a href="{{ site.links.whatsapp }}" target="_blank" rel="noopener" title="WhatsApp community"><span class="ic" style="--u:url('{{ ic | append: 'whatsapp.svg' | relative_url }}');width:16px;height:16px"></span>WhatsApp</a>
+      <a href="{{ site.links.linkedin }}" target="_blank" rel="noopener" title="LinkedIn"><span class="ic" style="--u:url('{{ ic | append: 'linkedin.svg' | relative_url }}')"></span>LinkedIn</a>
+      <a href="{{ site.links.youtube }}" target="_blank" rel="noopener" title="YouTube"><span class="ic" style="--u:url('{{ ic | append: 'youtube.svg' | relative_url }}');width:16px;height:16px"></span>YouTube</a>
+      <a href="{{ site.links.cal }}" target="_blank" rel="noopener" title="Schedule a call"><span class="ic" style="--u:url('{{ ic | append: 'calendar-clock.svg' | relative_url }}')"></span>Schedule a call</a>
+      <a href="{{ site.links.academy }}" target="_blank" rel="noopener" title="Academy"><span class="ic" style="--u:url('{{ ic | append: 'graduation-cap.svg' | relative_url }}');width:16px;height:16px"></span>Academy</a>
+    </div>
+  </div>
+</footer>

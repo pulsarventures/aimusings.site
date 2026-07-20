@@ -1,0 +1,77 @@
+{%- assign a = page.nav_active -%}
+{%- assign ic = '/assets/icons/' -%}
+<header class="nav">
+  <div class="nav__inner">
+    <a class="nav__brand" href="{{ '/' | relative_url }}">
+      <img src="{{ '/assets/img/logo.png' | relative_url }}" alt="AI Musings" width="36" height="36">
+      <span class="nav__word">AI <i>Musings</i></span>
+    </a>
+
+    <nav class="nav__links" aria-label="Primary">
+      <a class="nav__item{% if a == 'home' %} is-active{% endif %}" href="{{ '/' | relative_url }}">Home</a>
+      <a class="nav__item{% if a == 'workshops' %} is-active{% endif %}" href="{{ '/workshops/' | relative_url }}">Workshops</a>
+
+      <div class="nav__dd">
+        <button class="nav__item{% if a == 'corporate' or a == 'university' %} is-active{% endif %}" type="button">Programs <span class="nav__caret">▾</span></button>
+        <div class="nav__menu nav__menu--left">
+          <a class="nav__row" href="{{ '/corporate/' | relative_url }}">
+            <span class="nav__tile" style="background:#171028"><span class="ic" style="--u:url('{{ ic | append: 'building-2.svg' | relative_url }}');color:#b9a8ea"></span></span>
+            <span><span class="nav__rt">Corporate</span><span class="nav__rs">Private programs for teams</span></span>
+          </a>
+          <a class="nav__row" href="{{ '/universities/' | relative_url }}">
+            <span class="nav__tile" style="background:#f6dcec"><span class="ic" style="--u:url('{{ ic | append: 'graduation-cap.svg' | relative_url }}');color:#43265f"></span></span>
+            <span><span class="nav__rt">Universities</span><span class="nav__rs">Guest lectures &amp; courses</span></span>
+          </a>
+        </div>
+      </div>
+
+      <a class="nav__item" href="{{ '/#sec-instructors' | relative_url }}">Instructors</a>
+      <a class="nav__item" href="{{ '/#sec-stories' | relative_url }}">Stories</a>
+      <a class="nav__item" href="{{ site.links.academy }}" target="_blank" rel="noopener">Academy <span style="font-size:10px">↗</span></a>
+
+      <div class="nav__dd">
+        <button class="nav__item" type="button">Connect <span class="nav__caret">▾</span></button>
+        <div class="nav__menu nav__menu--right" style="min-width:236px">
+          <a class="nav__row" href="{{ site.links.cal }}" target="_blank" rel="noopener"><span><span class="nav__rt">Schedule a call</span><span class="nav__rs">Free 30-min consultation</span></span></a>
+          <a class="nav__row" href="{{ site.links.whatsapp }}" target="_blank" rel="noopener"><span><span class="nav__rt">WhatsApp community</span><span class="nav__rs">Announcements &amp; peer network</span></span></a>
+          <a class="nav__row" href="{{ site.links.linkedin }}" target="_blank" rel="noopener"><span><span class="nav__rt">LinkedIn</span><span class="nav__rs">Follow AI Musings</span></span></a>
+          <a class="nav__row" href="{{ site.links.youtube }}" target="_blank" rel="noopener"><span><span class="nav__rt">YouTube</span><span class="nav__rs">Recordings, tutorials &amp; demos</span></span></a>
+        </div>
+      </div>
+
+      <button class="btn btn--primary btn--sm nav__cta" type="button" data-open-reg>Register</button>
+    </nav>
+
+    <button class="nav__burger" type="button" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+
+  <div class="nav__mobile">
+    <a href="{{ '/' | relative_url }}">Home</a>
+    <a href="{{ '/workshops/' | relative_url }}">Workshops</a>
+
+    <div class="m-grp">
+      <button class="m-grp__h" type="button" aria-expanded="false" aria-controls="m-grp-programs">Programs <span class="m-grp__caret" aria-hidden="true">▾</span></button>
+      <div class="m-grp__body" id="m-grp-programs">
+        <a href="{{ '/corporate/' | relative_url }}">Corporate</a>
+        <a href="{{ '/universities/' | relative_url }}">Universities</a>
+      </div>
+    </div>
+
+    <a href="{{ '/#sec-instructors' | relative_url }}">Instructors</a>
+    <a href="{{ '/#sec-stories' | relative_url }}">Stories</a>
+    <a href="{{ site.links.academy }}" target="_blank" rel="noopener">Academy ↗</a>
+
+    <div class="m-grp">
+      <button class="m-grp__h" type="button" aria-expanded="false" aria-controls="m-grp-connect">Connect <span class="m-grp__caret" aria-hidden="true">▾</span></button>
+      <div class="m-grp__body" id="m-grp-connect">
+        <a href="{{ site.links.cal }}" target="_blank" rel="noopener">Schedule a call</a>
+        <a href="{{ site.links.whatsapp }}" target="_blank" rel="noopener">WhatsApp community</a>
+        <a href="{{ site.links.linkedin }}" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="{{ site.links.youtube }}" target="_blank" rel="noopener">YouTube</a>
+      </div>
+    </div>
+
+    <button class="btn btn--primary m-cta" type="button" data-open-reg style="width:100%">Register</button>
+  </div>
+</header>
+<div class="nav-spacer"></div>

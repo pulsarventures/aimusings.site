@@ -1,11 +1,11 @@
 ---
-layout: v2
+layout: default
 nav_active: workshops
 title: "Workshops — the catalog"
 description: "Numbered like university courses: Foundations (100), Builder Series (200), Platform Series (300), and Bootcamp (400). Live, hands-on AI workshops on Zoom."
 permalink: /workshops/
 ---
-{%- assign ic = '/assets/v2/icons/' -%}
+{%- assign ic = '/assets/icons/' -%}
 
 <div class="wrap">
   <div class="section" style="padding-top:52px;padding-bottom:64px">
@@ -23,7 +23,7 @@ permalink: /workshops/
     </div>
     <div class="wide-note" style="margin-bottom:36px">Numbered like university courses: start at your level, climb as capability grows. All sessions run live on Zoom.</div>
 
-    {%- include v2/open-cohorts.html -%}
+    {%- include open-cohorts.html -%}
     <div style="display:flex;flex-direction:column;gap:16px">
       {%- for w in site.data.catalog -%}
       {%- assign nc = open_cohorts | where: 'level', w.lvl | first -%}

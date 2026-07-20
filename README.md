@@ -1,8 +1,8 @@
-# AI Musings — website (v2)
+# AI Musings — website
 
 Marketing site for **AI Musings** — live, hands-on AI fluency workshops for professionals, corporate teams, and universities. Built with **Jekyll**, deployed on **GitHub Pages** at **https://aimusings.site**.
 
-This is the **v2 redesign** — a full visual overhaul recreated from the design handoff in `docs/superpowers/specs/`. Registration is handled externally on Tixtree; organization inquiries route to a scheduling link (cal.com) and email. There are **no forms and no backend**.
+This is the **2026 redesign** — a full visual overhaul recreated from the design handoff in `docs/superpowers/specs/`. Registration is handled externally on Tixtree; organization inquiries route to a scheduling link (cal.com) and email. There are **no forms and no backend**.
 
 ## Pages (real routes)
 
@@ -29,18 +29,18 @@ Content the team maintains lives in **`_data/*.yml`** — edit these, no HTML ne
 - `tools.yml` — the "tools that matter" grid
 - `corp_offers.yml` — the four Corporate offerings
 
-Shared links (emails, cal.com, WhatsApp, YouTube, LinkedIn, Academy) and the tweakable `professionals_trained` number live in **`_config.yml`** under the `v2:` block.
+Shared links (emails, cal.com, WhatsApp, YouTube, LinkedIn, Academy) and the tweakable `professionals_trained` number live in **`_config.yml`** under the `links:` block.
 
 ## Project structure
 
 ```
-_config.yml            # Site config + shared URLs (v2: block)
+_config.yml            # Site config + shared URLs (links: block)
 _data/*.yml            # All editable content
-_layouts/v2.html       # Base layout (head, nav, footer, register modal)
-_includes/v2/          # nav, footer, register-modal, inquiry-card, cohort-list, head
-assets/css/v2.css      # Design system (tokens, components, responsive)
-assets/js/v2.js        # Nav dropdowns, mobile menu, modal, testimonial rotation, FAQ, catalog filter
-assets/v2/             # Self-hosted fonts, icons, and images (no CDNs)
+_layouts/default.html  # Base layout (head, nav, footer, register modal)
+_includes/             # head, nav, footer, register-modal, cohort-list, open-cohorts, schema
+assets/css/main.css    # Design system (tokens, components, responsive)
+assets/js/main.js      # Nav dropdowns, mobile menu, modal, testimonial rotation, FAQ, catalog filter
+assets/                # Self-hosted fonts, icons, and images (no CDNs)
 index.html, *.html     # The five pages
 docs/superpowers/specs # Design spec (source of truth for the redesign)
 ```
@@ -69,8 +69,8 @@ Pushing to `main` publishes to GitHub Pages (custom domain `aimusings.site` via 
 
 - **Type:** Public Sans (UI/body) · Source Serif 4 (headings, italic accent words)
 - **Primary purple:** `#6c4ac6` (hover `#57379f`) · ink `#171028` · footer `#100a1f`
-- All tokens are defined as CSS custom properties at the top of `assets/css/v2.css`.
-- Fonts and icons are **self-hosted** in `assets/v2/` — do not reintroduce CDN links.
+- All tokens are defined as CSS custom properties at the top of `assets/css/main.css`.
+- Fonts and icons are **self-hosted** in `assets/` — do not reintroduce CDN links.
 
 ---
 

@@ -1,8 +1,0 @@
-{%- comment -%}
-  Single source of truth for the schedule (see _data/cohorts.json).
-  Exposes `open_cohorts`: only entries that are status:scheduled, have a
-  registration link, and start today or later. In-progress cohorts never appear.
-  Assigns leak to the calling template (Jekyll includes share scope).
-{%- endcomment -%}
-{%- assign today = 'now' | date: '%Y-%m-%d' -%}
-{%- assign open_cohorts = site.data.cohorts | where_exp: "c", "c.status == 'scheduled' and c.link and c.date >= today" | sort: 'date' -%}

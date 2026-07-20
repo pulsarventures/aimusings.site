@@ -1,5 +1,5 @@
 # ===========================================================================
-# AI Musings — site settings (v2)
+# AI Musings — site settings
 # ===========================================================================
 title: "AI Musings"
 description: "Live, hands-on AI fluency workshops for professionals, corporate teams, and universities. Learn the tools, build real things, and apply them Monday morning."
@@ -12,7 +12,7 @@ lang: "en"
 professionals_trained: "200+"
 
 # Contact + external destinations used across nav, footer, and CTAs.
-v2:
+links:
   email_sree: "sree@aimusings.site"
   email_swati: "swati@aimusings.site"
   cal: "https://cal.com/sree.pradhip"
@@ -34,7 +34,7 @@ plugins:
   - jekyll-sitemap
 
 # SEO / social defaults
-logo: "/assets/v2/img/logo.png"
+logo: "/assets/img/logo.png"
 social:
   name: "AI Musings"
   links:
@@ -44,13 +44,13 @@ social:
 # Every page gets the branded share card unless it sets its own `image`.
 # Note: `author:` is intentionally absent — jekyll-seo-tag would emit the org as a
 # schema.org Person. Side effect: seo-tag's WebSite `publisher` node is nameless;
-# the real entity data lives in the Organization block from _includes/v2/schema.html.
+# the real entity data lives in the Organization block from _includes/schema.html.
 defaults:
   - scope:
       path: ""
     values:
       image:
-        path: "/assets/v2/img/og-card.png"
+        path: "/assets/img/og-card.png"
         width: 1200
         height: 630
 

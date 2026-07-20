@@ -1,5 +1,5 @@
 # "Hands-on with the tools that matter" grid on Home (learning path).
-# icon = path under /assets/v2/icons/tools/
+# icon = path under /assets/icons/tools/
 - label: "GENERAL PURPOSE"
   items:
     - name: "ChatGPT"
