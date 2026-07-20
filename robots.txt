@@ -1,7 +1,7 @@
 ---
 layout: null
 ---
-# Robots.txt for aimusings.space
+# Robots.txt for aimusings.site
 
 User-agent: *
 Allow: /
