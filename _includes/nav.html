@@ -1,9 +1,9 @@
 {%- assign a = page.nav_active -%}
-{%- assign ic = '/assets/v2/icons/' -%}
+{%- assign ic = '/assets/icons/' -%}
 <header class="nav">
   <div class="nav__inner">
     <a class="nav__brand" href="{{ '/' | relative_url }}">
-      <img src="{{ '/assets/v2/img/logo.png' | relative_url }}" alt="AI Musings" width="36" height="36">
+      <img src="{{ '/assets/img/logo.png' | relative_url }}" alt="AI Musings" width="36" height="36">
       <span class="nav__word">AI <i>Musings</i></span>
     </a>
 
@@ -27,15 +27,15 @@
 
       <a class="nav__item" href="{{ '/#sec-instructors' | relative_url }}">Instructors</a>
       <a class="nav__item" href="{{ '/#sec-stories' | relative_url }}">Stories</a>
-      <a class="nav__item" href="{{ site.v2.academy }}" target="_blank" rel="noopener">Academy <span style="font-size:10px">↗</span></a>
+      <a class="nav__item" href="{{ site.links.academy }}" target="_blank" rel="noopener">Academy <span style="font-size:10px">↗</span></a>
 
       <div class="nav__dd">
         <button class="nav__item" type="button">Connect <span class="nav__caret">▾</span></button>
         <div class="nav__menu nav__menu--right" style="min-width:236px">
-          <a class="nav__row" href="{{ site.v2.cal }}" target="_blank" rel="noopener"><span><span class="nav__rt">Schedule a call</span><span class="nav__rs">Free 30-min consultation</span></span></a>
-          <a class="nav__row" href="{{ site.v2.whatsapp }}" target="_blank" rel="noopener"><span><span class="nav__rt">WhatsApp community</span><span class="nav__rs">Announcements &amp; peer network</span></span></a>
-          <a class="nav__row" href="{{ site.v2.linkedin }}" target="_blank" rel="noopener"><span><span class="nav__rt">LinkedIn</span><span class="nav__rs">Follow AI Musings</span></span></a>
-          <a class="nav__row" href="{{ site.v2.youtube }}" target="_blank" rel="noopener"><span><span class="nav__rt">YouTube</span><span class="nav__rs">Recordings, tutorials &amp; demos</span></span></a>
+          <a class="nav__row" href="{{ site.links.cal }}" target="_blank" rel="noopener"><span><span class="nav__rt">Schedule a call</span><span class="nav__rs">Free 30-min consultation</span></span></a>
+          <a class="nav__row" href="{{ site.links.whatsapp }}" target="_blank" rel="noopener"><span><span class="nav__rt">WhatsApp community</span><span class="nav__rs">Announcements &amp; peer network</span></span></a>
+          <a class="nav__row" href="{{ site.links.linkedin }}" target="_blank" rel="noopener"><span><span class="nav__rt">LinkedIn</span><span class="nav__rs">Follow AI Musings</span></span></a>
+          <a class="nav__row" href="{{ site.links.youtube }}" target="_blank" rel="noopener"><span><span class="nav__rt">YouTube</span><span class="nav__rs">Recordings, tutorials &amp; demos</span></span></a>
         </div>
       </div>
 
@@ -59,15 +59,15 @@
 
     <a href="{{ '/#sec-instructors' | relative_url }}">Instructors</a>
     <a href="{{ '/#sec-stories' | relative_url }}">Stories</a>
-    <a href="{{ site.v2.academy }}" target="_blank" rel="noopener">Academy ↗</a>
+    <a href="{{ site.links.academy }}" target="_blank" rel="noopener">Academy ↗</a>
 
     <div class="m-grp">
       <button class="m-grp__h" type="button" aria-expanded="false" aria-controls="m-grp-connect">Connect <span class="m-grp__caret" aria-hidden="true">▾</span></button>
       <div class="m-grp__body" id="m-grp-connect">
-        <a href="{{ site.v2.cal }}" target="_blank" rel="noopener">Schedule a call</a>
-        <a href="{{ site.v2.whatsapp }}" target="_blank" rel="noopener">WhatsApp community</a>
-        <a href="{{ site.v2.linkedin }}" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="{{ site.v2.youtube }}" target="_blank" rel="noopener">YouTube</a>
+        <a href="{{ site.links.cal }}" target="_blank" rel="noopener">Schedule a call</a>
+        <a href="{{ site.links.whatsapp }}" target="_blank" rel="noopener">WhatsApp community</a>
+        <a href="{{ site.links.linkedin }}" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="{{ site.links.youtube }}" target="_blank" rel="noopener">YouTube</a>
       </div>
     </div>
 

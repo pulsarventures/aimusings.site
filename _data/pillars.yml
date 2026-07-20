@@ -1,5 +1,5 @@
 # Corporate → "Six pillars of successful transformation." (compact icon strip)
-# icon = mono lucide svg under /assets/v2/icons/
+# icon = mono lucide svg under /assets/icons/
 - num: "01"
   name: "Leadership alignment"
   icon: "compass.svg"

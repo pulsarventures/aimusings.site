@@ -1,5 +1,5 @@
 # Corporate → "AI at work, function by function."
-# Each card: 3 use cases + a "Measured by" line. icon = mono lucide svg under /assets/v2/icons/
+# Each card: 3 use cases + a "Measured by" line. icon = mono lucide svg under /assets/icons/
 - name: "Legal"
   icon: "scale.svg"
   cases:

@@ -14,11 +14,11 @@
   "url": {{ site.url | append: '/' | jsonify }},
   "logo": {{ site.logo | absolute_url | jsonify }},
   "description": {{ site.description | jsonify }},
-  "email": {{ site.v2.email_sree | jsonify }},
-  "sameAs": [{{ site.v2.linkedin | jsonify }}, {{ site.v2.youtube | jsonify }}],
+  "email": {{ site.links.email_sree | jsonify }},
+  "sameAs": [{{ site.links.linkedin | jsonify }}, {{ site.links.youtube | jsonify }}],
   "founder": [
-    {"@type": "Person", "name": "Swati Jain", "sameAs": {{ site.v2.linkedin_swati | jsonify }}},
-    {"@type": "Person", "name": "Sree Pradhip", "sameAs": {{ site.v2.linkedin_sree | jsonify }}}
+    {"@type": "Person", "name": "Swati Jain", "sameAs": {{ site.links.linkedin_swati | jsonify }}},
+    {"@type": "Person", "name": "Sree Pradhip", "sameAs": {{ site.links.linkedin_sree | jsonify }}}
   ]
 }
 {%- endcapture -%}

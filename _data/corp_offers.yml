@@ -1,6 +1,6 @@
 # Corporate page — "Four integrated offerings — one journey."
 # Reframed as Enable · Discover · Co-build · Sustain (no consulting/"rapid sprint" language).
-# icon = mono lucide svg under /assets/v2/icons/ (rendered via CSS mask in purple).
+# icon = mono lucide svg under /assets/icons/ (rendered via CSS mask in purple).
 - name: "AI Readiness & Enablement"
   tag: "Enable"
   desc: "Exec briefings and role-based fluency training across your org."

@@ -1,12 +1,12 @@
 ---
-layout: v2
+layout: default
 nav_active: home
 title: "Fluent in AI. Fluent at work."
 description: "We build AI fluency for professionals, corporate teams, and universities. Eight months of learning, compressed into eight hours — live, hands-on, in a community, corporate, or university setting."
 permalink: /
 ---
-{%- assign ic = '/assets/v2/icons/' -%}
-{%- assign img = '/assets/v2/img/' -%}
+{%- assign ic = '/assets/icons/' -%}
+{%- assign img = '/assets/img/' -%}
 
 <div class="wrap">
 
@@ -21,7 +21,7 @@ permalink: /
       </div>
       <div class="hero__sub">Live cohorts for professionals · Multi-month programs for corporates &amp; universities · Virtual or on-site</div>
     </div>
-    {% include v2/cohort-list.html %}
+    {% include cohort-list.html %}
   </section>
 
   <!-- The AI Musings method -->
@@ -166,7 +166,7 @@ permalink: /
           <div class="tool-col__label">{{ g.label }}</div>
           <div class="tool-list">
             {%- for t in g.items -%}
-            <div class="tool"><div class="tool__ic" role="img" aria-label="{{ t.name }}" style="background-image:url('{{ '/assets/v2/icons/' | append: t.icon | relative_url }}')"></div><div class="tool__n">{{ t.name }}</div></div>
+            <div class="tool"><div class="tool__ic" role="img" aria-label="{{ t.name }}" style="background-image:url('{{ '/assets/icons/' | append: t.icon | relative_url }}')"></div><div class="tool__n">{{ t.name }}</div></div>
             {%- endfor -%}
           </div>
         </div>
@@ -224,8 +224,8 @@ permalink: /
             <h3 class="inst__name">Swati Jain</h3>
             <div class="inst__role">AI Product Management at Workday · Lead Instructor &amp; Facilitator</div>
             <div style="display:flex;gap:8px;flex-wrap:wrap">
-              <a class="btn btn--linkedin" href="{{ site.v2.linkedin_swati }}" target="_blank" rel="noopener"><span class="in">in</span> Connect on LinkedIn</a>
-              <a class="btn btn--ghost btn--sm" href="mailto:{{ site.v2.email_swati }}">✉ Email Swati</a>
+              <a class="btn btn--linkedin" href="{{ site.links.linkedin_swati }}" target="_blank" rel="noopener"><span class="in">in</span> Connect on LinkedIn</a>
+              <a class="btn btn--ghost btn--sm" href="mailto:{{ site.links.email_swati }}">✉ Email Swati</a>
             </div>
           </div>
         </div>
@@ -239,8 +239,8 @@ permalink: /
             <h3 class="inst__name">Sree Pradhip</h3>
             <div class="inst__role">Builder &amp; Evangelist</div>
             <div style="display:flex;gap:8px;flex-wrap:wrap">
-              <a class="btn btn--linkedin" href="{{ site.v2.linkedin_sree }}" target="_blank" rel="noopener"><span class="in">in</span> Connect on LinkedIn</a>
-              <a class="btn btn--ghost btn--sm" href="mailto:{{ site.v2.email_sree }}">✉ Email Sree</a>
+              <a class="btn btn--linkedin" href="{{ site.links.linkedin_sree }}" target="_blank" rel="noopener"><span class="in">in</span> Connect on LinkedIn</a>
+              <a class="btn btn--ghost btn--sm" href="mailto:{{ site.links.email_sree }}">✉ Email Sree</a>
             </div>
           </div>
         </div>
@@ -283,7 +283,7 @@ permalink: /
         <h2 class="h-34">What past cohorts <i>say.</i></h2>
         <div class="rev-rate">
           <div class="section-note">from participants across 12+ cohorts</div>
-          <a class="review-link" href="{{ site.v2.linkedin }}" target="_blank" rel="noopener">Leave a review →</a>
+          <a class="review-link" href="{{ site.links.linkedin }}" target="_blank" rel="noopener">Leave a review →</a>
         </div>
       </div>
       <div class="rev-arrows">
@@ -292,7 +292,7 @@ permalink: /
       </div>
     </div>
     <div class="rev-media">
-      <div class="rev-video"><button type="button" class="rev-play" data-embed="{{ site.v2.testimonials_video }}" aria-label="Play testimonials video"><img src="{{ img | append: 'testimonials-poster.jpg' | relative_url }}" alt="AI Workshop Testimonials" loading="lazy"><span class="rev-play__btn" aria-hidden="true"></span></button></div>
+      <div class="rev-video"><button type="button" class="rev-play" data-embed="{{ site.links.testimonials_video }}" aria-label="Play testimonials video"><img src="{{ img | append: 'testimonials-poster.jpg' | relative_url }}" alt="AI Workshop Testimonials" loading="lazy"><span class="rev-play__btn" aria-hidden="true"></span></button></div>
       <div class="rev-side">
         <div class="eyebrow eyebrow--on-dark" style="margin-bottom:2px">Watch</div>
         <h3 class="h-22">Participants, in their own <i>words.</i></h3>
@@ -367,7 +367,7 @@ permalink: /
         </div>
         {%- endfor -%}
       </div>
-      <div class="section-note" style="text-align:center;margin-top:22px">Something else? We reply within one business day · <a href="{{ site.v2.cal }}" target="_blank" rel="noopener" style="font-weight:600">Book a 30-min call →</a></div>
+      <div class="section-note" style="text-align:center;margin-top:22px">Something else? We reply within one business day · <a href="{{ site.links.cal }}" target="_blank" rel="noopener" style="font-weight:600">Book a 30-min call →</a></div>
     </div>
   </section>
 

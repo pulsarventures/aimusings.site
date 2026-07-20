@@ -1,4 +1,4 @@
-/* AI Musings v2 — interactions (vanilla JS, no dependencies) */
+/* AI Musings — interactions (vanilla JS, no dependencies) */
 (function () {
   'use strict';
   var on = function (el, ev, fn) { if (el) el.addEventListener(ev, fn); };
