@@ -16,7 +16,7 @@ permalink: /corporate/
         <span class="is-on">Corporate</span>
         <a href="{{ '/universities/' | relative_url }}">Universities</a>
       </div>
-      <div class="h-48">Your team, fluent in <i>weeks.</i></div>
+      <h1 class="h-48">Your team, fluent in <i>weeks.</i></h1>
       <div class="dark-hero__lead">We train your teams and build alongside them until adoption sticks — a 90-day capability plan up front, hours saved per role reported at the end. Virtual or on-site.</div>
       <a class="btn btn--white" href="{{ site.v2.cal }}" target="_blank" rel="noopener">Book a call</a>
     </div>
@@ -36,15 +36,15 @@ permalink: /corporate/
     <div class="eyebrow">Why teams pick us</div>
     <div class="grid g3" style="gap:16px;margin-bottom:52px">
       <div class="card" style="padding:24px">
-        <div class="pick__t">Not a video library</div>
+        <h2 class="pick__t">Not a video library</h2>
         <div class="pick__d">Licenses go unwatched. Every session is live, hands-on, and runs inside your team's real workflows.</div>
       </div>
       <div class="card" style="padding:24px">
-        <div class="pick__t">Not a strategy deck</div>
+        <h2 class="pick__t">Not a strategy deck</h2>
         <div class="pick__d">We don't leave at the roadmap. Your people co-build the pilots with us — the capability stays in-house.</div>
       </div>
       <div class="card" style="padding:24px">
-        <div class="pick__t">Not a one-off workshop</div>
+        <h2 class="pick__t">Not a one-off workshop</h2>
         <div class="pick__d">A sequenced, multi-week program with a readiness baseline and measured outcomes — not a one-day event.</div>
       </div>
     </div>
@@ -53,7 +53,7 @@ permalink: /corporate/
     <div class="two two--transform">
       <div>
         <div class="eyebrow">The transformation we drive</div>
-        <div class="h-28" style="margin-bottom:12px">From AI as a tool to AI as a <i>teammate.</i></div>
+        <h2 class="h-28" style="margin-bottom:12px">From AI as a tool to AI as a <i>teammate.</i></h2>
         <div style="font:400 14px/1.65 var(--sans);color:var(--body)">The shift is not just technological — it is organizational. Every engagement moves you from fragmented experimentation to scaled, embedded adoption.</div>
       </div>
       <div class="cmp cmp--3col">
@@ -70,7 +70,7 @@ permalink: /corporate/
     <div style="margin-top:44px">
       <div class="eyebrow">Our philosophy</div>
       <div class="head-row" style="align-items:baseline;flex-wrap:wrap;margin-bottom:18px">
-        <div class="h-24">Six pillars of successful <i>transformation.</i></div>
+        <h2 class="h-24">Six pillars of successful <i>transformation.</i></h2>
         <div class="section-note" style="font-size:13px">Not the most tools — the best operationalized.</div>
       </div>
       <div class="pillars">
@@ -80,7 +80,7 @@ permalink: /corporate/
             <span class="ic" style="--u:url('{{ ic | append: p.icon | relative_url }}')"></span>
             <span class="pillar__n">{{ p.num }}</span>
           </div>
-          <div class="pillar__t">{{ p.name }}</div>
+          <h3 class="pillar__t">{{ p.name }}</h3>
         </div>
         {%- endfor -%}
       </div>
@@ -88,13 +88,13 @@ permalink: /corporate/
 
     <!-- What we deliver -->
     <div class="eyebrow" style="margin:52px 0 14px">What we deliver</div>
-    <div class="h-32" style="margin-bottom:32px">Four integrated offerings — one <i>journey.</i></div>
+    <h2 class="h-32" style="margin-bottom:32px">Four integrated offerings — one <i>journey.</i></h2>
     <div class="grid g2">
       {%- for o in site.data.corp_offers -%}
       <div class="offer">
         <span class="ic" style="--u:url('{{ ic | append: o.icon | relative_url }}')"></span>
         <div style="flex:1">
-          <div class="offer__top"><div class="offer__name">{{ o.name }}</div><div class="offer__tag">{{ o.tag }}</div></div>
+          <div class="offer__top"><h3 class="offer__name">{{ o.name }}</h3><div class="offer__tag">{{ o.tag }}</div></div>
           <div class="offer__d">{{ o.desc }}</div>
           <div class="offer__points">
             {%- for pt in o.points -%}
@@ -109,13 +109,13 @@ permalink: /corporate/
     <!-- The corporate program (4-week arc) -->
     <div style="margin-top:52px">
       <div class="eyebrow">The corporate program</div>
-      <div class="h-32" style="margin-bottom:10px">Four weeks. One arc. <i>Measured.</i></div>
+      <h2 class="h-32" style="margin-bottom:10px">Four weeks. One arc. <i>Measured.</i></h2>
       <div style="font:400 14px/1.6 var(--sans);color:var(--body);max-width:640px;margin-bottom:24px">Every engagement opens with a 60-minute <b>AI Readiness Diagnostic</b> — a readiness score and a custom 90-day capability plan. Then the program runs as one arc:</div>
       <div class="grid g4" style="gap:12px">
         {%- for a in site.data.program_arc -%}
         <div class="arc">
           <div class="arc__head"><div class="arc__wk">{{ a.wk }}</div><div class="arc__tag">{{ a.tag }}</div></div>
-          <div class="arc__t">{{ a.name }}</div>
+          <h3 class="arc__t">{{ a.name }}</h3>
           <div class="arc__d">{{ a.desc }}</div>
           <div class="arc__m">{{ a.meta }}</div>
         </div>
@@ -127,14 +127,14 @@ permalink: /corporate/
     <!-- AI at work, function by function -->
     <div style="margin-top:52px">
       <div class="eyebrow">Where agents land first</div>
-      <div class="h-32" style="margin-bottom:10px">AI at work, function by <i>function.</i></div>
+      <h2 class="h-32" style="margin-bottom:10px">AI at work, function by <i>function.</i></h2>
       <div style="font:400 14px/1.6 var(--sans);color:var(--body);max-width:640px;margin-bottom:24px">Start where the picture is clearest — high-frequency work with known outcomes — then expand autonomy as trust grows.</div>
       <div class="grid g3" style="gap:16px">
         {%- for f in site.data.functions -%}
         <div class="fn">
           <div class="fn__head">
             <span class="fn__tile"><span class="ic" style="--u:url('{{ ic | append: f.icon | relative_url }}')"></span></span>
-            <span class="fn__t">{{ f.name }}</span>
+            <h3 class="fn__t">{{ f.name }}</h3>
           </div>
           <div class="fn__list">
             {%- for c in f.cases -%}
@@ -150,23 +150,23 @@ permalink: /corporate/
     <!-- Representative engagements -->
     <div style="margin-top:52px">
       <div class="eyebrow">Representative engagements</div>
-      <div class="h-28" style="margin-bottom:24px">What that looks like in <i>practice.</i></div>
+      <h2 class="h-28" style="margin-bottom:24px">What that looks like in <i>practice.</i></h2>
       <div class="grid g3">
         <div class="engage">
           <div class="engage__k">BRANDING &amp; MEDIA</div>
-          <div class="engage__t">AI-driven marketing enablement</div>
+          <h3 class="engage__t">AI-driven marketing enablement</h3>
           <div class="engage__d">Branding, media ops, and research workflows — faster campaign iteration.</div>
           <div class="engage__r">Result: measurably improved marketing efficiency and strong stakeholder adoption</div>
         </div>
         <div class="engage">
           <div class="engage__k">MEDIA DISTRIBUTION</div>
-          <div class="engage__t">Operational efficiency at continental scale</div>
+          <h3 class="engage__t">Operational efficiency at continental scale</h3>
           <div class="engage__d">Distribution and knowledge workflows, enabled across two continents.</div>
           <div class="engage__r">Result: improved operational visibility and a clear AI roadmap</div>
         </div>
         <div class="engage">
           <div class="engage__k">ENTERPRISE TECHNOLOGY</div>
-          <div class="engage__t">NextGen enablement initiative</div>
+          <h3 class="engage__t">NextGen enablement initiative</h3>
           <div class="engage__d">Technology alignment and workflow redesign at enterprise scale.</div>
           <div class="engage__r">Result: materially increased AI readiness</div>
         </div>
@@ -177,12 +177,12 @@ permalink: /corporate/
     <!-- Principals, not a bench -->
     <div style="margin-top:52px">
       <div class="eyebrow">Who you'll work with</div>
-      <div class="h-32" style="margin-bottom:24px">Principals, not a <i>bench.</i></div>
+      <h2 class="h-32" style="margin-bottom:24px">Principals, not a <i>bench.</i></h2>
       <div class="grid g2" style="gap:16px">
         <div class="principal">
           <img src="{{ img | append: 'swati-jain.jpg' | relative_url }}" alt="Swati Jain" width="76" height="76">
           <div>
-            <div class="principal__n">Swati Jain</div>
+            <h3 class="principal__n">Swati Jain</h3>
             <div class="principal__r">AI Transformation Leader</div>
             <div class="principal__d">20+ years driving enterprise AI adoption and product strategy; Fortune 500 advisor. Leads enablement and change management.</div>
           </div>
@@ -190,7 +190,7 @@ permalink: /corporate/
         <div class="principal">
           <img src="{{ img | append: 'sree-pradhip.jpg' | relative_url }}" alt="Sree Pradhip" width="76" height="76">
           <div>
-            <div class="principal__n">Sree Pradhip</div>
+            <h3 class="principal__n">Sree Pradhip</h3>
             <div class="principal__r">Founder &amp; CEO, Pulsar Ventures</div>
             <div class="principal__d">Decades across engineering, product, and enterprise architecture with leading retailers — merchandising to supply chain. Leads co-building.</div>
           </div>
@@ -202,7 +202,7 @@ permalink: /corporate/
     <!-- Closing CTA band (64px light gap before the footer) -->
     <div class="cta-band">
       <div>
-        <div class="h-26" style="color:#fff;margin-bottom:8px">Start with an Executive Discovery <i>Session.</i></div>
+        <h2 class="h-26" style="color:#fff;margin-bottom:8px">Start with an Executive Discovery <i>Session.</i></h2>
         <div class="cta-band__d">60 minutes, no RFP. You leave with a readiness score, your highest-value use cases, and a 90-day capability plan — whether or not we work together.</div>
       </div>
       <div class="cta-band__right">

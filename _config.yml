@@ -34,14 +34,25 @@ plugins:
   - jekyll-sitemap
 
 # SEO / social defaults
-author:
-  name: "AI Musings"
 logo: "/assets/v2/img/logo.png"
 social:
   name: "AI Musings"
   links:
     - "https://www.linkedin.com/company/aimusings/"
     - "https://www.youtube.com/@AIMusingsBuilderCommunitySnS"
+
+# Every page gets the branded share card unless it sets its own `image`.
+# Note: `author:` is intentionally absent — jekyll-seo-tag would emit the org as a
+# schema.org Person. Side effect: seo-tag's WebSite `publisher` node is nameless;
+# the real entity data lives in the Organization block from _includes/v2/schema.html.
+defaults:
+  - scope:
+      path: ""
+    values:
+      image:
+        path: "/assets/v2/img/og-card.png"
+        width: 1200
+        height: 630
 
 # --- Housekeeping -----------------------------------------------------------
 timezone: "America/New_York"
