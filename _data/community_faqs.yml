@@ -1,0 +1,31 @@
+# Community page FAQ — the section on /community/ renders ONLY questions whose
+# answer is filled in. All answers are TODO: these are policy facts only the
+# owner knows. Write answers in the site's voice (short, direct, no happy talk).
+# When every answer you want is in, the FAQ appears automatically — no other edit needed.
+
+- question: "Can I cancel my membership anytime?"
+  answer: ""
+  # TODO(owner): confirm Stripe customer portal / cancellation policy, then answer.
+  # If cancellation is self-serve, saying "cancel anytime" here (and near the
+  # Subscribe button) is the single strongest conversion line on this page.
+
+- question: "Are Community Hours recorded if I miss a call?"
+  answer: ""
+  # TODO(owner): recordings policy — available to members? for how long?
+
+- question: "Do I need to have taken an AI Musings workshop first?"
+  answer: ""
+  # TODO(owner): is the community open to newcomers, or alumni-only?
+  # Suggested draft if open: "No — alumni get the most continuity, but the calls
+  # are open to any AI-curious professional. Jump in; the community will catch you up."
+
+- question: "What happens right after I subscribe?"
+  answer: ""
+  # TODO(owner): the onboarding path — confirmation email? calendar invites?
+  # WhatsApp group add? Setting this expectation reduces refunds and churn.
+
+- question: "Who is the community for?"
+  answer: ""
+  # Suggested draft (derived from the page copy, edit freely):
+  # "Workshop alumni, ongoing learners, and AI-curious professionals who want to
+  # stay sharp between cohorts — product, marketing, ops, founders, and more."
