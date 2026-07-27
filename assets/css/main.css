@@ -526,6 +526,11 @@ h1,h2,h3,h4{margin:0;font-weight:600}
 .stripe-wrap{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;text-align:center}
 .stripe-note{font:400 12px/1.5 var(--sans);color:var(--muted)}
 
+/* pinned Community Hours row under the cohort list (hero card + register modal) */
+.reg-card__pin{border-top:1px dashed var(--line-strong);margin-top:14px;padding-top:14px}
+.cal--pin{background:var(--purple);color:#fff}
+.cal--pin .cal__m,.cal--pin .cal__d{display:block}
+
 /* homepage teaser photo strip (full gallery lives on /community/) */
 .teaser-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px}
 .teaser-strip img{width:100%;height:220px;object-fit:cover;border-radius:12px}

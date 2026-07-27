@@ -23,6 +23,14 @@
       </a>
       {%- endfor -%}
     </div>
+    <!-- Pinned membership row — outside [data-cohort-modal] so the JS refresh never wipes it -->
+    <div class="reg-card__pin">
+      <a class="modal__row" href="{{ '/community/' | relative_url }}">
+        <span class="cal cal--pin"><span class="cal__m">FRI</span><span class="cal__d">∞</span></span>
+        <span class="cohort__b"><span class="cohort__n">Community Hours</span><span class="cohort__meta">Every other Friday · 3:00–4:30 PM ET · Membership</span></span>
+        <span class="modal__tix">Join →</span>
+      </a>
+    </div>
     <div class="modal__foot">Running a team? <a href="{{ '/corporate/' | relative_url }}">Ask about a private cohort →</a></div>
   </div>
 </div>
