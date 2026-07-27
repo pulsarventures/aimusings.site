@@ -293,6 +293,7 @@ h1,h2,h3,h4{margin:0;font-weight:600}
 .quote__n{font:700 13px var(--sans)}
 .quote__n span{font-weight:400;color:var(--muted)}
 .rev-rate{display:flex;align-items:center;gap:14px;margin-top:16px;flex-wrap:wrap}
+.quotes-bar{display:flex;justify-content:flex-end;margin-bottom:12px}
 .rev-arrows{display:flex;gap:8px}
 .rev-arrow{width:40px;height:40px;border:1px solid var(--line-16);border-radius:10px;display:grid;place-items:center;
   cursor:pointer;font-size:16px;color:var(--body);user-select:none;background:none;transition:.15s}
