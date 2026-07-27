@@ -14,6 +14,10 @@
       <div class="nav__dd">
         <button class="nav__item{% if a == 'corporate' or a == 'university' or a == 'community' %} is-active{% endif %}" type="button">Programs <span class="nav__caret">▾</span></button>
         <div class="nav__menu nav__menu--left">
+          <a class="nav__row" href="{{ '/community/' | relative_url }}">
+            <span class="nav__tile" style="background:#efeafa"><span class="ic" style="--u:url('{{ ic | append: 'users-round.svg' | relative_url }}');color:#6c4ac6"></span></span>
+            <span><span class="nav__rt">Community</span><span class="nav__rs">Community Hours &amp; peer network</span></span>
+          </a>
           <a class="nav__row" href="{{ '/corporate/' | relative_url }}">
             <span class="nav__tile" style="background:#171028"><span class="ic" style="--u:url('{{ ic | append: 'building-2.svg' | relative_url }}');color:#b9a8ea"></span></span>
             <span><span class="nav__rt">Corporate</span><span class="nav__rs">Private programs for teams</span></span>
@@ -21,10 +25,6 @@
           <a class="nav__row" href="{{ '/universities/' | relative_url }}">
             <span class="nav__tile" style="background:#f6dcec"><span class="ic" style="--u:url('{{ ic | append: 'graduation-cap.svg' | relative_url }}');color:#43265f"></span></span>
             <span><span class="nav__rt">Universities</span><span class="nav__rs">Guest lectures &amp; courses</span></span>
-          </a>
-          <a class="nav__row" href="{{ '/community/' | relative_url }}">
-            <span class="nav__tile" style="background:#efeafa"><span class="ic" style="--u:url('{{ ic | append: 'users-round.svg' | relative_url }}');color:#6c4ac6"></span></span>
-            <span><span class="nav__rt">Community</span><span class="nav__rs">Community Hours &amp; peer network</span></span>
           </a>
         </div>
       </div>
@@ -56,9 +56,9 @@
     <div class="m-grp">
       <button class="m-grp__h" type="button" aria-expanded="false" aria-controls="m-grp-programs">Programs <span class="m-grp__caret" aria-hidden="true">▾</span></button>
       <div class="m-grp__body" id="m-grp-programs">
+        <a href="{{ '/community/' | relative_url }}">Community</a>
         <a href="{{ '/corporate/' | relative_url }}">Corporate</a>
         <a href="{{ '/universities/' | relative_url }}">Universities</a>
-        <a href="{{ '/community/' | relative_url }}">Community</a>
       </div>
     </div>
 
