@@ -1,0 +1,182 @@
+---
+layout: default
+nav_active: community
+title: "Community — keep building together"
+description: "The ongoing path for workshop alumni and AI-curious professionals. Community Hours every other Friday, 3:00–4:30 PM ET — prepared presentations, member demos, and open Q&A. $49/month."
+permalink: /community/
+---
+{%- assign ic = '/assets/icons/' -%}
+{%- assign img = '/assets/img/' -%}
+
+<!-- Dark hero (mirrors the corporate/universities layout) -->
+<div class="dark-hero">
+  <div class="dark-hero__wrap">
+    <div>
+      <div class="aud-toggle aud-toggle--dark" style="margin-bottom:20px">
+        <a href="{{ '/corporate/' | relative_url }}">Corporate</a>
+        <a href="{{ '/universities/' | relative_url }}">Universities</a>
+        <span class="is-on">Community</span>
+      </div>
+      <h1 class="h-48">Keep building, <i>together.</i></h1>
+      <div class="dark-hero__lead">The workshop is where it starts — the community is where it compounds. For alumni, ongoing learners, and AI-curious professionals who want to stay sharp between cohorts.</div>
+      <a class="btn btn--white" href="#community-hours">Join Community Hours</a>
+    </div>
+    <div class="grid g2" style="gap:12px">
+      <div class="stat-glass"><b>{{ site.professionals_trained }}</b><span>professionals in the network</span></div>
+      <div class="stat-glass"><b>2× / month</b><span>live Community Hours, every other Friday</span></div>
+      <div class="stat-glass"><b>90 min</b><span>presentations, member demos &amp; open Q&amp;A</span></div>
+      <div class="stat-glass"><b>$49 / mo</b><span>full membership via Stripe</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <!-- Community Hours -->
+  <section id="community-hours" class="section" style="scroll-margin-top:80px">
+    <div class="eyebrow">Community Hours</div>
+    <div class="head-row">
+      <h2 class="h-34">Every other Friday. Live. <i>Hands-on.</i></h2>
+      <div class="section-note nowrap">3:00–4:30 PM ET · live online</div>
+    </div>
+    <div class="grid g3">
+      <div class="method">
+        <div class="method__ic"><span class="ic" style="--u:url('{{ ic | append: 'presentation.svg' | relative_url }}')"></span></div>
+        <h3 class="method__t">Prepared presentations</h3>
+        <div class="method__d">A focused session on what's moving in AI right now — curated and taught live by your instructors, not recycled slides.</div>
+      </div>
+      <div class="method">
+        <div class="method__ic"><span class="ic" style="--u:url('{{ ic | append: 'rocket.svg' | relative_url }}')"></span></div>
+        <h3 class="method__t">Community demos</h3>
+        <div class="method__d">Members show what they're building — real prototypes, real workflows, and honest feedback from the room.</div>
+      </div>
+      <div class="method">
+        <div class="method__ic"><span class="ic" style="--u:url('{{ ic | append: 'mic.svg' | relative_url }}')"></span></div>
+        <h3 class="method__t">Open Q&amp;A</h3>
+        <div class="method__d">Bring what you're stuck on. Get unblocked live by instructors and peers who have solved it before.</div>
+      </div>
+    </div>
+
+    <!-- Membership + Stripe checkout -->
+    <div class="join-card">
+      <div>
+        <div class="eyebrow eyebrow--sm" style="margin-bottom:8px">Membership</div>
+        <h3 class="h-26" style="margin-bottom:6px">Community Hours <i>membership.</i></h3>
+        <div class="join-card__price">$49<span>/month</span></div>
+        <div class="join-card__pts">
+          <div class="join-card__pt"><span>✓</span><span>Two live Community Hours calls every month</span></div>
+          <div class="join-card__pt"><span>✓</span><span>Prepared presentations, member demos &amp; open Q&amp;A</span></div>
+          <div class="join-card__pt"><span>✓</span><span>A peer network that keeps building between cohorts</span></div>
+        </div>
+      </div>
+      <div class="stripe-wrap">
+        <script async src="https://js.stripe.com/v3/buy-button.js"></script>
+        <stripe-buy-button
+          buy-button-id="buy_btn_1TxBSjDCmCL3mQUgc2AnJd0t"
+          publishable-key="pk_live_51RjrvGDCmCL3mQUgqqPwiacqAQIRBGoxdMo4tV9CHIZIQVF00gg9MfK7GayG1TarpwomBIKQrM3yLJywwUkmAAqO00mWzHkJDH"
+        ></stripe-buy-button>
+        <div class="stripe-note">Secure checkout by Stripe — name and email captured at checkout.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reviews + event moments (moved from the homepage) -->
+  <section class="section section--divide">
+    <div class="head-row">
+      <div>
+        <div class="eyebrow">Reviews</div>
+        <h2 class="h-34">What the community <i>says.</i></h2>
+        <div class="rev-rate">
+          <div class="section-note">from participants across 12+ cohorts</div>
+          <a class="review-link" href="{{ site.links.linkedin }}" target="_blank" rel="noopener">Leave a review →</a>
+        </div>
+      </div>
+      <div class="rev-arrows">
+        <button class="rev-arrow" type="button" data-quote-prev aria-label="Previous review">←</button>
+        <button class="rev-arrow" type="button" data-quote-next aria-label="Next review">→</button>
+      </div>
+    </div>
+    <div class="rev-media">
+      <div class="rev-video"><button type="button" class="rev-play" data-embed="{{ site.links.testimonials_video }}" aria-label="Play testimonials video"><img src="{{ img | append: 'testimonials-poster.jpg' | relative_url }}" alt="AI Workshop Testimonials" loading="lazy"><span class="rev-play__btn" aria-hidden="true"></span></button></div>
+      <div class="rev-side">
+        <div class="eyebrow eyebrow--on-dark" style="margin-bottom:2px">Watch</div>
+        <h3 class="h-22">Participants, in their own <i>words.</i></h3>
+        <div class="rev-side__d">Two minutes from inside a live cohort — the energy, the pace, and what people walked away with.</div>
+      </div>
+    </div>
+    <div class="grid g3 quotes" id="quotes">
+      {%- for q in site.data.testimonials limit:3 -%}
+      <div class="quote">
+        <div class="quote__t">“{{ q.text }}”</div>
+        <div class="quote__n">{{ q.name }}</div>
+      </div>
+      {%- endfor -%}
+    </div>
+    <script type="application/json" id="testimonials-data">{{ site.data.testimonials | jsonify }}</script>
+
+    <div class="eyebrow" style="margin:44px 0 18px">Event moments</div>
+    <div class="gallery">
+      <div class="gallery__col">
+        <img src="{{ img | append: 'group1.jpg' | relative_url }}" alt="AI Musings workshop" style="height:210px" loading="lazy">
+        <img src="{{ img | append: 'class7.jpg' | relative_url }}" alt="AI Musings online cohort" style="height:160px" loading="lazy">
+        <img src="{{ img | append: 'group5.jpg' | relative_url }}" alt="AI Musings workshop" style="height:140px" loading="lazy">
+        <img src="{{ img | append: 'ws4.2.jpg' | relative_url }}" alt="AI Musings workshop" style="height:135px" loading="lazy">
+        <img src="{{ img | append: 'ws4.1.jpg' | relative_url }}" alt="AI Musings workshop" style="height:155px" loading="lazy">
+      </div>
+      <div class="gallery__col">
+        <img src="{{ img | append: 'group2.jpg' | relative_url }}" alt="AI Musings workshop" style="height:150px" loading="lazy">
+        <img src="{{ img | append: 'group4.jpg' | relative_url }}" alt="AI Musings workshop" style="height:220px" loading="lazy">
+        <img src="{{ img | append: 'instructors1.jpg' | relative_url }}" alt="AI Musings instructors" style="height:292px" loading="lazy">
+        <img src="{{ img | append: 'group5.1.jpg' | relative_url }}" alt="AI Musings workshop" style="height:150px" loading="lazy">
+      </div>
+      <div class="gallery__col">
+        <img src="{{ img | append: 'instructors2.jpg' | relative_url }}" alt="AI Musings instructors" style="height:180px" loading="lazy">
+        <img src="{{ img | append: 'group3.1.jpg' | relative_url }}" alt="AI Musings online cohort" style="height:150px" loading="lazy">
+        <img src="{{ img | append: 'group6.jpg' | relative_url }}" alt="AI Musings workshop" style="height:160px" loading="lazy">
+        <img src="{{ img | append: 'group5.3.jpg' | relative_url }}" alt="AI Musings online cohort" style="height:155px" loading="lazy">
+        <img src="{{ img | append: 'group7.jpg' | relative_url }}" alt="AI Musings workshop" style="height:155px" loading="lazy">
+      </div>
+      <div class="gallery__col">
+        <img src="{{ img | append: 'group3.jpg' | relative_url }}" alt="AI Musings workshop" style="height:160px" loading="lazy">
+        <img src="{{ img | append: 'group8.jpg' | relative_url }}" alt="AI Musings workshop" style="height:242px" loading="lazy">
+        <img src="{{ img | append: 'group3.2.jpg' | relative_url }}" alt="AI Musings online cohort" style="height:165px" loading="lazy">
+        <img src="{{ img | append: 'group5.2.jpg' | relative_url }}" alt="AI Musings workshop" style="height:245px" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- Stay connected + closing CTA -->
+  <section class="section section--divide" style="padding-bottom:0">
+    <div class="eyebrow">Stay connected</div>
+    <h2 class="h-32" style="margin-bottom:32px">Between calls, the conversation <i>continues.</i></h2>
+    <div class="grid g3">
+      <a class="card card-hover" style="padding:28px;display:block;color:inherit" href="{{ site.links.whatsapp }}" target="_blank" rel="noopener">
+        <span class="ic" style="--u:url('{{ ic | append: 'whatsapp.svg' | relative_url }}');width:24px;height:24px;color:var(--purple)"></span>
+        <h3 style="font:700 16.5px var(--sans);margin:12px 0 8px">WhatsApp group</h3>
+        <div style="font:400 14px/1.6 var(--sans);color:var(--body)">Announcements, questions, and the peer network — where the community talks day to day.</div>
+      </a>
+      <a class="card card-hover" style="padding:28px;display:block;color:inherit" href="{{ site.links.linkedin }}" target="_blank" rel="noopener">
+        <span class="ic" style="--u:url('{{ ic | append: 'linkedin.svg' | relative_url }}');width:24px;height:24px;color:var(--purple)"></span>
+        <h3 style="font:700 16.5px var(--sans);margin:12px 0 8px">LinkedIn</h3>
+        <div style="font:400 14px/1.6 var(--sans);color:var(--body)">Follow AI Musings for upcoming cohorts, event recaps, and community highlights.</div>
+      </a>
+      <a class="card card-hover" style="padding:28px;display:block;color:inherit" href="{{ site.links.youtube }}" target="_blank" rel="noopener">
+        <span class="ic" style="--u:url('{{ ic | append: 'youtube.svg' | relative_url }}');width:24px;height:24px;color:var(--purple)"></span>
+        <h3 style="font:700 16.5px var(--sans);margin:12px 0 8px">YouTube</h3>
+        <div style="font:400 14px/1.6 var(--sans);color:var(--body)">Recordings, tutorials, and demos — watch what the community has been building.</div>
+      </a>
+    </div>
+
+    <div class="cta-band">
+      <div>
+        <h2 class="h-26" style="color:#fff;margin-bottom:8px">Join the next Community <i>Hours.</i></h2>
+        <div class="cta-band__d">Every other Friday, 3:00–4:30 PM ET. Membership is $49/month — join today and you're on the next call.</div>
+      </div>
+      <div class="cta-band__right">
+        <a class="btn btn--white" href="#community-hours">Become a member</a>
+        <div class="cta-band__alt">questions? write to <a href="mailto:{{ site.links.email_sree }}">{{ site.links.email_sree }}</a></div>
+      </div>
+    </div>
+  </section>
+
+</div>

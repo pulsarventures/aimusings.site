@@ -514,6 +514,22 @@ h1,h2,h3,h4{margin:0;font-weight:600}
 .role-card__v{font:600 13.5px var(--sans)}
 .role-card__start{font:600 12px var(--sans);background:var(--lav);color:var(--deep);padding:5px 11px;border-radius:99px}
 
+/* =====================  COMMUNITY  ===================================== */
+/* membership card: info left, Stripe checkout right */
+.join-card{margin-top:36px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:32px;
+  display:grid;grid-template-columns:1.2fr 1fr;gap:32px;align-items:center}
+.join-card__price{font:700 44px var(--serif);color:var(--ink);margin:10px 0 16px}
+.join-card__price span{font:500 15px var(--sans);color:var(--muted)}
+.join-card__pts{display:flex;flex-direction:column;gap:8px}
+.join-card__pt{display:flex;gap:10px;font:400 14px/1.55 var(--sans);color:var(--body)}
+.join-card__pt span:first-child{color:var(--positive);font-weight:700}
+.stripe-wrap{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;text-align:center}
+.stripe-note{font:400 12px/1.5 var(--sans);color:var(--muted)}
+
+/* homepage teaser photo strip (full gallery lives on /community/) */
+.teaser-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px}
+.teaser-strip img{width:100%;height:220px;object-fit:cover;border-radius:12px}
+
 /* =====================  FOOTER  ======================================== */
 .footer{background:var(--footer);color:var(--on-dark-muted)}
 .footer__inner{max-width:var(--maxw);margin:0 auto;padding:26px var(--pad);display:flex;
@@ -581,6 +597,7 @@ h1,h2,h3,h4{margin:0;font-weight:600}
   .pillars{grid-template-columns:repeat(3,1fr)}
   .gt-grid{grid-template-columns:1fr}
   .campus-cta{position:static}
+  .join-card{grid-template-columns:1fr}
   .head-row{flex-direction:column;align-items:flex-start;gap:12px}
   .head-row .section-note{white-space:normal}
   :root{--pad:22px}
@@ -607,5 +624,11 @@ h1,h2,h3,h4{margin:0;font-weight:600}
   .cta-band__right{align-items:flex-start}
   .role-card{padding:24px}
   .role-card__q{font-size:20px}
+  .join-card{padding:24px}
+  .teaser-strip{grid-template-columns:1fr}
+  .teaser-strip img{height:180px}
+  /* 3-item toggle must never force horizontal scroll on 320px-class phones */
+  .aud-toggle{flex-wrap:wrap}
+  .aud-toggle a,.aud-toggle span{padding:8px 12px}
   .principal{flex-direction:column;align-items:flex-start}
 }
