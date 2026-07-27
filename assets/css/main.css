@@ -404,6 +404,10 @@ h1,h2,h3,h4{margin:0;font-weight:600}
 .stat-glass{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:20px}
 .stat-glass b{font:700 23px var(--serif);display:block}
 .stat-glass span{font:400 12.5px/1.5 var(--sans);color:var(--on-dark-muted);margin-top:4px;display:block}
+/* accent variant: the one stat that should pop (e.g. the price) */
+.stat-glass--hi{background:var(--purple);border-color:var(--purple-light)}
+.stat-glass--hi b{font-size:26px}
+.stat-glass--hi span{color:var(--lilac)}
 .uni-row{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:14px;
   padding:18px 20px;display:flex;gap:14px;align-items:flex-start}
 .uni-row .ic{width:22px;height:22px;color:var(--accent-dark);margin-top:2px}
