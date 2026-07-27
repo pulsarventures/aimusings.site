@@ -60,10 +60,11 @@ permalink: /workshops/
     </div>
     <div class="foot-note">* Where applicable — confirmed at registration.</div>
 
+    {%- assign past_cohorts = site.data.cohorts | where: "status", "past" -%}
     <div class="eyebrow" style="margin:52px 0 14px">Past cohorts</div>
-    <h2 class="h-28" style="margin-bottom:24px">Twelve cohorts and <i>counting.</i></h2>
+    <h2 class="h-28" style="margin-bottom:24px">{{ past_cohorts.size }} cohorts and <i>counting.</i></h2>
     <div class="past">
-      {%- for p in site.data.past_cohorts -%}
+      {%- for p in past_cohorts -%}
       <div class="past__row">
         <div class="past__name">{{ p.name }}</div>
         <div class="muted">{{ p.dates }}</div>

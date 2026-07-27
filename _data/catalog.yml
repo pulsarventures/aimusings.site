@@ -1,5 +1,5 @@
 # Workshops catalog (/workshops/). topics are " · "-separated; rendered as chips.
-# `next` / registration link are NOT stored here — they derive from _data/cohorts.json
+# `next` / registration link are NOT stored here — they derive from _data/cohorts.yml
 # (matched on `lvl`). No open cohort for a level -> "Cohorts on request" -> /corporate/.
 - lvl: 100
   num: "100"

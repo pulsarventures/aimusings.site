@@ -149,7 +149,7 @@
       }, 3800);
     }
 
-    /* ---- Schedule: refresh from data/cohorts.json --------------------- */
+    /* ---- Schedule: refresh from /data/cohorts.json (generated from _data/cohorts.yml) */
     /* The server-rendered markup is the embedded fallback; this refreshes it
        on load so updating the JSON updates the site without a rebuild. */
     var MONTHS = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
