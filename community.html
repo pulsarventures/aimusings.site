@@ -76,6 +76,10 @@ permalink: /community/
           publishable-key="pk_live_51RjrvGDCmCL3mQUgqqPwiacqAQIRBGoxdMo4tV9CHIZIQVF00gg9MfK7GayG1TarpwomBIKQrM3yLJywwUkmAAqO00mWzHkJDH"
         ></stripe-buy-button>
         <div class="stripe-note">Secure checkout powered by Stripe.</div>
+        <div class="stripe-proof">
+          <div class="stripe-proof__q">“The knowledge that Swati and Sree have is phenomenal and this course is more than worth the cost.”</div>
+          <div class="stripe-proof__n">Jeremy Pryor · one of {{ site.professionals_trained }} professionals in the network</div>
+        </div>
       </div>
     </div>
   </section>
@@ -146,6 +150,27 @@ permalink: /community/
       </div>
     </div>
   </section>
+
+  <!-- FAQ — renders only questions with answers filled in _data/community_faqs.yml -->
+  {%- assign cfaqs = site.data.community_faqs | where_exp: "f", "f.answer != '' and f.answer != nil" -%}
+  {%- if cfaqs.size > 0 -%}
+  <section class="section section--divide">
+    <div style="max-width:800px;margin:0 auto">
+      <div style="text-align:center;margin-bottom:30px">
+        <div class="eyebrow" style="justify-content:center">FAQ</div>
+        <h2 class="h-32">Before you <i>join.</i></h2>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px">
+        {%- for f in cfaqs -%}
+        <div class="faq{% if forloop.first %} is-open{% endif %}">
+          <h3 class="faq__h"><button class="faq__q" type="button">{{ f.question }}<span class="faq__plus">+</span></button></h3>
+          <div class="faq__a">{{ f.answer }}</div>
+        </div>
+        {%- endfor -%}
+      </div>
+    </div>
+  </section>
+  {%- endif -%}
 
   <!-- Stay connected + closing CTA -->
   <section class="section section--divide" style="padding-bottom:0">

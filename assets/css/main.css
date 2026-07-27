@@ -530,6 +530,9 @@ h1,h2,h3,h4{margin:0;font-weight:600}
 .join-card__pt span:first-child{color:var(--positive);font-weight:700}
 .stripe-wrap{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;text-align:center}
 .stripe-note{font:400 12px/1.5 var(--sans);color:var(--muted)}
+.stripe-proof{margin-top:2px;max-width:340px;border-top:1px dashed var(--line);padding-top:14px}
+.stripe-proof__q{font:italic 400 13px/1.6 var(--serif);color:var(--body2)}
+.stripe-proof__n{font:600 11.5px var(--sans);color:var(--muted);margin-top:6px}
 
 /* pinned Community Hours row under the cohort list (hero card + register modal) */
 .reg-card__pin{border-top:1px dashed var(--line-strong);margin-top:14px;padding-top:14px}
