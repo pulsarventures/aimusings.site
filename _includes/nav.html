@@ -12,7 +12,7 @@
       <a class="nav__item{% if a == 'workshops' %} is-active{% endif %}" href="{{ '/workshops/' | relative_url }}">Workshops</a>
 
       <div class="nav__dd">
-        <button class="nav__item{% if a == 'corporate' or a == 'university' or a == 'community' %} is-active{% endif %}" type="button">Programs <span class="nav__caret">▾</span></button>
+        <button class="nav__item{% if a == 'corporate' or a == 'university' or a == 'community' %} is-active{% endif %}" type="button" aria-haspopup="true" aria-expanded="false">Programs <span class="nav__caret">▾</span></button>
         <div class="nav__menu nav__menu--left">
           <a class="nav__row" href="{{ '/community/' | relative_url }}">
             <span class="nav__tile" style="background:#efeafa"><span class="ic" style="--u:url('{{ ic | append: 'users-round.svg' | relative_url }}');color:#6c4ac6"></span></span>
@@ -34,7 +34,7 @@
       <a class="nav__item" href="{{ site.links.academy }}" target="_blank" rel="noopener">Academy <span style="font-size:10px">↗</span></a>
 
       <div class="nav__dd">
-        <button class="nav__item" type="button">Connect <span class="nav__caret">▾</span></button>
+        <button class="nav__item" type="button" aria-haspopup="true" aria-expanded="false">Connect <span class="nav__caret">▾</span></button>
         <div class="nav__menu nav__menu--right" style="min-width:236px">
           <a class="nav__row" href="{{ site.links.cal }}" target="_blank" rel="noopener"><span><span class="nav__rt">Schedule a call</span><span class="nav__rs">Free 30-min consultation</span></span></a>
           <a class="nav__row" href="{{ site.links.whatsapp }}" target="_blank" rel="noopener"><span><span class="nav__rt">WhatsApp community</span><span class="nav__rs">Announcements &amp; peer network</span></span></a>

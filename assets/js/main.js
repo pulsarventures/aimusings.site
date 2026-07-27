@@ -10,8 +10,8 @@
     document.querySelectorAll('.nav__dd').forEach(function (dd) {
       var trigger = dd.querySelector('.nav__item');
       var timer;
-      var open = function () { clearTimeout(timer); closeAll(dd); dd.classList.add('open'); };
-      var close = function () { timer = setTimeout(function () { dd.classList.remove('open'); }, 200); };
+      var open = function () { clearTimeout(timer); closeAll(dd); dd.classList.add('open'); if (trigger) trigger.setAttribute('aria-expanded', 'true'); };
+      var close = function () { timer = setTimeout(function () { dd.classList.remove('open'); if (trigger) trigger.setAttribute('aria-expanded', 'false'); }, 200); };
       on(dd, 'mouseenter', open);
       on(dd, 'mouseleave', close);
       on(trigger, 'click', function (e) {
@@ -20,10 +20,17 @@
         var wasOpen = dd.classList.contains('open');
         closeAll();
         dd.classList.toggle('open', !wasOpen);
+        trigger.setAttribute('aria-expanded', String(!wasOpen));
       });
     });
     function closeAll(except) {
-      document.querySelectorAll('.nav__dd.open').forEach(function (d) { if (d !== except) d.classList.remove('open'); });
+      document.querySelectorAll('.nav__dd.open').forEach(function (d) {
+        if (d !== except) {
+          d.classList.remove('open');
+          var t = d.querySelector('.nav__item');
+          if (t) t.setAttribute('aria-expanded', 'false');
+        }
+      });
     }
     on(document, 'click', function () { closeAll(); });
 
