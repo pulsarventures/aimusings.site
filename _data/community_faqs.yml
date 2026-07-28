@@ -1,0 +1,31 @@
+# Community page FAQ — the section on /community/ renders ONLY questions whose
+# answer is filled in. First rendered item is open by default.
+# Two questions near the bottom are left empty on purpose: they are policy facts
+# only the owner knows. Fill them in and they appear automatically.
+
+- question: "Who is Community Hours for?"
+  answer: "Workshop alumni who want to keep the momentum, and AI-curious professionals who haven't taken a workshop yet — product, marketing, ops, sales, consultants, founders. If you want to stay sharp between cohorts, this is the room."
+
+- question: "Do I need to have taken an AI Musings workshop first?"
+  answer: "No. Alumni get the most continuity, but the calls are open to anyone. Jump in — the community will catch you up."
+
+- question: "What actually happens on a call?"
+  answer: "Ninety minutes, three parts: a prepared presentation on what's moving in AI right now, member demos with honest feedback from the room, and open Q&A for whatever you're stuck on. Every other Friday, 3:00–4:30 PM ET, live online."
+
+- question: "How much does it cost?"
+  answer: "$49 a month, everything included — every call, every demo, the peer network. Checkout runs through Stripe. Joining as a team of three or more? Write to sree@aimusings.site."
+
+- question: "Can I cancel anytime?"
+  answer: "Yes — membership is month-to-month with no long-term commitment. Cancel whenever you like, and if you ever need a hand with it, write to sree@aimusings.site and we'll take care of it."
+  # NOTE(owner): confirm this matches your Stripe setup (customer portal / how you
+  # want cancellations handled). Edit freely — but keep a cancel answer visible;
+  # it's the strongest objection-handler on the page.
+
+- question: "Are Community Hours recorded if I miss a call?"
+  answer: ""
+  # TODO(owner): recordings policy — available to members? for how long?
+
+- question: "What happens right after I subscribe?"
+  answer: ""
+  # TODO(owner): the onboarding path — confirmation email? calendar invites?
+  # WhatsApp group add? Setting this expectation reduces refunds and churn.

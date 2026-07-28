@@ -293,8 +293,9 @@ h1,h2,h3,h4{margin:0;font-weight:600}
 .quote__n{font:700 13px var(--sans)}
 .quote__n span{font-weight:400;color:var(--muted)}
 .rev-rate{display:flex;align-items:center;gap:14px;margin-top:16px;flex-wrap:wrap}
+.quotes-bar{display:flex;justify-content:flex-end;margin-bottom:12px}
 .rev-arrows{display:flex;gap:8px}
-.rev-arrow{width:40px;height:40px;border:1px solid var(--line-16);border-radius:10px;display:grid;place-items:center;
+.rev-arrow{width:44px;height:44px;border:1px solid var(--line-16);border-radius:10px;display:grid;place-items:center;
   cursor:pointer;font-size:16px;color:var(--body);user-select:none;background:none;transition:.15s}
 .rev-arrow:hover{border-color:var(--purple);color:var(--purple)}
 .review-link{font:600 12.5px var(--sans);border:1px solid var(--line-strong);padding:8px 14px;border-radius:99px;color:var(--ink)}
@@ -403,6 +404,13 @@ h1,h2,h3,h4{margin:0;font-weight:600}
 .stat-glass{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:20px}
 .stat-glass b{font:700 23px var(--serif);display:block}
 .stat-glass span{font:400 12.5px/1.5 var(--sans);color:var(--on-dark-muted);margin-top:4px;display:block}
+/* small lowercase unit after a big stat value: $49/month, 2x/month, 90min */
+.stat-glass b small{font:600 12.5px var(--sans);color:var(--on-dark-muted);margin-left:3px}
+/* accent variant: the one stat that should pop (e.g. the price) */
+.stat-glass--hi{background:var(--purple);border-color:var(--purple-light)}
+.stat-glass--hi b{font-size:26px}
+.stat-glass--hi b small{color:var(--lilac)}
+.stat-glass--hi span{color:var(--lilac)}
 .uni-row{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:14px;
   padding:18px 20px;display:flex;gap:14px;align-items:flex-start}
 .uni-row .ic{width:22px;height:22px;color:var(--accent-dark);margin-top:2px}
@@ -514,6 +522,30 @@ h1,h2,h3,h4{margin:0;font-weight:600}
 .role-card__v{font:600 13.5px var(--sans)}
 .role-card__start{font:600 12px var(--sans);background:var(--lav);color:var(--deep);padding:5px 11px;border-radius:99px}
 
+/* =====================  COMMUNITY  ===================================== */
+/* membership card: info left, Stripe checkout right */
+.join-card{margin-top:36px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:32px;
+  display:grid;grid-template-columns:1.2fr 1fr;gap:32px;align-items:center}
+.join-card__price{font:700 44px var(--serif);color:var(--ink);margin:10px 0 16px}
+.join-card__price span{font:500 15px var(--sans);color:var(--muted)}
+.join-card__pts{display:flex;flex-direction:column;gap:8px}
+.join-card__pt{display:flex;gap:10px;font:400 14px/1.55 var(--sans);color:var(--body)}
+.join-card__pt span:first-child{color:var(--positive);font-weight:700}
+.stripe-wrap{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;text-align:center}
+.stripe-note{font:400 12px/1.5 var(--sans);color:var(--muted)}
+.stripe-proof{margin-top:2px;max-width:340px;border-top:1px dashed var(--line);padding-top:14px}
+.stripe-proof__q{font:italic 400 13px/1.6 var(--serif);color:var(--body2)}
+.stripe-proof__n{font:600 11.5px var(--sans);color:var(--muted);margin-top:6px}
+
+/* pinned Community Hours row under the cohort list (hero card + register modal) */
+.reg-card__pin{border-top:1px dashed var(--line-strong);margin-top:14px;padding-top:14px}
+.cal--pin{background:var(--purple);color:#fff}
+.cal--pin .cal__m,.cal--pin .cal__d{display:block}
+
+/* homepage teaser photo strip (full gallery lives on /community/) */
+.teaser-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px}
+.teaser-strip img{width:100%;height:220px;object-fit:cover;border-radius:12px}
+
 /* =====================  FOOTER  ======================================== */
 .footer{background:var(--footer);color:var(--on-dark-muted)}
 .footer__inner{max-width:var(--maxw);margin:0 auto;padding:26px var(--pad);display:flex;
@@ -581,6 +613,7 @@ h1,h2,h3,h4{margin:0;font-weight:600}
   .pillars{grid-template-columns:repeat(3,1fr)}
   .gt-grid{grid-template-columns:1fr}
   .campus-cta{position:static}
+  .join-card{grid-template-columns:1fr}
   .head-row{flex-direction:column;align-items:flex-start;gap:12px}
   .head-row .section-note{white-space:normal}
   :root{--pad:22px}
@@ -607,5 +640,11 @@ h1,h2,h3,h4{margin:0;font-weight:600}
   .cta-band__right{align-items:flex-start}
   .role-card{padding:24px}
   .role-card__q{font-size:20px}
+  .join-card{padding:24px}
+  .teaser-strip{grid-template-columns:1fr}
+  .teaser-strip img{height:180px}
+  /* 3-item toggle must never force horizontal scroll on 320px-class phones */
+  .aud-toggle{flex-wrap:wrap}
+  .aud-toggle a,.aud-toggle span{padding:8px 12px}
   .principal{flex-direction:column;align-items:flex-start}
 }

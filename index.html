@@ -275,69 +275,32 @@ permalink: /
     </div>
   </section>
 
-  <!-- Reviews -->
+  <!-- Community teaser (full reviews + gallery live on /community/) -->
   <section id="sec-stories" class="section" style="scroll-margin-top:80px">
     <div class="head-row">
       <div>
-        <div class="eyebrow">Reviews</div>
+        <div class="eyebrow">From the community</div>
         <h2 class="h-34">What past cohorts <i>say.</i></h2>
         <div class="rev-rate">
           <div class="section-note">from participants across 12+ cohorts</div>
-          <a class="review-link" href="{{ site.links.linkedin }}" target="_blank" rel="noopener">Leave a review →</a>
+          <a class="review-link" href="{{ '/community/' | relative_url }}">See more from the community →</a>
         </div>
       </div>
-      <div class="rev-arrows">
-        <button class="rev-arrow" type="button" data-quote-prev aria-label="Previous review">←</button>
-        <button class="rev-arrow" type="button" data-quote-next aria-label="Next review">→</button>
-      </div>
     </div>
-    <div class="rev-media">
-      <div class="rev-video"><button type="button" class="rev-play" data-embed="{{ site.links.testimonials_video }}" aria-label="Play testimonials video"><img src="{{ img | append: 'testimonials-poster.jpg' | relative_url }}" alt="AI Workshop Testimonials" loading="lazy"><span class="rev-play__btn" aria-hidden="true"></span></button></div>
-      <div class="rev-side">
-        <div class="eyebrow eyebrow--on-dark" style="margin-bottom:2px">Watch</div>
-        <h3 class="h-22">Participants, in their own <i>words.</i></h3>
-        <div class="rev-side__d">Two minutes from inside a live cohort — the energy, the pace, and what people walked away with.</div>
-      </div>
-    </div>
-    <div class="grid g3 quotes" id="quotes">
-      {%- for q in site.data.testimonials limit:3 -%}
+    <div class="grid g2">
+      {%- for q in site.data.testimonials limit:2 -%}
       <div class="quote">
         <div class="quote__t">“{{ q.text }}”</div>
         <div class="quote__n">{{ q.name }}</div>
       </div>
       {%- endfor -%}
     </div>
-    <script type="application/json" id="testimonials-data">{{ site.data.testimonials | jsonify }}</script>
-
-    <div class="eyebrow" style="margin:44px 0 18px">Event moments</div>
-    <div class="gallery">
-      <div class="gallery__col">
-        <img src="{{ img | append: 'group1.jpg' | relative_url }}" alt="AI Musings workshop" style="height:210px" loading="lazy">
-        <img src="{{ img | append: 'class7.jpg' | relative_url }}" alt="AI Musings online cohort" style="height:160px" loading="lazy">
-        <img src="{{ img | append: 'group5.jpg' | relative_url }}" alt="AI Musings workshop" style="height:140px" loading="lazy">
-        <img src="{{ img | append: 'ws4.2.jpg' | relative_url }}" alt="AI Musings workshop" style="height:135px" loading="lazy">
-        <img src="{{ img | append: 'ws4.1.jpg' | relative_url }}" alt="AI Musings workshop" style="height:155px" loading="lazy">
-      </div>
-      <div class="gallery__col">
-        <img src="{{ img | append: 'group2.jpg' | relative_url }}" alt="AI Musings workshop" style="height:150px" loading="lazy">
-        <img src="{{ img | append: 'group4.jpg' | relative_url }}" alt="AI Musings workshop" style="height:220px" loading="lazy">
-        <img src="{{ img | append: 'instructors1.jpg' | relative_url }}" alt="AI Musings instructors" style="height:292px" loading="lazy">
-        <img src="{{ img | append: 'group5.1.jpg' | relative_url }}" alt="AI Musings workshop" style="height:150px" loading="lazy">
-      </div>
-      <div class="gallery__col">
-        <img src="{{ img | append: 'instructors2.jpg' | relative_url }}" alt="AI Musings instructors" style="height:180px" loading="lazy">
-        <img src="{{ img | append: 'group3.1.jpg' | relative_url }}" alt="AI Musings online cohort" style="height:150px" loading="lazy">
-        <img src="{{ img | append: 'group6.jpg' | relative_url }}" alt="AI Musings workshop" style="height:160px" loading="lazy">
-        <img src="{{ img | append: 'group5.3.jpg' | relative_url }}" alt="AI Musings online cohort" style="height:155px" loading="lazy">
-        <img src="{{ img | append: 'group7.jpg' | relative_url }}" alt="AI Musings workshop" style="height:155px" loading="lazy">
-      </div>
-      <div class="gallery__col">
-        <img src="{{ img | append: 'group3.jpg' | relative_url }}" alt="AI Musings workshop" style="height:160px" loading="lazy">
-        <img src="{{ img | append: 'group8.jpg' | relative_url }}" alt="AI Musings workshop" style="height:242px" loading="lazy">
-        <img src="{{ img | append: 'group3.2.jpg' | relative_url }}" alt="AI Musings online cohort" style="height:165px" loading="lazy">
-        <img src="{{ img | append: 'group5.2.jpg' | relative_url }}" alt="AI Musings workshop" style="height:245px" loading="lazy">
-      </div>
+    <div class="teaser-strip">
+      <img src="{{ img | append: 'group1.jpg' | relative_url }}" alt="AI Musings workshop" loading="lazy">
+      <img src="{{ img | append: 'group2.jpg' | relative_url }}" alt="AI Musings workshop" loading="lazy">
+      <img src="{{ img | append: 'group8.jpg' | relative_url }}" alt="AI Musings workshop" loading="lazy">
     </div>
+    <div class="section-note" style="margin-top:16px"><a href="{{ '/community/' | relative_url }}" style="font-weight:600">See all event moments on the community page →</a></div>
   </section>
 
   <!-- Corporate band -->

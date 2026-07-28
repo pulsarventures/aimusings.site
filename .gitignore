@@ -10,3 +10,4 @@ node_modules/
 
 # Bundler lockfile is environment-specific for this static site; regenerated locally.
 Gemfile.lock
+.gstack/
