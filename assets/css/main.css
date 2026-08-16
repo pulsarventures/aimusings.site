@@ -332,8 +332,7 @@ h1,h2,h3,h4{margin:0;font-weight:600}
 .filter:hover{border-color:var(--purple)}
 .filter.is-active{background:var(--dark);color:#fff;border-color:var(--dark)}
 .cat{background:#fff;border:1px solid var(--line);border-radius:16px;padding:26px 28px;
-  display:grid;grid-template-columns:80px 1.4fr 1.2fr 170px;gap:24px;align-items:center}
-.cat__num{font:700 26px var(--serif);color:var(--purple)}
+  display:grid;grid-template-columns:1.4fr 1.2fr 170px;gap:28px;align-items:center}
 .cat__name{font:700 16.5px var(--sans);display:flex;align-items:center;gap:8px}
 .cat__flag{font:600 9.5px var(--sans);letter-spacing:.06em;background:var(--purple);color:#fff;padding:3px 8px;border-radius:99px}
 .cat__desc{font:400 13.5px/1.55 var(--sans);color:var(--body);margin-top:5px}

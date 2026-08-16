@@ -2,7 +2,7 @@
 layout: default
 nav_active: workshops
 title: "Workshops — the catalog"
-description: "Numbered like university courses: Foundations (100), Builder Series (200), Platform Series (300), and Bootcamp (400). Live, hands-on AI workshops on Zoom."
+description: "Foundations, Platform Series, and Bootcamp — live, hands-on AI workshops on Zoom."
 permalink: /workshops/
 ---
 {%- assign ic = '/assets/icons/' -%}
@@ -14,21 +14,19 @@ permalink: /workshops/
     <div class="head-row" style="margin-bottom:10px">
       <h1 class="h-44">The <i>catalog.</i></h1>
       <div class="filters">
-        <button class="filter is-active" type="button" data-filter="all">All levels</button>
-        <button class="filter" type="button" data-filter="100">100</button>
-        <button class="filter" type="button" data-filter="200">200</button>
-        <button class="filter" type="button" data-filter="300">300</button>
-        <button class="filter" type="button" data-filter="400">400</button>
+        <button class="filter is-active" type="button" data-filter="all">All</button>
+        <button class="filter" type="button" data-filter="200">Foundations</button>
+        <button class="filter" type="button" data-filter="300">Platform Series</button>
+        <button class="filter" type="button" data-filter="400">Bootcamp</button>
       </div>
     </div>
-    <div class="wide-note" style="margin-bottom:36px">Numbered like university courses: start at your level, climb as capability grows. All sessions run live on Zoom.</div>
+    <div class="wide-note" style="margin-bottom:36px">Pick what fits — start anywhere. All sessions run live on Zoom.</div>
 
     {%- include open-cohorts.html -%}
     <div style="display:flex;flex-direction:column;gap:16px">
       {%- for w in site.data.catalog -%}
       {%- assign nc = open_cohorts | where: 'level', w.lvl | first -%}
       <div class="cat" data-lvl="{{ w.lvl }}">
-        <div class="cat__num">{{ w.num }}</div>
         <div>
           <h2 class="cat__name">{{ w.name }}{% if w.flag %} <span class="cat__flag">FLAGSHIP</span>{% endif %}</h2>
           <div class="cat__desc">{{ w.desc }}</div>

@@ -3,7 +3,7 @@
 # Monthly workflow: move completed entries from scheduled → past, add new scheduled ones.
 
 # ── Scheduled ────────────────────────────────────────────────────────
-- name: "Builder Series 200 — Cohort 13"
+- name: "Foundations — Cohort 13"
   status: scheduled
   level: 200
   date: "2026-08-13"
@@ -12,87 +12,105 @@
   format: "Virtual on Zoom"
   link: "https://www.tixtree.com/e/the-ai-native-professional-make-the-shift-to-be-future-ready-32648254aa7b"
 
-- name: "Platform Series 300 — Anthropic Claude"
+- name: "Platform Series · Claude — Cohort 4"
   status: scheduled
   level: 300
   date: "2026-09-13"
-  dates: "Sep 13 & 20"
-  duration: "2 sessions"
+  dates: "Sep 13, 16 & 20"
+  duration: "3 sessions"
   format: "Virtual on Zoom"
   link: "https://www.tixtree.com/e/claude-for-operators-limited-seats-25d1b862b5a0"
 
+- name: "Foundations — Cohort 14"
+  status: scheduled
+  level: 200
+  date: "2026-10-19"
+  dates: "Oct 19, 22 & 26"
+  duration: "3 sessions · 6–8 PM"
+  format: "Virtual on Zoom"
+  link: "https://www.tixtree.com/e/ai-native-professional-make-the-shift-to-be-future-ready-3-live-sessions-0bca06e58c08"
+
+- name: "Platform Series · Claude — Cohort 5"
+  status: scheduled
+  level: 300
+  date: "2026-11-09"
+  dates: "Nov 9, 12 & 16"
+  duration: "3 sessions · 6–8 PM"
+  format: "Virtual on Zoom"
+  link: "https://www.tixtree.com/e/claude-for-operators-3-live-sessions-89e10efd9cfb"
+
 # ── Past ─────────────────────────────────────────────────────────────
-- name: "Platform 300 — Anthropic Claude"
+- name: "Platform Series · Claude — Cohort 3"
   status: past
   dates: "Jul 13 & 20, 2026"
   fmt: "2 sessions · Zoom"
   recap: ""
-- name: "Builder Series — Cohort 12"
+- name: "Foundations — Cohort 12"
   status: past
   dates: "Jul 12 & 19, 2026"
   fmt: "2 sessions · Zoom"
   recap: ""
-- name: "Platform 300 — Anthropic Claude"
+- name: "Platform Series · Claude — Cohort 2"
   status: past
   dates: "Jun 1 & 10, 2026"
   fmt: "2 sessions · Zoom"
   recap: ""
-- name: "Builder Series — Cohort 11"
+- name: "Foundations — Cohort 11"
   status: past
   dates: "Jun 2 & 8, 2026"
   fmt: "2 sessions · Zoom"
   recap: ""
-- name: "Builder Series — Cohort 10"
+- name: "Foundations — Cohort 10"
   status: past
   dates: "May 11 & 13, 2026"
   fmt: "2 sessions · Zoom"
   recap: ""
-- name: "Builder Series — Cohort 9"
+- name: "Foundations — Cohort 9"
   status: past
   dates: "Apr 19 & 22, 2026"
   fmt: "2 sessions · Zoom"
   recap: ""
-- name: "Platform 300 — Anthropic Claude"
+- name: "Platform Series · Claude — Cohort 1"
   status: past
   dates: "Mar 30, 2026"
   fmt: "1 session · Zoom"
   recap: ""
-- name: "Builder Series — Cohort 8"
+- name: "Foundations — Cohort 8"
   status: past
   dates: "Feb 22 & 26, 2026"
   fmt: "2 sessions · Zoom"
   recap: ""
-- name: "Builder Series — Cohort 7"
+- name: "Foundations — Cohort 7"
   status: past
   dates: "Jan 25 & 27, 2026"
   fmt: "2 sessions · Zoom"
   recap: "https://www.linkedin.com/posts/sree-pradhip_%F0%9D%97%94%F0%9D%97%9C-%F0%9D%97%A0%F0%9D%98%82%F0%9D%98%80%F0%9D%97%B6%F0%9D%97%BB%F0%9D%97%B4%F0%9D%98%80-%F0%9D%97%96%F0%9D%97%B9%F0%9D%97%AE%F0%9D%98%80%F0%9D%98%80-activity-7430179908187947009-wR2_"
-- name: "Builder Series — Cohort 6"
+- name: "Foundations — Cohort 6"
   status: past
   dates: "Dec 15 & 17, 2025"
   fmt: "2 sessions · Zoom"
   recap: "https://www.linkedin.com/posts/sree-pradhip_aimusings-activity-7416267911411269632-_8p2"
-- name: "Builder Series — Cohort 5"
+- name: "Foundations — Cohort 5"
   status: past
   dates: "Nov 9 & 12, 2025"
   fmt: "2 sessions · Zoom"
   recap: "https://www.linkedin.com/feed/update/urn:li:ugcPost:7395528327127576576/"
-- name: "Builder Series — Cohort 4"
+- name: "Foundations — Cohort 4"
   status: past
   dates: "Oct 5 & 8, 2025"
   fmt: "2 sessions · Zoom"
   recap: "https://www.linkedin.com/posts/sree-pradhip_aimusings-activity-7385787469566431233-w6wk"
-- name: "Builder Series — Cohort 3"
+- name: "Foundations — Cohort 3"
   status: past
   dates: "Sep 7 & 9, 2025"
   fmt: "2 sessions · Zoom"
   recap: "https://www.linkedin.com/posts/sree-pradhip_aifirstmindset-ainativetools-aimusings-activity-7371681894704361472-Z29c"
-- name: "Builder Series — Cohort 2"
+- name: "Foundations — Cohort 2"
   status: past
   dates: "Aug 12 & 14, 2025"
   fmt: "2 sessions · Zoom"
   recap: "https://www.linkedin.com/feed/update/urn:li:activity:7363985175409483776/"
-- name: "Builder Series — Cohort 1"
+- name: "Foundations — Cohort 1"
   status: past
   dates: "Aug 1, 2025"
   fmt: "1 session · Zoom"

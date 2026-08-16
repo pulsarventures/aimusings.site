@@ -37,7 +37,6 @@
     {
       "@type": "Course",
       "name": {{ w.name | jsonify }},
-      "courseCode": {{ w.num | jsonify }},
       "description": {{ w.desc | jsonify }},
       "provider": {{ org_ref }},
       "url": {{ '/workshops/' | absolute_url | jsonify }}

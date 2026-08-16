@@ -145,13 +145,12 @@ permalink: /
     <div class="eyebrow">The learning path</div>
     <div class="head-row">
       <h2 class="h-34">From first prompt to shipped <i>product.</i></h2>
-      <div class="section-note nowrap">Levels work like course numbers — start anywhere.</div>
+      <div class="section-note nowrap">Pick what fits — start anywhere.</div>
     </div>
-    <div class="grid g4">
+    <div class="grid g3">
       {%- for lv in site.data.levels -%}
       <a class="level{% if lv.dark %} is-dark{% endif %}" href="{{ '/workshops/' | relative_url }}">
         {% if lv.flag %}<div class="level__flag">FLAGSHIP</div>{% endif %}
-        <div class="level__num">{{ lv.num }}</div>
         <h3 class="level__name">{{ lv.name }}</h3>
         <div class="level__desc">{{ lv.desc }}</div>
         <div class="level__meta">{{ lv.meta }}</div>
