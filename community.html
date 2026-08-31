@@ -19,7 +19,7 @@ permalink: /community/
       </div>
       <h1 class="h-48">Keep building, <i>together.</i></h1>
       <div class="dark-hero__lead">The workshop is where it starts — the community is where it compounds. For alumni, ongoing learners, and AI-curious professionals who want to stay sharp between cohorts.</div>
-      <a class="btn btn--white" href="#community-hours">Join Community Hours</a>
+      <a class="btn btn--white" href="{{ site.links.cal }}" target="_blank" rel="noopener">Request a Session</a>
     </div>
     <div class="grid g2" style="gap:12px">
       <div class="stat-glass"><b>{{ site.professionals_trained }}</b><span>professionals in the network</span></div>
@@ -101,18 +101,20 @@ permalink: /community/
           <div class="join-card__pt"><span>✓</span><span>A peer network that keeps building between cohorts</span></div>
         </div>
       </div>
-      <div class="stripe-wrap">
-        <script async src="https://js.stripe.com/v3/buy-button.js"></script>
+      <!-- Stripe checkout — commented out, kept for future use
+      <div class=”stripe-wrap”>
+        <script async src=”https://js.stripe.com/v3/buy-button.js”></script>
         <stripe-buy-button
-          buy-button-id="buy_btn_1TxBSjDCmCL3mQUgc2AnJd0t"
-          publishable-key="pk_live_51RjrvGDCmCL3mQUgqqPwiacqAQIRBGoxdMo4tV9CHIZIQVF00gg9MfK7GayG1TarpwomBIKQrM3yLJywwUkmAAqO00mWzHkJDH"
+          buy-button-id=”buy_btn_1TxBSjDCmCL3mQUgc2AnJd0t”
+          publishable-key=”pk_live_51RjrvGDCmCL3mQUgqqPwiacqAQIRBGoxdMo4tV9CHIZIQVF00gg9MfK7GayG1TarpwomBIKQrM3yLJywwUkmAAqO00mWzHkJDH”
         ></stripe-buy-button>
-        <div class="stripe-note">Secure checkout powered by Stripe.</div>
-        <div class="stripe-proof">
-          <div class="stripe-proof__q">“The knowledge that Swati and Sree have is phenomenal and this course is more than worth the cost.”</div>
-          <div class="stripe-proof__n">Jeremy Pryor · one of {{ site.professionals_trained }} professionals in the network</div>
+        <div class=”stripe-note”>Secure checkout powered by Stripe.</div>
+        <div class=”stripe-proof”>
+          <div class=”stripe-proof__q”>”The knowledge that Swati and Sree have is phenomenal and this course is more than worth the cost.”</div>
+          <div class=”stripe-proof__n”>Jeremy Pryor · one of {{ site.professionals_trained }} professionals in the network</div>
         </div>
       </div>
+      -->
     </div>
   </section>
 
@@ -232,7 +234,7 @@ permalink: /community/
         <div class="cta-band__d">Every other Friday, 3:00–4:30 PM ET. Membership is $49/month — join today and you're on the next call.</div>
       </div>
       <div class="cta-band__right">
-        <a class="btn btn--white" href="#community-hours">Become a member</a>
+        <a class="btn btn--white" href="{{ site.links.cal }}" target="_blank" rel="noopener">Request a Session</a>
         <div class="cta-band__alt">questions? write to <a href="mailto:{{ site.links.email_sree }}">{{ site.links.email_sree }}</a></div>
       </div>
     </div>
