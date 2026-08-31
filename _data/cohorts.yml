@@ -3,15 +3,6 @@
 # Monthly workflow: move completed entries from scheduled → past, add new scheduled ones.
 
 # ── Scheduled ────────────────────────────────────────────────────────
-- name: "Foundations — Cohort 13"
-  status: scheduled
-  level: 200
-  date: "2026-08-13"
-  dates: "Aug 13, 17 & 19"
-  duration: "3 sessions"
-  format: "Virtual on Zoom"
-  link: "https://www.tixtree.com/e/the-ai-native-professional-make-the-shift-to-be-future-ready-32648254aa7b"
-
 - name: "Platform Series · Claude — Cohort 4"
   status: scheduled
   level: 300
@@ -40,6 +31,11 @@
   link: "https://www.tixtree.com/e/claude-for-operators-3-live-sessions-89e10efd9cfb"
 
 # ── Past ─────────────────────────────────────────────────────────────
+- name: "Foundations — Cohort 13"
+  status: past
+  dates: "Aug 13, 17 & 19, 2026"
+  fmt: "3 sessions · Zoom"
+  recap: ""
 - name: "Platform Series · Claude — Cohort 3"
   status: past
   dates: "Jul 13 & 20, 2026"
