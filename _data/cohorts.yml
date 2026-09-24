@@ -6,29 +6,24 @@
 - name: "Platform Series · Claude — Cohort 4"
   status: scheduled
   level: 300
-  date: "2026-09-24"
-  dates: "Sep 24, Oct 1 & 4"
+  date: "2026-09-23"
+  dates: "Sep 23, Oct 7 & 20"
   duration: "3 sessions"
   format: "Virtual on Zoom"
   link: "https://www.tixtree.com/e/claude-for-operators-limited-seats-25d1b862b5a0"
 
-- name: "Foundations — Cohort 14"
-  status: scheduled
-  level: 200
-  date: "2026-10-19"
-  dates: "Oct 19, 22 & 26"
-  duration: "3 sessions · 6–8 PM"
-  format: "Virtual on Zoom"
-  link: "https://www.tixtree.com/e/ai-native-professional-make-the-shift-to-be-future-ready-3-live-sessions-0bca06e58c08"
-
-- name: "Platform Series · Claude — Cohort 5"
-  status: scheduled
-  level: 300
-  date: "2026-11-09"
-  dates: "Nov 9, 12 & 16"
-  duration: "3 sessions · 6–8 PM"
-  format: "Virtual on Zoom"
-  link: "https://www.tixtree.com/e/claude-for-operators-3-live-sessions-89e10efd9cfb"
+# Pending — replaces Foundations Cohort 14 (was Oct 19, 22 & 26) and Platform
+# Series · Claude Cohort 5 (was Nov 9, 12 & 16), merged into one hybrid cohort.
+# status: tbd (not "scheduled") so it's excluded from the live schedule,
+# registration modal, and /workshops "Next: ..." cards until dates + link are set.
+# Once confirmed: set status to scheduled, fill in date/dates/link, and remove
+# the hard-coded "coming soon" row in _includes/cohort-list.html.
+- name: "Foundations + Platform Series · Claude"
+  status: tbd
+  dates: "Late Oct – early Nov 2026 · Dates TBD"
+  duration: "3 sessions"
+  format: "Hybrid"
+  link: ""
 
 # ── Past ─────────────────────────────────────────────────────────────
 - name: "Foundations — Cohort 13"
