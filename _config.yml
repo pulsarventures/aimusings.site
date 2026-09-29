@@ -50,7 +50,7 @@ defaults:
       path: ""
     values:
       image:
-        path: "/assets/img/og-card.png"
+        path: "/assets/img/og-card.png?v=2"
         width: 1200
         height: 630
 
