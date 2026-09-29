@@ -3,8 +3,11 @@
 <meta name="theme-color" content="#6c4ac6">
 {% seo %}
 {% include schema.html %}
-<link rel="icon" type="image/png" href="{{ '/assets/img/logo.png' | relative_url }}">
-<link rel="apple-touch-icon" href="{{ '/assets/img/logo.png' | relative_url }}">
+{%- comment -%} Bump icon_v on every icon change; browsers cache favicons hard. {%- endcomment -%}
+{%- assign icon_v = '2' -%}
+<link rel="icon" href="{{ '/favicon.ico' | relative_url }}?v={{ icon_v }}" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="{{ '/assets/img/favicon-32.png' | relative_url }}?v={{ icon_v }}">
+<link rel="apple-touch-icon" href="{{ '/assets/img/apple-touch-icon.png' | relative_url }}?v={{ icon_v }}">
 <link rel="preload" as="font" type="font/woff2" href="{{ '/assets/fonts/77af76e5.woff2' | relative_url }}" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="{{ '/assets/fonts/ea672a3b.woff2' | relative_url }}" crossorigin>
 <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
