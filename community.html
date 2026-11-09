@@ -7,6 +7,7 @@ permalink: /community/
 ---
 {%- assign ic = '/assets/icons/' -%}
 {%- assign img = '/assets/img/' -%}
+{%- include next-event.html -%}
 
 <!-- Dark hero (mirrors the corporate/universities layout) -->
 <div class="dark-hero">
@@ -19,7 +20,12 @@ permalink: /community/
       </div>
       <h1 class="h-48">Keep building, <i>together.</i></h1>
       <div class="dark-hero__lead">The workshop is where it starts — the community is where it compounds. For alumni, ongoing learners, and AI-curious professionals who want to stay sharp between cohorts.</div>
-      <a class="btn btn--white" href="{{ site.links.cal }}" target="_blank" rel="noopener">Request a Session</a>
+      <div style="display:flex;gap:12px;flex-wrap:wrap">
+        {%- if next_event %}
+        <a class="btn btn--purple-dark" href="#next-session">Next session · {{ next_event.date | append: ' 12:00:00' | date: '%b %-d' }}</a>
+        {%- endif %}
+        <a class="btn btn--white" href="{{ site.links.cal }}" target="_blank" rel="noopener">Request a Session</a>
+      </div>
     </div>
     <div class="grid g2" style="gap:12px">
       <div class="stat-glass"><b>{{ site.professionals_trained }}</b><span>professionals in the network</span></div>
@@ -31,6 +37,34 @@ permalink: /community/
 </div>
 
 <div class="wrap">
+
+  {%- if next_event %}
+  <!-- Next community session — driven by _data/events.yml, hides itself once the date passes -->
+  <section id="next-session" class="section" style="scroll-margin-top:80px">
+    <div class="event-card">
+      <div class="event-card__main">
+        <div class="eyebrow eyebrow--sm">Next community session</div>
+        <h2 class="h-32">{{ next_event.title }}</h2>
+        <div class="event-card__tagline">{{ next_event.tagline }}</div>
+        <p class="event-card__sum">{{ next_event.summary }}</p>
+        <div class="event-card__agenda">
+          {%- for a in next_event.agenda %}
+          <div class="event-card__item"><span>{{ forloop.index | prepend: '0' }}</span><div><b>{{ a.t }}</b>{{ a.d }}</div></div>
+          {%- endfor %}
+        </div>
+      </div>
+      <div class="event-card__side">
+        <div class="cal cal--dark event-card__cal">
+          <span class="cal__m">{{ next_event.date | append: ' 12:00:00' | date: '%b' | upcase }}</span><span class="cal__d">{{ next_event.date | append: ' 12:00:00' | date: '%-d' }}</span>
+        </div>
+        <div class="event-card__when">{{ next_event.when }}</div>
+        <div class="event-card__fmt">{{ next_event.format }}</div>
+        <a class="btn btn--primary" href="{{ next_event.link }}" target="_blank" rel="noopener">Reserve your spot</a>
+        <div class="event-card__aud">{{ next_event.audience }}</div>
+      </div>
+    </div>
+  </section>
+  {%- endif %}
 
   <!-- Who it's for -->
   <section class="section">

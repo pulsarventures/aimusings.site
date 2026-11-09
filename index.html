@@ -11,13 +11,24 @@ permalink: /
 <div class="wrap">
 
   <!-- Hero -->
+  {%- include next-event.html %}
   <section class="hero">
     <div>
+      {%- if next_event %}
+      <a class="announce" href="{{ next_event.link }}" target="_blank" rel="noopener">
+        <span class="announce__tag">{{ next_event.date | append: ' 12:00:00' | date: '%b %-d' }}</span>
+        <span class="announce__t">Community session: {{ next_event.short }}</span>
+        <span class="announce__go" aria-hidden="true">→</span>
+      </a>
+      {%- endif %}
       <div class="eyebrow">AI fluency, live and hands-on</div>
       <h1 class="h-56">Fluent in AI.<br>Fluent at <i>work.</i></h1>
       <p class="lead" style="max-width:480px;margin:22px 0 30px">We build AI fluency for professionals, corporate teams, and universities. Eight months of learning, compressed into eight hours — live, hands-on, in a community, corporate, or university setting.</p>
-      <div style="display:flex;gap:12px;align-items:center">
+      <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
         <a class="btn btn--primary" href="{{ '/workshops/' | relative_url }}">Explore workshops</a>
+        {%- if next_event %}
+        <a class="btn btn--ghost" href="{{ next_event.link }}" target="_blank" rel="noopener">Join the {{ next_event.date | append: ' 12:00:00' | date: '%b %-d' }} session</a>
+        {%- endif %}
       </div>
       <div class="hero__sub">Live cohorts for professionals · Multi-month programs for corporates &amp; universities · Virtual or on-site</div>
     </div>

@@ -1,6 +1,17 @@
 {%- include open-cohorts.html -%}
+{%- include next-event.html -%}
 <div class="reg-card">
   <div class="eyebrow eyebrow--sm">Open for registration</div>
+  {%- if next_event %}
+  <!-- Next community session (_data/events.yml) — outside [data-cohort-list] so the JS refresh never wipes it -->
+  <a class="cohort is-dark event-row" href="{{ next_event.link }}" target="_blank" rel="noopener">
+    <span class="cal cal--dark">
+      <span class="cal__m">{{ next_event.date | append: ' 12:00:00' | date: '%b' | upcase }}</span><span class="cal__d">{{ next_event.date | append: ' 12:00:00' | date: '%-d' }}</span>
+    </span>
+    <span class="cohort__b"><span class="event-row__tag">Community session</span><span class="cohort__n">{{ next_event.short }}</span><span class="cohort__meta">{{ next_event.when }} · Zoom</span></span>
+    <span class="cohort__cta">Reserve →</span>
+  </a>
+  {%- endif %}
   <div class="cohorts" data-cohort-list>
     {%- for c in open_cohorts -%}
     <a class="cohort{% if forloop.first %} is-dark{% endif %}" href="{{ c.link }}" target="_blank" rel="noopener">
@@ -18,7 +29,7 @@
          Remove this row once _data/cohorts.yml carries a real scheduled entry. -->
     <div class="cohort" style="cursor:default">
       <span class="cal cal--pin"><span class="cal__m">TBD</span></span>
-      <span class="cohort__b"><span class="cohort__n">Foundations + Platform Series · Claude</span><span class="cohort__meta">Late Oct – early Nov · Hybrid · Dates TBD</span></span>
+      <span class="cohort__b"><span class="cohort__n">Foundations + Platform Series · Claude</span><span class="cohort__meta">Hybrid · Dates to be announced</span></span>
       <span class="cohort__cta">Coming soon</span>
     </div>
     <a class="cohort" href="{{ '/community/' | relative_url }}">
