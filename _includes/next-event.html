@@ -1,0 +1,7 @@
+{%- comment -%}
+  Exposes `next_event`: the earliest entry in _data/events.yml that starts
+  today or later (build-time). Nil when nothing is upcoming, so callers
+  should wrap their markup in an `if next_event` block.
+{%- endcomment -%}
+{%- assign today = 'now' | date: '%Y-%m-%d' -%}
+{%- assign next_event = site.data.events | where_exp: "e", "e.date >= today" | sort: 'date' | first -%}

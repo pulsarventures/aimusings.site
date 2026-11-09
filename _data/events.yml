@@ -1,0 +1,24 @@
+# Community sessions — one-off talks/hype checks (not cohorts).
+# The next upcoming entry (date >= build day) is featured in the homepage hero
+# and on /community/. Past entries drop off automatically on the next build.
+# To add a session: copy an entry, fill in the fields, keep `date` as YYYY-MM-DD.
+
+- title: "The Next Wave of AI Agents: What's Real, What's Hype?"
+  short: "AI Agents: What's Real, What's Hype?"
+  series: "AI Musings Community Session"
+  tagline: "Grok Bot, Dots, Duet, Muse, Instinct & more"
+  date: "2026-11-15"
+  when: "Sun, Nov 15 · 6:30–8:00 PM ET"
+  format: "90 min · Live on Zoom"
+  link: "https://www.tixtree.com/e/ai-musings-community-session-whats-the-hype-muse-insights-grokbot-441c38059f56"
+  summary: "Not a training session — a hype check. Every week another AI agent makes headlines. We'll unpack what's actually new, what's different from the agents we've been building with LangChain and LangGraph, and what's just hype. No subscriptions needed. Just come curious."
+  agenda:
+    - t: "The evolving agent landscape"
+      d: "What makes something an agent, how agents differ from chatbots and copilots, and why persistent, proactive agents are getting so much attention."
+    - t: "Making sense of the types"
+      d: "Software engineering vs. beyond software, professional vs. personal, building vs. using, and assist vs. augment vs. autonomous."
+    - t: "A closer look at a few agents"
+      d: "What a couple of representative agents can actually do today, how much autonomy they really have, and where they still fall short."
+    - t: "The reality check"
+      d: "What's available vs. experimental, privacy, security and trust, how much oversight you still need, and whether to experiment, build, or wait."
+  audience: "For anyone curious about AI agents — professionals, builders, and business leaders. No technical background required. Recording shared after the session."
