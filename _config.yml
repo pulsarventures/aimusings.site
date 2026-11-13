@@ -23,6 +23,11 @@ links:
   linkedin_sree: "https://www.linkedin.com/in/sree-pradhip/"
   academy: "https://academy.aimusings.site"
   testimonials_video: "https://www.youtube.com/embed/pU1DiMgk-ZY"
+  # Header Register button and the Dec 3, 2026 community-session reserve/join links.
+  # No Dec 03 registration URL (Tixtree, Luma, Eventbrite, or otherwise) exists in
+  # this repo — config, content, or git history. Leave this blank until the real
+  # URL is published. Do not paste the Nov 15, 2026 Tixtree link here.
+  dec03_session_registration: ""
 
 # --- Build settings ---------------------------------------------------------
 markdown: kramdown

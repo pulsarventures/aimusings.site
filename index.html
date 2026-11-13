@@ -15,7 +15,7 @@ permalink: /
   <section class="hero">
     <div>
       {%- if next_event %}
-      <a class="announce" href="{{ next_event.link }}" target="_blank" rel="noopener">
+      <a class="announce" href="{{ site.links.dec03_session_registration }}"{% if site.links.dec03_session_registration != empty %} target="_blank" rel="noopener"{% endif %}>
         <span class="announce__tag">{{ next_event.date | append: ' 12:00:00' | date: '%b %-d' }}</span>
         <span class="announce__t">Community session: {{ next_event.short }}</span>
         <span class="announce__go" aria-hidden="true">→</span>
@@ -27,7 +27,7 @@ permalink: /
       <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
         <a class="btn btn--primary" href="{{ '/workshops/' | relative_url }}">Explore workshops</a>
         {%- if next_event %}
-        <a class="btn btn--ghost" href="{{ next_event.link }}" target="_blank" rel="noopener">Join the {{ next_event.date | append: ' 12:00:00' | date: '%b %-d' }} session</a>
+        <a class="btn btn--ghost" href="{{ site.links.dec03_session_registration }}"{% if site.links.dec03_session_registration != empty %} target="_blank" rel="noopener"{% endif %}>Join the {{ next_event.date | append: ' 12:00:00' | date: '%b %-d' }} session</a>
         {%- endif %}
       </div>
       <div class="hero__sub">Live cohorts for professionals · Multi-month programs for corporates &amp; universities · Virtual or on-site</div>
