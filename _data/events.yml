@@ -7,9 +7,11 @@
   short: "AI Agents: What's Real, What's Hype?"
   series: "AI Musings Community Session"
   tagline: "Grok Bot, Dots, Duet, Muse, Instinct & more"
-  date: "2026-11-15"
-  when: "Sun, Nov 15 · 6:30–8:00 PM ET"
+  date: "2026-12-03"
+  when: "Thu, Dec 3 · 6:30–8:00 PM ET"
   format: "90 min · Live on Zoom"
+  # Registration URL is site.links.dec03_session_registration in _config.yml.
+  # Kept in sync so a template that still reads this field is not an empty href.
   link: "https://www.tixtree.com/e/ai-musings-community-session-whats-the-hype-muse-insights-grokbot-441c38059f56"
   summary: "Not a training session — a hype check. Every week another AI agent makes headlines. We'll unpack what's actually new, what's different from the agents we've been building with LangChain and LangGraph, and what's just hype. No subscriptions needed. Just come curious."
   agenda:

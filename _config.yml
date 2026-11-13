@@ -23,6 +23,10 @@ links:
   linkedin_sree: "https://www.linkedin.com/in/sree-pradhip/"
   academy: "https://academy.aimusings.site"
   testimonials_video: "https://www.youtube.com/embed/pU1DiMgk-ZY"
+  # Header Register, the register modal, and Dec 3 session reserve/join links.
+  # A dedicated Dec 3 registration page is not published yet, so this is the
+  # existing Nov 15 Tixtree event until that URL is replaced.
+  dec03_session_registration: "https://www.tixtree.com/e/ai-musings-community-session-whats-the-hype-muse-insights-grokbot-441c38059f56"
 
 # --- Build settings ---------------------------------------------------------
 markdown: kramdown
