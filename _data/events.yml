@@ -10,10 +10,9 @@
   date: "2026-12-03"
   when: "Thu, Dec 3 · 6:30–8:00 PM ET"
   format: "90 min · Live on Zoom"
-  # Registration URL is site.links.dec03_session_registration in _config.yml
-  # (one place). Blank on purpose: no Dec 3, 2026 registration URL was found,
-  # and this must not keep the Nov 15 Tixtree event.
-  link: ""
+  # Registration URL is site.links.dec03_session_registration in _config.yml.
+  # Kept in sync so a template that still reads this field is not an empty href.
+  link: "https://www.tixtree.com/e/ai-musings-community-session-whats-the-hype-muse-insights-grokbot-441c38059f56"
   summary: "Not a training session — a hype check. Every week another AI agent makes headlines. We'll unpack what's actually new, what's different from the agents we've been building with LangChain and LangGraph, and what's just hype. No subscriptions needed. Just come curious."
   agenda:
     - t: "The evolving agent landscape"
